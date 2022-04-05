@@ -65,19 +65,25 @@ export default function Packages({
     <DocsContent pageTitle={data.title} includeNavigation toc={toc}>
       <Stack gap="xlarge">
         <Heading level="1">{data.title}</Heading>
-        {data?.storybookPath && (
-          <Box>
-            <ButtonLink
-              // TODO: Change this button variant to hollow or outline when it's added
-              href={`/storybook/index.html?path=/story/${data.storybookPath}`}
-            >
-              <StorybookLogo />
-              Open in Storybook
-            </ButtonLink>
-          </Box>
-        )}
+        <StorybookLink storybookPath={data.storybookPath} />
         <MDXRemote {...source} components={mdxComponents} />
       </Stack>
     </DocsContent>
+  );
+}
+
+function StorybookLink({ storybookPath }: { storybookPath?: string }) {
+  if (!storybookPath) return null;
+
+  return (
+    <Box>
+      <ButtonLink
+        href={`${process.env.NEXT_PUBLIC_STORYBOOK_URL}?path=/story/${storybookPath}`}
+        tone="neutral"
+      >
+        <StorybookLogo />
+        Open in Storybook
+      </ButtonLink>
+    </Box>
   );
 }
