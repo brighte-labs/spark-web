@@ -9,8 +9,8 @@
     "format": "prettier --check .",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
-    "lint:fix": "eslint --fix .",
-    "lint": "eslint .",
+    "lint:fix": "yarn run lint --fix",
+    "lint": "eslint . --ignore-path \"./.gitignore\"",
     "postinstall": "preconstruct dev && manypkg check",
     "typecheck": "yarn postinstall && ultra -r tsc --noEmit"
   },
@@ -22,11 +22,18 @@
     "@babel/preset-typescript": "^7.16.5",
     "@manypkg/cli": "^0.19.1",
     "@preconstruct/cli": "^2.1.5",
-    "@typescript-eslint/eslint-plugin": "^4.19.0",
-    "@typescript-eslint/parser": "^4.19.0",
-    "eslint": "^7.29.0",
-    "eslint-config-prettier": "^8.3.0",
+    "@preconstruct/eslint-plugin-format-js-tag": "0.2.0",
+    "@types/eslint": "8.4.1",
+    "@typescript-eslint/eslint-plugin": "5.18.0",
+    "@typescript-eslint/parser": "5.18.0",
+    "eslint": "8.12.0",
+    "eslint-config-next": "^12.1.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-react": "7.29.4",
+    "eslint-plugin-react-hooks": "4.4.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-storybook": "^0.5.7",
     "prettier": "2.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -48,5 +55,5 @@
     "proseWrap": "always",
     "singleQuote": true,
     "trailingComma": "es5"
-  }  
+  }
 }
