@@ -78,7 +78,7 @@ function StorybookLink({ storybookPath }: { storybookPath?: string }) {
   return (
     <Box>
       <ButtonLink
-        href={`${process.env.NEXT_PUBLIC_STORYBOOK_URL}?path=/story/${storybookPath}`}
+        href={`${process.env.NEXT_PUBLIC_STORYBOOK_URL}/index.html?path=/story/${storybookPath}`}
         tone="neutral"
       >
         <StorybookLogo />
