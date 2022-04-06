@@ -39,7 +39,7 @@ export const Heading = forwardRefWithAs<'h1', HeadingProps>(
     );
 
     return (
-      <HeadingContext.Provider value={true}>
+      <HeadingContext.Provider value>
         <Box
           as={as ?? levelToDefaultElement[level]}
           ref={ref}

@@ -5,6 +5,7 @@
   "main": "dist/spark-web-theme.cjs.js",
   "module": "dist/spark-web-theme.esm.js",
   "devDependencies": {
+    "@types/facepaint": "^1.2.2",
     "@types/react": "^17.0.12"
   },
   "dependencies": {

@@ -6,7 +6,7 @@ import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import { forwardRefWithAs } from '@spark-web/utils-ts';
 import { useRouter } from 'next/router';
-import { createContext, FC, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 import { HEADER_HEIGHT, SIDEBAR_WIDTH } from './constants';
 
@@ -125,7 +125,11 @@ type SidebarContextType = {
 
 export const SidebarContext = createContext<SidebarContextType | null>(null);
 
-export const SidebarContextProvider: FC = ({ children }) => {
+export const SidebarContextProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [sidebarIsOpen, setOpen] = useState(false);
 
   const ctx = {

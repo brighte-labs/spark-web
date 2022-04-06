@@ -1,8 +1,8 @@
 import { createIcon } from '@spark-web/icon';
 
-export const Logo: React.FC<
-  JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>
-> = props => {
+export function Logo(
+  props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>
+): JSX.Element {
   return (
     <svg
       aria-hidden="true"
@@ -33,7 +33,7 @@ export const Logo: React.FC<
       <path d="M49.365 43.027S51.42 42 55.661 41.322c2.113-.374 3.975-.56 6.121-.553V14.675c-7.522.034-14.783 1.33-21.86 3.834l9.444 24.518zm-8.621 4.887s-2.771 2.258-4.182 3.689c-1.27 1.273-3.813 4.612-3.813 4.612L9.668 42.295a58.801 58.801 0 0115.536-16.158l15.54 21.777zM26.772 75.268a40.31 40.31 0 011.965-10.643c.212-.624.36-1.106.36-1.106L3.005 56.482A64.398 64.398 0 000 76.129v.28h26.725s.013-.513.047-1.141zm35.01-10.136V50.168c-15.523.316-25.635 10.976-25.635 25.961v.28h14.979c.006-.067.005-.132.004-.196v-.065c0-6.515 3.812-10.755 10.652-11.016z" />
     </svg>
   );
-};
+}
 
 export const StorybookLogo = createIcon(
   <>

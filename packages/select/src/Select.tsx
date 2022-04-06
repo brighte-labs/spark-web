@@ -77,7 +77,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           className={css(styles)}
         >
           {placeholder && (
-            <option value="" disabled={true}>
+            <option value="" disabled>
               {placeholder}
             </option>
           )}
