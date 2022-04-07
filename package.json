@@ -24,6 +24,7 @@
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-react": "^7.16.5",
     "@babel/preset-typescript": "^7.16.5",
+    "@changesets/cli": "^2.22.0",
     "@manypkg/cli": "^0.19.1",
     "@preconstruct/cli": "^2.1.5",
     "@preconstruct/eslint-plugin-format-js-tag": "0.2.0",
