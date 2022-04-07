@@ -1,7 +1,6 @@
 import { Box, BoxProps } from '@spark-web/box';
 import { ResponsiveProp } from '@spark-web/theme';
 import { forwardRefWithAs } from '@spark-web/utils-ts';
-import React from 'react';
 
 import {
   Align,

@@ -5,7 +5,8 @@ import { FieldContextType, useFieldContext } from '@spark-web/field';
 import { useText } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import { buildDataAttributes, DataAttributeMap } from '@spark-web/utils-spark';
-import React, { AllHTMLAttributes, forwardRef } from 'react';
+import type { AllHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 
 const validTypes = {
   text: 'text',

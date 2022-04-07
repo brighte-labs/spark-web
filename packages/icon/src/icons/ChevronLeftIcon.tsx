@@ -1,10 +1,10 @@
-import * as React from 'react';
+import { Fragment } from 'react';
 
 import { createIcon } from '../createIcon';
 
 export const ChevronLeftIcon = createIcon(
-  <React.Fragment>
+  <Fragment>
     <path d="M15 19L8 12L15 5" />
-  </React.Fragment>,
+  </Fragment>,
   'ChevronLeftIcon'
 );

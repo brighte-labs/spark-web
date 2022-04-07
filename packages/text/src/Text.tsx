@@ -2,7 +2,8 @@ import { css } from '@emotion/css';
 import type { BoxProps } from '@spark-web/box';
 import { Box } from '@spark-web/box';
 import { forwardRefWithAs } from '@spark-web/utils-ts';
-import React, { CSSProperties, ReactNode, useMemo } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
+import { useMemo } from 'react';
 
 import { TextContext, useTextContext } from './context';
 import { useDefaultTextProps } from './defaultTextProps';

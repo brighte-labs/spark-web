@@ -1,5 +1,3 @@
-import React from 'react';
-
 export type EmojiProps = {
   /** Label used to describe the symbol that will be announced to screen readers. */
   label?: string;

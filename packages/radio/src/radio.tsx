@@ -1,13 +1,13 @@
 import { ControlLabel } from '@spark-web/control-label';
 import { Stack } from '@spark-web/stack';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 import { useRadioGroupContext } from './context';
 import { RadioPrimitive } from './radio-primitive';
 import type { RadioProps } from './types';
 import { useRadioGroupItem } from './use-radio-group-state';
 
-export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
+export const Radio = forwardRef<HTMLInputElement, RadioProps>(
   (
     { children, disabled, id, size: sizeProp, ...consumerProps },
     forwardedRef

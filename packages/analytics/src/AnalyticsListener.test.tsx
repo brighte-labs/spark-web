@@ -1,5 +1,5 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 import { AnalyticsEventData, AnalyticsListener, useAnalytics } from '.';
 

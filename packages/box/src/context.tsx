@@ -1,5 +1,6 @@
 import { useTheme } from '@spark-web/theme';
-import React, { createContext, ReactElement, useContext } from 'react';
+import type { ReactElement } from 'react';
+import { createContext, useContext } from 'react';
 
 import { BoxStyleProps } from './useBoxStyles';
 

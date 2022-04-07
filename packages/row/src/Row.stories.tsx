@@ -1,5 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { Placeholder } from '../../../docs/components/example-helpers';
 import { Row, RowProps } from './Row';

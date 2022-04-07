@@ -1,7 +1,7 @@
 import { Global } from '@emotion/react';
 import { IdProvider, useFocusVisible } from '@spark-web/a11y';
 import { BrighteTheme, defaultTheme, ThemeProvider } from '@spark-web/theme';
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import {
   DefaultLinkComponent,

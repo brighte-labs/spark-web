@@ -1,6 +1,5 @@
 import { css } from '@emotion/css';
 import { BrighteTheme, useTheme } from '@spark-web/theme';
-import React from 'react';
 
 /**
  * NOTE: a combination of approaches to resolve layout issues:

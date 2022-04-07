@@ -1,9 +1,7 @@
-import * as React from 'react';
-
 /**
- + * TODO: the CSS file that loads Aesthetico is a bit of a hack as it relies on the atomic deploys never changing
- + * we should host this file on the brighte.com.au domain (or subdomain) in the future
- + */
+ * TODO: the CSS file that loads Aesthetico is a bit of a hack as it relies on the atomic deploys never changing
+ * we should host this file on the brighte.com.au domain (or subdomain) in the future
+ */
 export function AestheticoStylesheet(): JSX.Element {
   return (
     <link

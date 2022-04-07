@@ -1,7 +1,8 @@
 import { css } from '@emotion/css';
 import { ForegroundTone, useForegroundTone } from '@spark-web/text';
 import { BrighteTheme, useTheme } from '@spark-web/theme';
-import React, { ReactNode, useMemo } from 'react';
+import type { ReactNode } from 'react';
+import { useMemo } from 'react';
 
 type SizeType = Exclude<keyof BrighteTheme['sizing'], 'full' | 'none'>;
 

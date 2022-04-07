@@ -1,10 +1,10 @@
-import * as React from 'react';
+import { Fragment } from 'react';
 
 import { createIcon } from '../createIcon';
 
 export const ArrowLeftIcon = createIcon(
-  <React.Fragment>
+  <Fragment>
     <path d="M10 19L3 12M3 12L10 5M3 12L21 12" />
-  </React.Fragment>,
+  </Fragment>,
   'ArrowLeftIcon'
 );

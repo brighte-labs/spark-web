@@ -7,7 +7,8 @@ import {
   useTheme,
 } from '@spark-web/theme';
 import { forwardRefWithAs } from '@spark-web/utils-ts';
-import React, { Children, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { Children } from 'react';
 
 import { AlignY, alignYToAlignItems } from './alignment';
 

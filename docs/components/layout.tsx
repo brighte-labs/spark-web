@@ -2,7 +2,6 @@ import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
 import { useTheme } from '@spark-web/theme';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: file is generated at build
 import sidebarNavigation from '../cache/navigations.json';
 import { Header } from './header';

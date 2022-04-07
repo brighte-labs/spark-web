@@ -1,4 +1,5 @@
-import React, { ReactNode, useContext } from 'react';
+import type { ReactNode } from 'react';
+import { useContext } from 'react';
 
 import {
   AnalyticsEventData,

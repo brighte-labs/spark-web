@@ -1,5 +1,4 @@
 import { FieldMessage, useFieldIds } from '@spark-web/field';
-import * as React from 'react';
 
 import { RadioGroupContext } from './context';
 import type { RadioGroupProps } from './types';

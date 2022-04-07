@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css';
 import { resetElementStyles } from '@spark-web/utils-spark';
 import { forwardRefWithAs } from '@spark-web/utils-ts';
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { renderBackgroundProvider } from './context';
 import { useBoxProps } from './useBoxProps';

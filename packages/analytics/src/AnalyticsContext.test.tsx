@@ -1,5 +1,5 @@
 import { cleanup, render } from '@testing-library/react';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 import {
   AnalyticsContext,

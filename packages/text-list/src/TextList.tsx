@@ -11,7 +11,8 @@ import {
 } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import { buildDataAttributes, DataAttributeMap } from '@spark-web/utils-spark';
-import React, { Children, forwardRef, ReactElement, ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
+import { Children, forwardRef } from 'react';
 
 export const BULLET_ELEMENT_ID = 'text-list-bullet';
 export const NUMBER_ELEMENT_ID = 'text-list-number';

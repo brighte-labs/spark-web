@@ -1,7 +1,6 @@
 import { Inline } from '@spark-web/inline';
 import { Text } from '@spark-web/text';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { Link, LinkProps } from './Link';
 

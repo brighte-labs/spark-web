@@ -1,6 +1,5 @@
 import { Stack } from '@spark-web/stack';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { Heading, HeadingProps } from './Heading';
 

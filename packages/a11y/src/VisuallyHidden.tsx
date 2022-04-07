@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 import { forwardRefWithAs } from '@spark-web/utils-ts';
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 export type VisuallyHiddenProps = {
   children?: ReactNode;

@@ -1,6 +1,5 @@
 import { makeLinkComponent } from '@spark-web/core';
 import NextLink from 'next/link';
-import * as React from 'react';
 
 /**
  * Resolves internal links using the

@@ -1,6 +1,5 @@
 import { renderStatic } from '@spark-web/ssr';
 import type { DocumentInitialProps } from 'next/document';
-import * as React from 'react';
 
 export async function propsWithCssText(
   initialProps: DocumentInitialProps

@@ -5,11 +5,11 @@ import { Box } from '@spark-web/box';
 import { CheckIcon } from '@spark-web/icon';
 import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 import type { CheckboxPrimitiveProps, CheckboxSize } from './types';
 
-export const CheckboxPrimitive = React.forwardRef<
+export const CheckboxPrimitive = forwardRef<
   HTMLInputElement,
   CheckboxPrimitiveProps
 >(({ size = 'small', ...inputProps }, forwardedRef) => {

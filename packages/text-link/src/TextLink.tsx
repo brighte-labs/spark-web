@@ -3,7 +3,6 @@ import { Box } from '@spark-web/box';
 import { LinkComponentProps, useLinkComponent } from '@spark-web/core';
 import { buildDataAttributes, DataAttributeMap } from '@spark-web/utils-spark';
 import { forwardRefWithAs } from '@spark-web/utils-ts';
-import React from 'react';
 
 import { useTextLink } from './useTextLink';
 

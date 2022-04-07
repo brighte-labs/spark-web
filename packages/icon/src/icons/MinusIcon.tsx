@@ -1,10 +1,10 @@
-import * as React from 'react';
+import { Fragment } from 'react';
 
 import { createIcon } from '../createIcon';
 
 export const MinusIcon = createIcon(
-  <React.Fragment>
+  <Fragment>
     <path d="M20 12H4" />
-  </React.Fragment>,
+  </Fragment>,
   'MinusIcon'
 );

@@ -1,14 +1,12 @@
 import assert from 'assert';
 import dedent from 'dedent';
-import React, {
+import type {
   AnchorHTMLAttributes,
   ComponentType,
-  createContext,
-  forwardRef,
   ForwardRefRenderFunction,
   Ref,
-  useContext,
 } from 'react';
+import { createContext, forwardRef, useContext } from 'react';
 
 export interface LinkComponentProps
   extends AnchorHTMLAttributes<HTMLAnchorElement> {

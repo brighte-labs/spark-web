@@ -1,5 +1,5 @@
 import { Text } from '@spark-web/text';
-import * as React from 'react';
+import { Children, isValidElement, cloneElement } from 'react';
 
 import type {
   ButtonChildrenProps,
@@ -23,7 +23,7 @@ export const resolveButtonChildren = ({
 }: ResolveButtonChildren): JSX.Element[] => {
   const variant = variants[prominence][tone];
 
-  return React.Children.map(children, child => {
+  return Children.map(children, child => {
     if (typeof child === 'string') {
       return (
         <Text
@@ -39,8 +39,8 @@ export const resolveButtonChildren = ({
       );
     }
 
-    if (React.isValidElement(child)) {
-      return React.cloneElement(child, {
+    if (isValidElement(child)) {
+      return cloneElement(child, {
         // Dismiss buttons need to be `xxsmall`
         // For everything else, we force them to be `xsmall`
         size: child.props.size === 'xxsmall' ? child.props.size : 'xsmall',

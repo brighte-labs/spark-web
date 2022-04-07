@@ -1,10 +1,10 @@
-import * as React from 'react';
+import { Fragment } from 'react';
 
 import { createIcon } from '../createIcon';
 
 export const ArrowDownIcon = createIcon(
-  <React.Fragment>
+  <Fragment>
     <path d="M19 14L12 21M12 21L5 14M12 21L12 3" />
-  </React.Fragment>,
+  </Fragment>,
   'ArrowDownIcon'
 );

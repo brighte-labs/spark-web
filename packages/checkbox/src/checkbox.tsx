@@ -1,12 +1,12 @@
 import { ControlLabel } from '@spark-web/control-label';
 import { FieldMessage, useFieldIds } from '@spark-web/field';
 import { Stack } from '@spark-web/stack';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 import { CheckboxPrimitive } from './checkbox-primitive';
 import type { CheckboxProps } from './types';
 
-export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
       children,

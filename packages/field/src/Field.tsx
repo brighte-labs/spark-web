@@ -6,13 +6,8 @@ import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import { buildDataAttributes, DataAttributeMap } from '@spark-web/utils-spark';
-import React, {
-  FC,
-  forwardRef,
-  Fragment,
-  ReactElement,
-  ReactNode,
-} from 'react';
+import type { FC, ReactElement, ReactNode } from 'react';
+import { forwardRef, Fragment } from 'react';
 
 import { FieldContextProvider } from './context';
 

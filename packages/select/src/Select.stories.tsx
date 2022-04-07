@@ -5,7 +5,6 @@ import { Inline } from '@spark-web/inline';
 import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { Select, SelectProps } from './Select';
 

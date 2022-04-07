@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 
 interface UseDisclosureProps {
   defaultIsOpen?: boolean;
@@ -13,7 +13,7 @@ export function useDisclosure({ defaultIsOpen }: UseDisclosureProps = {}): {
   onClose: () => void;
   onToggle: () => void;
 } {
-  const [isOpen, setIsOpen] = React.useState(defaultIsOpen ?? false);
+  const [isOpen, setIsOpen] = useState(defaultIsOpen ?? false);
 
   const onClose = () => setIsOpen(false);
 

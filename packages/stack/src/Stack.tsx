@@ -2,7 +2,8 @@ import { Box, BoxProps } from '@spark-web/box';
 import { Divider } from '@spark-web/divider';
 import { ResponsiveProp } from '@spark-web/theme';
 import { forwardRefWithAs } from '@spark-web/utils-ts';
-import React, { Children, Fragment, ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import { Children, Fragment } from 'react';
 
 import { Align, alignToAlignItems } from './alignment';
 

@@ -3,7 +3,7 @@ import { Box } from '@spark-web/box';
 import { BrighteTheme, useTheme } from '@spark-web/theme';
 import { buildDataAttributes, DataAttributeMap } from '@spark-web/utils-spark';
 import { forwardRefWithAs } from '@spark-web/utils-ts';
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 export type ContainerProps = {
   children: ReactNode;

@@ -5,11 +5,11 @@ import { Box } from '@spark-web/box';
 import { createIcon } from '@spark-web/icon';
 import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 import { RadioPrimitiveProps, RadioSize } from './types';
 
-export const RadioPrimitive = React.forwardRef<
+export const RadioPrimitive = forwardRef<
   HTMLInputElement,
   RadioPrimitiveProps
 >(({ size = 'small', ...inputProps }, forwardedRef) => {
