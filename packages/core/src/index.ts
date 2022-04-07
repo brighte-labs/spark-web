@@ -1,8 +1,3 @@
-export {
-  AestheticoStylesheet,
-  FontStylesheets,
-  InterStylesheet,
-} from './fonts';
 export { makeLinkComponent, useLinkComponent } from './linkContext';
 export { SparkProvider } from './SparkProvider';
 
