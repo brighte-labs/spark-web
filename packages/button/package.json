@@ -5,7 +5,6 @@
   "main": "dist/spark-web-button.cjs.js",
   "module": "dist/spark-web-button.esm.js",
   "devDependencies": {
-    "@types/jest": "^27.0.2",
     "@types/react": "^17.0.12"
   },
   "dependencies": {

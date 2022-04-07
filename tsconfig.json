@@ -10,8 +10,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
-    "types": ["node"],
-    "typeRoots": []
+    "types": ["node", "jest"]
   },
   "include": ["**/*"],
   "exclude": ["**/node_modules/**/*"]

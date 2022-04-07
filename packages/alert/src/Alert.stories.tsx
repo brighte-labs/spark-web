@@ -1,4 +1,3 @@
-import { Text } from '@spark-web/text';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Alert, AlertProps } from './Alert';

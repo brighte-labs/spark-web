@@ -1,4 +1,3 @@
-import { Divider } from '@spark-web/divider';
 import { Field } from '@spark-web/field';
 import { InformationCircleIcon } from '@spark-web/icon';
 import { Inline } from '@spark-web/inline';
