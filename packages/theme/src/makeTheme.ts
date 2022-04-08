@@ -84,7 +84,10 @@ function decorateTypography(typography: BrighteTokens['typography']) {
         ...mapValues(heading.level, definition =>
           responsiveTypography(definition, fontFamily.display.fontMetrics)
         ),
-      },
+      } as Record<
+        keyof typeof heading.level,
+        ReturnType<typeof responsiveTypography>
+      >,
     },
     text: {
       ...text,
