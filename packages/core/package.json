@@ -1,7 +1,6 @@
 {
   "name": "@spark-web/core",
   "version": "0.0.0",
-  "private": true,
   "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/core",
   "license": "MIT",
   "main": "dist/spark-web-core.cjs.js",

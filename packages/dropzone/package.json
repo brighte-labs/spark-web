@@ -1,7 +1,6 @@
 {
   "name": "@spark-web/dropzone",
   "version": "0.0.0",
-  "private": true,
   "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/dropzone",
   "license": "MIT",
   "main": "dist/spark-web-dropzone.cjs.js",

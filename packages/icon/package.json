@@ -1,7 +1,6 @@
 {
   "name": "@spark-web/icon",
   "version": "0.0.0",
-  "private": true,
   "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/icon",
   "license": "MIT",
   "main": "dist/spark-web-icon.cjs.js",
