@@ -28,6 +28,7 @@
     "@manypkg/cli": "^0.19.1",
     "@preconstruct/cli": "^2.1.5",
     "@preconstruct/eslint-plugin-format-js-tag": "0.2.0",
+    "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.0.0",
     "@types/eslint": "8.4.1",
     "@types/jest": "^27.4.1",

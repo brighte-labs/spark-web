@@ -21,7 +21,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ) => {
     const { inputId, messageId } = useFieldIds(idProp);
     const a11yProps = {
-      'aria-describedby': message && messageId,
+      'aria-describedby': message ?? messageId,
     };
 
     return (
