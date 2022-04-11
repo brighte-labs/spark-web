@@ -1,12 +1,9 @@
 {
   "name": "@spark-web/button",
-  "license": "MIT",
   "version": "0.0.0",
+  "license": "MIT",
   "main": "dist/spark-web-button.cjs.js",
   "module": "dist/spark-web-button.esm.js",
-  "devDependencies": {
-    "@types/react": "^17.0.12"
-  },
   "dependencies": {
     "@babel/runtime": "^7.14.6",
     "@emotion/css": "^11.7.1",
@@ -19,6 +16,9 @@
     "@spark-web/utils-spark": "^0.0.0",
     "@spark-web/utils-ts": "^0.0.0",
     "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.12"
   },
   "engines": {
     "node": ">= 14.13"

@@ -1,15 +1,15 @@
 {
   "name": "@spark-web/docs",
-  "license": "MIT",
   "version": "0.0.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
-    "dev": "next dev",
     "build": "yarn playroom:build && next build && yarn storybook:build",
-    "start": "next start",
+    "dev": "next dev",
     "lint": "next lint",
-    "playroom:start": "playroom start",
     "playroom:build": "playroom build",
+    "playroom:start": "playroom start",
+    "start": "next start",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -o ./public/storybook"
   },
