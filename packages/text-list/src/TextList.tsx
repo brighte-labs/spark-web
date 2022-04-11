@@ -1,19 +1,16 @@
 import { css } from '@emotion/css';
-import { Box } from '@spark-web/box';
+import type { DataAttributeMap } from '@spark-web/core';
+import { Box, buildDataAttributes, useTheme } from '@spark-web/core';
 import type { IconProps } from '@spark-web/icon';
 import type { StackProps } from '@spark-web/stack';
 import { Stack } from '@spark-web/stack';
-import type {
-  TextProps } from '@spark-web/text';
+import type { TextProps } from '@spark-web/text';
 import {
   DefaultTextPropsProvider,
   Text,
   useDefaultTextProps,
   useForegroundTone,
 } from '@spark-web/text';
-import { useTheme } from '@spark-web/theme';
-import type { DataAttributeMap } from '@spark-web/utils-spark';
-import { buildDataAttributes } from '@spark-web/utils-spark';
 import type { ReactElement, ReactNode } from 'react';
 import { Children, forwardRef } from 'react';
 

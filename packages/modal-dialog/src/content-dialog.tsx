@@ -7,13 +7,11 @@ import type {
   DialogTitleProps,
 } from '@radix-ui/react-dialog';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import { useFocusRing, VisuallyHidden } from '@spark-web/a11y';
-import { Box } from '@spark-web/box';
+import type { BrighteTheme } from '@spark-web/core';
+import { Box, useFocusRing, useTheme, VisuallyHidden } from '@spark-web/core';
 import { Heading } from '@spark-web/heading';
 import { XIcon } from '@spark-web/icon';
 import { Stack } from '@spark-web/stack';
-import type { BrighteTheme } from '@spark-web/theme';
-import { useTheme } from '@spark-web/theme';
 import * as React from 'react';
 
 const MAX_HEIGHT = '85vh';

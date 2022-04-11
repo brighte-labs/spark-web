@@ -13,7 +13,7 @@ dialog window, rendering the content inside.
 #### Controlled example
 
 ```jsx live
-// import { useDisclosure } from '@spark-web/utils';
+// import { useDisclosure } from '@spark-web/core';
 
 const { isOpen, onOpen, onToggle } = useDisclosure();
 

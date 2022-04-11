@@ -1,10 +1,12 @@
 import { css } from '@emotion/css';
-import { Box } from '@spark-web/box';
-import { useLinkComponent } from '@spark-web/core';
+import {
+  Box,
+  forwardRefWithAs,
+  useLinkComponent,
+  useTheme,
+} from '@spark-web/core';
 import { Hidden } from '@spark-web/hidden';
 import { Text } from '@spark-web/text';
-import { useTheme } from '@spark-web/theme';
-import { forwardRefWithAs } from '@spark-web/utils-ts';
 import { useRouter } from 'next/router';
 import { createContext, useContext, useEffect, useState } from 'react';
 

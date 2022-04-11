@@ -1,6 +1,5 @@
-import type { BackgroundTone } from '@spark-web/a11y';
+import type { BackgroundTone, DataAttributeMap } from '@spark-web/core';
 import type { IconProps } from '@spark-web/icon';
-import type { DataAttributeMap } from '@spark-web/utils-spark';
 import type { ButtonHTMLAttributes, ReactElement } from 'react';
 
 import type { mapTokens } from './utils';

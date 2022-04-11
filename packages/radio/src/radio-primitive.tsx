@@ -1,48 +1,45 @@
 import type { CSSObject } from '@emotion/css';
 import { css } from '@emotion/css';
-import { useFocusRing, VisuallyHidden } from '@spark-web/a11y';
-import { Box } from '@spark-web/box';
+import { Box, useFocusRing, useTheme, VisuallyHidden } from '@spark-web/core';
 import { createIcon } from '@spark-web/icon';
 import { Text } from '@spark-web/text';
-import { useTheme } from '@spark-web/theme';
 import { forwardRef } from 'react';
 
 import type { RadioPrimitiveProps, RadioSize } from './types';
 
-export const RadioPrimitive = forwardRef<
-  HTMLInputElement,
-  RadioPrimitiveProps
->(({ size = 'small', ...inputProps }, forwardedRef) => {
-  return (
-    /**
-     * Text is being used here to add the `::before` and `::after` pseudo elements
-     * so that we can align the radio button with the label text
-     */
-    <Text>
-      <Box
-        className={css({
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        })}
-      >
-        {/**
-         * Zero-width space character, used to align radio button with label text
-         * @see https://codepen.io/adamwathan/pen/bGNxMpz
-         */}
-        &#8203;
-        <VisuallyHidden
-          as="input"
-          type="radio"
-          ref={forwardedRef}
-          aria-checked={inputProps.checked}
-          {...inputProps}
-        />
-        <Indicator size={size} />
-      </Box>
-    </Text>
-  );
-});
+export const RadioPrimitive = forwardRef<HTMLInputElement, RadioPrimitiveProps>(
+  ({ size = 'small', ...inputProps }, forwardedRef) => {
+    return (
+      /**
+       * Text is being used here to add the `::before` and `::after` pseudo elements
+       * so that we can align the radio button with the label text
+       */
+      <Text>
+        <Box
+          className={css({
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          })}
+        >
+          {/**
+           * Zero-width space character, used to align radio button with label text
+           * @see https://codepen.io/adamwathan/pen/bGNxMpz
+           */}
+          &#8203;
+          <VisuallyHidden
+            as="input"
+            type="radio"
+            ref={forwardedRef}
+            aria-checked={inputProps.checked}
+            {...inputProps}
+          />
+          <Indicator size={size} />
+        </Box>
+      </Text>
+    );
+  }
+);
 RadioPrimitive.displayName = 'RadioPrimitive';
 
 const DotIcon = createIcon(<circle cx="12" cy="12" r="5" />, 'DotIcon');

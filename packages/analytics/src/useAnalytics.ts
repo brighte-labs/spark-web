@@ -3,10 +3,9 @@ import { useContext } from 'react';
 import { AnalyticsContextContext } from './AnalyticsContext';
 import type {
   AnalyticsEventData,
-  AnalyticsEventName } from './AnalyticsListenerContext';
-import {
-  AnalyticsListenerContext,
+  AnalyticsEventName,
 } from './AnalyticsListenerContext';
+import { AnalyticsListenerContext } from './AnalyticsListenerContext';
 
 export type AnalyticsHookType = {
   trackEvent: (name: AnalyticsEventName, data?: AnalyticsEventData) => void;

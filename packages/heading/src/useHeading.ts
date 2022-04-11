@@ -1,6 +1,6 @@
+import type { BrighteTheme } from '@spark-web/core';
+import { useTheme } from '@spark-web/core';
 import { createTextStyles, useForegroundTone } from '@spark-web/text';
-import type { BrighteTheme } from '@spark-web/theme';
-import { useTheme } from '@spark-web/theme';
 
 type HeadingLevel = keyof BrighteTheme['typography']['heading']['level'];
 

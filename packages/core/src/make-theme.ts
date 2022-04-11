@@ -3,8 +3,8 @@ import { getCapHeight, precomputeValues } from '@capsizecss/core';
 import mapValues from 'lodash/mapValues';
 
 import { breakpoints } from './breakpoints';
-import { getLightVariant, isLight } from './colorUtils';
-import { makeThemeUtils } from './themeUtils';
+import { getLightVariant, isLight } from './color-utils';
+import { makeThemeUtils } from './theme-utils';
 import type {
   BrighteTokens,
   ResponsiveTextDefinition,

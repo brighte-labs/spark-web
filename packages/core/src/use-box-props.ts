@@ -1,5 +1,5 @@
-import type { BoxStyleProps } from './useBoxStyles';
-import { useBoxStyles } from './useBoxStyles';
+import type { BoxStyleProps } from './use-box-styles';
+import { useBoxStyles } from './use-box-styles';
 
 /** Separate the style properties from the element attributes. */
 export function useBoxProps(props: BoxStyleProps) {

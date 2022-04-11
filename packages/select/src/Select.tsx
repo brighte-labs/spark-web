@@ -1,12 +1,10 @@
 import { css } from '@emotion/css';
-import { Box } from '@spark-web/box';
+import type { DataAttributeMap } from '@spark-web/core';
+import { Box, buildDataAttributes, useTheme } from '@spark-web/core';
 import { useFieldContext } from '@spark-web/field';
 import { ChevronDownIcon } from '@spark-web/icon';
 import type { UseInputProps } from '@spark-web/text-input';
 import { useInput } from '@spark-web/text-input';
-import { useTheme } from '@spark-web/theme';
-import type { DataAttributeMap } from '@spark-web/utils-spark';
-import { buildDataAttributes } from '@spark-web/utils-spark';
 import * as React from 'react';
 
 type Option = {

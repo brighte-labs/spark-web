@@ -1,5 +1,6 @@
-import type { BrighteTheme, ResponsiveProp } from '@spark-web/theme';
-import { useTheme } from '@spark-web/theme';
+import type { BrighteTheme } from './make-theme';
+import { useTheme } from './theme-context';
+import type { ResponsiveProp } from './theme-utils';
 
 // TODO perf review
 // TODO: review responsive props! Now that we're using object syntax, un-mapped properties don't behave as expected

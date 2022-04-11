@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 
-import type { BrighteTheme } from './makeTheme';
-import { makeBrighteTheme } from './makeTheme';
+import type { BrighteTheme } from './make-theme';
+import { makeBrighteTheme } from './make-theme';
 import { defaultTokens } from './tokens';
 
 export const defaultTheme = makeBrighteTheme(defaultTokens);

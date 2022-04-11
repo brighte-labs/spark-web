@@ -1,17 +1,13 @@
 import { css } from '@emotion/css';
-import type { BoxProps } from '@spark-web/box';
-import { Box } from '@spark-web/box';
-import { forwardRefWithAs } from '@spark-web/utils-ts';
+import type { BoxProps } from '@spark-web/core';
+import { Box, forwardRefWithAs } from '@spark-web/core';
 import type { CSSProperties, ReactNode } from 'react';
 import { useMemo } from 'react';
 
 import { TextContext, useTextContext } from './context';
 import { useDefaultTextProps } from './defaultTextProps';
-import type {
-  TextOverflowStrategy } from './useOverflowStrategy';
-import {
-  useOverflowStrategy,
-} from './useOverflowStrategy';
+import type { TextOverflowStrategy } from './useOverflowStrategy';
+import { useOverflowStrategy } from './useOverflowStrategy';
 import type { UseTextProps } from './useText';
 import { useText } from './useText';
 

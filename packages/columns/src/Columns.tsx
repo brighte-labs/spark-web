@@ -1,14 +1,11 @@
 import { css } from '@emotion/css';
-import type { BoxProps } from '@spark-web/box';
-import { Box } from '@spark-web/box';
 import type {
+  BoxProps,
   BrighteTheme,
   ResponsiveProp,
-  ResponsiveRangeProps } from '@spark-web/theme';
-import {
-  useTheme,
-} from '@spark-web/theme';
-import { forwardRefWithAs } from '@spark-web/utils-ts';
+  ResponsiveRangeProps,
+} from '@spark-web/core';
+import { Box, forwardRefWithAs, useTheme } from '@spark-web/core';
 import type { ReactNode } from 'react';
 import { Children } from 'react';
 

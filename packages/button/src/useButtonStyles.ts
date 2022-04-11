@@ -1,7 +1,6 @@
 import { css } from '@emotion/css';
-import { useFocusRing } from '@spark-web/a11y';
-import type { BoxProps } from '@spark-web/box';
-import { useTheme } from '@spark-web/theme';
+import type { BoxProps } from '@spark-web/core';
+import { useFocusRing, useTheme } from '@spark-web/core';
 
 import type { ButtonProminence, ButtonSize, ButtonTone } from './types';
 import { mapTokens, variants } from './utils';

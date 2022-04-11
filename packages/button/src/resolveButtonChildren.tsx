@@ -1,5 +1,5 @@
 import { Text } from '@spark-web/text';
-import { Children, cloneElement,isValidElement } from 'react';
+import { Children, cloneElement, isValidElement } from 'react';
 
 import type {
   ButtonChildrenProps,

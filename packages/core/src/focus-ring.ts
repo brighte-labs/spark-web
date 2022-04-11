@@ -1,7 +1,8 @@
-import type { BrighteTheme } from '@spark-web/theme';
-import { useTheme } from '@spark-web/theme';
 import { rgba } from 'polished';
 import { useEffect } from 'react';
+
+import type { BrighteTheme } from './make-theme';
+import { useTheme } from './theme-context';
 
 const focusVisibleDataAttribute = 'data-brighte-focus-visible';
 

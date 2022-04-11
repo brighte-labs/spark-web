@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { useTheme } from '@spark-web/theme';
+import { useTheme } from '@spark-web/core';
 import type { ReactNode } from 'react';
 
 export type StrongProps = {

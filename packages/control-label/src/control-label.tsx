@@ -1,4 +1,4 @@
-import { Box } from '@spark-web/box';
+import { Box } from '@spark-web/core';
 import { DefaultTextPropsProvider, Text } from '@spark-web/text';
 import * as React from 'react';
 

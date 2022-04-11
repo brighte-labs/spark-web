@@ -5,11 +5,10 @@ import type {
   AccordionSingleProps,
 } from '@radix-ui/react-accordion';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
-import { Box } from '@spark-web/box';
+import { Box, useTheme } from '@spark-web/core';
 import { Heading } from '@spark-web/heading';
 import { ChevronDownIcon } from '@spark-web/icon';
 import { Stack } from '@spark-web/stack';
-import { useTheme } from '@spark-web/theme';
 import * as React from 'react';
 
 const openAnimation = keyframes({

@@ -14,7 +14,6 @@ export function isBoolean(value: any): value is boolean {
  */
 // eslint-disable-next-line @typescript-eslint/ban-types
 export function isFunction(value: any): value is Function {
-  // eslint-disable-next-line eqeqeq
   return !!(value && {}.toString.call(value) == '[object Function]');
 }
 

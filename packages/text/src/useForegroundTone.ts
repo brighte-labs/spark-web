@@ -1,6 +1,5 @@
-import { useBackgroundLightness } from '@spark-web/box';
-import type { BrighteTheme } from '@spark-web/theme';
-import { useTheme } from '@spark-web/theme';
+import type { BrighteTheme } from '@spark-web/core';
+import { useBackgroundLightness, useTheme } from '@spark-web/core';
 
 export type ForegroundTone = keyof Omit<
   BrighteTheme['color']['foreground'],

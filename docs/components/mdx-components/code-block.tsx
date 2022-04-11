@@ -1,6 +1,5 @@
 import { css } from '@emotion/css';
-import { Box } from '@spark-web/box';
-import { useTheme } from '@spark-web/theme';
+import { Box, useTheme } from '@spark-web/core';
 
 import { Highlight } from './highlight';
 import { ReactLive } from './react-live';

@@ -1,4 +1,4 @@
-import { defaultTokens, makeBrighteTheme } from '@spark-web/theme';
+import { defaultTokens, makeBrighteTheme } from '@spark-web/core';
 
 export const docsTheme = makeBrighteTheme({
   ...defaultTokens,

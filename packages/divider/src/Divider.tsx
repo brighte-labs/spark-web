@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
-import type { BrighteTheme } from '@spark-web/theme';
-import { useTheme } from '@spark-web/theme';
+import type { BrighteTheme } from '@spark-web/core';
+import { useTheme } from '@spark-web/core';
 
 /**
  * NOTE: a combination of approaches to resolve layout issues:

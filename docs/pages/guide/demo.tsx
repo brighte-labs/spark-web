@@ -1,8 +1,7 @@
-import { Emoji } from '@spark-web/a11y';
-import { Box } from '@spark-web/box';
 import { Button } from '@spark-web/button';
 import { Columns } from '@spark-web/columns';
 import { Container } from '@spark-web/container';
+import { Box, Emoji } from '@spark-web/core';
 import { Field } from '@spark-web/field';
 import { Heading } from '@spark-web/heading';
 import { Hidden } from '@spark-web/hidden';

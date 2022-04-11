@@ -1,6 +1,5 @@
-import type { BoxProps } from '@spark-web/box';
+import type { BoxProps, BrighteTheme } from '@spark-web/core';
 import type { ForegroundTone } from '@spark-web/text';
-import type { BrighteTheme } from '@spark-web/theme';
 
 import type { ButtonProminence, ButtonTone } from './types';
 

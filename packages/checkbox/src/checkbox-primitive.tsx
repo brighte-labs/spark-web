@@ -1,10 +1,8 @@
 import type { CSSObject } from '@emotion/css';
 import { css } from '@emotion/css';
-import { useFocusRing, VisuallyHidden } from '@spark-web/a11y';
-import { Box } from '@spark-web/box';
+import { Box, useFocusRing, useTheme, VisuallyHidden } from '@spark-web/core';
 import { CheckIcon } from '@spark-web/icon';
 import { Text } from '@spark-web/text';
-import { useTheme } from '@spark-web/theme';
 import { forwardRef } from 'react';
 
 import type { CheckboxPrimitiveProps, CheckboxSize } from './types';

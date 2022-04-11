@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import { renderBackgroundProvider } from './context';
+import { renderBackgroundProvider } from './background-context';
 
 export type BackgroundProviderProps = {
   type: 'light' | 'dark';

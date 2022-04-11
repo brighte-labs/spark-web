@@ -1,12 +1,13 @@
 import { css } from '@emotion/css';
-import { Box } from '@spark-web/box';
+import type { DataAttributeMap, ResponsiveRangeProps } from '@spark-web/core';
+import {
+  Box,
+  buildDataAttributes,
+  forwardRefWithAs,
+  useTheme,
+} from '@spark-web/core';
 import { useHeadingContext } from '@spark-web/heading';
 import { useTextContext } from '@spark-web/text';
-import type { ResponsiveRangeProps } from '@spark-web/theme';
-import { useTheme } from '@spark-web/theme';
-import type { DataAttributeMap } from '@spark-web/utils-spark';
-import { buildDataAttributes } from '@spark-web/utils-spark';
-import { forwardRefWithAs } from '@spark-web/utils-ts';
 import type { ReactNode } from 'react';
 
 export type HiddenProps = {

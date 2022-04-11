@@ -3,8 +3,8 @@ import { Inline } from '@spark-web/inline';
 import { Text } from '@spark-web/text';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import type { VisuallyHiddenProps } from './VisuallyHidden';
-import { VisuallyHidden } from './VisuallyHidden';
+import type { VisuallyHiddenProps } from './visually-hidden';
+import { VisuallyHidden } from './visually-hidden';
 
 export default {
   title: 'Accessibility / VisuallyHidden',

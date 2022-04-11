@@ -1,12 +1,17 @@
 import { css } from '@emotion/css';
-import { composeId, mergeIds, useId, VisuallyHidden } from '@spark-web/a11y';
-import { Box } from '@spark-web/box';
+import type { DataAttributeMap } from '@spark-web/core';
+import {
+  Box,
+  buildDataAttributes,
+  composeId,
+  mergeIds,
+  useId,
+  useTheme,
+  VisuallyHidden,
+} from '@spark-web/core';
 import { CheckCircleIcon, ExclamationCircleIcon } from '@spark-web/icon';
 import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
-import { useTheme } from '@spark-web/theme';
-import type { DataAttributeMap } from '@spark-web/utils-spark';
-import { buildDataAttributes } from '@spark-web/utils-spark';
 import type { FC, ReactElement, ReactNode } from 'react';
 import { forwardRef, Fragment } from 'react';
 

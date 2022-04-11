@@ -1,8 +1,8 @@
 import { Text } from '@spark-web/text';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import type { BoxProps } from './Box';
-import { Box } from './Box';
+import type { BoxProps } from './box';
+import { Box } from './box';
 
 export default {
   title: 'Page & Layout / Box',

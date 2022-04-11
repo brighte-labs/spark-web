@@ -1,4 +1,5 @@
-import { Box } from '@spark-web/box';
+import type { DataAttributeMap } from '@spark-web/core';
+import { Box } from '@spark-web/core';
 import type { IconProps } from '@spark-web/icon';
 import {
   CheckCircleIcon,
@@ -9,7 +10,6 @@ import {
 import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
 import { IndicatorContainer } from '@spark-web/text-list';
-import type { DataAttributeMap } from '@spark-web/utils-spark';
 import * as React from 'react';
 
 type AlertTones = 'caution' | 'critical' | 'info' | 'positive';

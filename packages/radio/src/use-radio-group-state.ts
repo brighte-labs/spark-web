@@ -1,4 +1,4 @@
-import { useId } from '@spark-web/a11y';
+import { useId } from '@spark-web/core';
 import type { ChangeEvent } from 'react';
 
 import type { RadioGroupProps, RadioProps } from './types';

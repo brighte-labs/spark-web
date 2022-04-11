@@ -1,4 +1,4 @@
-import { createResponsiveMapFn } from '@spark-web/theme';
+import { createResponsiveMapFn } from '@spark-web/core';
 
 const alignYLookup = {
   top: 'start',

@@ -1,11 +1,10 @@
 import { css } from '@emotion/css';
-import { Box } from '@spark-web/box';
+import { Box, useTheme } from '@spark-web/core';
 import { Divider } from '@spark-web/divider';
 import { Hidden } from '@spark-web/hidden';
 import type { LinkProps } from '@spark-web/link';
 import { Stack } from '@spark-web/stack';
 import { Text, useText } from '@spark-web/text';
-import { useTheme } from '@spark-web/theme';
 import { DefaultSeo } from 'next-seo';
 import type { HTMLAttributes, MouseEvent, ReactNode } from 'react';
 import { Fragment, useCallback } from 'react';

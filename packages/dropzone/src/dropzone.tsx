@@ -1,14 +1,17 @@
 import { css } from '@emotion/css';
-import { useFocusRing, VisuallyHidden } from '@spark-web/a11y';
 import { Alert } from '@spark-web/alert';
-import { Box } from '@spark-web/box';
+import {
+  Box,
+  mergeRefs,
+  useFocusRing,
+  useTheme,
+  VisuallyHidden,
+} from '@spark-web/core';
 import { useFieldContext } from '@spark-web/field';
 import { DocumentTextIcon, UploadIcon, XIcon } from '@spark-web/icon';
 import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
 import { TextList } from '@spark-web/text-list';
-import { useTheme } from '@spark-web/theme';
-import { mergeRefs } from '@spark-web/utils';
 import * as React from 'react';
 import type {
   ErrorCode as DropzoneErrorCode,
