@@ -25,6 +25,7 @@ export const TextLinkButton = forwardRef<HTMLSpanElement, TextLinkButtonProps>(
     const ref = useComposedRefs(internalRef, forwardedRef);
 
     const handleKeyDown = useCallback(
+      // @ts-expect-error: Type 'KeyboardEvent' is not generic
       (event: KeyboardEvent<HTMLSpanElement>) => {
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
@@ -47,3 +48,4 @@ export const TextLinkButton = forwardRef<HTMLSpanElement, TextLinkButtonProps>(
     );
   }
 );
+TextLinkButton.displayName = 'TextLinkButton';
