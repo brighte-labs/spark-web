@@ -40,19 +40,24 @@ describe('Checkbox component', () => {
     expect(screen.getByRole('checkbox')).toBeDisabled();
   });
 
-  it('should have described label from message', () => {
+  it('should have described label if message', () => {
+    const messageId = 'message_id';
     const message = 'checkbox message';
+    useFieldIdsMock.mockReturnValue({
+      messageId,
+      inputId: 'input_id',
+    });
     const props = { message };
     render(<Checkbox {...props}>{text}</Checkbox>);
 
     screen.getByText(message);
     expect(screen.getByRole('checkbox')).toHaveAttribute(
       'aria-describedby',
-      message
+      messageId
     );
   });
 
-  it('should have described label from message id', () => {
+  it('should not have described label if no message', () => {
     const messageId = 'message_id';
     useFieldIdsMock.mockReturnValue({
       messageId,
@@ -60,9 +65,8 @@ describe('Checkbox component', () => {
     });
     render(<Checkbox>{text}</Checkbox>);
 
-    expect(screen.getByRole('checkbox')).toHaveAttribute(
-      'aria-describedby',
-      messageId
+    expect(screen.getByRole('checkbox')).not.toHaveAttribute(
+      'aria-describedby'
     );
   });
 });
