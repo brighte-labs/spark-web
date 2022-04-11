@@ -6,6 +6,8 @@
   "scripts": {
     "build": "preconstruct build",
     "start": "yarn --cwd=docs dev",
+    "docs:build": "yarn --cwd=docs build",
+    "docs:start": "yarn --cwd=docs start",
     "format": "prettier --check .",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
