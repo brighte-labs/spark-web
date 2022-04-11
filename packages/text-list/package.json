@@ -2,6 +2,7 @@
   "name": "@spark-web/text-list",
   "version": "0.0.0",
   "private": true,
+  "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/text-list",
   "license": "MIT",
   "main": "dist/spark-web-text-list.cjs.js",
   "module": "dist/spark-web-text-list.esm.js",

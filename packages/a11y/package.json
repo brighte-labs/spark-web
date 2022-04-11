@@ -2,6 +2,7 @@
   "name": "@spark-web/a11y",
   "version": "0.0.0",
   "private": true,
+  "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/a11y",
   "license": "MIT",
   "main": "dist/spark-web-a11y.cjs.js",
   "module": "dist/spark-web-a11y.esm.js",

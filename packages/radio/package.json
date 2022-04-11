@@ -2,6 +2,7 @@
   "name": "@spark-web/radio",
   "version": "0.0.0",
   "private": true,
+  "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/radio",
   "license": "MIT",
   "main": "dist/spark-web-radio.cjs.js",
   "module": "dist/spark-web-radio.esm.js",

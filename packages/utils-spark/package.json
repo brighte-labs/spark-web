@@ -2,6 +2,7 @@
   "name": "@spark-web/utils-spark",
   "version": "0.0.0",
   "private": true,
+  "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/utils-spark",
   "license": "MIT",
   "main": "dist/spark-web-utils-spark.cjs.js",
   "module": "dist/spark-web-utils-spark.esm.js",

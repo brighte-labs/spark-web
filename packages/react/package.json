@@ -2,6 +2,7 @@
   "name": "@spark-web/react",
   "version": "0.0.0",
   "private": true,
+  "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/react",
   "license": "MIT",
   "main": "dist/spark-web-react.cjs.js",
   "module": "dist/spark-web-react.esm.js",

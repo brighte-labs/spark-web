@@ -2,6 +2,7 @@
   "name": "@spark-web/stack",
   "version": "0.0.0",
   "private": true,
+  "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/stack",
   "license": "MIT",
   "main": "dist/spark-web-stack.cjs.js",
   "module": "dist/spark-web-stack.esm.js",

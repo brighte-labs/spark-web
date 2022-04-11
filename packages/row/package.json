@@ -2,6 +2,7 @@
   "name": "@spark-web/row",
   "version": "0.0.0",
   "private": true,
+  "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/row",
   "license": "MIT",
   "main": "dist/spark-web-row.cjs.js",
   "module": "dist/spark-web-row.esm.js",

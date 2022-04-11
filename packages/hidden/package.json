@@ -2,6 +2,7 @@
   "name": "@spark-web/hidden",
   "version": "0.0.0",
   "private": true,
+  "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/hidden",
   "license": "MIT",
   "main": "dist/spark-web-hidden.cjs.js",
   "module": "dist/spark-web-hidden.esm.js",

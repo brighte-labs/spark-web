@@ -2,6 +2,7 @@
   "name": "@spark-web/analytics",
   "version": "0.0.0",
   "private": true,
+  "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/analytics",
   "license": "MIT",
   "main": "dist/spark-web-analytics.cjs.js",
   "module": "dist/spark-web-analytics.esm.js",

@@ -2,6 +2,7 @@
   "name": "@spark-web/heading",
   "version": "0.0.0",
   "private": true,
+  "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/heading",
   "license": "MIT",
   "main": "dist/spark-web-heading.cjs.js",
   "module": "dist/spark-web-heading.esm.js",
