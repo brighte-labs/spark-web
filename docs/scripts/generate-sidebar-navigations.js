@@ -59,11 +59,6 @@ const buildSidebarNavigations = () => {
   let navigations = [{ name: 'Home', href: '/' }];
   const ignorePackages = [
     'control-label',
-    'core',
-    'theme',
-    'utils-spark',
-    'utils-ts',
-    'utils',
   ];
 
   for (const pkg of getAllPackages()) {
