@@ -1,6 +1,7 @@
 {
   "name": "@spark-web/container",
   "version": "0.0.0",
+  "private": true,
   "license": "MIT",
   "main": "dist/spark-web-container.cjs.js",
   "module": "dist/spark-web-container.esm.js",

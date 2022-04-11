@@ -1,6 +1,7 @@
 {
   "name": "@spark-web/checkbox",
   "version": "0.0.0",
+  "private": true,
   "license": "MIT",
   "main": "dist/spark-web-checkbox.cjs.js",
   "module": "dist/spark-web-checkbox.esm.js",

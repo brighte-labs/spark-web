@@ -1,6 +1,7 @@
 {
   "name": "@spark-web/ssr",
   "version": "0.0.0",
+  "private": true,
   "license": "MIT",
   "main": "dist/spark-web-ssr.cjs.js",
   "module": "dist/spark-web-ssr.esm.js",

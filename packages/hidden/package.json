@@ -1,6 +1,7 @@
 {
   "name": "@spark-web/hidden",
   "version": "0.0.0",
+  "private": true,
   "license": "MIT",
   "main": "dist/spark-web-hidden.cjs.js",
   "module": "dist/spark-web-hidden.esm.js",

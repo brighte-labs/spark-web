@@ -1,6 +1,7 @@
 {
   "name": "@spark-web/control-label",
   "version": "0.0.0",
+  "private": true,
   "license": "MIT",
   "main": "dist/spark-web-control-label.cjs.js",
   "module": "dist/spark-web-control-label.esm.js",

@@ -1,6 +1,7 @@
 {
   "name": "@spark-web/alert",
   "version": "0.0.0",
+  "private": true,
   "license": "MIT",
   "main": "dist/spark-web-alert.cjs.js",
   "module": "dist/spark-web-alert.esm.js",

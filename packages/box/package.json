@@ -1,6 +1,7 @@
 {
   "name": "@spark-web/box",
   "version": "0.0.0",
+  "private": true,
   "license": "MIT",
   "main": "dist/spark-web-box.cjs.js",
   "module": "dist/spark-web-box.esm.js",

@@ -1,6 +1,7 @@
 {
   "name": "@spark-web/row",
   "version": "0.0.0",
+  "private": true,
   "license": "MIT",
   "main": "dist/spark-web-row.cjs.js",
   "module": "dist/spark-web-row.esm.js",

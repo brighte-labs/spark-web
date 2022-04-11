@@ -1,6 +1,7 @@
 {
   "name": "@spark-web/utils",
   "version": "0.0.0",
+  "private": true,
   "license": "MIT",
   "main": "dist/spark-web-utils.cjs.js",
   "module": "dist/spark-web-utils.esm.js",

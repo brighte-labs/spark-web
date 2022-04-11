@@ -1,6 +1,7 @@
 {
   "name": "@spark-web/columns",
   "version": "0.0.0",
+  "private": true,
   "license": "MIT",
   "main": "dist/spark-web-columns.cjs.js",
   "module": "dist/spark-web-columns.esm.js",

@@ -1,6 +1,7 @@
 {
   "name": "@spark-web/modal-dialog",
   "version": "0.0.0",
+  "private": true,
   "license": "MIT",
   "main": "dist/spark-web-modal-dialog.cjs.js",
   "module": "dist/spark-web-modal-dialog.esm.js",

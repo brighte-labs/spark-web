@@ -1,6 +1,7 @@
 {
   "name": "@spark-web/icon",
   "version": "0.0.0",
+  "private": true,
   "license": "MIT",
   "main": "dist/spark-web-icon.cjs.js",
   "module": "dist/spark-web-icon.esm.js",

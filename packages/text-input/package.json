@@ -1,6 +1,7 @@
 {
   "name": "@spark-web/text-input",
   "version": "0.0.0",
+  "private": true,
   "license": "MIT",
   "main": "dist/spark-web-text-input.cjs.js",
   "module": "dist/spark-web-text-input.esm.js",
