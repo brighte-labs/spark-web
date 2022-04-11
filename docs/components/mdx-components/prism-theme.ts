@@ -3,7 +3,7 @@
 // Conversion: Bram de Haan (http://atelierbram.github.io/Base2Tone-prism/output/prism/prism-base2tone-evening-dark.css)
 // Generated with Base16 Builder (https://github.com/base16-builder/base16-builder)
 
-import { PrismTheme } from 'prism-react-renderer';
+import type { PrismTheme } from 'prism-react-renderer';
 
 export const theme: PrismTheme = {
   plain: {},

@@ -1,7 +1,7 @@
 import type { FontMetrics } from '@capsizecss/core';
 import interFontMetrics from '@capsizecss/metrics/inter';
 
-import { Breakpoint } from './breakpoints';
+import type { Breakpoint } from './breakpoints';
 import { colors } from './colors';
 
 // NOTE: all tokens are currently assumptions and will need to be reviewed with

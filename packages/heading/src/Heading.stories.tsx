@@ -1,7 +1,8 @@
 import { Stack } from '@spark-web/stack';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Heading, HeadingProps } from './Heading';
+import type { HeadingProps } from './Heading';
+import { Heading } from './Heading';
 
 export default {
   title: 'Typography / Heading',

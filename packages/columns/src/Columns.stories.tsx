@@ -1,7 +1,8 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Placeholder } from '../../../docs/components/example-helpers';
-import { Columns, ColumnsProps } from './Columns';
+import type { ColumnsProps } from './Columns';
+import { Columns } from './Columns';
 
 export default {
   title: 'Page & Layout / Columns',

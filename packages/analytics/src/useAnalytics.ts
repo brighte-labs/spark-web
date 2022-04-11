@@ -1,9 +1,10 @@
 import { useContext } from 'react';
 
 import { AnalyticsContextContext } from './AnalyticsContext';
-import {
+import type {
   AnalyticsEventData,
-  AnalyticsEventName,
+  AnalyticsEventName } from './AnalyticsListenerContext';
+import {
   AnalyticsListenerContext,
 } from './AnalyticsListenerContext';
 

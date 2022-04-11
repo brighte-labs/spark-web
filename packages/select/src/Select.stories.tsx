@@ -3,9 +3,10 @@ import { InformationCircleIcon } from '@spark-web/icon';
 import { Inline } from '@spark-web/inline';
 import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Select, SelectProps } from './Select';
+import type { SelectProps } from './Select';
+import { Select } from './Select';
 
 export default {
   title: 'Forms / Select',

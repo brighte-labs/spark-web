@@ -2,7 +2,7 @@ import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
 import { Divider } from '@spark-web/divider';
 import { Hidden } from '@spark-web/hidden';
-import { LinkProps } from '@spark-web/link';
+import type { LinkProps } from '@spark-web/link';
 import { Stack } from '@spark-web/stack';
 import { Text, useText } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';

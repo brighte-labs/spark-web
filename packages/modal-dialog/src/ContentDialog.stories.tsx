@@ -1,6 +1,6 @@
 import { Button } from '@spark-web/button';
 import { Text } from '@spark-web/text';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ContentDialog } from './content-dialog';
 

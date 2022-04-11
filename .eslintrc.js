@@ -28,6 +28,7 @@ module.exports = {
   },
   rules: {
     '@next/next/no-html-link-for-pages': OFF,
+    '@typescript-eslint/consistent-type-imports': WARN,
     curly: [ERROR, 'multi-line'],
     'import/first': ERROR,
     'import/newline-after-import': ERROR,
