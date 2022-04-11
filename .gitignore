@@ -38,3 +38,6 @@ node_modules/
 
 # Preconstruct build output
 dist
+
+# Test coverage
+coverage
