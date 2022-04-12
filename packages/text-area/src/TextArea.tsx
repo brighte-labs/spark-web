@@ -42,6 +42,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
       placeholder,
       required,
     };
+
     return (
       <Box position="relative">
         <Box
@@ -64,7 +65,6 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
     );
   }
 );
-
 TextArea.displayName = 'TextArea';
 
 function useTextAreaStyles({ disabled, invalid }: UseInputProps) {
@@ -79,7 +79,7 @@ function useTextAreaStyles({ disabled, invalid }: UseInputProps) {
 
     // Text inputs have a fixed height, so we need to override it back to `auto`
     height: 'auto',
-    minHeight: inputStyles.height,
+    minHeight: theme.sizing.medium,
 
     paddingTop: theme.spacing.small,
     paddingBottom: theme.spacing.small,
