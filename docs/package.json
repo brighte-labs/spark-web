@@ -44,6 +44,7 @@
     "@spark-web/select": "0.0.0",
     "@spark-web/stack": "0.0.0",
     "@spark-web/text": "0.0.0",
+    "@spark-web/text-area": "0.0.0",
     "@spark-web/text-input": "0.0.0",
     "@spark-web/text-link": "0.0.0",
     "@spark-web/text-list": "0.0.0",
