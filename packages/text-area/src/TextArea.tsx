@@ -1,4 +1,4 @@
-import { css, CSSObject } from '@emotion/css';
+import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
 import { useFieldContext } from '@spark-web/field';
 import type { UseInputProps } from '@spark-web/text-input';
@@ -67,7 +67,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
 
 TextArea.displayName = 'TextArea';
 
-function useTextAreaStyles({ disabled, invalid }: UseInputProps): CSSObject {
+function useTextAreaStyles({ disabled, invalid }: UseInputProps) {
   const theme = useTheme();
   const inputStyles = useInput({
     disabled,
@@ -76,18 +76,17 @@ function useTextAreaStyles({ disabled, invalid }: UseInputProps): CSSObject {
 
   return {
     ...inputStyles,
-    overflow: 'hidden', // fix for Safari to prevent unwanted scrolling of parent container to occur
-    textOverflow: 'ellipsis',
-    resize: 'vertical',
-    minHeight: theme.sizing.medium,
 
-    // Prevent text going underneath the chevron icon
-    paddingRight:
-      theme.sizing.xxsmall + // size of chevron icon
-      theme.spacing.medium * 2, // paddingX value
+    // Text inputs have a fixed height, so we need to override it back to `auto`
+    height: 'auto',
+    minHeight: inputStyles.height,
+
+    paddingTop: theme.spacing.small,
+    paddingBottom: theme.spacing.small,
+    resize: 'vertical',
 
     ':invalid': {
       color: theme.color.foreground.muted,
     },
-  };
+  } as const;
 }
