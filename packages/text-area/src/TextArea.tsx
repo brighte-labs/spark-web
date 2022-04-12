@@ -6,7 +6,7 @@ import { useInput } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils-spark';
 import { buildDataAttributes } from '@spark-web/utils-spark';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 export type TextAreaProps = Pick<
   React.TextareaHTMLAttributes<HTMLTextAreaElement>,
@@ -16,7 +16,7 @@ export type TextAreaProps = Pick<
   placeholder?: string;
 };
 
-export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
     {
       data,
