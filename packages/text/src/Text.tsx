@@ -7,11 +7,13 @@ import { useMemo } from 'react';
 
 import { TextContext, useTextContext } from './context';
 import { useDefaultTextProps } from './defaultTextProps';
+import type {
+  TextOverflowStrategy } from './useOverflowStrategy';
 import {
-  TextOverflowStrategy,
   useOverflowStrategy,
 } from './useOverflowStrategy';
-import { useText, UseTextProps } from './useText';
+import type { UseTextProps } from './useText';
+import { useText } from './useText';
 
 type InlineProps = {
   align?: never;

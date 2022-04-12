@@ -1,6 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Divider, DividerProps } from './Divider';
+import type { DividerProps } from './Divider';
+import { Divider } from './Divider';
 
 export default {
   title: 'Page & Layout / Divider',

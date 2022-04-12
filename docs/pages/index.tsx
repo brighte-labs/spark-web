@@ -5,7 +5,8 @@ import { MDXRemote } from 'next-mdx-remote';
 import { DocsContent } from '../components/content';
 import { mdxComponents } from '../components/mdx-components/mdx-components';
 import type { Awaited } from '../types';
-import { getMarkdownContentFromPath, getPackageBySlug } from '../utils/mdx';
+import type { getPackageBySlug } from '../utils/mdx';
+import { getMarkdownContentFromPath } from '../utils/mdx';
 
 export const getStaticProps: GetStaticProps<{
   source: Awaited<ReturnType<typeof getPackageBySlug>>['source'];

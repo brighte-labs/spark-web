@@ -1,6 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Alert, AlertProps } from './Alert';
+import type { AlertProps } from './Alert';
+import { Alert } from './Alert';
 
 export default {
   title: 'Feedback & Overlays / Alert',

@@ -1,10 +1,11 @@
-import {
+import type {
   ComponentPropsWithoutRef,
   ElementType,
-  forwardRef,
   ReactElement,
   ReactNode,
-  Ref,
+  Ref } from 'react';
+import {
+  forwardRef
 } from 'react';
 
 type ElementTagNameMap = HTMLElementTagNameMap &

@@ -7,7 +7,7 @@ import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import { forwardRef } from 'react';
 
-import { RadioPrimitiveProps, RadioSize } from './types';
+import type { RadioPrimitiveProps, RadioSize } from './types';
 
 export const RadioPrimitive = forwardRef<
   HTMLInputElement,

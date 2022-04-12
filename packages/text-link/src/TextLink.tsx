@@ -1,7 +1,9 @@
 import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
-import { LinkComponentProps, useLinkComponent } from '@spark-web/core';
-import { buildDataAttributes, DataAttributeMap } from '@spark-web/utils-spark';
+import type { LinkComponentProps } from '@spark-web/core';
+import { useLinkComponent } from '@spark-web/core';
+import type { DataAttributeMap } from '@spark-web/utils-spark';
+import { buildDataAttributes } from '@spark-web/utils-spark';
 import { forwardRefWithAs } from '@spark-web/utils-ts';
 
 import { useTextLink } from './useTextLink';

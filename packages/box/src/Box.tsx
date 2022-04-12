@@ -5,7 +5,7 @@ import type { ReactNode } from 'react';
 
 import { renderBackgroundProvider } from './context';
 import { useBoxProps } from './useBoxProps';
-import { BoxStyleProps } from './useBoxStyles';
+import type { BoxStyleProps } from './useBoxStyles';
 
 export type BoxProps = {
   children?: ReactNode;

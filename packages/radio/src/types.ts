@@ -1,5 +1,5 @@
 import type { Tone } from '@spark-web/field';
-import { InputHTMLAttributes, ReactNode } from 'react';
+import type { InputHTMLAttributes, ReactNode } from 'react';
 
 export type RadioSize = 'small' | 'medium';
 

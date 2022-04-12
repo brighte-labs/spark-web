@@ -1,6 +1,8 @@
 import { css } from '@emotion/css';
-import { ForegroundTone, useForegroundTone } from '@spark-web/text';
-import { BrighteTheme, useTheme } from '@spark-web/theme';
+import type { ForegroundTone } from '@spark-web/text';
+import { useForegroundTone } from '@spark-web/text';
+import type { BrighteTheme } from '@spark-web/theme';
+import { useTheme } from '@spark-web/theme';
 import type { ReactNode } from 'react';
 import { useMemo } from 'react';
 

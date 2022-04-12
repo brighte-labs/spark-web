@@ -1,10 +1,12 @@
-import {
+import type {
   BrighteTextDefinition,
-  BrighteTheme,
+  BrighteTheme } from '@spark-web/theme';
+import {
   useTheme,
 } from '@spark-web/theme';
 
-import { ForegroundTone, useForegroundTone } from './useForegroundTone';
+import type { ForegroundTone } from './useForegroundTone';
+import { useForegroundTone } from './useForegroundTone';
 
 export type UseTextProps = {
   /** Apply leading-trim styles. */

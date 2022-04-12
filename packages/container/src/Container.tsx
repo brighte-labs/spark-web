@@ -1,7 +1,9 @@
 import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
-import { BrighteTheme, useTheme } from '@spark-web/theme';
-import { buildDataAttributes, DataAttributeMap } from '@spark-web/utils-spark';
+import type { BrighteTheme } from '@spark-web/theme';
+import { useTheme } from '@spark-web/theme';
+import type { DataAttributeMap } from '@spark-web/utils-spark';
+import { buildDataAttributes } from '@spark-web/utils-spark';
 import { forwardRefWithAs } from '@spark-web/utils-ts';
 import type { ReactNode } from 'react';
 

@@ -1,7 +1,8 @@
 import { Text } from '@spark-web/text';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { TextLink, TextLinkProps } from './TextLink';
+import type { TextLinkProps } from './TextLink';
+import { TextLink } from './TextLink';
 
 export default {
   title: 'Navigation / TextLink',

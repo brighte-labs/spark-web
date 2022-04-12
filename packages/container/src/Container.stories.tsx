@@ -1,7 +1,8 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Placeholder } from '../../../docs/components/example-helpers';
-import { Container, ContainerProps } from './Container';
+import type { ContainerProps } from './Container';
+import { Container } from './Container';
 
 export default {
   title: 'Page & Layout / Container',

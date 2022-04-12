@@ -1,14 +1,15 @@
 import { plugin as rehypeLiveCode } from '@untitled-docs/live-code/rehype';
 import { readdirSync, readFileSync } from 'fs';
 import parseMarkdown from 'gray-matter';
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { normalize } from 'path';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import remarkHint from 'remark-hint';
 
-import { generateToc, HeadingData } from './generate-toc';
+import type { HeadingData } from './generate-toc';
+import { generateToc } from './generate-toc';
 import { toSlug } from './to-slug';
 
 type MarkDown = {

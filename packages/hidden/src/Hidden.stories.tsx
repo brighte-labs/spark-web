@@ -3,10 +3,11 @@ import { InformationCircleIcon } from '@spark-web/icon';
 import { Inline } from '@spark-web/inline';
 import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Placeholder } from '../../../docs/components/example-helpers';
-import { Hidden, HiddenProps } from './Hidden';
+import type { HiddenProps } from './Hidden';
+import { Hidden } from './Hidden';
 
 export default {
   title: 'Accessibility / Hidden',
