@@ -1,7 +1,7 @@
 import { Field } from '@spark-web/field';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { TextArea } from './TextArea';
+import { TextArea } from './text-area';
 
 export default {
   title: 'Forms / TextArea',
@@ -10,7 +10,7 @@ export default {
 
 const TextareaStory: ComponentStory<typeof TextArea> = () => (
   <Field label="Add some text" tone="neutral" message="You added text">
-    <TextArea/>
+    <TextArea />
   </Field>
 );
 export const Default = TextareaStory.bind({});

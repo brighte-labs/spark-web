@@ -7,22 +7,18 @@ import type { UseTextProps } from '@spark-web/text/src/useText';
 import { useText } from '@spark-web/text/src/useText';
 import type { DataAttributeMap } from '@spark-web/utils-spark';
 import { buildDataAttributes } from '@spark-web/utils-spark';
-import {forwardRef} from 'react';
+import { forwardRef } from 'react';
 
-import { useTextAreaStyles } from './useTextArea';
+import { useTextAreaStyles } from './use-text-area';
 
 export type TextAreaProps = Pick<
   React.TextareaHTMLAttributes<HTMLTextAreaElement>,
   'defaultValue' | 'name' | 'onBlur' | 'onChange' | 'required' | 'value'
-> & Partial<
-  Pick<
-    UseTextProps,
-    'size' | 'weight'
-  >
->& {
-  data?: DataAttributeMap;
-  placeholder?: string;
-};
+> &
+  Partial<Pick<UseTextProps, 'size' | 'weight'>> & {
+    data?: DataAttributeMap;
+    placeholder?: string;
+  };
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
@@ -58,10 +54,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     });
     const textStyles = useText({ size, weight, tone });
     const textAreaStyles = useTextAreaStyles({ disabled, invalid });
-    const styles = [
-      textAreaStyles,
-      textStyles,
-    ];
+    const styles = [textAreaStyles, textStyles];
 
     return (
       <Box position="relative">
