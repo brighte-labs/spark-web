@@ -32,21 +32,24 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ) => {
     const { disabled, invalid, ...a11yProps } = useFieldContext();
     const styles = useTextAreaStyles({ disabled, invalid });
-
+    const consumerProps = {
+      value,
+      defaultValue,
+      disabled,
+      name,
+      onBlur,
+      onChange,
+      placeholder,
+      required,
+    };
     return (
       <Box position="relative">
         <Box
           {...a11yProps}
+          {...consumerProps}
           {...(data ? buildDataAttributes(data) : null)}
           as="textarea"
-          defaultValue={defaultValue ?? placeholder ? '' : undefined}
-          disabled={disabled}
-          name={name}
-          onBlur={onBlur}
-          onChange={onChange}
           ref={forwardedRef}
-          required={required}
-          value={value}
           rows={3}
           // Styles
           background={disabled ? 'inputDisabled' : 'input'}
