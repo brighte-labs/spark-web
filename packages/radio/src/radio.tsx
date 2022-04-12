@@ -1,5 +1,5 @@
 import { ControlLabel } from '@spark-web/control-label';
-import { Stack } from '@spark-web/stack';
+import { Stack } from '@spark-web/layout';
 import { forwardRef } from 'react';
 
 import { useRadioGroupContext } from './context';

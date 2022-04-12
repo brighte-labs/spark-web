@@ -1,8 +1,8 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Placeholder } from '../../../docs/components/example-helpers';
-import type { StackProps } from './Stack';
-import { Stack } from './Stack';
+import type { StackProps } from './stack';
+import { Stack } from './stack';
 
 export default {
   title: 'Page & Layout / Stack',

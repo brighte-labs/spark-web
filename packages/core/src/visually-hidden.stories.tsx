@@ -1,5 +1,5 @@
 import { ExclamationCircleIcon } from '@spark-web/icon';
-import { Inline } from '@spark-web/inline';
+import { Inline } from '@spark-web/layout';
 import { Text } from '@spark-web/text';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 

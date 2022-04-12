@@ -1,5 +1,5 @@
 import { Heading } from '@spark-web/heading';
-import { Stack } from '@spark-web/stack';
+import { Stack } from '@spark-web/layout';
 import type {
   GetStaticPaths,
   GetStaticProps,

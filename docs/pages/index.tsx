@@ -1,4 +1,4 @@
-import { Stack } from '@spark-web/stack';
+import { Stack } from '@spark-web/layout';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 

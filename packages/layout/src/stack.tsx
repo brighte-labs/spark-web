@@ -4,8 +4,8 @@ import { Divider } from '@spark-web/divider';
 import type { ReactElement } from 'react';
 import { Children, Fragment } from 'react';
 
-import type { Align } from './alignment';
-import { alignToAlignItems } from './alignment';
+import type { Align } from './stack-alignment';
+import { alignToAlignItems } from './stack-alignment';
 
 type ValidBoxProps = Omit<
   BoxProps,

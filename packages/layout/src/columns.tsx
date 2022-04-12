@@ -9,8 +9,8 @@ import { Box, forwardRefWithAs, useTheme } from '@spark-web/core';
 import type { ReactNode } from 'react';
 import { Children } from 'react';
 
-import type { AlignY } from './alignment';
-import { alignYToAlignItems } from './alignment';
+import type { AlignY } from './column-alignment';
+import { alignYToAlignItems } from './column-alignment';
 
 type Gap = ResponsiveProp<keyof Omit<BrighteTheme['spacing'], 'none'>>;
 type ValidBoxProps = Omit<

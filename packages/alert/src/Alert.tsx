@@ -7,7 +7,7 @@ import {
   InformationCircleIcon,
   XIcon,
 } from '@spark-web/icon';
-import { Stack } from '@spark-web/stack';
+import { Stack } from '@spark-web/layout';
 import { Text } from '@spark-web/text';
 import { IndicatorContainer } from '@spark-web/text-list';
 import * as React from 'react';

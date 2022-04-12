@@ -1,8 +1,8 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Placeholder } from '../../../docs/components/example-helpers';
-import type { RowProps } from './Row';
-import { Row } from './Row';
+import type { RowProps } from './row';
+import { Row } from './row';
 
 export default {
   title: 'Page & Layout / Row',

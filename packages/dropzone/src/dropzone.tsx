@@ -9,7 +9,7 @@ import {
 } from '@spark-web/core';
 import { useFieldContext } from '@spark-web/field';
 import { DocumentTextIcon, UploadIcon, XIcon } from '@spark-web/icon';
-import { Stack } from '@spark-web/stack';
+import { Stack } from '@spark-web/layout';
 import { Text } from '@spark-web/text';
 import { TextList } from '@spark-web/text-list';
 import * as React from 'react';

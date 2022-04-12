@@ -8,7 +8,7 @@ import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { Box, useTheme } from '@spark-web/core';
 import { Heading } from '@spark-web/heading';
 import { ChevronDownIcon } from '@spark-web/icon';
-import { Stack } from '@spark-web/stack';
+import { Stack } from '@spark-web/layout';
 import * as React from 'react';
 
 const openAnimation = keyframes({

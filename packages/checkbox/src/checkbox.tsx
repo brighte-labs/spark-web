@@ -1,6 +1,6 @@
 import { ControlLabel } from '@spark-web/control-label';
 import { FieldMessage, useFieldIds } from '@spark-web/field';
-import { Stack } from '@spark-web/stack';
+import { Stack } from '@spark-web/layout';
 import { forwardRef } from 'react';
 
 import { CheckboxPrimitive } from './checkbox-primitive';

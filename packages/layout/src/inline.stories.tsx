@@ -1,8 +1,8 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Placeholder } from '../../../docs/components/example-helpers';
-import type { InlineProps } from './Inline';
-import { Inline } from './Inline';
+import type { InlineProps } from './inline';
+import { Inline } from './inline';
 
 export default {
   title: 'Page & Layout / Inline',

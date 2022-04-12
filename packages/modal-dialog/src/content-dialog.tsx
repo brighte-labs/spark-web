@@ -11,7 +11,7 @@ import type { BrighteTheme } from '@spark-web/core';
 import { Box, useFocusRing, useTheme, VisuallyHidden } from '@spark-web/core';
 import { Heading } from '@spark-web/heading';
 import { XIcon } from '@spark-web/icon';
-import { Stack } from '@spark-web/stack';
+import { Stack } from '@spark-web/layout';
 import * as React from 'react';
 
 const MAX_HEIGHT = '85vh';

@@ -2,8 +2,8 @@ import { css } from '@emotion/css';
 import type { DataAttributeMap } from '@spark-web/core';
 import { Box, buildDataAttributes, useTheme } from '@spark-web/core';
 import type { IconProps } from '@spark-web/icon';
-import type { StackProps } from '@spark-web/stack';
-import { Stack } from '@spark-web/stack';
+import type { StackProps } from '@spark-web/layout';
+import { Stack } from '@spark-web/layout';
 import type { TextProps } from '@spark-web/text';
 import {
   DefaultTextPropsProvider,

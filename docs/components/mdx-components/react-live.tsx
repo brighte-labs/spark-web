@@ -2,7 +2,7 @@ import type { CSSObject } from '@emotion/css';
 import { css } from '@emotion/css';
 import { Box, useFocusRing, useTheme } from '@spark-web/core';
 import { ClipboardIcon, PlayIcon } from '@spark-web/icon';
-import { Stack } from '@spark-web/stack';
+import { Stack } from '@spark-web/layout';
 import { Text } from '@spark-web/text';
 import { useLiveCode } from '@untitled-docs/live-code';
 import copy from 'clipboard-copy';

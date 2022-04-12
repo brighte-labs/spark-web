@@ -10,7 +10,7 @@ import {
   VisuallyHidden,
 } from '@spark-web/core';
 import { CheckCircleIcon, ExclamationCircleIcon } from '@spark-web/icon';
-import { Stack } from '@spark-web/stack';
+import { Stack } from '@spark-web/layout';
 import { Text } from '@spark-web/text';
 import type { FC, ReactElement, ReactNode } from 'react';
 import { forwardRef, Fragment } from 'react';
