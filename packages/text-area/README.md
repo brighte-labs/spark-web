@@ -42,6 +42,8 @@ labeling helps inform users the context and information required of the text are
 | onChange?     | React.ChangeEventHandler<HTMLTextAreaElement\> |         | Function for handling blur events.                                                     |
 | required?     | boolean                                      |         | Boolean that indicates a value is required in the text area. |
 | value         | string \| number \| readonly string[]        |         | Value of the text area.                                                                   |
+|size?|'xsmall' \| 'small' \| 'standard' \| 'large' | 'standard' | Sets the size of the text inside the text area. |
+|weight?|'regular' \| 'medium' \| 'strong' | 'regular' | Sets the weight of the text inside the text area. |
 
 [data-attribute-map]:
   https://bitbucket.org/brighte-energy/energy/src/14a694872cc43bb454981bada65f5f12b56f77c9/spark-web/packages/utils-spark/src/buildDataAttributes.ts#spark-web/packages/utils-spark/src/buildDataAttributes.ts-1

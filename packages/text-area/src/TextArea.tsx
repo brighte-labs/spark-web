@@ -1,17 +1,25 @@
 import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
 import { useFieldContext } from '@spark-web/field';
-import type { UseInputProps } from '@spark-web/text-input';
-import { useInput } from '@spark-web/text-input';
-import { useTheme } from '@spark-web/theme';
+import { useTextContext } from '@spark-web/text';
+import { useDefaultTextProps } from '@spark-web/text/src/defaultTextProps';
+import type { UseTextProps } from '@spark-web/text/src/useText';
+import { useText } from '@spark-web/text/src/useText';
 import type { DataAttributeMap } from '@spark-web/utils-spark';
 import { buildDataAttributes } from '@spark-web/utils-spark';
 import * as React from 'react';
 
+import { useTextAreaStyles } from './useTextArea';
+
 export type TextAreaProps = Pick<
   React.TextareaHTMLAttributes<HTMLTextAreaElement>,
   'defaultValue' | 'name' | 'onBlur' | 'onChange' | 'required' | 'value'
-> & {
+> & Partial<
+  Pick<
+    UseTextProps,
+    'size' | 'weight'
+  >
+>& {
   data?: DataAttributeMap;
   placeholder?: string;
 };
@@ -27,11 +35,12 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
       placeholder,
       required,
       value,
+      size: sizeProp,
+      weight: weightProp,
     },
     forwardedRef
   ) => {
     const { disabled, invalid, ...a11yProps } = useFieldContext();
-    const styles = useTextAreaStyles({ disabled, invalid });
     const consumerProps = {
       value,
       defaultValue,
@@ -42,6 +51,17 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
       placeholder,
       required,
     };
+    const textContext = useTextContext();
+    const { size, weight, tone } = useDefaultTextProps({
+      size: sizeProp ?? textContext?.size,
+      weight: weightProp ?? textContext?.weight,
+    });
+    const textStyles = useText({ size, weight, tone });
+    const textAreaStyles = useTextAreaStyles({ disabled, invalid });
+    const styles = [
+      textAreaStyles,
+      textStyles,
+    ];
 
     return (
       <Box position="relative">
@@ -66,27 +86,3 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   }
 );
 TextArea.displayName = 'TextArea';
-
-function useTextAreaStyles({ disabled, invalid }: UseInputProps) {
-  const theme = useTheme();
-  const inputStyles = useInput({
-    disabled,
-    invalid,
-  });
-
-  return {
-    ...inputStyles,
-
-    // Text inputs have a fixed height, so we need to override it back to `auto`
-    height: 'auto',
-    minHeight: theme.sizing.medium,
-
-    paddingTop: theme.spacing.small,
-    paddingBottom: theme.spacing.small,
-    resize: 'vertical',
-
-    ':invalid': {
-      color: theme.color.foreground.muted,
-    },
-  } as const;
-}
