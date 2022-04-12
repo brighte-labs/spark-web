@@ -14,6 +14,8 @@ labeling helps inform users the context and information required of the text are
 
 ## Examples
 
+### Controlled
+
 ```jsx live
   const [textInput, setTextInput] = React.useState('');
 
@@ -28,6 +30,31 @@ labeling helps inform users the context and information required of the text are
       )}
     </Stack>
   )
+```
+
+### Sizing
+
+```jsx live
+<Stack gap="large">
+  <Field label="Add some text">
+    <TextArea size="xsmall" placeholder="xsmall"/>
+    <TextArea size="small" placeholder="small"/>
+    <TextArea size="standard" placeholder="standard"/>
+    <TextArea size="large" placeholder="large"/>
+  </Field>
+</Stack>
+```
+
+### Weight
+
+```jsx live
+<Stack gap="large">
+  <Field label="Add some text">
+    <TextArea weight='regular' placeholder="regular"/>
+    <TextArea weight='medium' placeholder="medium"/>
+    <TextArea weight='strong' placeholder="strong"/>
+  </Field>
+</Stack>
 ```
 
 ## Props
