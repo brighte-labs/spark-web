@@ -1,13 +1,13 @@
 {
   "name": "@spark-web/link",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/link",
   "license": "MIT",
   "main": "dist/spark-web-link.cjs.js",
   "module": "dist/spark-web-link.esm.js",
   "dependencies": {
     "@babel/runtime": "^7.14.6",
-    "@spark-web/core": "0.0.0",
+    "@spark-web/core": "0.0.1",
     "react": "^17.0.2"
   },
   "devDependencies": {

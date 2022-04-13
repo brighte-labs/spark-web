@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/modal-dialog",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/modal-dialog",
   "license": "MIT",
   "main": "dist/spark-web-modal-dialog.cjs.js",
@@ -9,12 +9,12 @@
     "@babel/runtime": "^7.14.6",
     "@emotion/css": "^11.7.1",
     "@radix-ui/react-dialog": "^0.1.5",
-    "@spark-web/button": "0.0.0",
-    "@spark-web/core": "0.0.0",
-    "@spark-web/heading": "0.0.0",
-    "@spark-web/icon": "0.0.0",
-    "@spark-web/layout": "0.0.0",
-    "@spark-web/text": "0.0.0",
+    "@spark-web/button": "0.0.1",
+    "@spark-web/core": "0.0.1",
+    "@spark-web/heading": "0.0.1",
+    "@spark-web/icon": "0.0.1",
+    "@spark-web/layout": "0.0.1",
+    "@spark-web/text": "0.0.1",
     "react": "^17.0.2"
   },
   "devDependencies": {
