@@ -1,9 +1,10 @@
 import { cleanup, render } from '@testing-library/react';
 import { useEffect } from 'react';
 
+import type {
+  AnalyticsEventData } from '.';
 import {
   AnalyticsContext,
-  AnalyticsEventData,
   AnalyticsListener,
   useAnalytics,
 } from '.';

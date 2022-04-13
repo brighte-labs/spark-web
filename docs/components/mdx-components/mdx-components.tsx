@@ -1,8 +1,10 @@
-import { Heading, HeadingProps } from '@spark-web/heading';
+import type { HeadingProps } from '@spark-web/heading';
+import { Heading } from '@spark-web/heading';
 import type { TextProps } from '@spark-web/text';
 import { Strong, Text } from '@spark-web/text';
 import { TextLink } from '@spark-web/text-link';
-import { TextList, TextListProps } from '@spark-web/text-list';
+import type { TextListProps } from '@spark-web/text-list';
+import { TextList } from '@spark-web/text-list';
 import { Fragment } from 'react';
 
 import { InlineCode } from '../example-helpers';

@@ -1,4 +1,5 @@
-import { AssignableRef, isFunction } from '@spark-web/utils-ts';
+import type { AssignableRef } from '@spark-web/utils-ts';
+import { isFunction } from '@spark-web/utils-ts';
 import { useCallback } from 'react';
 
 /**

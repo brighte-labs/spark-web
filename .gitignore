@@ -39,5 +39,10 @@ node_modules/
 # Preconstruct build output
 dist
 
+# Docs
+docs/cache/navigations.json
+docs/public/playroom
+docs/public/storybook
+
 # Test coverage
 coverage

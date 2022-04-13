@@ -1,16 +1,19 @@
 import { css } from '@emotion/css';
-import { Box, BoxProps } from '@spark-web/box';
-import {
+import type { BoxProps } from '@spark-web/box';
+import { Box } from '@spark-web/box';
+import type {
   BrighteTheme,
   ResponsiveProp,
-  ResponsiveRangeProps,
+  ResponsiveRangeProps } from '@spark-web/theme';
+import {
   useTheme,
 } from '@spark-web/theme';
 import { forwardRefWithAs } from '@spark-web/utils-ts';
 import type { ReactNode } from 'react';
 import { Children } from 'react';
 
-import { AlignY, alignYToAlignItems } from './alignment';
+import type { AlignY } from './alignment';
+import { alignYToAlignItems } from './alignment';
 
 type Gap = ResponsiveProp<keyof Omit<BrighteTheme['spacing'], 'none'>>;
 type ValidBoxProps = Omit<

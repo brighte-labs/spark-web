@@ -1,7 +1,8 @@
 import { Text } from '@spark-web/text';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { TextLinkButton, TextLinkButtonProps } from './TextLinkButton';
+import type { TextLinkButtonProps } from './TextLinkButton';
+import { TextLinkButton } from './TextLinkButton';
 
 export default {
   title: 'Forms / Buttons / TextLinkButton',

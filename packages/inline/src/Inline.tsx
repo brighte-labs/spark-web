@@ -1,11 +1,13 @@
-import { Box, BoxProps } from '@spark-web/box';
-import { ResponsiveProp } from '@spark-web/theme';
+import type { BoxProps } from '@spark-web/box';
+import { Box } from '@spark-web/box';
+import type { ResponsiveProp } from '@spark-web/theme';
 import { forwardRefWithAs } from '@spark-web/utils-ts';
 
-import {
+import type {
   Align,
+  AlignY } from './alignment';
+import {
   alignToJustifyContent,
-  AlignY,
   alignYToAlignItems,
 } from './alignment';
 

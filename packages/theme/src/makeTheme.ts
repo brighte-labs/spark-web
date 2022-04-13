@@ -5,7 +5,7 @@ import mapValues from 'lodash/mapValues';
 import { breakpoints } from './breakpoints';
 import { getLightVariant, isLight } from './colorUtils';
 import { makeThemeUtils } from './themeUtils';
-import {
+import type {
   BrighteTokens,
   ResponsiveTextDefinition,
   TextDefinition,

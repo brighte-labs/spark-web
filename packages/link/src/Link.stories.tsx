@@ -1,8 +1,9 @@
 import { Inline } from '@spark-web/inline';
 import { Text } from '@spark-web/text';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Link, LinkProps } from './Link';
+import type { LinkProps } from './Link';
+import { Link } from './Link';
 
 export default {
   title: 'Navigation / Link',

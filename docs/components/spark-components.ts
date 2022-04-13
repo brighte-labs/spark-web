@@ -20,6 +20,7 @@ export { Row } from '@spark-web/row';
 export { Select } from '@spark-web/select';
 export { Stack } from '@spark-web/stack';
 export { Strong, Text } from '@spark-web/text';
+export { TextArea } from '@spark-web/text-area';
 export { TextInput } from '@spark-web/text-input';
 export { TextLink, TextLinkButton } from '@spark-web/text-link';
 export { TextList } from '@spark-web/text-list';

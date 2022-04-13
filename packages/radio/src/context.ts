@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-import { useRadioGroupState } from './use-radio-group-state';
+import type { useRadioGroupState } from './use-radio-group-state';
 
 export type RadioGroupState = ReturnType<typeof useRadioGroupState>;
 

@@ -5,7 +5,8 @@ import { CheckCircleIcon, ExclamationCircleIcon } from '@spark-web/icon';
 import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
-import { buildDataAttributes, DataAttributeMap } from '@spark-web/utils-spark';
+import type { DataAttributeMap } from '@spark-web/utils-spark';
+import { buildDataAttributes } from '@spark-web/utils-spark';
 import type { FC, ReactElement, ReactNode } from 'react';
 import { forwardRef, Fragment } from 'react';
 

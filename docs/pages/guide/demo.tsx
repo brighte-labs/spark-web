@@ -14,7 +14,7 @@ import { TextInput } from '@spark-web/text-input';
 import { TextLink } from '@spark-web/text-link';
 import { TextList } from '@spark-web/text-list';
 import type { NextPage } from 'next';
-import { FormEvent } from 'react';
+import type { FormEvent } from 'react';
 
 import { DocsContent } from '../../components/content';
 

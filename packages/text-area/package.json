@@ -1,0 +1,24 @@
+{
+  "name": "@spark-web/text-area",
+  "license": "MIT",
+  "version": "0.0.0",
+  "main": "dist/spark-web-text-area.cjs.js",
+  "module": "dist/spark-web-text-area.esm.js",
+  "devDependencies": {
+    "@types/react": "^17.0.12"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.14.6",
+    "@emotion/css": "^11.7.1",
+    "@spark-web/box": "^0.0.0",
+    "@spark-web/field": "^0.0.0",
+    "@spark-web/text": "^0.0.0",
+    "@spark-web/text-input": "^0.0.0",
+    "@spark-web/theme": "^0.0.0",
+    "@spark-web/utils-spark": "^0.0.0",
+    "react": "^17.0.2"
+  },
+  "engines": {
+    "node": ">= 14.13"
+  }
+}

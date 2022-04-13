@@ -1,6 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Button, ButtonProps } from './Button';
+import type { ButtonProps } from './Button';
+import { Button } from './Button';
 
 export default {
   title: 'Forms / Buttons / Button',

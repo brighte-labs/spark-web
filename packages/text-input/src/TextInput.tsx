@@ -1,10 +1,12 @@
 import { css } from '@emotion/css';
 import { useFocusRing } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
-import { FieldContextType, useFieldContext } from '@spark-web/field';
+import type { FieldContextType } from '@spark-web/field';
+import { useFieldContext } from '@spark-web/field';
 import { useText } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
-import { buildDataAttributes, DataAttributeMap } from '@spark-web/utils-spark';
+import type { DataAttributeMap } from '@spark-web/utils-spark';
+import { buildDataAttributes } from '@spark-web/utils-spark';
 import type { AllHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 

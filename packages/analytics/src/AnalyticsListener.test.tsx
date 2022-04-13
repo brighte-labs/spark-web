@@ -1,7 +1,8 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { useEffect } from 'react';
 
-import { AnalyticsEventData, AnalyticsListener, useAnalytics } from '.';
+import type { AnalyticsEventData } from '.';
+import { AnalyticsListener, useAnalytics } from '.';
 
 const FiringButton = ({ data }: { data?: AnalyticsEventData }) => {
   const { trackEvent } = useAnalytics();

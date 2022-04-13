@@ -6,7 +6,8 @@ import { forwardRefWithAs } from '@spark-web/utils-ts';
 import type { ReactNode } from 'react';
 
 import { HeadingContext } from './context';
-import { useHeading, UseHeadingProps } from './useHeading';
+import type { UseHeadingProps } from './useHeading';
+import { useHeading } from './useHeading';
 
 const levelToDefaultElement = {
   '1': 'h1',

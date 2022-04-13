@@ -1,6 +1,6 @@
 import { createContext, useContext, useMemo } from 'react';
 
-import { UseTextProps } from './useText';
+import type { UseTextProps } from './useText';
 
 // TODO: remove "leading" prop
 

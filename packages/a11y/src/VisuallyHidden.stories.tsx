@@ -1,9 +1,10 @@
 import { ExclamationCircleIcon } from '@spark-web/icon';
 import { Inline } from '@spark-web/inline';
 import { Text } from '@spark-web/text';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { VisuallyHidden, VisuallyHiddenProps } from './VisuallyHidden';
+import type { VisuallyHiddenProps } from './VisuallyHidden';
+import { VisuallyHidden } from './VisuallyHidden';
 
 export default {
   title: 'Accessibility / VisuallyHidden',
