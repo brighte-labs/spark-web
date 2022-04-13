@@ -1,8 +1,8 @@
 import type { BoxProps, ResponsiveProp } from '@spark-web/core';
 import { Box, forwardRefWithAs } from '@spark-web/core';
 
-import type { Align, AlignY } from './alignment';
-import { alignToJustifyContent, alignYToAlignItems } from './alignment';
+import type { Align, AlignY } from './inline-alignment';
+import { alignToJustifyContent, alignYToAlignItems } from './inline-alignment';
 
 type ValidBoxProps = Omit<
   BoxProps,
