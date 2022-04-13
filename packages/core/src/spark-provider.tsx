@@ -1,12 +1,12 @@
 import { Global } from '@emotion/react';
 import type { ReactNode } from 'react';
 
-import { useFocusVisible } from './focus-ring';
-import { IdProvider } from './id-context';
+import { useFocusVisible } from './a11y/focus-ring';
+import { IdProvider } from './a11y/id-context';
 import type { LinkComponent } from './link-context';
 import { DefaultLinkComponent, LinkComponentContext } from './link-context';
-import type { BrighteTheme } from './make-theme';
-import { defaultTheme, ThemeProvider } from './theme-context';
+import type { BrighteTheme } from './theme/make-theme';
+import { defaultTheme, ThemeProvider } from './theme/theme-context';
 
 export type SparkProviderProps = {
   children: ReactNode;

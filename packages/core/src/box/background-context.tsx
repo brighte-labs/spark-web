@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import { createContext, useContext } from 'react';
 
-import { useTheme } from './theme-context';
+import { useTheme } from '../theme/theme-context';
 import type { BoxStyleProps } from './use-box-styles';
 
 export type BackgroundVariant =

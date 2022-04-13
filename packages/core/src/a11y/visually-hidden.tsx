@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import type { ReactNode } from 'react';
 
-import { forwardRefWithAs } from './forward-ref-with-as';
+import { forwardRefWithAs } from '../utils/forward-ref-with-as';
 
 export type VisuallyHiddenProps = {
   children?: ReactNode;

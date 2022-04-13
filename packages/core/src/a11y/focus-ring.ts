@@ -1,8 +1,8 @@
 import { rgba } from 'polished';
 import { useEffect } from 'react';
 
-import type { BrighteTheme } from './make-theme';
-import { useTheme } from './theme-context';
+import type { BrighteTheme } from '../theme/make-theme';
+import { useTheme } from '../theme/theme-context';
 
 const focusVisibleDataAttribute = 'data-brighte-focus-visible';
 

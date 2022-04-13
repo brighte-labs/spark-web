@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css';
 import type { ReactNode } from 'react';
 
-import { renderBackgroundProvider } from './background-context';
+import { renderBackgroundProvider } from './box/background-context';
 import { forwardRefWithAs } from './forward-ref-with-as';
 import { resetElementStyles } from './reset-element-styles';
 import { useBoxProps } from './use-box-props';
