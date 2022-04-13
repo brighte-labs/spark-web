@@ -1,7 +1,6 @@
 {
   "name": "@spark-web/text-link",
   "version": "0.0.0",
-  "private": true,
   "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/text-link",
   "license": "MIT",
   "main": "dist/spark-web-text-link.cjs.js",

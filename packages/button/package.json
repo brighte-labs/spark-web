@@ -1,7 +1,6 @@
 {
   "name": "@spark-web/button",
   "version": "0.0.0",
-  "private": true,
   "repository": "https://github.com/brighte-labs/spark-web/tree/main/packages/button",
   "license": "MIT",
   "main": "dist/spark-web-button.cjs.js",
