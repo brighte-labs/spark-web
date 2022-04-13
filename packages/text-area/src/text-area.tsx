@@ -1,8 +1,7 @@
 import { css } from '@emotion/css';
-import { Box } from '@spark-web/box';
+import type { DataAttributeMap } from '@spark-web/core';
+import { Box, buildDataAttributes } from '@spark-web/core';
 import { useFieldContext } from '@spark-web/field';
-import type { DataAttributeMap } from '@spark-web/utils-spark';
-import { buildDataAttributes } from '@spark-web/utils-spark';
 import type { TextareaHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 

@@ -1,11 +1,10 @@
 import { Button } from '@spark-web/button';
-import { Container } from '@spark-web/container';
 import { Box, Emoji } from '@spark-web/core';
 import { Field } from '@spark-web/field';
 import { Heading } from '@spark-web/heading';
 import { Hidden } from '@spark-web/hidden';
 import { CheckCircleIcon } from '@spark-web/icon';
-import { Columns, Inline , Stack } from '@spark-web/layout';
+import { Columns, Container, Inline, Stack } from '@spark-web/layout';
 import { Text } from '@spark-web/text';
 import { TextInput } from '@spark-web/text-input';
 import { TextLink } from '@spark-web/text-link';

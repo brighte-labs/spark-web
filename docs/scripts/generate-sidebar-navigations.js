@@ -57,9 +57,7 @@ const getAllPackages = (filePath = PACKAGE_PATH, limit = 0) => {
 
 const buildSidebarNavigations = () => {
   let navigations = [{ name: 'Home', href: '/' }];
-  const ignorePackages = [
-    'control-label',
-  ];
+  const ignorePackages = ['control-label'];
 
   for (const pkg of getAllPackages()) {
     if (ignorePackages.includes(pkg.name)) {

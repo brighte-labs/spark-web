@@ -1,6 +1,6 @@
 import { Divider } from '@spark-web/divider';
 import { InformationCircleIcon } from '@spark-web/icon';
-import { Inline , Stack } from '@spark-web/layout';
+import { Inline, Stack } from '@spark-web/layout';
 import { Text } from '@spark-web/text';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 

@@ -1,6 +1,6 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Placeholder } from '../../../docs/components/example-helpers';
+import { Placeholder } from '../../../../docs/components/example-helpers';
 import type { ColumnsProps } from './columns';
 import { Columns } from './columns';
 

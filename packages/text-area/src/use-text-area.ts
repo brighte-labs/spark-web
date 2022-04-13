@@ -1,6 +1,6 @@
+import { useTheme } from '@spark-web/core';
 import type { UseInputProps } from '@spark-web/text-input';
 import { useInput } from '@spark-web/text-input';
-import { useTheme } from '@spark-web/theme';
 
 export function useTextAreaStyles({ disabled, invalid }: UseInputProps) {
   const theme = useTheme();
