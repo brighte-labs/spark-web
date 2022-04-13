@@ -4,9 +4,9 @@ import { Inline, Stack } from '@spark-web/layout';
 import { Text } from '@spark-web/text';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Placeholder } from '../../../docs/components/example-helpers';
-import type { HiddenProps } from './Hidden';
-import { Hidden } from './Hidden';
+import { Placeholder } from '../../../../docs/components/example-helpers';
+import type { HiddenProps } from './hidden';
+import { Hidden } from './hidden';
 
 export default {
   title: 'Accessibility / Hidden',

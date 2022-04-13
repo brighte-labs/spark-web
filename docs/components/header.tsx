@@ -1,8 +1,7 @@
 import { css } from '@emotion/css';
 import { Box, useFocusRing, useTheme, VisuallyHidden } from '@spark-web/core';
-import { Hidden } from '@spark-web/hidden';
 import { MenuIcon, XIcon } from '@spark-web/icon';
-import { Container } from '@spark-web/layout';
+import { Container, Hidden } from '@spark-web/layout';
 import { Strong, Text } from '@spark-web/text';
 
 import { HEADER_HEIGHT, SIDEBAR_WIDTH } from './constants';

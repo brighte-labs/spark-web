@@ -1,8 +1,7 @@
 import { css } from '@emotion/css';
 import { Box, useTheme } from '@spark-web/core';
 import { Divider } from '@spark-web/divider';
-import { Hidden } from '@spark-web/hidden';
-import { Stack } from '@spark-web/layout';
+import { Hidden, Stack } from '@spark-web/layout';
 import type { LinkProps } from '@spark-web/link';
 import { Text, useText } from '@spark-web/text';
 import { DefaultSeo } from 'next-seo';
