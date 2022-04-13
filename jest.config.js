@@ -1,8 +1,14 @@
 /** @type {import('@jest/types').Config.InitialOptions} */
 const config = {
+  displayName: 'spark-web',
+  testEnvironment: 'jsdom',
+  clearMocks: true,
   verbose: true,
-  projects: ['<rootDir>/packages'],
-  collectCoverageFrom: ['!**/dist/**', '!**/index.ts', '!**/*.{json,js}'],
+  collectCoverageFrom: [
+    '**/packages/**/*.{ts,tsx}',
+    '!**/dist/**',
+    '!**/{*.stories.tsx,index.ts,types.ts}',
+  ],
 };
 
 module.exports = config;
