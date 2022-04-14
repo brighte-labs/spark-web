@@ -35,17 +35,6 @@ The font-size is inherited from the parent [Text](/package/text) component.
 This component renders a native anchor element by default, which can be
 customised via the `linkComponent` prop on the [SparkProvider](#todo) component.
 
-#### Subtle
-
-The colour is inherited from the parent [Text](/package/text) component.
-
-```jsx live
-<Text size="small">
-  A <TextLink href="#">subtle text link</TextLink> that doesn't stand out from
-  the text around it
-</Text>
-```
-
 ### Props
 
 | Prop  | Type                                   | Default | Description                             |
