@@ -41,21 +41,17 @@ The colour is inherited from the parent [Text](/package/text) component.
 
 ```jsx live
 <Text size="small">
-  A{' '}
-  <TextLink isSubtle href="#">
-    subtle text link
-  </TextLink>{' '}
-  that doesn't stand out from the text around it
+  A <TextLink href="#">subtle text link</TextLink> that doesn't stand out from
+  the text around it
 </Text>
 ```
 
 ### Props
 
-| Prop      | Type                                   | Default | Description                              |
-| --------- | -------------------------------------- | ------- | ---------------------------------------- |
-| data?     | [DataAttributeMap][data-attribute-map] |         | Sets data attributes on the component.   |
-| isSubtle? | boolean                                |         | Applies subtle styling to the component. |
-| href      | string                                 |         | URL to set as destination for the link.  |
+| Prop  | Type                                   | Default | Description                             |
+| ----- | -------------------------------------- | ------- | --------------------------------------- |
+| data? | [DataAttributeMap][data-attribute-map] |         | Sets data attributes on the component.  |
+| href  | string                                 |         | URL to set as destination for the link. |
 
 The `TextLink` component also extends native HTML `a` anchor props and are not
 listed here.
