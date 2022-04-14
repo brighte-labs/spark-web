@@ -1,15 +1,9 @@
 import { css } from '@emotion/css';
 import { useComposedRefs } from '@spark-web/utils';
-import type { DataAttributeMap } from '@spark-web/utils-spark';
-import { buildDataAttributes } from '@spark-web/utils-spark';
-import type {
-  HTMLAttributes,
-  KeyboardEvent } from 'react';
-import {
-  forwardRef,
-  useCallback,
-  useRef,
-} from 'react';
+import type { DataAttributeMap } from '@spark-web/utils';
+import { buildDataAttributes } from '@spark-web/utils';
+import type { HTMLAttributes, KeyboardEvent } from 'react';
+import { forwardRef, useCallback, useRef } from 'react';
 
 import { useTextLink } from './useTextLink';
 

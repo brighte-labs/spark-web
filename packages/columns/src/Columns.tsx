@@ -4,11 +4,10 @@ import { Box } from '@spark-web/box';
 import type {
   BrighteTheme,
   ResponsiveProp,
-  ResponsiveRangeProps } from '@spark-web/theme';
-import {
-  useTheme,
+  ResponsiveRangeProps,
 } from '@spark-web/theme';
-import { forwardRefWithAs } from '@spark-web/utils-ts';
+import { useTheme } from '@spark-web/theme';
+import { forwardRefWithAs } from '@spark-web/utils';
 import type { ReactNode } from 'react';
 import { Children } from 'react';
 

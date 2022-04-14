@@ -4,7 +4,7 @@ import { useLinkComponent } from '@spark-web/core';
 import { Hidden } from '@spark-web/hidden';
 import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
-import { forwardRefWithAs } from '@spark-web/utils-ts';
+import { forwardRefWithAs } from '@spark-web/utils';
 import { useRouter } from 'next/router';
 import { createContext, useContext, useEffect, useState } from 'react';
 

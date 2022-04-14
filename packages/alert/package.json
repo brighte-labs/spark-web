@@ -15,7 +15,7 @@
     "@spark-web/stack": "^0.0.0",
     "@spark-web/text": "^0.0.0",
     "@spark-web/text-list": "^0.0.0",
-    "@spark-web/utils-spark": "^0.0.0",
+    "@spark-web/utils": "^0.0.0",
     "react": "^17.0.2"
   },
   "engines": {

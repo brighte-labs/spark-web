@@ -61,8 +61,6 @@ const buildSidebarNavigations = () => {
     'control-label',
     'core',
     'theme',
-    'utils-spark',
-    'utils-ts',
     'utils',
   ];
 

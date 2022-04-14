@@ -2,17 +2,12 @@ import type { BoxProps } from '@spark-web/box';
 import { Box } from '@spark-web/box';
 import { Divider } from '@spark-web/divider';
 import type { ResponsiveProp } from '@spark-web/theme';
-import { forwardRefWithAs } from '@spark-web/utils-ts';
+import { forwardRefWithAs } from '@spark-web/utils';
 import type { ReactElement } from 'react';
 import { Children, Fragment } from 'react';
 
-import type {
-  Align,
-  AlignY } from './alignment';
-import {
-  alignToJustifyContent,
-  alignYToAlignItems,
-} from './alignment';
+import type { Align, AlignY } from './alignment';
+import { alignToJustifyContent, alignYToAlignItems } from './alignment';
 
 type ValidBoxProps = Omit<
   BoxProps,

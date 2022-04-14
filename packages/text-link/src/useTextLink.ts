@@ -1,7 +1,7 @@
 import { useFocusRing } from '@spark-web/a11y';
 import { useForegroundTone, useTextContext } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
-import { resetElementStyles } from '@spark-web/utils-spark';
+import { resetElementStyles } from '@spark-web/utils';
 
 type UseTextLinkProps = {
   isSubtle?: boolean;
