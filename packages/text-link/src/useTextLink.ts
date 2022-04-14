@@ -6,16 +6,15 @@ export const TEXT_LINK_ERROR_MESSAGE =
   'TextLink components must be inside `Text`.';
 
 export function useTextLink(tag: 'a' | 'span') {
-  const inText = useTextContext();
+  const textContext = useTextContext();
 
   // Limit API surface area; expect style inheritance
-  if (!inText) {
+  if (!textContext) {
     throw new Error(TEXT_LINK_ERROR_MESSAGE);
   }
 
   const { typography } = useTheme();
-  const { tone } = useTextContext() || { tone: 'temporary-dark' };
-  const textColor = useForegroundTone(tone);
+  const textColor = useForegroundTone(textContext.tone);
 
   const resetStyles = resetElementStyles(tag);
   const linkStyles = {

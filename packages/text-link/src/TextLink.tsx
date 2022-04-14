@@ -10,7 +10,6 @@ import { useTextLink } from './useTextLink';
 
 export type TextLinkProps = {
   data?: DataAttributeMap;
-  isSubtle?: boolean;
 } & LinkComponentProps;
 
 /**
