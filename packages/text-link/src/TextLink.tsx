@@ -22,9 +22,9 @@ export type TextLinkProps = {
 export const TextLink = forwardRefWithAs<'a', TextLinkProps>(
   // NOTE: we need `forwardRefWithAs` for TS, but we don't want consumers changing the underlying element
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ({ as: UNUSED_AS_PROP, data, isSubtle, ...consumerProps }, ref) => {
+  ({ as: UNUSED_AS_PROP, data, ...consumerProps }, ref) => {
     const LinkComponent = useLinkComponent(ref);
-    const styles = useTextLink('a', { isSubtle });
+    const styles = useTextLink('a');
 
     return (
       <Box

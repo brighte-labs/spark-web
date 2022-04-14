@@ -54,3 +54,5 @@ export const TextLinkButton = forwardRef<HTMLSpanElement, TextLinkButtonProps>(
     );
   }
 );
+
+TextLinkButton.displayName = 'TextLinkButton';
