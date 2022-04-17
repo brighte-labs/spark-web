@@ -3,10 +3,9 @@ import type {
   ElementType,
   ReactElement,
   ReactNode,
-  Ref } from 'react';
-import {
-  forwardRef
+  Ref,
 } from 'react';
+import { forwardRef } from 'react';
 
 type ElementTagNameMap = HTMLElementTagNameMap &
   Pick<

@@ -4,10 +4,9 @@ import { useContext } from 'react';
 import type {
   AnalyticsEventData,
   AnalyticsEventHandler,
-  AnalyticsEventName } from './AnalyticsListenerContext';
-import {
-  AnalyticsListenerContext,
+  AnalyticsEventName,
 } from './AnalyticsListenerContext';
+import { AnalyticsListenerContext } from './AnalyticsListenerContext';
 
 export type AnalyticsListenerProps = {
   children: ReactNode;

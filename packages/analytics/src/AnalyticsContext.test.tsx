@@ -1,13 +1,8 @@
 import { cleanup, render } from '@testing-library/react';
 import { useEffect } from 'react';
 
-import type {
-  AnalyticsEventData } from '.';
-import {
-  AnalyticsContext,
-  AnalyticsListener,
-  useAnalytics,
-} from '.';
+import type { AnalyticsEventData } from '.';
+import { AnalyticsContext, AnalyticsListener, useAnalytics } from '.';
 
 const FiringComponent = ({ data }: { data?: AnalyticsEventData }) => {
   const { trackEvent } = useAnalytics();

@@ -7,11 +7,8 @@ import { useMemo } from 'react';
 
 import { TextContext, useTextContext } from './context';
 import { useDefaultTextProps } from './defaultTextProps';
-import type {
-  TextOverflowStrategy } from './useOverflowStrategy';
-import {
-  useOverflowStrategy,
-} from './useOverflowStrategy';
+import type { TextOverflowStrategy } from './useOverflowStrategy';
+import { useOverflowStrategy } from './useOverflowStrategy';
 import type { UseTextProps } from './useText';
 import { useText } from './useText';
 

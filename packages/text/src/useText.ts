@@ -1,9 +1,5 @@
-import type {
-  BrighteTextDefinition,
-  BrighteTheme } from '@spark-web/theme';
-import {
-  useTheme,
-} from '@spark-web/theme';
+import type { BrighteTextDefinition, BrighteTheme } from '@spark-web/theme';
+import { useTheme } from '@spark-web/theme';
 
 import type { ForegroundTone } from './useForegroundTone';
 import { useForegroundTone } from './useForegroundTone';

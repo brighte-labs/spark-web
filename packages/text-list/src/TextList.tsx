@@ -3,8 +3,7 @@ import { Box } from '@spark-web/box';
 import type { IconProps } from '@spark-web/icon';
 import type { StackProps } from '@spark-web/stack';
 import { Stack } from '@spark-web/stack';
-import type {
-  TextProps } from '@spark-web/text';
+import type { TextProps } from '@spark-web/text';
 import {
   DefaultTextPropsProvider,
   Text,

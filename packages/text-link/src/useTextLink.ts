@@ -18,11 +18,11 @@ export function useTextLink(tag: 'a' | 'span') {
 
   const resetStyles = resetElementStyles(tag);
   const linkStyles = {
-        color: textColor,
-        cursor: 'pointer',
-        textDecoration: 'underline',
-        fontWeight: typography.fontWeight.medium,
-      };
+    color: textColor,
+    cursor: 'pointer',
+    textDecoration: 'underline',
+    fontWeight: typography.fontWeight.medium,
+  };
 
   const styles = [resetStyles, linkStyles];
 

@@ -4,12 +4,8 @@ import type { BrighteTheme } from '@spark-web/theme';
 import { defaultTheme, ThemeProvider } from '@spark-web/theme';
 import type { ReactNode } from 'react';
 
-import type {
-  LinkComponent } from './linkContext';
-import {
-  DefaultLinkComponent,
-  LinkComponentContext,
-} from './linkContext';
+import type { LinkComponent } from './linkContext';
+import { DefaultLinkComponent, LinkComponentContext } from './linkContext';
 
 export type SparkProviderProps = {
   children: ReactNode;

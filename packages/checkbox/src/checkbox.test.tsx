@@ -1,7 +1,9 @@
 import '@testing-library/jest-dom';
-import { cleanup, render, screen } from '@testing-library/react';
-import { Checkbox } from './checkbox';
+
 import { useFieldIds } from '@spark-web/field';
+import { cleanup, render, screen } from '@testing-library/react';
+
+import { Checkbox } from './checkbox';
 
 jest.mock('@spark-web/field', () => {
   const original = jest.requireActual('@spark-web/field');

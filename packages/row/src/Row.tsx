@@ -6,13 +6,8 @@ import { forwardRefWithAs } from '@spark-web/utils-ts';
 import type { ReactElement } from 'react';
 import { Children, Fragment } from 'react';
 
-import type {
-  Align,
-  AlignY } from './alignment';
-import {
-  alignToJustifyContent,
-  alignYToAlignItems,
-} from './alignment';
+import type { Align, AlignY } from './alignment';
+import { alignToJustifyContent, alignYToAlignItems } from './alignment';
 
 type ValidBoxProps = Omit<
   BoxProps,
