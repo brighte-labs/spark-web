@@ -12,7 +12,7 @@ export default {
   component: Radio,
 } as ComponentMeta<typeof Radio>;
 
-const RadioStory: ComponentStory<typeof Radio> = args => (
+const RadioStory: ComponentStory<typeof Radio> = () => (
   <Stack gap="large">
     <Inline gap="xsmall" alignY="center">
       <InformationCircleIcon tone="info" size="xsmall" />
