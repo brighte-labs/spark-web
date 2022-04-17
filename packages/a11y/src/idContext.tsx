@@ -19,7 +19,7 @@ const defaultIdContext: IdContextValue = {
 const IdContext = React.createContext<IdContextValue>(defaultIdContext);
 
 /** Provide stable IDs in server rendered environments. */
-export const IdProvider: React.FC = props => {
+export function IdProvider({ children }: { children: React.ReactNode }) {
   const currentContext = React.useContext(IdContext);
   const isRootIdProvider = currentContext === defaultIdContext;
   const context: IdContextValue = React.useMemo(
@@ -30,8 +30,8 @@ export const IdProvider: React.FC = props => {
     [isRootIdProvider, currentContext]
   );
 
-  return <IdContext.Provider value={context} {...props} />;
-};
+  return <IdContext.Provider value={context}>{children}</IdContext.Provider>;
+}
 
 // Utils
 // ------------------------------
