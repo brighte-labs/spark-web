@@ -151,7 +151,7 @@ export function makeBrighteTheme(tokens: BrighteTokens) {
         return isLight(background) ? 'light' : 'dark';
       }
     ),
-    utils: makeThemeUtils(decoratedTokens),
+    utils: makeThemeUtils(),
   };
 }
 
