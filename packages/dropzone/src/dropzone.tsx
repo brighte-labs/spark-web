@@ -122,7 +122,7 @@ export const Dropzone = React.forwardRef<HTMLInputElement, DropzoneProps>(
     React.useEffect(() => {
       onChange?.({ target: { value: files, name }, type: 'change' } as any);
       onBlur?.({ target: { value: files, name }, type: 'blur' } as any);
-    }, [files]);
+    }, [files, name, onBlur, onChange]);
 
     React.useEffect(() => {
       if (!fileRejections.length) {
@@ -171,7 +171,7 @@ export const Dropzone = React.forwardRef<HTMLInputElement, DropzoneProps>(
       }
 
       setFileError(errorMessage);
-    }, [fileRejections]);
+    }, [accept, fileRejections, maxFileSizeKb, maxFiles, minFileSizeKb]);
 
     const isInvalid = invalid || isDragReject;
     const theme = useTheme();
