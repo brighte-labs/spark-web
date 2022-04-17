@@ -142,6 +142,7 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(
     );
   }
 );
+Field.displayName = 'Field';
 
 // Utils
 // ------------------------------

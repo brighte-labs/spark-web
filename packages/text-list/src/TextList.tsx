@@ -110,6 +110,7 @@ export const TextList = forwardRef<ListElement, TextListProps>(
     );
   }
 );
+TextList.displayName = 'TextList';
 
 // Styled components
 // ------------------------------
