@@ -6,7 +6,6 @@ import omit from 'lodash/omit';
 import type { Breakpoint } from './breakpoints';
 import { breakpointNames, breakpoints } from './breakpoints';
 
-type RequiredTokens = { breakpoint: Record<Breakpoint, number> };
 type ResponsiveObject<T> = Partial<Record<Breakpoint, T>>;
 
 export type ResponsiveProp<T> = T | ResponsiveObject<T>;
@@ -16,7 +15,7 @@ export type ResponsiveProp<T> = T | ResponsiveObject<T>;
  * [facepaint](https://github.com/emotion-js/facepaint) ultimately generates
  * media queries for the resolved styles.
  */
-export const makeThemeUtils = ({ breakpoint }: RequiredTokens) => {
+export const makeThemeUtils = () => {
   // NOTE: the `mobile` key is used to represent "below tablet" in certain
   // cases, but it SHOULD NOT create a media query: facepaint will apply the
   // first property in the array without a query.
