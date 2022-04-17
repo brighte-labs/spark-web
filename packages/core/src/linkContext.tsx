@@ -2,9 +2,9 @@ import assert from 'assert';
 import dedent from 'dedent';
 import type {
   AnchorHTMLAttributes,
-  ComponentType,
   ForwardRefRenderFunction,
   Ref,
+  VFC,
 } from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 
@@ -19,7 +19,7 @@ export const makeLinkComponent = (
 
 export type LinkComponent =
   | ReturnType<typeof makeLinkComponent>
-  | ComponentType<LinkComponentProps>;
+  | VFC<LinkComponentProps>;
 
 export const DefaultLinkComponent = makeLinkComponent((props, ref) => (
   <a ref={ref} {...props} />
