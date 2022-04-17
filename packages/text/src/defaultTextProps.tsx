@@ -2,8 +2,6 @@ import { createContext, useContext, useMemo } from 'react';
 
 import type { UseTextProps } from './useText';
 
-// TODO: remove "leading" prop
-
 type DefaultTextProps = {
   size?: NonNullable<UseTextProps['size']>;
   tone?: NonNullable<UseTextProps['tone']>;
