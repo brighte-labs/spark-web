@@ -60,6 +60,7 @@ module.exports = {
     'react/jsx-wrap-multilines': WARN,
     'react/no-did-mount-set-state': WARN,
     'react/no-did-update-set-state': WARN,
+    'react/no-unescaped-entities': OFF,
     'react/no-unknown-property': WARN,
     'react/react-in-jsx-scope': OFF,
     'react/self-closing-comp': WARN,
