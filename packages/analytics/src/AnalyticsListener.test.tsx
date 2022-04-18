@@ -17,6 +17,8 @@ const FiringComponent = ({ data }: { data?: AnalyticsEventData }) => {
   const { trackEvent } = useAnalytics();
   useEffect(() => {
     trackEvent('component-mounted', data);
+    // We only want this to fire on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return null;

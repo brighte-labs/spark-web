@@ -1,4 +1,5 @@
 import { renderStatic } from '@spark-web/ssr';
+// eslint-disable-next-line @next/next/no-document-import-in-page
 import type { DocumentInitialProps } from 'next/document';
 
 export async function propsWithCssText(

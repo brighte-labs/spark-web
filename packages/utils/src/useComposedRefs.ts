@@ -38,9 +38,12 @@ export function assignRef<RefValueType = any>(
 export function useComposedRefs<RefValueType = any>(
   ...refs: (AssignableRef<RefValueType> | null | undefined)[]
 ) {
-  return useCallback((node: any) => {
-    for (const ref of refs) {
-      assignRef(ref, node);
-    }
-  }, refs);
+  return useCallback(
+    (node: any) => {
+      for (const ref of refs) {
+        assignRef(ref, node);
+      }
+    },
+    [refs]
+  );
 }

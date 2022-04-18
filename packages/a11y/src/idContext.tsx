@@ -51,7 +51,7 @@ export function useId(deterministicId?: string): string {
   return React.useMemo(
     () =>
       deterministicId || `brighte-id-${context.prefix}-${++context.current}`,
-    [deterministicId]
+    [context, deterministicId]
   );
 }
 

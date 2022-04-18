@@ -17,12 +17,15 @@ export type IconProps = {
 
 export const createIcon = (children: ReactNode, name: string) => {
   const Icon = ({ size: sizeKey = 'small', tone = 'neutral' }: IconProps) => {
-    const { sizing, utils } = useTheme();
+    const {
+      sizing,
+      utils: { resolveResponsiveProps },
+    } = useTheme();
     const stroke = useForegroundTone(tone);
     const size = sizing[sizeKey];
     const styles = useMemo(
       () =>
-        utils.resolveResponsiveProps({
+        resolveResponsiveProps({
           fill: 'none',
           height: size,
           stroke,
@@ -32,7 +35,7 @@ export const createIcon = (children: ReactNode, name: string) => {
           verticalAlign: 'text-bottom', // removes whitespace inside buttons
           width: size,
         }),
-      [size, stroke]
+      [resolveResponsiveProps, size, stroke]
     );
 
     return (
