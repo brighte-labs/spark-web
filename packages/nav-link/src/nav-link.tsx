@@ -15,47 +15,79 @@ type NavLinkChildren =
 
 export type NavLinkProps = Pick<HTMLAnchorElement, 'href'> & {
   children: NavLinkChildren;
-  isCurrent?: boolean;
+  inline?: boolean;
+  isSelected?: boolean;
+  size?: 'medium' | 'large';
 };
 
 export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
-  ({ children, href, isCurrent }, forwardedRef) => {
+  (
+    { children, href, inline, isSelected = false, size = 'medium' },
+    forwardedRef
+  ) => {
     const linkComponent = useLinkComponent(forwardedRef);
-    const styles = useNavLinkStyles();
+    const styles = useNavLinkStyles(isSelected);
 
     return (
       <Box
         as={linkComponent}
         asElement="a"
         href={href}
-        aria-current={isCurrent ? 'page' : undefined}
+        aria-current={isSelected ? 'page' : undefined}
         // styles
-        background={isCurrent ? 'primaryMuted' : undefined}
-        display="inline-flex"
+        background={isSelected ? 'primaryMuted' : undefined}
+        display={inline ? 'inline-flex' : 'flex'}
         alignItems="center"
         gap="small"
-        paddingY={{ mobile: 'large', tablet: 'medium' }}
-        paddingX={{ mobile: 'xlarge', tablet: 'large' }}
+        paddingY="small"
+        paddingX="medium"
         borderRadius={{ tablet: 'small' }}
         className={css(styles)}
       >
-        {resolveNavLinkChildren({ children })}
+        {resolveNavLinkChildren({ children, isSelected, size })}
       </Box>
     );
   }
 );
 NavLink.displayName = 'NavLink';
 
-function useNavLinkStyles() {
+export function useNavLinkStyles(isSelected: boolean) {
   const theme = useTheme();
+
   return {
     ':hover': {
-      backgroundColor: theme.color.background.surfaceMuted,
+      backgroundColor: isSelected
+        ? theme.backgroundInteractions.primaryLowHover
+        : theme.color.background.surfaceMuted,
+
+      '> *': {
+        color: isSelected ? theme.color.foreground.primaryHover : undefined,
+        stroke: isSelected ? theme.color.foreground.primaryHover : undefined,
+      },
+    },
+
+    ':active': {
+      backgroundColor: isSelected
+        ? theme.backgroundInteractions.positiveLowActive
+        : theme.color.background.surfacePressed,
+
+      '> *': {
+        color: isSelected ? theme.color.foreground.primaryActive : undefined,
+        stroke: isSelected ? theme.color.foreground.primaryActive : undefined,
+      },
     },
   } as const;
 }
 
-function resolveNavLinkChildren({ children }: { children: NavLinkChildren }) {
+export function resolveNavLinkChildren({
+  children,
+  isSelected,
+  size,
+}: {
+  children: NavLinkProps['children'];
+  isSelected: NonNullable<NavLinkProps['isSelected']>;
+  size: NonNullable<NavLinkProps['size']>;
+}) {
   return Children.map(children, child => {
     if (typeof child === 'string') {
       return (
@@ -63,9 +95,9 @@ function resolveNavLinkChildren({ children }: { children: NavLinkChildren }) {
           as="span"
           baseline={false}
           overflowStrategy="nowrap"
-          weight="strong"
-          // size={mapTokens.fontSize[size]}
-          // tone={variant?.textTone}
+          weight="medium"
+          size={mapTextSize[size]}
+          tone={isSelected ? 'primaryActive' : 'muted'}
         >
           {child}
         </Text>
@@ -74,10 +106,16 @@ function resolveNavLinkChildren({ children }: { children: NavLinkChildren }) {
 
     if (isValidElement(child)) {
       return cloneElement(child, {
-        size: child.props.size === 'xxsmall' ? child.props.size : 'xsmall',
+        size: 'xxsmall',
+        tone: isSelected ? 'primaryActive' : 'muted',
       });
     }
 
     return null;
   });
 }
+
+const mapTextSize = {
+  medium: 'small',
+  large: 'standard',
+} as const;
