@@ -15,7 +15,7 @@ type Option = {
   value: string | number;
 };
 type Group = { options: Array<Option>; label: string };
-type OptionsOrGroups = Array<Option | Group>;
+export type OptionsOrGroups = Array<Option | Group>;
 
 export type SelectProps = Pick<
   React.SelectHTMLAttributes<HTMLSelectElement>,
