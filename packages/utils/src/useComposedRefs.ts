@@ -38,12 +38,12 @@ export function assignRef<RefValueType = any>(
 export function useComposedRefs<RefValueType = any>(
   ...refs: (AssignableRef<RefValueType> | null | undefined)[]
 ) {
-  return useCallback(
-    (node: any) => {
-      for (const ref of refs) {
-        assignRef(ref, node);
-      }
-    },
-    [refs]
-  );
+  return useCallback((node: any) => {
+    for (const ref of refs) {
+      assignRef(ref, node);
+    }
+    // `refs` is already an array. If we do what ESLint wants us to do, then the
+    // useCallback will fire on every render (not just when the dependencies change).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, refs);
 }
