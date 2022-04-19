@@ -10,6 +10,7 @@ export { Container } from '@spark-web/container';
 export { Divider } from '@spark-web/divider';
 export { Dropzone } from '@spark-web/dropzone';
 export { Field } from '@spark-web/field';
+export { Fieldset } from '@spark-web/fieldset';
 export { Heading } from '@spark-web/heading';
 export { Hidden } from '@spark-web/hidden';
 export * from '@spark-web/icon';

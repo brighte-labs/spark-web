@@ -32,6 +32,7 @@
     "@spark-web/divider": "0.0.0",
     "@spark-web/dropzone": "0.0.0",
     "@spark-web/field": "0.0.0",
+    "@spark-web/fieldset": "0.0.0",
     "@spark-web/heading": "0.0.0",
     "@spark-web/hidden": "0.0.0",
     "@spark-web/icon": "0.0.0",

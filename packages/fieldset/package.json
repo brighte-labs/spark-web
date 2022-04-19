@@ -1,0 +1,21 @@
+{
+  "name": "@spark-web/fieldset",
+  "license": "MIT",
+  "version": "0.0.0",
+  "main": "dist/spark-web-fieldset.cjs.js",
+  "module": "dist/spark-web-fieldset.esm.js",
+  "devDependencies": {
+    "@types/react": "^17.0.12"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.14.6",
+    "@emotion/css": "^11.7.1",
+    "@spark-web/box": "^0.0.0",
+    "@spark-web/text": "^0.0.0",
+    "@spark-web/theme": "^0.0.0",
+    "react": "^17.0.2"
+  },
+  "engines": {
+    "node": ">= 14.13"
+  }
+}
