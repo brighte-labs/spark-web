@@ -267,7 +267,7 @@ export const defaultTokens = {
       body: '#f3f4f6',
       surface: surface,
       surfaceMuted: '#f3f4f6',
-      surfacePressed: '#f9fafb',
+      surfacePressed: colors.neutral[300],
 
       fieldAccent: text,
       input: surface,
