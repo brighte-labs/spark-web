@@ -16,6 +16,7 @@ export { Hidden } from '@spark-web/hidden';
 export * from '@spark-web/icon';
 export { Inline } from '@spark-web/inline';
 export { ContentDialog } from '@spark-web/modal-dialog';
+export { NavLink } from '@spark-web/nav-link';
 export { Radio, RadioGroup, RadioPrimitive } from '@spark-web/radio';
 export { Row } from '@spark-web/row';
 export { Select } from '@spark-web/select';

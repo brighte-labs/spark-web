@@ -39,6 +39,7 @@
     "@spark-web/inline": "0.0.0",
     "@spark-web/link": "0.0.0",
     "@spark-web/modal-dialog": "0.0.0",
+    "@spark-web/nav-link": "0.0.0",
     "@spark-web/next-utils": "0.0.0",
     "@spark-web/radio": "0.0.0",
     "@spark-web/row": "0.0.0",
