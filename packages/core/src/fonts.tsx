@@ -17,7 +17,7 @@ export function InterStylesheet(): JSX.Element {
     // eslint-disable-next-line @next/next/no-page-custom-font
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,700;1,400&display=swap"
     />
   );
 }
