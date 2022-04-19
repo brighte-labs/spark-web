@@ -1,7 +1,7 @@
 import type { CSSObject } from '@emotion/css';
 import { css } from '@emotion/css';
-import { useFocusRing } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
+import { Button, ButtonLink } from '@spark-web/button';
 import { ClipboardIcon, PlayIcon } from '@spark-web/icon';
 import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
@@ -55,26 +55,6 @@ function Controls({
             .join('\n    ')}\n  }}\n</Render>`,
   });
 
-  const focusRingStyles = useFocusRing({ always: true });
-  const theme = useTheme();
-  const getLinkOrButtonStyles = () => ({
-    display: 'flex',
-    alignItems: 'center',
-    borderRadius: theme.border.radius.full,
-    cursor: 'pointer',
-    gap: theme.spacing.xsmall,
-    paddingTop: theme.spacing.small,
-    paddingBottom: theme.spacing.small,
-    paddingLeft: theme.spacing.large,
-    paddingRight: theme.spacing.large,
-    ':focus, :hover': {
-      backgroundColor: theme.color.background.surfaceMuted,
-    },
-    ':focus': focusRingStyles,
-    ':active': {
-      backgroundColor: theme.color.background.surfacePressed,
-    },
-  });
   return (
     <Stack dividers>
       <Box
@@ -90,29 +70,14 @@ function Controls({
           gap="small"
           className={css({ marginLeft: 'auto' })}
         >
-          {/* TODO: use `Button` component in the future when styles match */}
-          <Box
-            as="a"
-            href={playroomUrl}
-            rel="noopener noreferrer"
-            className={css(getLinkOrButtonStyles())}
-          >
-            <PlayIcon size="xsmall" tone="muted" />
-            <Text as="span" tone="muted" weight="medium">
-              Open in Playroom
-            </Text>
-          </Box>
-          <Box
-            as="button"
-            type="button"
-            className={css(getLinkOrButtonStyles())}
-            onClick={() => copy(code)}
-          >
-            <ClipboardIcon size="xsmall" tone="muted" />
-            <Text as="span" tone="muted" weight="medium">
-              Copy Code
-            </Text>
-          </Box>
+          <ButtonLink tone="neutral" prominence="none" href={playroomUrl}>
+            <PlayIcon />
+            Open in Playroom
+          </ButtonLink>
+          <Button tone="neutral" prominence="none" onClick={() => copy(code)}>
+            <ClipboardIcon />
+            Copy Code
+          </Button>
         </Box>
       </Box>
     </Stack>
