@@ -283,7 +283,7 @@ export const defaultTokens = {
 
       primary: colors.primary[600],
       primaryLow: colors.primary[100],
-      primaryMuted: '#f0fff1',
+      primaryMuted: colors.primary[200],
 
       secondary: colors.secondary[600],
       // TODO: using yellow instead of secondary
