@@ -1,10 +1,9 @@
 import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
-import { useLinkComponent } from '@spark-web/core';
 import { Hidden } from '@spark-web/hidden';
-import { Text } from '@spark-web/text';
+import { NavLink } from '@spark-web/nav-link';
+import { Stack } from '@spark-web/stack';
 import { useTheme } from '@spark-web/theme';
-import { forwardRefWithAs } from '@spark-web/utils-ts';
 import { useRouter } from 'next/router';
 import { createContext, useContext, useEffect, useState } from 'react';
 
@@ -52,65 +51,20 @@ export const Sidebar = ({ items }: { items: SidebarNavItemType[] }) => {
         className={css(fixedScrollableArea)}
       >
         <nav aria-label="Page navigation">
-          <Box as="ul">
-            {items.map(({ href, name }) => {
-              const isCurrent = href === asPath;
-              return (
-                <NavItem
-                  href={href}
-                  key={name}
-                  name={name}
-                  isCurrent={isCurrent}
-                />
-              );
-            })}
-          </Box>
+          <Stack as="ul" gap="small">
+            {items.map(({ href, name }) => (
+              <Box key={name} as="li">
+                <NavLink href={href} isSelected={href === asPath}>
+                  {name}
+                </NavLink>
+              </Box>
+            ))}
+          </Stack>
         </nav>
       </Box>
     </Hidden>
   );
 };
-
-type NavItemProps = SidebarNavItemType & {
-  isCurrent: boolean;
-};
-const NavItem = forwardRefWithAs<'a', NavItemProps>(
-  ({ name, href, isCurrent }, ref) => {
-    const { color } = useTheme();
-    const linkComponent = useLinkComponent(ref);
-    const anchorStyles = css({
-      ':hover': {
-        backgroundColor: color.background.surfaceMuted,
-      },
-    });
-
-    return (
-      <Box as="li">
-        <Box
-          as={linkComponent}
-          asElement="a"
-          aria-current={isCurrent ? 'page' : undefined}
-          href={href}
-          // styles
-          background={isCurrent ? 'primaryMuted' : undefined}
-          display="block"
-          paddingY={{ mobile: 'large', tablet: 'medium' }}
-          paddingX={{ mobile: 'xlarge', tablet: 'large' }}
-          borderRadius={{ tablet: 'small' }}
-          className={anchorStyles}
-        >
-          <Text
-            as="span"
-            weight="medium"
-            tone={isCurrent ? 'primary' : 'muted'}
-          >
-            {name}
-          </Text>
-        </Box>
-      </Box>
-    );
-  }
-);
 
 // Context
 
