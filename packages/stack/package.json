@@ -1,7 +1,7 @@
 {
   "name": "@spark-web/stack",
   "license": "MIT",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "dist/spark-web-stack.cjs.js",
   "module": "dist/spark-web-stack.esm.js",
   "devDependencies": {
@@ -10,10 +10,10 @@
   "dependencies": {
     "@babel/runtime": "^7.14.6",
     "@emotion/css": "^11.7.1",
-    "@spark-web/box": "^0.0.0",
-    "@spark-web/divider": "^0.0.0",
-    "@spark-web/theme": "^0.0.0",
-    "@spark-web/utils": "^0.0.0",
+    "@spark-web/box": "^1.0.0",
+    "@spark-web/divider": "^1.0.0",
+    "@spark-web/theme": "^1.0.0",
+    "@spark-web/utils": "^1.0.0",
     "react": "^17.0.2"
   },
   "engines": {

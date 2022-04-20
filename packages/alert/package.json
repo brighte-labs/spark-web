@@ -1,7 +1,7 @@
 {
   "name": "@spark-web/alert",
   "license": "MIT",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "dist/spark-web-alert.cjs.js",
   "module": "dist/spark-web-alert.esm.js",
   "devDependencies": {
@@ -10,12 +10,12 @@
   "dependencies": {
     "@babel/runtime": "^7.14.6",
     "@emotion/css": "^11.7.1",
-    "@spark-web/box": "^0.0.0",
-    "@spark-web/icon": "^0.0.0",
-    "@spark-web/stack": "^0.0.0",
-    "@spark-web/text": "^0.0.0",
-    "@spark-web/text-list": "^0.0.0",
-    "@spark-web/utils": "^0.0.0",
+    "@spark-web/box": "^1.0.0",
+    "@spark-web/icon": "^1.0.0",
+    "@spark-web/stack": "^1.0.0",
+    "@spark-web/text": "^1.0.0",
+    "@spark-web/text-list": "^1.0.0",
+    "@spark-web/utils": "^1.0.0",
     "react": "^17.0.2"
   },
   "engines": {
