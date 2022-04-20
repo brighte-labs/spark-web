@@ -61,7 +61,13 @@ export default function Packages(): JSX.Element {
             >
               {Object.entries(colors).map(([key, value]) => (
                 <Stack gap="small" key={key}>
-                  <Text weight="medium">{key}</Text>
+                  <Text
+                    overflowStrategy="truncate"
+                    size="small"
+                    weight="medium"
+                  >
+                    {key}
+                  </Text>
                   <Swatch backgroundColor={value} />
                   <Text weight="medium">
                     <InlineCode>{value}</InlineCode>
