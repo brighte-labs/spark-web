@@ -28,44 +28,6 @@ export type ResponsiveTextDefinition = Record<TextBreakpoint, TextDefinition>;
 
 // Tokens
 // ------------------------------
-const temporaryTokens = {
-  colors: {
-    'temporary-green': '#00d299',
-    'temporary-green-low': '#00a87b',
-    'temporary-green-high': '#00e2a2',
-    'temporary-green-soft': '#edfaf5',
-
-    'temporary-yellow': '#ffbb66',
-    'temporary-yellow-low': '#ff9f29',
-    'temporary-yellow-high': '#ffcc77',
-    'temporary-yellow-soft': '#fff5eb',
-
-    'temporary-dark': '#1a2a3a',
-    'temporary-dark-low': '#001a2a',
-    'temporary-dark-high': '#2a3a4a',
-    'temporary-dark-soft': '#f3f8fc',
-
-    'temporary-blue': '#599cff',
-    'temporary-blue-low': '#2e82ff',
-    'temporary-blue-high': '#70aaff',
-    'temporary-blue-soft': '#f3f8fc',
-
-    'temporary-red': '#ff8181',
-    'temporary-red-low': '#ff5c5c',
-    'temporary-red-high': '#ff9595',
-    'temporary-red-soft': '#fff4f4',
-  },
-  spacing: {
-    'temporary-3xlarge': 48,
-    'temporary-4xlarge': 64,
-    'temporary-5xlarge': 128,
-  },
-};
-
-const surface = colors.primary[0];
-const primary = colors.primary[500];
-const text = colors.neutral[700];
-
 export const defaultTokens = {
   name: 'Brighte web: light',
 
@@ -188,14 +150,14 @@ export const defaultTokens = {
       large: 2,
     },
     color: {
-      neutral: text,
-      standard: '#e5e7eb',
+      neutral: colors.neutral[700],
+      standard: colors.neutral[200],
       standardInverted: colors.neutral[0],
 
       field: colors.neutral[200],
       fieldHover: colors.neutral[300],
-      fieldAccent: primary,
-      fieldDisabled: '#d3d3d3',
+      fieldAccent: colors.primary[500],
+      fieldDisabled: colors.neutral[300],
 
       // tones
 
@@ -226,20 +188,18 @@ export const defaultTokens = {
 
       positive: colors.green[600],
       positiveMuted: colors.green[500],
-
-      ...temporaryTokens.colors,
     },
   },
   color: {
     foreground: {
-      neutral: text,
+      neutral: colors.neutral[700],
       neutralInverted: colors.neutral[0],
-      muted: '#6b7280',
+      muted: colors.neutral[600],
       mutedInverted: 'hsla(0, 0%, 100%, 0.75)',
       link: colors.primary[600],
-      disabled: '#aeaeae',
-      fieldAccent: primary,
-      placeholder: '#6b7280',
+      disabled: colors.neutral[500],
+      fieldAccent: colors.primary[500],
+      placeholder: colors.neutral[600],
 
       // tones
       accent: '#8b5cf6',
@@ -256,23 +216,21 @@ export const defaultTokens = {
       critical: colors.red[700],
       info: colors.blue[700],
       positive: colors.green[700],
-
-      ...temporaryTokens.colors,
     },
     background: {
-      muted: '#6b7280',
-      disabled: '#aeaeae',
+      muted: colors.neutral[600],
+      disabled: colors.neutral[500],
 
       backdrop: 'hsla(0, 0%, 0%, 0.4)',
-      body: '#f3f4f6',
-      surface: surface,
-      surfaceMuted: '#f3f4f6',
+      body: colors.neutral[50],
+      surface: colors.primary[0],
+      surfaceMuted: colors.neutral[50],
       surfacePressed: colors.neutral[300],
 
-      fieldAccent: text,
-      input: surface,
-      inputPressed: '#f9fafb',
-      inputDisabled: '#f3f4f6',
+      fieldAccent: colors.neutral[700],
+      input: colors.primary[0],
+      inputPressed: colors.neutral[100],
+      inputDisabled: colors.neutral[50],
 
       // tones
       accent: '#8b5cf6',
@@ -283,12 +241,11 @@ export const defaultTokens = {
 
       primary: colors.primary[600],
       primaryLow: colors.primary[100],
-      primaryMuted: colors.primary[200],
+      primaryMuted: colors.primary[50],
 
       secondary: colors.secondary[600],
-      // TODO: using yellow instead of secondary
-      secondaryLow: colors.yellow[100],
-      secondaryMuted: '#f0fff1',
+      secondaryLow: colors.secondary[100],
+      secondaryMuted: colors.secondary[50],
 
       caution: colors.yellow[600],
       cautionLow: colors.yellow[100],
@@ -305,8 +262,6 @@ export const defaultTokens = {
       positive: colors.green[600],
       positiveLow: colors.green[100],
       positiveMuted: colors.green[50],
-
-      ...temporaryTokens.colors,
     },
   },
   backgroundInteractions: {
@@ -368,8 +323,6 @@ export const defaultTokens = {
     large: 16,
     xlarge: 24,
     xxlarge: 32,
-
-    ...temporaryTokens.spacing,
   },
   sizing: {
     xxsmall: 16,
