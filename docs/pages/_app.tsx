@@ -5,11 +5,10 @@ import NextHead from 'next/head';
 import { DefaultSeo } from 'next-seo';
 
 import { Layout } from '../components/layout';
-import { docsTheme } from '../utils/docs-theme';
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <SparkProvider linkComponent={UniversalNextLink} theme={docsTheme}>
+    <SparkProvider linkComponent={UniversalNextLink}>
       <NextHead>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" type="image/png" href="/favicon.png" />
