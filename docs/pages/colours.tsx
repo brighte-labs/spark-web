@@ -54,7 +54,11 @@ export default function Packages(): JSX.Element {
             <Heading id={slug} level="2">
               {title}
             </Heading>
-            <Columns gap="large" template={[1, 1, 1, 1]}>
+            <Columns
+              gap="large"
+              template={[1, 1, 1, 1]}
+              collapseBelow="desktop"
+            >
               {Object.entries(colors).map(([key, value]) => (
                 <Stack gap="small" key={key}>
                   <Text weight="medium">{key}</Text>
