@@ -1,9 +1,11 @@
-import { Field } from '@spark-web/field';
 import '@testing-library/jest-dom';
-import { render, screen, fireEvent, cleanup } from '@testing-library/react';
-import { Select, OptionsOrGroups } from './Select';
+
+import { Field , useFieldContext } from '@spark-web/field';
 import type { DataAttributeMap } from '@spark-web/utils-spark';
-import { useFieldContext } from '@spark-web/field';
+import { cleanup,fireEvent, render, screen } from '@testing-library/react';
+
+import type { OptionsOrGroups } from './Select';
+import { Select } from './Select';
 
 jest.mock('@spark-web/field', () => {
   const original = jest.requireActual('@spark-web/field');

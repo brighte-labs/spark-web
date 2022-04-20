@@ -1,6 +1,6 @@
+import { HomeIcon } from '@spark-web/icon';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { HomeIcon } from '../../icon/src';
 import type { NavLinkProps } from './index';
 import { NavLink } from './index';
 

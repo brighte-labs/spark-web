@@ -1,11 +1,10 @@
 import { Global } from '@emotion/react';
 import { IdProvider, useFocusVisible } from '@spark-web/a11y';
+import type { LinkComponent } from '@spark-web/link';
+import { DefaultLinkComponent, LinkComponentContext } from '@spark-web/link';
 import type { BrighteTheme } from '@spark-web/theme';
 import { defaultTheme, ThemeProvider } from '@spark-web/theme';
 import type { ReactNode } from 'react';
-
-import type { LinkComponent } from './linkContext';
-import { DefaultLinkComponent, LinkComponentContext } from './linkContext';
 
 export type SparkProviderProps = {
   children: ReactNode;

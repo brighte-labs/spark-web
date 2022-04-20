@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
-import { useLinkComponent } from '@spark-web/core';
-import type { IconProps } from '@spark-web/icon/src';
+import type { IconProps } from '@spark-web/icon';
+import { useLinkComponent } from '@spark-web/link';
 import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import type { ReactElement } from 'react';

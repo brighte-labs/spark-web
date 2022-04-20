@@ -1,5 +1,6 @@
-import { makeLinkComponent } from '@spark-web/core';
+import { makeLinkComponent } from '@spark-web/link';
 import NextLink from 'next/link';
+import type { ForwardedRef } from 'react';
 
 /**
  * Resolves internal links using the
@@ -13,7 +14,7 @@ import NextLink from 'next/link';
  * the time it's simple to do this manually.
  */
 export const UniversalNextLink = makeLinkComponent(
-  ({ href, onClick, rel, ...props }, ref) => {
+  ({ href, onClick, rel, ...props }, ref: ForwardedRef<HTMLAnchorElement>) => {
     const shouldUseNext = href[0] === '/';
 
     return shouldUseNext ? (
