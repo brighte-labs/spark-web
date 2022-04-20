@@ -15,7 +15,7 @@
     "@spark-web/a11y": "^0.0.0",
     "@spark-web/link": "^0.0.0",
     "@spark-web/theme": "^0.0.0",
-    "@spark-web/utils-ts": "^0.0.0",
+    "@spark-web/utils": "^0.0.0",
     "assert": "1.5.0",
     "react": "^17.0.2"
   },

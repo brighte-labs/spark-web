@@ -1,6 +1,6 @@
 import { css, cx } from '@emotion/css';
-import { resetElementStyles } from '@spark-web/utils-spark';
-import { forwardRefWithAs } from '@spark-web/utils-ts';
+import { resetElementStyles } from '@spark-web/utils/internal';
+import { forwardRefWithAs } from '@spark-web/utils/ts';
 import type { ReactNode } from 'react';
 
 import { renderBackgroundProvider } from './context';

@@ -1,6 +1,7 @@
-import type { AssignableRef } from '@spark-web/utils-ts';
-import { isFunction } from '@spark-web/utils-ts';
 import { useCallback } from 'react';
+
+import type { AssignableRef } from './ts';
+import { isFunction } from './ts';
 
 /**
  * Passes or assigns an arbitrary value to a ref function or object.

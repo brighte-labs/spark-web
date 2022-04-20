@@ -9,7 +9,7 @@ import {
 import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
 import { IndicatorContainer } from '@spark-web/text-list';
-import type { DataAttributeMap } from '@spark-web/utils-spark';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
 import * as React from 'react';
 
 type AlertTones = 'caution' | 'critical' | 'info' | 'positive';

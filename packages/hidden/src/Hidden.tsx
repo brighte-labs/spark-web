@@ -4,9 +4,9 @@ import { useHeadingContext } from '@spark-web/heading';
 import { useTextContext } from '@spark-web/text';
 import type { ResponsiveRangeProps } from '@spark-web/theme';
 import { useTheme } from '@spark-web/theme';
-import type { DataAttributeMap } from '@spark-web/utils-spark';
-import { buildDataAttributes } from '@spark-web/utils-spark';
-import { forwardRefWithAs } from '@spark-web/utils-ts';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
+import { buildDataAttributes } from '@spark-web/utils/internal';
+import { forwardRefWithAs } from '@spark-web/utils/ts';
 import type { ReactNode } from 'react';
 
 export type HiddenProps = {

@@ -1,6 +1,6 @@
 import { useForegroundTone, useTextContext } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
-import { resetElementStyles } from '@spark-web/utils-spark';
+import { resetElementStyles } from '@spark-web/utils/internal';
 
 export const TEXT_LINK_ERROR_MESSAGE =
   'TextLink components must be inside `Text`.';

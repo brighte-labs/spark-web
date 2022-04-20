@@ -1,5 +1,5 @@
 import { Box } from '@spark-web/box';
-import { buildDataAttributes } from '@spark-web/utils-spark';
+import { buildDataAttributes } from '@spark-web/utils/internal';
 import * as React from 'react';
 
 import { resolveButtonChildren } from './resolveButtonChildren';

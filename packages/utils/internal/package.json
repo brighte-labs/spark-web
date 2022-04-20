@@ -1,0 +1,4 @@
+{
+  "main": "dist/spark-web-utils-internal.cjs.js",
+  "module": "dist/spark-web-utils-internal.esm.js"
+}

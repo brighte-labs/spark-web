@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom';
 
-import { Field , useFieldContext } from '@spark-web/field';
-import type { DataAttributeMap } from '@spark-web/utils-spark';
-import { cleanup,fireEvent, render, screen } from '@testing-library/react';
+import { Field, useFieldContext } from '@spark-web/field';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 
 import type { OptionsOrGroups } from './Select';
 import { Select } from './Select';

@@ -5,8 +5,8 @@ import { ChevronDownIcon } from '@spark-web/icon';
 import type { UseInputProps } from '@spark-web/text-input';
 import { useInput } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
-import type { DataAttributeMap } from '@spark-web/utils-spark';
-import { buildDataAttributes } from '@spark-web/utils-spark';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
+import { buildDataAttributes } from '@spark-web/utils/internal';
 import * as React from 'react';
 
 type Option = {

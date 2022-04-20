@@ -1,5 +1,5 @@
 import { Box } from '@spark-web/box';
-import { forwardRefWithAs } from '@spark-web/utils-ts';
+import { forwardRefWithAs } from '@spark-web/utils/ts';
 
 import type { LinkComponentProps } from './linkContext';
 import { useLinkComponent } from './linkContext';

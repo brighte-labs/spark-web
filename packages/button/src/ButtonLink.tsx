@@ -1,8 +1,8 @@
 import { Box } from '@spark-web/box';
 import type { LinkComponentProps } from '@spark-web/link';
 import { useLinkComponent } from '@spark-web/link';
-import { buildDataAttributes } from '@spark-web/utils-spark';
-import { forwardRefWithAs } from '@spark-web/utils-ts';
+import { buildDataAttributes } from '@spark-web/utils/internal';
+import { forwardRefWithAs } from '@spark-web/utils/ts';
 
 import { resolveButtonChildren } from './resolveButtonChildren';
 import type { CommonButtonProps } from './types';
