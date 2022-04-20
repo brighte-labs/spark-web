@@ -1,3 +1,4 @@
+export { isLight } from './colorUtils';
 export { defaultTheme, ThemeProvider, useTheme } from './context';
 export { makeBrighteTheme } from './makeTheme';
 export { createResponsiveMapFn } from './themeUtils';
