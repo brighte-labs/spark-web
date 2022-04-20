@@ -7,6 +7,7 @@ import { Text } from '@spark-web/text';
 import { isLight, useTheme } from '@spark-web/theme';
 
 import { DocsContent } from '../components/content';
+import { InlineCode } from '../components/example-helpers';
 
 export default function Packages(): JSX.Element {
   const theme = useTheme();
@@ -53,13 +54,14 @@ export default function Packages(): JSX.Element {
             <Heading id={slug} level="2">
               {title}
             </Heading>
-            <Columns gap="large" template={[1, 1, 1, 1, 1]}>
+            <Columns gap="large" template={[1, 1, 1, 1]}>
               {Object.entries(colors).map(([key, value]) => (
                 <Stack gap="small" key={key}>
-                  <Text size="xsmall" weight="medium">
-                    {key}
-                  </Text>
+                  <Text weight="medium">{key}</Text>
                   <Swatch backgroundColor={value} />
+                  <Text weight="medium">
+                    <InlineCode>{value}</InlineCode>
+                  </Text>
                 </Stack>
               ))}
             </Columns>
