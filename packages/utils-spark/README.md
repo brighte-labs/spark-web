@@ -1,3 +1,3 @@
 ---
-title: Divider
+title: Internal Utilities
 ---

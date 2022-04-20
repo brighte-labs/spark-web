@@ -1,5 +1,5 @@
 ---
-title: Next Utils
+title: Next.js Utils
 ---
 
 ## Universal Next Link

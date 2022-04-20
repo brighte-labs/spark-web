@@ -1,3 +1,3 @@
 ---
-title: Utils
+title: Utilities
 ---
