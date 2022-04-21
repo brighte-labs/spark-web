@@ -30,13 +30,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<{
-  packages: Awaited<ReturnType<typeof getAllPackages>>;
   source: Awaited<ReturnType<typeof getPackageBySlug>>['source'];
   data: Awaited<ReturnType<typeof getPackageBySlug>>['data'];
   toc: Awaited<ReturnType<typeof getPackageBySlug>>['toc'];
 }> = async ({ params }) => {
-  const packages = await getAllPackages();
-
   if (!params?.slug || typeof params.slug !== 'string') {
     return {
       notFound: true,
@@ -49,7 +46,6 @@ export const getStaticProps: GetStaticProps<{
   return {
     props: {
       data,
-      packages,
       source,
       toc,
     },
