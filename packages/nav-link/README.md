@@ -39,6 +39,26 @@ Nav links are styled links for use in site navigation.
 Valid children of a `NavLink` are a string, or a string plus an icon. No other
 combinations are allowed.
 
+## Border Radius
+
+There are two valid border radii for a `NavLink`: `'small'` and `'full'`.
+Typically `'small'` should be used for vertical navigations (like a sidebar) and
+`'full'` should be used for horizontal navigations like in a header.
+
+```jsx live
+<Stack gap="large">
+  <Text weight="medium">
+    Hover or focus to see the different border radius options
+  </Text>
+  <Stack as="nav" gap="small">
+    <NavLink href="#">"Small" border radius nav item</NavLink>
+    <NavLink href="#" borderRadius="full">
+      "Full" border radius nav item
+    </NavLink>
+  </Stack>
+</Stack>
+```
+
 ## isSelected
 
 The `isSelected` prop is used to style the currently active page. It is
