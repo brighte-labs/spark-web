@@ -14,40 +14,40 @@ export default function Packages(): JSX.Element {
   const colors = [
     {
       id: 'foreground',
-      title: 'Foreground',
+      colors: theme.color.foreground,
+      items: [],
       level: 2,
       slug: 'foreground',
-      colors: theme.color.foreground,
+      title: 'Foreground',
     },
     {
       id: 'background',
-      title: 'Background',
+      colors: theme.color.background,
+      items: [],
       level: 2,
       slug: 'background',
-      colors: theme.color.background,
+      title: 'Background',
     },
     {
       id: 'border',
-      title: 'Border',
+      colors: theme.border.color,
+      items: [],
       level: 2,
       slug: 'border',
-      colors: theme.border.color,
+      title: 'Border',
     },
     {
-      id: 'backgroundInteractions',
-      title: 'Background Interactions',
-      level: 2,
-      slug: 'backgroundInteractions',
+      id: 'background-interactions',
       colors: theme.backgroundInteractions,
+      items: [],
+      level: 2,
+      slug: 'background-interactions',
+      title: 'Background Interactions',
     },
   ];
 
   return (
-    <DocsContent
-      pageTitle="Colours"
-      includeNavigation
-      toc={colors.map(color => ({ ...color, items: [] }))}
-    >
+    <DocsContent pageTitle="Colours" includeNavigation toc={colors}>
       <Stack gap="xlarge">
         {colors.map(({ colors, slug, title }) => (
           <Stack key={slug} gap="xlarge">
