@@ -14,6 +14,7 @@ type NavLinkChildren =
   | [string, ReactElement<IconProps>];
 
 export type NavLinkProps = Pick<HTMLAnchorElement, 'href'> & {
+  borderRadius?: 'full' | 'small';
   children: NavLinkChildren;
   inline?: boolean;
   isSelected?: boolean;
@@ -22,7 +23,14 @@ export type NavLinkProps = Pick<HTMLAnchorElement, 'href'> & {
 
 export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
   (
-    { children, href, inline, isSelected = false, size = 'medium' },
+    {
+      borderRadius = 'small',
+      children,
+      href,
+      inline = false,
+      isSelected = false,
+      size = 'medium',
+    },
     forwardedRef
   ) => {
     const linkComponent = useLinkComponent(forwardedRef);
@@ -41,7 +49,7 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
         gap="small"
         paddingY="small"
         paddingX="medium"
-        borderRadius={{ tablet: 'small' }}
+        borderRadius={{ tablet: borderRadius }}
         className={css(styles)}
       >
         {resolveNavLinkChildren({ children, isSelected, size })}
