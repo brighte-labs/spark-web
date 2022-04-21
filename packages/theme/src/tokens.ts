@@ -169,11 +169,6 @@ export const defaultTokens = {
       secondaryHover: colors.secondary[600],
       secondaryActive: colors.secondary[700],
 
-      positiveFocus: colors.primary[0],
-      cautionFocus: colors.primary[0],
-      criticalFocus: colors.primary[0],
-      infoFocus: colors.primary[0],
-
       accent: '#8b5cf6',
       accentMuted: '#997dd8',
 
