@@ -1,4 +1,4 @@
-export * from '../components/spark-components';
+export * from '../cache/spark-components';
 
 export function Render({
   children,

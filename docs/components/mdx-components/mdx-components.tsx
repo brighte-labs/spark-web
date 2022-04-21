@@ -7,8 +7,8 @@ import type { TextListProps } from '@spark-web/text-list';
 import { TextList } from '@spark-web/text-list';
 import { Fragment } from 'react';
 
+import * as sparkComponents from '../../cache/spark-components';
 import { InlineCode } from '../example-helpers';
-import * as sparkComponents from '../spark-components';
 import { CodeBlock } from './code-block';
 import { MdxTable, MdxTd, MdxTh, MdxThead, MdxTr } from './mdx-table';
 

@@ -14,7 +14,7 @@
     "lint:fix": "yarn run lint --fix",
     "lint": "eslint . --ignore-path \"./.gitignore\"",
     "postinstall": "preconstruct dev && manypkg check",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "./docs/scripts/generate-spark-components.js && tsc --noEmit",
     "test:unit": "jest",
     "test": "yarn run typecheck && yarn run test:unit",
     "test:coverage": "yarn test ---coverage",

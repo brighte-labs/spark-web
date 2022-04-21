@@ -40,7 +40,7 @@ node_modules/
 dist
 
 # Docs
-docs/cache/navigations.json
+docs/cache
 docs/public/playroom
 docs/public/storybook
 

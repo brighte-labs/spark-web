@@ -1,3 +1,5 @@
+import { Box } from '@spark-web/box';
+import { ButtonLink } from '@spark-web/button';
 import { Heading } from '@spark-web/heading';
 import { Stack } from '@spark-web/stack';
 import type {
@@ -10,7 +12,6 @@ import { MDXRemote } from 'next-mdx-remote';
 import { DocsContent } from '../../components/content';
 import { StorybookLogo } from '../../components/logo';
 import { mdxComponents } from '../../components/mdx-components/mdx-components';
-import { Box, ButtonLink } from '../../components/spark-components';
 import type { Awaited } from '../../types';
 import { getAllPackages, getPackageBySlug } from '../../utils/mdx';
 
