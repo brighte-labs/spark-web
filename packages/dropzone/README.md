@@ -86,5 +86,5 @@ image, you can use the `showImageThumbnails` to show an image preview instead.
 | minFileSizeKb?       | number                                      |         | Minimum file size that the Dropzone should be allowed to accept.       |
 | showImageThumbnails? | boolean                                     |         | When true, renders an image preview next to file previews.             |
 | name?                | string                                      |         | This attribute is used to specify the name of the control.             |
-| onBlur?              | React.FocusEventHandler<HTMLInputElement\>  |         | Function for handling blur events.                                     |
-| onChange?            | React.ChangeEventHandler<HTMLInputElement\> |         | Function for handling change events.                                   |
+| onBlur?              | React.FocusEventHandler\<HTMLInputElement>  |         | Function for handling blur events.                                     |
+| onChange?            | React.ChangeEventHandler\<HTMLInputElement> |         | Function for handling change events.                                   |

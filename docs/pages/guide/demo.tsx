@@ -18,6 +18,9 @@ import type { FormEvent } from 'react';
 
 import { DocsContent } from '../../components/content';
 
+// Force static page building because we have `getInitialProps` in `_app`
+export const getStaticProps = () => ({ props: {} });
+
 const DemoPage: NextPage = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();

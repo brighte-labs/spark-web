@@ -105,8 +105,8 @@ Items can be aligned horizontally using the `align` prop.
 
 | Prop    | Type                               | Default | Description                                    |
 | ------- | ---------------------------------- | ------- | ---------------------------------------------- |
-| align?  | [ResponsiveProp<Align\>][align]    | 'left'  | Horizontally align items within the container. |
-| alignY? | [ResponsiveProp<AlignY\>][align-y] | 'top'   | Vertically align items within the container.   |
+| align?  | [ResponsiveProp\<Align>][align]    | 'left'  | Horizontally align items within the container. |
+| alignY? | [ResponsiveProp\<AlignY>][align-y] | 'top'   | Vertically align items within the container.   |
 
 [`Box`](/package/box) props are also included as `Inline` props and are not
 listed here (excluding `display`, `alignItems`, `flexDirection`,

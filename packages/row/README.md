@@ -114,8 +114,8 @@ element in the Row.
 
 | Prop      | Type                               | Default   | Description                                           |
 | --------- | ---------------------------------- | --------- | ----------------------------------------------------- |
-| align?    | [ResponsiveProp<Align\>][align]    | 'left'    | Horizontally align items within the container.        |
-| alignY?   | [ResponsiveProp<AlignY\>][align-y] | 'stretch' | Vertically align items within the container.          |
+| align?    | [ResponsiveProp\<Align>][align]    | 'left'    | Horizontally align items within the container.        |
+| alignY?   | [ResponsiveProp\<AlignY>][align-y] | 'stretch' | Vertically align items within the container.          |
 | dividers? | boolean                            |           | Sets whether to place a divider between each element. |
 
 `Row` props also include [`Box`](/package/box) props and are not listed here

@@ -46,3 +46,6 @@ docs/public/storybook
 
 # Test coverage
 coverage
+
+# Contentlayer
+.contentlayer

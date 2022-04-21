@@ -1,86 +1,88 @@
-import { Box } from '@spark-web/box';
-import { ButtonLink } from '@spark-web/button';
+// import { Box } from '@spark-web/box';
+// import { ButtonLink } from '@spark-web/button';
 import { Heading } from '@spark-web/heading';
 import { Stack } from '@spark-web/stack';
+import { plugin as untitledLiveCode } from '@untitled-docs/live-code/rehype';
+import { allPackages } from 'contentlayer/generated';
+import { bundleMDX } from 'mdx-bundler';
+import { getMDXComponent } from 'mdx-bundler/client';
 import type {
   GetStaticPaths,
   GetStaticProps,
   InferGetStaticPropsType,
 } from 'next';
-import { MDXRemote } from 'next-mdx-remote';
+import { useMemo } from 'react';
+import remarkGfm from 'remark-gfm';
 
 import { DocsContent } from '../../components/content';
-import { StorybookLogo } from '../../components/logo';
+// import { StorybookLogo } from '../../components/logo';
 import { mdxComponents } from '../../components/mdx-components/mdx-components';
-import type { Awaited } from '../../types';
-import { getAllPackages, getPackageBySlug } from '../../utils/mdx';
+// import type { Awaited } from '../../types';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const packages = await getAllPackages();
-
+  const paths = allPackages.map(pkg => `/package/${pkg.slug}`);
   return {
-    paths: packages.map(({ slug }) => {
-      return {
-        params: {
-          slug,
-        },
-      };
-    }),
+    paths,
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps<{
-  source: Awaited<ReturnType<typeof getPackageBySlug>>['source'];
-  data: Awaited<ReturnType<typeof getPackageBySlug>>['data'];
-  toc: Awaited<ReturnType<typeof getPackageBySlug>>['toc'];
-}> = async ({ params }) => {
-  if (!params?.slug || typeof params.slug !== 'string') {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const pkg = allPackages.find(p => p.slug === params!.slug);
+  if (!pkg) {
     return {
       notFound: true,
     };
   }
 
-  const { data, source, toc /* name, slug, version */ } =
-    await getPackageBySlug(params.slug);
+  const { code } = await bundleMDX({
+    source: pkg.body.raw,
+    mdxOptions(options) {
+      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
+      options.rehypePlugins = [
+        ...(options.rehypePlugins ?? []),
+        untitledLiveCode,
+      ];
+      return options;
+    },
+  });
 
   return {
     props: {
-      data,
-      source,
-      toc,
+      title: pkg.title,
+      code,
     },
   };
 };
 
 export default function Packages({
-  data,
-  source,
-  toc,
+  code,
+  title,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
+  const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
-    <DocsContent pageTitle={data.title} includeNavigation toc={toc}>
+    <DocsContent pageTitle={title} includeNavigation toc={[]}>
       <Stack gap="xlarge">
-        <Heading level="1">{data.title}</Heading>
-        <StorybookLink storybookPath={data.storybookPath} />
-        <MDXRemote {...source} components={mdxComponents} />
+        <Heading level="1">{title}</Heading>
+        {/* <StorybookLink storybookPath={data.storybookPath} /> */}
+        <Component components={mdxComponents as any} />
       </Stack>
     </DocsContent>
   );
 }
 
-function StorybookLink({ storybookPath }: { storybookPath?: string }) {
-  if (!storybookPath) return null;
+// function StorybookLink({ storybookPath }: { storybookPath?: string }) {
+//   if (!storybookPath) return null;
 
-  return (
-    <Box>
-      <ButtonLink
-        href={`${process.env.NEXT_PUBLIC_STORYBOOK_URL}?path=/story/${storybookPath}`}
-        tone="neutral"
-      >
-        <StorybookLogo />
-        Open in Storybook
-      </ButtonLink>
-    </Box>
-  );
-}
+//   return (
+//     <Box>
+//       <ButtonLink
+//         href={`${process.env.NEXT_PUBLIC_STORYBOOK_URL}?path=/story/${storybookPath}`}
+//         tone="neutral"
+//       >
+//         <StorybookLogo />
+//         Open in Storybook
+//       </ButtonLink>
+//     </Box>
+//   );
+// }

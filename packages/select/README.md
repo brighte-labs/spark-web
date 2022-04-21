@@ -126,12 +126,12 @@ return (
 | Prop          | Type                                         | Default | Description                                                                            |
 | ------------- | -------------------------------------------- | ------- | -------------------------------------------------------------------------------------- |
 | data?         | [DataAttributeMap][data-attribute-map]       |         | Sets data attributes on the component.                                                 |
-| options       | Readonly<Array<Option \| Group\>>            |         | The values that can be selected by the input.                                          |
+| options       | Readonly\<Array\<Option \| Group>>           |         | The values that can be selected by the input.                                          |
 | placeholder?  | string                                       |         | Placeholder text for when the input does not have an initial value.                    |
 | defaultValue? | string \| number \| readonly string[]        |         | Default value of the select.                                                           |
 | name?         | string                                       |         | This attribute is used to specify the name of the control.                             |
-| onBlur?       | React.FocusEventHandler<HTMLSelectElement\>  |         | Function for handling change events.                                                   |
-| onChange?     | React.ChangeEventHandler<HTMLSelectElement\> |         | Function for handling blur events.                                                     |
+| onBlur?       | React.FocusEventHandler\<HTMLSelectElement>  |         | Function for handling change events.                                                   |
+| onChange?     | React.ChangeEventHandler\<HTMLSelectElement> |         | Function for handling blur events.                                                     |
 | required?     | boolean                                      |         | Boolean that indicating that an option with a non-empty string value must be selected. |
 | value         | string \| number \| readonly string[]        |         | Value of the select.                                                                   |
 

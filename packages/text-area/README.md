@@ -97,8 +97,8 @@ illustrate intent. The supported tones are: `critical`, `positive` and
 | placeholder?  | string                                         |         | Placeholder text for when the input does not have an initial value. |
 | defaultValue? | string \| number \| readonly string[]          |         | Default value of the text area.                                     |
 | name?         | string                                         |         | This attribute is used to specify the name of the control.          |
-| onBlur?       | React.FocusEventHandler<HTMLTextAreaElement\>  |         | Function for handling change events.                                |
-| onChange?     | React.ChangeEventHandler<HTMLTextAreaElement\> |         | Function for handling blur events.                                  |
+| onBlur?       | React.FocusEventHandler\<HTMLTextAreaElement>  |         | Function for handling change events.                                |
+| onChange?     | React.ChangeEventHandler\<HTMLTextAreaElement> |         | Function for handling blur events.                                  |
 | required?     | boolean                                        |         | Boolean that indicates a value is required in the text area.        |
 | value?        | string \| number \| readonly string[]          |         | Value of the text area.                                             |
 

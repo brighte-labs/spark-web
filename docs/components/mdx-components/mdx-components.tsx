@@ -5,7 +5,7 @@ import { Strong, Text } from '@spark-web/text';
 import { TextLink } from '@spark-web/text-link';
 import type { TextListProps } from '@spark-web/text-list';
 import { TextList } from '@spark-web/text-list';
-import { Fragment } from 'react';
+import { Children, Fragment } from 'react';
 
 import * as sparkComponents from '../../cache/spark-components';
 import { InlineCode } from '../example-helpers';
@@ -21,26 +21,35 @@ interface CodeProps {
   metastring?: string;
 }
 
-function Code({
-  children,
-  className,
-  demo,
-  initialCompiledResult,
-  live,
-  metastring,
-}: CodeProps): JSX.Element {
-  return (
+function Code({ children, className, demo, ...props }: CodeProps): JSX.Element {
+  const trimmedChildren = children.trim();
+  // Please forgive me, I had no choice!
+  // See: https://github.com/mdx-js/mdx/discussions/1891#discussioncomment-1936179
+  const isFencedCodeblock = /language-(\w+)/.exec(className || '');
+  return isFencedCodeblock ? (
     <CodeBlock
       className={className}
-      code={children.trim()}
+      code={trimmedChildren}
       demo={demo}
-      initialCompiledResult={initialCompiledResult}
-      live={live}
       scope={sparkComponents}
-      metastring={metastring}
+      {...props}
+      live
     />
+  ) : (
+    <InlineCode {...props}>{trimmedChildren}</InlineCode>
   );
 }
+
+// MDX v2 passes newlines through as children. This causes our `<TextList>`
+// component to render extra `<li>`s (each newline is a child). We strip them
+// here before rendering them.
+const TextListMdx = (props: TextListProps) => (
+  <TextList {...props}>
+    {Children.toArray(props.children)?.filter(
+      child => typeof child !== 'string' || child.trim()
+    )}
+  </TextList>
+);
 
 export const mdxComponents: Record<string, React.ReactNode> = {
   // Native HTML elements
@@ -61,8 +70,8 @@ export const mdxComponents: Record<string, React.ReactNode> = {
     return <Heading level={level} {...props} />;
   },
   strong: Strong,
-  ul: (props: TextListProps) => <TextList {...props} type="bullet" />,
-  ol: (props: TextListProps) => <TextList {...props} type="number" />,
+  ul: (props: TextListProps) => <TextListMdx {...props} type="bullet" />,
+  ol: (props: TextListProps) => <TextListMdx {...props} type="number" />,
   li: Text,
   table: MdxTable,
   thead: MdxThead,
@@ -72,7 +81,6 @@ export const mdxComponents: Record<string, React.ReactNode> = {
   // avoid wrapping live examples in pre tag
   pre: Fragment,
   code: Code,
-  inlineCode: InlineCode,
   // Design System Components
   ...sparkComponents,
 };

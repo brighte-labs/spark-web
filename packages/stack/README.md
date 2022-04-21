@@ -105,7 +105,7 @@ Nest Stack components to create more complex white space rules.
 
 | Prop      | Type                            | Default   | Description                                           |
 | --------- | ------------------------------- | --------- | ----------------------------------------------------- |
-| align?    | [ResponsiveProp<Align\>][align] | 'stretch' | Horizontally align items within the container.        |
+| align?    | [ResponsiveProp\<Align>][align] | 'stretch' | Horizontally align items within the container.        |
 | dividers? | boolean                         |           | Sets whether to place a divider between each element. |
 
 `Stack` props also include [`Box`](/package/box) props and are not listed here

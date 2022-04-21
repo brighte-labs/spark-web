@@ -76,7 +76,7 @@ Columns can be collapsed into a single vertical stack responsively using the
 
 | Prop           | Type                                                    | Default | Description                                                                            |
 | -------------- | ------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------- |
-| alignY?        | [ResponsiveProp][responsive-prop]<AlignY\>              |         | Vertically align items within the container.                                           |
+| alignY?        | [ResponsiveProp][responsive-prop]\<AlignY>              |         | Vertically align items within the container.                                           |
 | children       | React.ReactNode                                         |         | Children elements to be rendered within the column component representing each column. |
 | collapseBelow? | [ResponsiveRangeProps][responsive-range-props]('below') |         | At which breakpoint, if amy, should the columns collapse.                              |
 | gap?           | [Gap][gap]                                              |         | The size of the gap between each column.                                               |

@@ -1,0 +1,39 @@
+diff --git a/node_modules/@untitled-docs/live-code/rehype/dist/live-code.cjs.dev.js b/node_modules/@untitled-docs/live-code/rehype/dist/live-code.cjs.dev.js
+index 4e2ad8d..d53b4d2 100644
+--- a/node_modules/@untitled-docs/live-code/rehype/dist/live-code.cjs.dev.js
++++ b/node_modules/@untitled-docs/live-code/rehype/dist/live-code.cjs.dev.js
+@@ -11,7 +11,7 @@ var visit = _interopDefault(require('unist-util-visit'));
+ var plugin = function plugin() {
+   return function (hast) {
+     visit(hast, "element", function (node) {
+-      if (node.tagName === "code" && Array.isArray(node.properties.className) && node.properties.className.length === 1 && node.properties.className[0] === "language-jsx" && node.properties.live) {
++      if (node.tagName === "code" && Array.isArray(node.properties.className) && node.properties.className.length === 1 && node.properties.className[0] === "language-jsx" && (node.properties.live || (node.data && typeof node.data.meta === 'string' && node.data.meta.split(' ').includes('live')))) {
+         if (node.children.length !== 1 || node.children[0].type !== "text") {
+           throw new Error("live code block does not have code");
+         }
+diff --git a/node_modules/@untitled-docs/live-code/rehype/dist/live-code.cjs.prod.js b/node_modules/@untitled-docs/live-code/rehype/dist/live-code.cjs.prod.js
+index cd83397..486d356 100644
+--- a/node_modules/@untitled-docs/live-code/rehype/dist/live-code.cjs.prod.js
++++ b/node_modules/@untitled-docs/live-code/rehype/dist/live-code.cjs.prod.js
+@@ -11,7 +11,7 @@ Object.defineProperty(exports, "__esModule", {
+ var transform = require("../../dist/transform-4198f61a.cjs.prod.js"), visit = _interopDefault(require("unist-util-visit")), plugin = function() {
+   return function(hast) {
+     visit(hast, "element", (function(node) {
+-      if ("code" === node.tagName && Array.isArray(node.properties.className) && 1 === node.properties.className.length && "language-jsx" === node.properties.className[0] && node.properties.live) {
++      if ("code" === node.tagName && Array.isArray(node.properties.className) && 1 === node.properties.className.length && "language-jsx" === node.properties.className[0] && (node.properties.live || (node.data && typeof node.data.meta === 'string' && node.data.meta.split(' ').includes('live')))) {
+         if (1 !== node.children.length || "text" !== node.children[0].type) throw new Error("live code block does not have code");
+         var code = node.children[0].value;
+         node.properties.initialCompiledResult = JSON.stringify(transform.transform(code));
+diff --git a/node_modules/@untitled-docs/live-code/rehype/dist/live-code.esm.js b/node_modules/@untitled-docs/live-code/rehype/dist/live-code.esm.js
+index 71dab07..ac57244 100644
+--- a/node_modules/@untitled-docs/live-code/rehype/dist/live-code.esm.js
++++ b/node_modules/@untitled-docs/live-code/rehype/dist/live-code.esm.js
+@@ -5,7 +5,7 @@ import visit from 'unist-util-visit';
+ var plugin = function plugin() {
+   return function (hast) {
+     visit(hast, "element", function (node) {
+-      if (node.tagName === "code" && Array.isArray(node.properties.className) && node.properties.className.length === 1 && node.properties.className[0] === "language-jsx" && node.properties.live) {
++      if (node.tagName === "code" && Array.isArray(node.properties.className) && node.properties.className.length === 1 && node.properties.className[0] === "language-jsx" && (node.properties.live || (node.data && typeof node.data.meta === 'string' && node.data.meta.split(' ').includes('live')))) {
+         if (node.children.length !== 1 || node.children[0].type !== "text") {
+           throw new Error("live code block does not have code");
+         }

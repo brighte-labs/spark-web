@@ -9,6 +9,9 @@ import { isLight, useTheme } from '@spark-web/theme';
 import { DocsContent } from '../components/content';
 import { InlineCode } from '../components/example-helpers';
 
+// Force static page building because we have `getInitialProps` in `_app`
+export const getStaticProps = () => ({ props: {} });
+
 export default function Packages(): JSX.Element {
   const theme = useTheme();
   const colors = [

@@ -123,7 +123,7 @@ available space. By setting the `inline` prop to `true` the `NavLink` will be
 | Prop          | Type                                                                               | Default  | Description                                                                                  |
 | ------------- | ---------------------------------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------- |
 | borderRadius? | 'full' \| 'medium'                                                                 | false    | Border radius of the NavLink.                                                                |
-| children      | string \| [ReactElement<IconProps\>, string] \| [string, ReactElement<IconProps\>] |          | Children element(s) to be rendered inside the NavLink.                                       |
+| children      | string \| [ReactElement\<IconProps>, string] \| [string, ReactElement\<IconProps>] |          | Children element(s) to be rendered inside the NavLink.                                       |
 | href          | string                                                                             |          | URL to be used for the link (passed to the underlying anchor element).                       |
 | inline?       | boolean                                                                            | false    | Indicates if NavLink should be inline or not.                                                |
 | isSelected?   | boolean                                                                            | false    | When true, add active styles to the NavLink and sets the `aria-current` attribute to `page`. |
