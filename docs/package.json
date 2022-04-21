@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "yarn playroom:build && next build && yarn storybook:build",
+    "dev": "./scripts/generate-sidebar-navigations.js && next dev",
+    "build": "./scripts/generate-sidebar-navigations.js && yarn playroom:build && next build && yarn storybook:build",
     "start": "next start",
     "lint": "next lint",
     "playroom:start": "playroom start",

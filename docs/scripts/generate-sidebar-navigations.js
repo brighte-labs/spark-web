@@ -1,8 +1,10 @@
+#!/usr/bin/env node
+
 const { readdirSync, writeFileSync, readFileSync, mkdirSync } = require('fs');
 const { normalize } = require('path');
 
-const PACKAGE_PATH = normalize(`${process.cwd()}../../packages`);
-const MANIFEST_DIR = './cache';
+const PACKAGE_PATH = normalize(`${__dirname}/../../packages`);
+const MANIFEST_DIR = normalize(`${__dirname}/../cache`);
 
 const toTitleCase = str => {
   return str.replace(/\w\S*/g, function (txt) {
@@ -86,9 +88,5 @@ const writeSidebarNavigations = navigations => {
   );
 };
 
-const generateSidebarNavigations = () => {
-  const navigations = buildSidebarNavigations();
-  writeSidebarNavigations(navigations);
-};
-
-module.exports = generateSidebarNavigations;
+const navigations = buildSidebarNavigations();
+writeSidebarNavigations(navigations);
