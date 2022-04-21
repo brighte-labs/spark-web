@@ -72,6 +72,7 @@ export default function Packages(): JSX.Element {
                   <Text weight="medium">
                     <InlineCode>{value}</InlineCode>
                   </Text>
+                  <Spacer />
                 </Stack>
               ))}
             </Columns>
@@ -98,4 +99,8 @@ function Swatch({ backgroundColor }: { backgroundColor: string }) {
       })}
     />
   );
+}
+
+function Spacer() {
+  return <Box aria-hidden="true" height="xxsmall" />;
 }
