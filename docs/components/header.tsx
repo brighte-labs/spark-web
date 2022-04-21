@@ -4,17 +4,19 @@ import { Box } from '@spark-web/box';
 import { Container } from '@spark-web/container';
 import { Hidden } from '@spark-web/hidden';
 import { MenuIcon, XIcon } from '@spark-web/icon';
+import { Link } from '@spark-web/link';
 import { Strong, Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 
-import { HEADER_HEIGHT, SIDEBAR_WIDTH } from './constants';
+import { GITHUB_URL, HEADER_HEIGHT, SIDEBAR_WIDTH } from './constants';
+import { GitHubLogo } from './github-logo';
 import { Logo } from './logo';
 import { useSidebarContext } from './sidebar';
 
 export function Header() {
   const { sidebarIsOpen, toggleSidebar } = useSidebarContext();
 
-  const { border, color, sizing } = useTheme();
+  const theme = useTheme();
 
   const focusRingStyles = useFocusRing();
 
@@ -27,7 +29,7 @@ export function Header() {
       top={0}
       zIndex="sticky"
       className={css({
-        borderBottom: `1px solid ${border.color.standard}`,
+        borderBottom: `1px solid ${theme.border.color.standard}`,
         backgroundColor: 'rgba(255,255,255,0.85)',
         backdropFilter: 'blur(8px)',
       })}
@@ -61,8 +63,8 @@ export function Header() {
             <Logo
               aria-hidden="true"
               className={css({
-                color: color.foreground.primary,
-                height: sizing.small,
+                color: theme.color.foreground.primary,
+                height: theme.sizing.small,
               })}
             />
           </Box>
@@ -72,6 +74,12 @@ export function Header() {
             display={{ mobile: 'none', tablet: 'inline-block' }}
           >
             <Notice />
+          </Box>
+          <Box
+            paddingRight={{ mobile: 'medium', tablet: 'xxlarge' }}
+            className={css({ marginLeft: 'auto' })}
+          >
+            <GitHubLink />
           </Box>
         </Box>
       </Container>
@@ -91,3 +99,43 @@ const Notice = () => (
     </Text>
   </Box>
 );
+
+const GitHubLink = () => {
+  const theme = useTheme();
+  const focusRingStyles = useFocusRing();
+
+  return (
+    <Link
+      href={GITHUB_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={css({
+        display: 'inline-block',
+        borderRadius: theme.border.radius.full,
+
+        ':focus': focusRingStyles,
+
+        '& > svg': {
+          transitionProperty: 'all',
+          transitionTimingFunction: 'cubic-bezier(0.02, 1.505, 0.745, 1.235)',
+          transitionDuration: `${theme.animation.standard.duration}ms`,
+        },
+
+        '&:focus > svg': {
+          fill: theme.backgroundInteractions.primaryHover,
+        },
+
+        '&:hover > svg': {
+          fill: theme.backgroundInteractions.primaryHover,
+        },
+
+        '&:active > svg': {
+          fill: theme.backgroundInteractions.primaryActive,
+        },
+      })}
+    >
+      <VisuallyHidden>Spark Web on GitHub</VisuallyHidden>
+      <GitHubLogo tone="muted" size="small" />
+    </Link>
+  );
+};
