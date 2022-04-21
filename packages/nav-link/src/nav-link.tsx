@@ -1,4 +1,5 @@
 import { css } from '@emotion/css';
+import { useFocusRing } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
 import type { IconProps } from '@spark-web/icon';
 import { useLinkComponent } from '@spark-web/link';
@@ -61,8 +62,10 @@ NavLink.displayName = 'NavLink';
 
 export function useNavLinkStyles(isSelected: boolean) {
   const theme = useTheme();
+  const focusRingStyles = useFocusRing();
 
   return {
+    ':focus': focusRingStyles,
     ':hover': {
       backgroundColor: isSelected
         ? theme.backgroundInteractions.primaryLowHover
