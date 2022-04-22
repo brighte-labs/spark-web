@@ -1,13 +1,22 @@
 import { css, keyframes } from '@emotion/css';
 import { Box } from '@spark-web/box';
 import { createIcon } from '@spark-web/icon';
-import { useTheme } from '@spark-web/theme';
+import { BrighteTheme, useTheme } from '@spark-web/theme';
 
-export const Loader = ()=>{
-  const styles = useLoaderStyles();
+// maybe add more tone types
+type LoaderTone = keyof BrighteTheme['color']['foreground'];
+type SizeType = 'xxsmall' | 'xsmall';
+
+export type LoaderProps = {
+  tone?: LoaderTone,
+  size?: SizeType
+}
+
+export const Loader = ({tone = 'primary', size='xsmall'}: LoaderProps)=>{
+  const styles = useLoaderStyles(tone);
   return (
-    <Box className={css(styles)} height="small" width="small">
-      <SpinnerIcon />
+    <Box className={css(styles)} height={size} width={size}>
+      <SpinnerIcon size={size}/>
     </Box>
   );
 
@@ -22,19 +31,19 @@ const spin = keyframes({
   from: { transform: 'rotate(0deg)' },
   to: { transform: 'rotate(360deg)'  },
 });
-function useLoaderStyles (){
+
+const  useLoaderStyles =  (tone:LoaderTone) => {
   const theme = useTheme();
   return{
-
-    border: '3px',
     colour: theme.color.foreground.accent,
     animation: `${spin} 1.4s ease-in-out infinite`,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent:'center',
     '> svg': {
       stroke: 'none',
-      fill: theme.color.background.primary
+      strokeLinecap: 'round',
+      fill: theme.color.foreground[tone]
     }
-
-
-  };
-
+  } as const;
 }
