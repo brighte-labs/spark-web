@@ -21,7 +21,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
       typeof groupState === 'undefined' ? consumerProps : radioGroupItemProps;
 
     const isDisabled = disabled ?? groupState?.disabled ?? false;
-    const size = sizeProp ?? groupState?.size ?? 'small';
+    const size = sizeProp ?? groupState?.size;
 
     return (
       <Stack gap="small">
@@ -37,7 +37,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
           }
           disabled={isDisabled}
           htmlFor={id}
-          size={size}
+          size={size ?? 'small'}
         >
           {children}
         </ControlLabel>
