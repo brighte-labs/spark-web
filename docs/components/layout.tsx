@@ -3,13 +3,14 @@ import { Box } from '@spark-web/box';
 import { useTheme } from '@spark-web/theme';
 
 import { Header } from './header';
+import type { SidebarNavItemType } from './sidebar';
 import { Sidebar, SidebarContextProvider } from './sidebar';
 
 export function Layout({
   navigation,
   children,
 }: {
-  navigation: any;
+  navigation: SidebarNavItemType[];
   children: React.ReactNode;
 }): JSX.Element {
   const theme = useTheme();

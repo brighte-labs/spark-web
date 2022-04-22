@@ -1,5 +1,6 @@
 import { SparkProvider } from '@spark-web/core';
 import { UniversalNextLink } from '@spark-web/next-utils';
+import type { SidebarNavItemType } from 'components/sidebar';
 import { allPackages } from 'contentlayer/generated';
 import type { AppProps } from 'next/app';
 import NextHead from 'next/head';
@@ -11,7 +12,9 @@ function App({
   Component,
   pageProps,
   navigation,
-}: AppProps & { navigation: any }): JSX.Element {
+}: AppProps & {
+  navigation: SidebarNavItemType[];
+}): JSX.Element {
   return (
     <SparkProvider linkComponent={UniversalNextLink}>
       <NextHead>
