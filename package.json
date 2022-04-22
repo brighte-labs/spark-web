@@ -23,7 +23,7 @@
     "test": "yarn run typecheck && yarn run test:unit",
     "test:coverage": "yarn test ---coverage",
     "test:unit": "jest",
-    "typecheck": "./docs/scripts/generate-spark-components.js && tsc --noEmit"
+    "typecheck": "yarn --cwd=docs contentlayer:build && ./docs/scripts/generate-spark-components.js && tsc --noEmit"
   },
   "prettier": {
     "arrowParens": "avoid",

@@ -4,14 +4,15 @@
   "version": "1.0.1",
   "private": true,
   "scripts": {
-    "dev": "./scripts/generate-spark-components.js && next dev",
-    "build": "./scripts/generate-spark-components.js && yarn playroom:build && next build && yarn storybook:build",
+    "dev": "./scripts/generate-spark-components.js && INIT_CWD=$PWD next dev",
+    "build": "./scripts/generate-spark-components.js && yarn playroom:build && INIT_CWD=$PWD next build && yarn storybook:build",
     "start": "next start",
     "lint": "next lint",
     "playroom:start": "playroom start",
     "playroom:build": "./scripts/generate-spark-components.js && playroom build",
     "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook -o ./public/storybook"
+    "storybook:build": "build-storybook -o ./public/storybook",
+    "contentlayer:build": "INIT_CWD=$PWD yarn contentlayer build"
   },
   "dependencies": {
     "@babel/core": "^7.16.5",
