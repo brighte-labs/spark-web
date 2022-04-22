@@ -1,5 +1,19 @@
 # @spark-web/next-utils
 
+## 1.0.1
+
+### Patch Changes
+
+- [#36](https://github.com/brighte-labs/spark-web/pull/36)
+  [`8546f8f`](https://github.com/brighte-labs/spark-web/commit/8546f8f05daaa79ea3ff954c6c4928a7a2d0622d)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update Babel
+  config
+
+- Updated dependencies
+  [[`8546f8f`](https://github.com/brighte-labs/spark-web/commit/8546f8f05daaa79ea3ff954c6c4928a7a2d0622d)]:
+  - @spark-web/link@1.0.1
+  - @spark-web/ssr@1.0.1
+
 ## 1.0.0
 
 ### Major Changes
