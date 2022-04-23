@@ -1,17 +1,18 @@
 import { Stack } from '@spark-web/stack';
 import { home } from 'contentlayer/generated';
+import type { MDXComponents } from 'mdx/types';
 import { bundleMDX } from 'mdx-bundler';
 import { getMDXComponent } from 'mdx-bundler/client';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useMemo } from 'react';
 
 import { DocsContent } from '../components/content';
-import { mdxComponents } from '../components/mdx-components/mdx-components';
-//import type { Awaited } from '../types';
+import { mdxComponents } from '../components/mdx-components';
+import type { HeadingData } from '../utils/generate-toc';
 
 export const getStaticProps: GetStaticProps<{
   code: string;
-  toc: any;
+  toc: HeadingData[];
 }> = async () => {
   const { code } = await bundleMDX({
     source: home.body.raw,
@@ -33,7 +34,7 @@ export default function HomePage({
   return (
     <DocsContent pageTitle={'Home'} includeNavigation toc={toc}>
       <Stack gap="xlarge">
-        <Component components={mdxComponents as any} />
+        <Component components={mdxComponents as MDXComponents} />
       </Stack>
     </DocsContent>
   );
