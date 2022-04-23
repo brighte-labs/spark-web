@@ -33,6 +33,11 @@ export const Package = defineDocumentType(() => ({
       description: 'The title of the package',
       required: true,
     },
+    storybookPath: {
+      type: 'string',
+      description: 'Path for Storybook',
+      required: false,
+    },
   },
   computedFields: {
     slug: {
