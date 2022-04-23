@@ -12,7 +12,8 @@
     "playroom:build": "./scripts/generate-spark-components.js && playroom build",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -o ./public/storybook",
-    "contentlayer:build": "INIT_CWD=$PWD yarn contentlayer build"
+    "contentlayer:build": "INIT_CWD=$PWD yarn contentlayer build",
+    "typecheck": "./scripts/generate-spark-components.js tsc --noEmit"
   },
   "dependencies": {
     "@babel/core": "^7.16.5",
