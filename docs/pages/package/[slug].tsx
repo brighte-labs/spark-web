@@ -28,7 +28,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<{
   code: string;
-  storybookPath?: string;
+  storybookPath: string | null;
   title: string;
 }> = async ({ params }) => {
   const pkg = allPackages.find(p => p.slug === params!.slug);
@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps<{
   return {
     props: {
       code,
-      storybookPath: pkg.storybookPath,
+      storybookPath: pkg.storybookPath ?? null,
       title: pkg.title,
     },
   };
@@ -76,7 +76,7 @@ export default function Packages({
   );
 }
 
-function StorybookLink({ storybookPath }: { storybookPath?: string }) {
+function StorybookLink({ storybookPath }: { storybookPath: string | null }) {
   if (!storybookPath) return null;
 
   return (
