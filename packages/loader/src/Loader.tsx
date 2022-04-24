@@ -1,48 +1,27 @@
 import { css, keyframes } from '@emotion/css';
-import { Box } from '@spark-web/box';
+import type { IconProps } from '@spark-web/icon';
 import { createIcon } from '@spark-web/icon';
 import { useSynchronizedAnimation } from '@spark-web/utils';
 
-// maybe add more tone types
-type SizeType = 'medium' | 'large';
-
 export type LoaderProps = {
-  tone?:
-    | 'neutral'
-    | 'primary'
-    | 'secondary'
-    | 'caution'
-    | 'critical'
-    | 'info'
-    | 'positive';
-  size?: SizeType;
+  // TODO: match tones to design in Figma
+  tone?: IconProps['tone'];
+  size?: 'xxsmall' | 'xsmall';
 };
 
-const mapSize = {
-  medium: 'xxsmall',
-  large: 'xsmall',
-} as const;
-
-export const Loader = ({ tone, size: sizeProp = 'medium' }: LoaderProps) => {
-  let ref = useSynchronizedAnimation(spinAnimation);
+export function Loader({ tone, size = 'xxsmall' }: LoaderProps) {
+  let animationRef = useSynchronizedAnimation(spinAnimation);
   const styles = useLoaderStyles();
-  const size = mapSize[sizeProp];
 
   return (
-    <Box
-      as="span"
-      ref={ref}
-      display="inline-flex"
-      alignItems="center"
-      justifyContent="center"
-      height={size}
-      width={size}
+    <SpinnerIcon
+      ref={animationRef}
+      size={size}
+      tone={tone}
       className={css(styles)}
-    >
-      <SpinnerIcon size={size} tone={tone} />
-    </Box>
+    />
   );
-};
+}
 Loader.displayName = 'Loader';
 
 const SpinnerIcon = createIcon(
@@ -65,7 +44,7 @@ const spinAnimation = keyframes({
   },
 });
 
-const useLoaderStyles = () => {
+function useLoaderStyles() {
   return {
     animation: `${spinAnimation} 1.4s ease-in-out infinite`,
     '> svg': {
@@ -73,4 +52,4 @@ const useLoaderStyles = () => {
       strokeLinecap: 'round',
     },
   } as const;
-};
+}

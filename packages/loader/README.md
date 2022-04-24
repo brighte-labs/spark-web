@@ -34,9 +34,14 @@ return (
       </Button>
     </Inline>
     {[...Array(count).keys()].map((_, index) => (
-      <Button key={`${index}-${key}`}>
-        <Loader />
-      </Button>
+      <Inline key={`${index}-${key}`} gap="large">
+        <Button label="Medium loader example" size="medium">
+          <Loader />
+        </Button>
+        <Button label="Large loader example" size="large">
+          <Loader />
+        </Button>
+      </Inline>
     ))}
   </Stack>
 );
@@ -44,15 +49,15 @@ return (
 
 ## Size
 
-Loaders available in two size: `medium` and `large`.
+Loaders available in two size: `xxsmall` and `xsmall`.
 
-Defaults to `large`.
+Defaults to `xsmall`.
 
 ```jsx live
 <Inline gap="xxlarge">
   <Row gap="xxlarge">
-    <Loader size="medium" />
-    <Loader size="large" />
+    <Loader size="xxsmall" />
+    <Loader size="xsmall" />
   </Row>
 </Inline>
 ```
