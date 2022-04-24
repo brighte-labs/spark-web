@@ -1,50 +1,76 @@
 import { css, keyframes } from '@emotion/css';
 import { Box } from '@spark-web/box';
 import { createIcon } from '@spark-web/icon';
-import type { BrighteTheme } from '@spark-web/theme';
-import { useTheme } from '@spark-web/theme';
+import { useSynchronizedAnimation } from '@spark-web/utils';
 
 // maybe add more tone types
-type LoaderTone = keyof BrighteTheme['color']['foreground'];
-type SizeType = 'xxsmall' | 'xsmall';
+type SizeType = 'medium' | 'large';
 
 export type LoaderProps = {
-  tone?: LoaderTone;
+  tone?:
+    | 'neutral'
+    | 'primary'
+    | 'secondary'
+    | 'caution'
+    | 'critical'
+    | 'info'
+    | 'positive';
   size?: SizeType;
 };
 
-export const Loader = ({ tone = 'primary', size = 'xsmall' }: LoaderProps) => {
-  const styles = useLoaderStyles(tone);
+const mapSize = {
+  medium: 'xxsmall',
+  large: 'xsmall',
+} as const;
+
+export const Loader = ({ tone, size: sizeProp = 'medium' }: LoaderProps) => {
+  let ref = useSynchronizedAnimation(spinAnimation);
+  const styles = useLoaderStyles();
+  const size = mapSize[sizeProp];
+
   return (
-    <Box className={css(styles)} height={size} width={size}>
-      <SpinnerIcon size={size} />
+    <Box
+      as="span"
+      ref={ref}
+      display="inline-flex"
+      alignItems="center"
+      justifyContent="center"
+      height={size}
+      width={size}
+      className={css(styles)}
+    >
+      <SpinnerIcon size={size} tone={tone} />
     </Box>
   );
 };
 Loader.displayName = 'Loader';
 
 const SpinnerIcon = createIcon(
-  <path d="M12 20.5a1.5 1.5 0 000 3v-3zM.5 12a1.5 1.5 0 003 0h-3zm20 0a8.5 8.5 0 01-8.5 8.5v3c6.351 0 11.5-5.149 11.5-11.5h-3zm-17 0A8.5 8.5 0 0112 3.5v-3C5.649.5.5 5.649.5 12h3zM12 3.5a8.5 8.5 0 018.5 8.5h3C23.5 5.649 18.351.5 12 .5v3z" />,
+  <circle cx={12} cy={12} r={10} fill="none" strokeWidth={3} />,
   'SpinnerIcon'
 );
 
-const spin = keyframes({
-  from: { transform: 'rotate(0deg)' },
-  to: { transform: 'rotate(360deg)' },
+const spinAnimation = keyframes({
+  '0%': {
+    strokeDasharray: '1px, 200px',
+    strokeDashoffset: 0,
+  },
+  '50%': {
+    strokeDasharray: '100px, 200px',
+    strokeDashoffset: '-15px',
+  },
+  '100%': {
+    strokeDasharray: '100px, 200px',
+    strokeDashoffset: '-125px',
+  },
 });
 
-const useLoaderStyles = (tone: LoaderTone) => {
-  const theme = useTheme();
+const useLoaderStyles = () => {
   return {
-    colour: theme.color.foreground.accent,
-    animation: `${spin} 1.4s ease-in-out infinite`,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    animation: `${spinAnimation} 1.4s ease-in-out infinite`,
     '> svg': {
-      stroke: 'none',
+      fill: 'none',
       strokeLinecap: 'round',
-      fill: theme.color.foreground[tone],
     },
   } as const;
 };
