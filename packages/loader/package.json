@@ -12,6 +12,7 @@
     "@emotion/css": "^11.7.1",
     "@spark-web/a11y": "^1.0.0",
     "@spark-web/box": "^1.0.0",
+    "@spark-web/icon": "^1.0.0",
     "@spark-web/link": "^1.0.0",
     "@spark-web/text": "^1.0.0",
     "@spark-web/theme": "^1.0.0",
