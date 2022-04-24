@@ -2,6 +2,11 @@ import { useLayoutEffect, useRef } from 'react';
 
 let stashedTime: number | null;
 
+/**
+ * Keeps all instances of the same animation in sync.
+ * Taken from Sam Selikoff's example post:
+ * @see: https://github.com/samselikoff/2022-02-24-use-synchronized-animation
+ */
 export function useSynchronizedAnimation(animationName: string) {
   let ref = useRef(null);
 
