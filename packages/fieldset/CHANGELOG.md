@@ -1,5 +1,20 @@
 # @spark-web/fieldset
 
+## 1.0.2
+
+### Patch Changes
+
+- [#40](https://github.com/brighte-labs/spark-web/pull/40)
+  [`062c8ab`](https://github.com/brighte-labs/spark-web/commit/062c8ab8c7b4120f8d14c269b5f7801288c678ca)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Add
+  @babel/transform-runtime
+
+- Updated dependencies
+  [[`062c8ab`](https://github.com/brighte-labs/spark-web/commit/062c8ab8c7b4120f8d14c269b5f7801288c678ca)]:
+  - @spark-web/box@1.0.2
+  - @spark-web/text@1.0.2
+  - @spark-web/theme@2.0.1
+
 ## 1.0.1
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 {
   "name": "@spark-web/analytics",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/spark-web-analytics.cjs.js",
   "module": "dist/spark-web-analytics.esm.js",
   "devDependencies": {
