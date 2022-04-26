@@ -1,15 +1,15 @@
 {
   "name": "@spark-web/analytics",
-  "license": "MIT",
   "version": "1.0.2",
+  "license": "MIT",
   "main": "dist/spark-web-analytics.cjs.js",
   "module": "dist/spark-web-analytics.esm.js",
-  "devDependencies": {
-    "@types/react": "^17.0.12"
-  },
   "dependencies": {
     "@babel/runtime": "^7.14.6",
     "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.12"
   },
   "engines": {
     "node": ">= 14.13"

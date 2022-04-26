@@ -3,22 +3,32 @@
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
+  "workspaces": [
+    "packages/*",
+    "docs"
+  ],
   "scripts": {
     "build": "preconstruct build",
-    "start": "yarn --cwd=docs dev",
     "docs:build": "yarn --cwd=docs build",
     "docs:start": "yarn --cwd=docs start",
     "format": "prettier --check . --ignore-path \"./.gitignore\"",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
-    "lint:fix": "yarn run lint --fix",
-    "lint": "eslint . --ignore-path \"./.gitignore\"",
     "postinstall": "preconstruct dev && manypkg check",
-    "typecheck": "./docs/scripts/generate-spark-components.js && tsc --noEmit",
-    "test:unit": "jest",
+    "lint": "eslint . --ignore-path \"./.gitignore\"",
+    "lint:fix": "yarn run lint --fix",
+    "release": "yarn build && changeset publish",
+    "start": "yarn --cwd=docs dev",
     "test": "yarn run typecheck && yarn run test:unit",
     "test:coverage": "yarn test ---coverage",
-    "release": "yarn build && changeset publish"
+    "test:unit": "jest",
+    "typecheck": "./docs/scripts/generate-spark-components.js && tsc --noEmit"
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "proseWrap": "always",
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "dependencies": {
     "@babel/core": "^7.16.5",
@@ -52,20 +62,10 @@
     "react-dom": "^17.0.2",
     "typescript": "4.4.3"
   },
-  "workspaces": [
-    "packages/*",
-    "docs"
-  ],
   "preconstruct": {
     "packages": [
       "packages/*",
       "spark-web/packages/*"
     ]
-  },
-  "prettier": {
-    "arrowParens": "avoid",
-    "proseWrap": "always",
-    "singleQuote": true,
-    "trailingComma": "es5"
   }
 }

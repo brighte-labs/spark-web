@@ -1,7 +1,7 @@
 {
   "name": "@spark-web/dropzone",
-  "license": "MIT",
   "version": "1.0.2",
+  "license": "MIT",
   "main": "dist/spark-web-dropzone.cjs.js",
   "module": "dist/spark-web-dropzone.esm.js",
   "dependencies": {

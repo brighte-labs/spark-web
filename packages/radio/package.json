@@ -1,7 +1,7 @@
 {
   "name": "@spark-web/radio",
-  "license": "MIT",
   "version": "1.0.2",
+  "license": "MIT",
   "main": "dist/spark-web-radio.cjs.js",
   "module": "dist/spark-web-radio.esm.js",
   "dependencies": {
