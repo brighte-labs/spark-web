@@ -1,7 +1,9 @@
-import { Loader, LoaderProps } from './Loader';
 import { Inline } from '@spark-web/inline';
 import { Stack } from '@spark-web/stack';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
+
+import type { LoaderProps } from './Loader';
+import { Loader } from './Loader';
 
 export default {
   title: 'Feedback & Overlays / Loader',
