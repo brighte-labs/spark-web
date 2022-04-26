@@ -1,18 +1,18 @@
 {
   "name": "@spark-web/docs",
-  "license": "MIT",
   "version": "1.0.1",
   "private": true,
+  "license": "MIT",
   "scripts": {
-    "dev": "./scripts/generate-spark-components.js && INIT_CWD=$PWD next dev",
     "build": "./scripts/generate-spark-components.js && yarn playroom:build && INIT_CWD=$PWD next build && yarn storybook:build",
-    "start": "next start",
+    "contentlayer:build": "INIT_CWD=$PWD yarn contentlayer build",
+    "dev": "./scripts/generate-spark-components.js && INIT_CWD=$PWD next dev",
     "lint": "next lint",
-    "playroom:start": "playroom start",
     "playroom:build": "./scripts/generate-spark-components.js && playroom build",
+    "playroom:start": "playroom start",
+    "start": "next start",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -o ./public/storybook",
-    "contentlayer:build": "INIT_CWD=$PWD yarn contentlayer build",
     "typecheck": "./scripts/generate-spark-components.js tsc --noEmit"
   },
   "dependencies": {
