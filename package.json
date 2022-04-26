@@ -20,7 +20,6 @@
     "lint:fix": "yarn run lint --fix",
     "release": "yarn build && changeset publish",
     "start": "yarn --cwd=docs dev",
-    "pretest": "yarn docs:prepare",
     "test": "yarn run typecheck && yarn run test:unit",
     "test:coverage": "yarn test ---coverage",
     "test:unit": "jest",
