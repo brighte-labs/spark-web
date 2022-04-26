@@ -1,6 +1,6 @@
 ---
 title: Loader
-storybookPath: feedback-overlays-alert—default
+storybookPath: feedback-overlays-loader-—default
 ---
 
 Loader indicates users that their request is in progress
