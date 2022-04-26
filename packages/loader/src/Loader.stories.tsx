@@ -1,4 +1,4 @@
-import {Loader, LoaderProps} from './Loader';
+import { Loader, LoaderProps } from './Loader';
 import { Inline } from '@spark-web/inline';
 import { Stack } from '@spark-web/stack';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
@@ -22,8 +22,7 @@ export const Caution = LoaderStory.bind({});
 export const Positive = LoaderStory.bind({});
 export const Primary = LoaderStory.bind({});
 
-Default.args = {
-} as LoaderProps
+Default.args = {} as LoaderProps;
 
 Caution.args = {
   tone: 'caution',
