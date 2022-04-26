@@ -47,9 +47,6 @@ const spinAnimation = keyframes({
 function useLoaderStyles() {
   return {
     animation: `${spinAnimation} 1.4s ease-in-out infinite`,
-    '> svg': {
-      fill: 'none',
-      strokeLinecap: 'round',
-    },
+    strokeLinecap: 'round',
   } as const;
 }

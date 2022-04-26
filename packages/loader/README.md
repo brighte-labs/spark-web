@@ -14,35 +14,29 @@ The appearance of loader can be cutomised with the tone prop.
 Defaults to `primary`.
 
 ```jsx live
-let [count, setCount] = React.useState(1);
-let [key, setKey] = React.useState(0);
+const tones = ['secondary', 'critical', 'positive', 'neutral'];
 
 return (
-  <Stack align="left" gap="large">
-    <Inline gap="large">
-      <Button tone="positive" onClick={() => setCount(c => c + 1)}>
-        Add
-      </Button>
-      <Button
-        tone="critical"
-        onClick={() => setCount(c => (c > 0 ? c - 1 : 0))}
-      >
-        Remove
-      </Button>
-      <Button tone="neutral" onClick={() => setKey(key => key + 1)}>
-        Rerender
-      </Button>
+  <Stack align="left" gap="xxlarge">
+    <Inline gap="xxlarge">
+      {tones.map((tone, index) => (
+        <Button tone={tone} prominence="low" key={`low-btn-${index}`}>
+          <Loader />
+        </Button>
+      ))}
     </Inline>
-    {[...Array(count).keys()].map((_, index) => (
-      <Inline key={`${index}-${key}`} gap="large">
-        <Button label="Medium loader example" size="medium">
+    <Inline gap="xxlarge">
+      {tones.map((tone, index) => (
+        <Button tone={tone} key={`btn-${index}`}>
           <Loader />
         </Button>
-        <Button label="Large loader example" size="large">
-          <Loader />
-        </Button>
-      </Inline>
-    ))}
+      ))}
+    </Inline>
+    <Inline gap="xxlarge">
+      {tones.map((tone, index) => (
+        <Loader tone={tone} key={`loader-${index}`} />
+      ))}
+    </Inline>
   </Stack>
 );
 ```
