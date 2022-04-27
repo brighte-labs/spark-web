@@ -2,6 +2,7 @@ import { css, keyframes } from '@emotion/css';
 import type { IconProps } from '@spark-web/icon';
 import { createIcon } from '@spark-web/icon';
 import { useSynchronizedAnimation } from '@spark-web/utils';
+import { Box } from '@spark-web/box';
 
 export type LoaderProps = {
   // TODO: match tones to design in Figma
@@ -14,12 +15,17 @@ export function Loader({ tone, size = 'xxsmall' }: LoaderProps) {
   const styles = useLoaderStyles();
 
   return (
-    <SpinnerIcon
+    <Box
       ref={animationRef}
-      size={size}
-      tone={tone}
       className={css(styles)}
-    />
+      height={size}
+      width={size}
+      display="inline-flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <SpinnerIcon size={size} tone={tone} />
+    </Box>
   );
 }
 Loader.displayName = 'Loader';
@@ -46,7 +52,9 @@ const spinAnimation = keyframes({
 
 function useLoaderStyles() {
   return {
-    animation: `${spinAnimation} 1.4s ease-in-out infinite`,
-    strokeLinecap: 'round',
+    '& svg': {
+      animation: `${spinAnimation} 1.4s ease-in-out infinite`,
+      strokeLinecap: 'round',
+    },
   } as const;
 }

@@ -1,4 +1,4 @@
-import { css, cx } from '@emotion/css';
+import { css } from '@emotion/css';
 import type { ForegroundTone } from '@spark-web/text';
 import { useForegroundTone } from '@spark-web/text';
 import type { BrighteTheme } from '@spark-web/theme';
@@ -13,16 +13,11 @@ export type IconProps = {
   size?: SizeType;
   /** The tone of the icon. */
   tone?: ForegroundTone;
-  /** Class to be added to svg. */
-  className?: string;
 };
 
 export const createIcon = (children: ReactNode, name: string) => {
   const Icon = forwardRef<SVGSVGElement, IconProps>(
-    (
-      { size: sizeKey = 'small', tone = 'neutral', className },
-      forwardedRef
-    ) => {
+    ({ size: sizeKey = 'small', tone = 'neutral' }, forwardedRef) => {
       const {
         sizing,
         utils: { resolveResponsiveProps },
@@ -52,7 +47,7 @@ export const createIcon = (children: ReactNode, name: string) => {
           role="img"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
-          className={cx(css(styles), className)}
+          className={css(styles)}
         >
           {children}
         </svg>
