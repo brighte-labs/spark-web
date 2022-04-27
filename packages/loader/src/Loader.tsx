@@ -11,12 +11,14 @@ export type LoaderProps = {
 };
 
 export function Loader({ tone, size = 'xxsmall' }: LoaderProps) {
-  let animationRef = useSynchronizedAnimation(spinAnimation);
+  const spinAnimationRef = useSynchronizedAnimation(spinAnimation);
+  const strokeAnimationRef = useSynchronizedAnimation(strokeDashAnimation);
   const styles = useLoaderStyles();
 
   return (
     <Box
-      ref={animationRef}
+      as="span"
+      ref={spinAnimationRef}
       className={css(styles)}
       height={size}
       width={size}
@@ -24,18 +26,24 @@ export function Loader({ tone, size = 'xxsmall' }: LoaderProps) {
       alignItems="center"
       justifyContent="center"
     >
-      <SpinnerIcon size={size} tone={tone} />
+      <SpinnerIcon size={size} tone={tone} ref={strokeAnimationRef} />
     </Box>
   );
 }
 Loader.displayName = 'Loader';
 
-const SpinnerIcon = createIcon(
-  <circle cx={12} cy={12} r={10} fill="none" strokeWidth={3} />,
-  'SpinnerIcon'
-);
+const SpinnerIcon = createIcon(<circle cx={12} cy={12} r={9} />, 'SpinnerIcon');
 
 const spinAnimation = keyframes({
+  from: {
+    transform: 'rotate(0deg)',
+  },
+  to: {
+    transform: 'rotate(360deg)',
+  },
+});
+
+const strokeDashAnimation = keyframes({
   '0%': {
     strokeDasharray: '1px, 200px',
     strokeDashoffset: 0,
@@ -52,9 +60,9 @@ const spinAnimation = keyframes({
 
 function useLoaderStyles() {
   return {
-    '& svg': {
-      animation: `${spinAnimation} 1.4s ease-in-out infinite`,
-      strokeLinecap: 'round',
+    animation: `${spinAnimation} 1.4s linear infinite`,
+    '& circle': {
+      animation: `${strokeDashAnimation} 1.4s ease-in-out infinite`,
     },
   } as const;
 }
