@@ -13,10 +13,11 @@ export function useSynchronizedAnimation(animationName: string) {
   const ref = useRef(null);
 
   useIsomorphicLayoutEffect(() => {
-    const animations = document
-      .getAnimations()
-      // @ts-expect-error: Property 'animationName' does not exist on type 'Animation'.
-      .filter(animation => animation.animationName === animationName);
+    const animations =
+      document
+        .getAnimations?.()
+        // @ts-expect-error: Property 'animationName' does not exist on type 'Animation'.
+        .filter(animation => animation.animationName === animationName) || [];
 
     const animationTarget = animations.find(
       // @ts-expect-error: Property 'target' does not exist on type 'AnimationEffect'.
