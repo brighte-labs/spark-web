@@ -12,6 +12,7 @@ import type {
   InferGetStaticPropsType,
 } from 'next';
 import { useMemo } from 'react';
+import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
 import { DocsContent } from '../../components/content';
@@ -45,6 +46,7 @@ export const getStaticProps: GetStaticProps<{
       options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
+        rehypeSlug,
         untitledLiveCode,
       ];
       return options;
