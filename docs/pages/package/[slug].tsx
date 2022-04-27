@@ -30,6 +30,7 @@ export const getStaticProps: GetStaticProps<{
   code: string;
   storybookPath: string | null;
   title: string;
+  toc: typeof allPackages[number]['toc'];
 }> = async ({ params }) => {
   const pkg = allPackages.find(p => p.slug === params!.slug);
   if (!pkg) {
@@ -55,6 +56,7 @@ export const getStaticProps: GetStaticProps<{
       code,
       storybookPath: pkg.storybookPath ?? null,
       title: pkg.title,
+      toc: pkg.toc,
     },
   };
 };
@@ -63,10 +65,11 @@ export default function Packages({
   code,
   storybookPath,
   title,
+  toc,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
-    <DocsContent pageTitle={title} includeNavigation toc={[]}>
+    <DocsContent pageTitle={title} includeNavigation toc={toc}>
       <Stack gap="xlarge">
         <Heading level="1">{title}</Heading>
         <StorybookLink storybookPath={storybookPath} />
