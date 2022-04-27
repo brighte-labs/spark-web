@@ -1,8 +1,8 @@
 import { css, keyframes } from '@emotion/css';
+import { Box } from '@spark-web/box';
 import type { IconProps } from '@spark-web/icon';
 import { createIcon } from '@spark-web/icon';
 import { useSynchronizedAnimation } from '@spark-web/utils';
-import { Box } from '@spark-web/box';
 
 export type LoaderProps = {
   // TODO: match tones to design in Figma

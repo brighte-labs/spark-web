@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+
 import { useIsomorphicLayoutEffect } from './use-isomorphic-layout-effect';
 
 let stashedTime: number | null;
