@@ -35,27 +35,14 @@ Spinner.displayName = 'Spinner';
 const SpinnerIcon = createIcon(<circle cx={12} cy={12} r={9} />, 'SpinnerIcon');
 
 const spinAnimation = keyframes({
-  from: {
-    transform: 'rotate(0deg)',
-  },
-  to: {
-    transform: 'rotate(360deg)',
-  },
+  from: { transform: 'rotate(0deg)' },
+  to: { transform: 'rotate(360deg)' },
 });
 
 const strokeDashAnimation = keyframes({
-  '0%': {
-    strokeDasharray: '1px, 200px',
-    strokeDashoffset: 0,
-  },
-  '50%': {
-    strokeDasharray: '100px, 200px',
-    strokeDashoffset: '-15px',
-  },
-  '100%': {
-    strokeDasharray: '100px, 200px',
-    strokeDashoffset: '-125px',
-  },
+  '0%': { strokeDasharray: '1px, 200px', strokeDashoffset: 0 },
+  '50%': { strokeDasharray: '100px, 200px', strokeDashoffset: '-15px' },
+  '100%': { strokeDasharray: '100px, 200px', strokeDashoffset: '-125px' },
 });
 
 function useSpinnerStyles() {
