@@ -10,7 +10,7 @@ export type LoaderProps = {
   size?: 'xxsmall' | 'xsmall';
 };
 
-export function Loader({ tone, size = 'xxsmall' }: LoaderProps) {
+export function Loader({ tone = 'primary', size = 'xxsmall' }: LoaderProps) {
   const spinAnimationRef = useSynchronizedAnimation(spinAnimation);
   const strokeAnimationRef = useSynchronizedAnimation(strokeDashAnimation);
   const styles = useLoaderStyles();
