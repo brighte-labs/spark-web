@@ -1,4 +1,5 @@
-import { useLayoutEffect, useRef } from 'react';
+import {  useRef } from 'react';
+import { useIsomorphicLayoutEffect } from './use-isomorphic-layout-effect';
 
 let stashedTime: number | null;
 
@@ -8,30 +9,30 @@ let stashedTime: number | null;
  * @see: https://github.com/samselikoff/2022-02-24-use-synchronized-animation
  */
 export function useSynchronizedAnimation(animationName: string) {
-  let ref = useRef(null);
+  const ref = useRef(null);
 
-  useLayoutEffect(() => {
-    let animations = document
+  useIsomorphicLayoutEffect(() => {
+    const animations = document
       .getAnimations()
       // @ts-expect-error: Property 'animationName' does not exist on type 'Animation'.
       .filter(animation => animation.animationName === animationName);
 
-    let myAnimation = animations.find(
+    const animationTarget = animations.find(
       // @ts-expect-error: Property 'target' does not exist on type 'AnimationEffect'.
       animation => animation.effect?.target === ref.current
     );
 
-    if (myAnimation === animations[0] && stashedTime) {
-      myAnimation.currentTime = stashedTime;
+    if (animationTarget === animations[0] && stashedTime) {
+      animationTarget.currentTime = stashedTime;
     }
 
-    if (myAnimation && myAnimation !== animations[0]) {
-      myAnimation.currentTime = animations[0].currentTime;
+    if (animationTarget && animationTarget !== animations[0]) {
+      animationTarget.currentTime = animations[0].currentTime;
     }
 
     return () => {
-      if (myAnimation === animations[0]) {
-        stashedTime = myAnimation.currentTime;
+      if (animationTarget === animations[0]) {
+        stashedTime = animationTarget.currentTime;
       }
     };
   }, [animationName]);
