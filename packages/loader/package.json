@@ -1,7 +1,7 @@
 {
   "name": "@spark-web/loader",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "dist/spark-web-loader.cjs.js",
   "module": "dist/spark-web-loader.esm.js",
   "devDependencies": {
