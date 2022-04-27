@@ -1,15 +1,15 @@
 ---
-title: Loader
-storybookPath: feedback-overlays-loader-—default
+title: Spinner
+storybookPath: feedback-overlays-spinner-—default
 ---
 
-Loader indicates users that their request is in progress
+Spinner indicates users that their request is in progress
 
 ## Examples
 
 ### Tones
 
-The appearance of loader can be cutomised with the tone prop.
+The appearance of Spinner can be cutomised with the tone prop.
 
 Defaults to `primary`.
 
@@ -21,20 +21,20 @@ return (
     <Inline gap="xxlarge">
       {tones.map((tone, index) => (
         <Button tone={tone} prominence="low" key={`low-btn-${index}`}>
-          <Loader />
+          <Spinner />
         </Button>
       ))}
     </Inline>
     <Inline gap="xxlarge">
       {tones.map((tone, index) => (
         <Button tone={tone} key={`btn-${index}`}>
-          <Loader />
+          <Spinner />
         </Button>
       ))}
     </Inline>
     <Inline gap="xxlarge">
       {tones.map((tone, index) => (
-        <Loader tone={tone} key={`loader-${index}`} />
+        <Spinner tone={tone} key={`spinner-${index}`} />
       ))}
     </Inline>
   </Stack>
@@ -43,15 +43,15 @@ return (
 
 ## Size
 
-Loaders available in two size: `xxsmall` and `xsmall`.
+Spinners available in two size: `xxsmall` and `xsmall`.
 
 Defaults to `xsmall`.
 
 ```jsx live
 <Inline gap="xxlarge">
   <Row gap="xxlarge">
-    <Loader size="xxsmall" />
-    <Loader size="xsmall" />
+    <Spinner size="xxsmall" />
+    <Spinner size="xsmall" />
   </Row>
 </Inline>
 ```

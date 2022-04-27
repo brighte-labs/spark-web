@@ -1,5 +1,5 @@
 ---
-'@spark-web/loader': major
+'@spark-web/spinner': major
 ---
 
-initial release of loader component
+initial release of spinner component

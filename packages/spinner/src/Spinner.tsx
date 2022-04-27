@@ -4,16 +4,16 @@ import type { IconProps } from '@spark-web/icon';
 import { createIcon } from '@spark-web/icon';
 import { useSynchronizedAnimation } from '@spark-web/utils';
 
-export type LoaderProps = {
+export type SpinnerProps = {
   // TODO: match tones to design in Figma
   tone?: IconProps['tone'];
   size?: 'xxsmall' | 'xsmall';
 };
 
-export function Loader({ tone = 'primary', size = 'xxsmall' }: LoaderProps) {
+export function Spinner({ tone, size = 'xxsmall' }: SpinnerProps) {
   const spinAnimationRef = useSynchronizedAnimation(spinAnimation);
   const strokeAnimationRef = useSynchronizedAnimation(strokeDashAnimation);
-  const styles = useLoaderStyles();
+  const styles = useSpinnerStyles();
 
   return (
     <Box
@@ -30,7 +30,7 @@ export function Loader({ tone = 'primary', size = 'xxsmall' }: LoaderProps) {
     </Box>
   );
 }
-Loader.displayName = 'Loader';
+Spinner.displayName = 'Spinner';
 
 const SpinnerIcon = createIcon(<circle cx={12} cy={12} r={9} />, 'SpinnerIcon');
 
@@ -58,7 +58,7 @@ const strokeDashAnimation = keyframes({
   },
 });
 
-function useLoaderStyles() {
+function useSpinnerStyles() {
   return {
     animation: `${spinAnimation} 1.4s linear infinite`,
     '& circle': {
