@@ -18,8 +18,14 @@
     "@spark-web/text-list": "^1.0.2",
     "@spark-web/theme": "^2.0.1",
     "@spark-web/utils": "^1.0.2",
-    "react": "^17.0.2",
     "react-dropzone": "^12.0.4"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.12",
+    "react": "^17.0.2"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.2"
   },
   "engines": {
     "node": ">= 14.13"
