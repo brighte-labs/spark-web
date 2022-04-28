@@ -33,7 +33,7 @@ function App({
 }
 
 App.getInitialProps = async () => {
-  const ignorePackages = ['core', 'theme', 'utils'];
+  const ignorePackages = ['control-label', 'core', 'theme', 'utils'];
   return {
     navigation: [
       { name: 'Home', href: '/' },
