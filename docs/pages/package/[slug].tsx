@@ -18,6 +18,7 @@ import remarkGfm from 'remark-gfm';
 import { DocsContent } from '../../components/content';
 import { StorybookLogo } from '../../components/logo';
 import { mdxComponents } from '../../components/mdx-components/mdx-components';
+import type { HeadingData } from '../../utils/generate-toc';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = allPackages.map(pkg => `/package/${pkg.slug}`);
@@ -31,7 +32,7 @@ export const getStaticProps: GetStaticProps<{
   code: string;
   storybookPath: string | null;
   title: string;
-  toc: typeof allPackages[number]['toc'];
+  toc: HeadingData[];
 }> = async ({ params }) => {
   const pkg = allPackages.find(p => p.slug === params!.slug);
   if (!pkg) {
