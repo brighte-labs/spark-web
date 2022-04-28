@@ -1,12 +1,12 @@
 import { SparkProvider } from '@spark-web/core';
 import { UniversalNextLink } from '@spark-web/next-utils';
-import type { SidebarNavItemType } from 'components/sidebar';
 import { allPackages } from 'contentlayer/generated';
 import type { AppProps } from 'next/app';
 import NextHead from 'next/head';
 import { DefaultSeo } from 'next-seo';
 
 import { Layout } from '../components/layout';
+import type { SidebarNavItemType } from '../components/sidebar';
 
 function App({
   Component,
