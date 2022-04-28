@@ -1,5 +1,18 @@
 # @spark-web/theme
 
+## 2.0.2
+
+### Patch Changes
+
+- [#42](https://github.com/brighte-labs/spark-web/pull/42)
+  [`435779a`](https://github.com/brighte-labs/spark-web/commit/435779aa42bd635bbf43e1fd41724c666402caa2)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Prevent multiple
+  versions of React
+
+- Updated dependencies
+  [[`435779a`](https://github.com/brighte-labs/spark-web/commit/435779aa42bd635bbf43e1fd41724c666402caa2)]:
+  - @spark-web/utils@1.1.1
+
 ## 2.0.1
 
 ### Patch Changes

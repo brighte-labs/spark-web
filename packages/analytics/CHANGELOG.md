@@ -1,5 +1,14 @@
 # @spark-web/analytics
 
+## 1.0.3
+
+### Patch Changes
+
+- [#42](https://github.com/brighte-labs/spark-web/pull/42)
+  [`435779a`](https://github.com/brighte-labs/spark-web/commit/435779aa42bd635bbf43e1fd41724c666402caa2)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Prevent multiple
+  versions of React
+
 ## 1.0.2
 
 ### Patch Changes

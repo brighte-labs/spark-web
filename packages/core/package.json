@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "dist/spark-web-core.cjs.js",
   "module": "dist/spark-web-core.esm.js",
@@ -8,10 +8,10 @@
     "@babel/runtime": "^7.14.6",
     "@emotion/css": "^11.7.1",
     "@emotion/react": "^11.4.0",
-    "@spark-web/a11y": "^1.0.2",
-    "@spark-web/link": "^1.0.2",
-    "@spark-web/theme": "^2.0.1",
-    "@spark-web/utils": "^1.0.2",
+    "@spark-web/a11y": "^1.0.3",
+    "@spark-web/link": "^1.0.3",
+    "@spark-web/theme": "^2.0.2",
+    "@spark-web/utils": "^1.1.1",
     "assert": "1.5.0"
   },
   "devDependencies": {

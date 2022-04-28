@@ -1,5 +1,28 @@
 # @spark-web/dropzone
 
+## 1.0.3
+
+### Patch Changes
+
+- [#42](https://github.com/brighte-labs/spark-web/pull/42)
+  [`435779a`](https://github.com/brighte-labs/spark-web/commit/435779aa42bd635bbf43e1fd41724c666402caa2)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Prevent multiple
+  versions of React
+
+- Updated dependencies
+  [[`435779a`](https://github.com/brighte-labs/spark-web/commit/435779aa42bd635bbf43e1fd41724c666402caa2)]:
+  - @spark-web/a11y@1.0.3
+  - @spark-web/alert@1.0.3
+  - @spark-web/box@1.0.3
+  - @spark-web/button@1.0.3
+  - @spark-web/field@1.0.3
+  - @spark-web/icon@1.1.1
+  - @spark-web/stack@1.0.3
+  - @spark-web/text@1.0.3
+  - @spark-web/text-list@1.0.3
+  - @spark-web/theme@2.0.2
+  - @spark-web/utils@1.1.1
+
 ## 1.0.2
 
 ### Patch Changes

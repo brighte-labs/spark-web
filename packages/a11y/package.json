@@ -1,14 +1,14 @@
 {
   "name": "@spark-web/a11y",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "dist/spark-web-a11y.cjs.js",
   "module": "dist/spark-web-a11y.esm.js",
   "dependencies": {
     "@babel/runtime": "^7.14.6",
     "@emotion/css": "^11.7.1",
-    "@spark-web/theme": "^2.0.1",
-    "@spark-web/utils": "^1.0.2",
+    "@spark-web/theme": "^2.0.2",
+    "@spark-web/utils": "^1.1.1",
     "polished": "^4.1.3"
   },
   "devDependencies": {

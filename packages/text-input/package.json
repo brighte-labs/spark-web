@@ -1,18 +1,18 @@
 {
   "name": "@spark-web/text-input",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "dist/spark-web-text-input.cjs.js",
   "module": "dist/spark-web-text-input.esm.js",
   "dependencies": {
     "@babel/runtime": "^7.14.6",
     "@emotion/css": "^11.7.1",
-    "@spark-web/a11y": "^1.0.2",
-    "@spark-web/box": "^1.0.2",
-    "@spark-web/field": "^1.0.2",
-    "@spark-web/text": "^1.0.2",
-    "@spark-web/theme": "^2.0.1",
-    "@spark-web/utils": "^1.0.2"
+    "@spark-web/a11y": "^1.0.3",
+    "@spark-web/box": "^1.0.3",
+    "@spark-web/field": "^1.0.3",
+    "@spark-web/text": "^1.0.3",
+    "@spark-web/theme": "^2.0.2",
+    "@spark-web/utils": "^1.1.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.12",
