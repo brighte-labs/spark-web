@@ -1,22 +1,18 @@
 import '@testing-library/jest-dom';
 
-import type { Tone } from '@spark-web/field/src';
-import { Field } from '@spark-web/field/src';
+import type { FieldProps } from '@spark-web/field';
+import { Field } from '@spark-web/field';
 import { render, screen } from '@testing-library/react';
 
+import type { TextAreaProps } from '.';
 import { TextArea } from './text-area';
 
 const renderComponent = (
-  feildProps: {
-    label: string;
-    disabled?: boolean;
-    message?: string;
-    tone?: Tone;
-  },
-  props?: { data: { [key: string]: string } }
+  fieldProps: Omit<FieldProps, 'children'>,
+  props?: TextAreaProps
 ) => {
   return render(
-    <Field {...feildProps}>
+    <Field {...fieldProps}>
       <TextArea {...props} />
     </Field>
   );
