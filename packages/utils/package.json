@@ -4,6 +4,11 @@
   "license": "MIT",
   "main": "dist/spark-web-utils.cjs.js",
   "module": "dist/spark-web-utils.esm.js",
+  "files": [
+    "dist",
+    "internal",
+    "ts"
+  ],
   "dependencies": {
     "@babel/runtime": "^7.14.6"
   },
