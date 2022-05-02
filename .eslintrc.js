@@ -10,6 +10,7 @@ const reactComponentTypeMessage = {
 
 /** @type {import('@types/eslint').Linter.BaseConfig} */
 module.exports = {
+  ignorePatterns: ['*.json', '*.md'],
   parser: '@typescript-eslint/parser',
   env: {
     browser: true,

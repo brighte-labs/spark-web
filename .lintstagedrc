@@ -1,0 +1,6 @@
+{
+  "**/*.{ts,tsx,md,js,json}": [
+    "yarn prettier --ignore-path \"./.gitignore\" --write",
+    "yarn eslint --ignore-path \"./.gitignore\" --fix"
+  ]
+}
