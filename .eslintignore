@@ -49,3 +49,6 @@ coverage
 
 # Contentlayer
 .contentlayer
+
+**/*.json
+**/*.md

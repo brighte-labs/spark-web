@@ -1,6 +1,8 @@
 {
-  "**/*.{ts,tsx,md,js,json}": [
-    "yarn prettier --ignore-path \"./.gitignore\" --write",
-    "yarn eslint --ignore-path \"./.gitignore\" --fix"
+  "**/*.{ts,tsx,md,js,jsx,json}": [
+    "yarn prettier --write"
+  ],
+  "**/*.{ts,tsx,js,jsx}": [
+    "yarn eslint --fix"
   ]
 }
