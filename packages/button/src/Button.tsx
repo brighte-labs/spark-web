@@ -87,7 +87,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
-Button.displayName = 'Buttton';
+Button.displayName = 'Button';
 
 /**
  * Prevent click events when the component is "disabled".
