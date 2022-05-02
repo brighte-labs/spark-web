@@ -40,6 +40,16 @@ export const Package = defineDocumentType(() => ({
     },
   },
   computedFields: {
+    packageName: {
+      type: 'string',
+      resolve: async pkg => {
+        return JSON.parse(
+          (
+            await readFile(`../${pkg._raw.sourceFileDir}/package.json`)
+          ).toString()
+        ).name;
+      },
+    },
     slug: {
       type: 'string',
       resolve: pkg => pkg._raw.sourceFileDir.replace(/^packages\//, ''),
