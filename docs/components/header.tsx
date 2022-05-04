@@ -189,11 +189,14 @@ const SearchInputBox = ({ searchIndex }: { searchIndex: SearchIndexType }) => {
     console.log({ results });
   };
 
-  return (
-    <>
-      <Field label="Search" labelVisibility="hidden">
-        <TextInput placeholder="search" onChange={onChange} />
-      </Field>
-    </>
-  );
+  // Removing search for now (see https://brighte.atlassian.net/browse/SPRK-62)
+  return null;
+
+  // return (
+  //   <>
+  //     <Field label="Search" labelVisibility="hidden">
+  //       <TextInput placeholder="search" onChange={onChange} />
+  //     </Field>
+  //   </>
+  // );
 };
