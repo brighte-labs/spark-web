@@ -2,13 +2,11 @@ import { css } from '@emotion/css';
 import { useFocusRing, VisuallyHidden } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
 import { Container } from '@spark-web/container';
-import { Field } from '@spark-web/field';
 import { Hidden } from '@spark-web/hidden';
 import { MenuIcon, XIcon } from '@spark-web/icon';
 import { Inline } from '@spark-web/inline';
 import { Link } from '@spark-web/link';
 import { Strong, Text } from '@spark-web/text';
-import { TextInput } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
 // @ts-expect-error
 import { Document as FlexSearchDocument } from 'flexsearch';
@@ -178,18 +176,19 @@ const SearchInputBox = ({ searchIndex }: { searchIndex: SearchIndexType }) => {
     fetchSearchIndex();
   });
 
-  const onChange: any = (event: any) => {
-    const { value } = event.target;
-    if (!flexsearchRef.current) {
-      console.error('THIS SHOULD BE IMPOSSIBLE!');
-      return;
-    }
-    const flexsearchDoc: any = flexsearchRef.current;
-    const results = flexsearchDoc.search(value);
-    console.log({ results });
-  };
-
   // Removing search for now (see https://brighte.atlassian.net/browse/SPRK-62)
+
+  // const onChange: any = (event: any) => {
+  //   const { value } = event.target;
+  //   if (!flexsearchRef.current) {
+  //     console.error('THIS SHOULD BE IMPOSSIBLE!');
+  //     return;
+  //   }
+  //   const flexsearchDoc: any = flexsearchRef.current;
+  //   const results = flexsearchDoc.search(value);
+  //   console.log({ results });
+  // };
+
   return null;
 
   // return (
