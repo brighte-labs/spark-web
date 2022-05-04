@@ -4,17 +4,16 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "yarn playroom:build && INIT_CWD=$PWD next build && ./scripts/generate-search-index.js && yarn storybook:build ",
+    "build": "./scripts/generate-components-index.js && INIT_CWD=$PWD next build && yarn playroom:build && yarn storybook:build ",
     "contentlayer:build": "INIT_CWD=$PWD yarn contentlayer build",
-    "dev": "yarn run search-generation && INIT_CWD=$PWD next dev",
+    "dev": "./scripts/generate-components-index.js && INIT_CWD=$PWD next dev",
     "lint": "next lint",
-    "playroom:build": "./scripts/generate-spark-components.js && playroom build",
+    "playroom:build": "./scripts/generate-components-index.js && playroom build",
     "playroom:start": "playroom start",
-    "search-generation": "yarn contentlayer:build && ./scripts/generate-search-index.js ",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -o ./public/storybook",
-    "typecheck": "yarn run search-generation tsc --noEmit"
+    "typecheck": "./scripts/generate-components-index.js && yarn contentlayer:build && tsc --noEmit"
   },
   "dependencies": {
     "//": "Due to https://github.com/nextapps-de/flexsearch/issues/325 (Version 0.7.22 is not published to npm) and 0.7.21 has bugs, we have to pull flexsearch directly from guthub",

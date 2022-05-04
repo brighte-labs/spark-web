@@ -2,15 +2,18 @@ import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
 import { useTheme } from '@spark-web/theme';
 
+import type { SearchIndexType } from './header';
 import { Header } from './header';
 import type { SidebarNavItemType } from './sidebar';
 import { Sidebar, SidebarContextProvider } from './sidebar';
 
 export function Layout({
   navigation,
+  searchIndex,
   children,
 }: {
   navigation: SidebarNavItemType[];
+  searchIndex: SearchIndexType;
   children: React.ReactNode;
 }): JSX.Element {
   const theme = useTheme();
@@ -22,7 +25,7 @@ export function Layout({
         background="surface"
         className={css({ minHeight: '100vh' })}
       >
-        <Header />
+        <Header searchIndex={searchIndex} />
 
         <Box display="flex" flex={1}>
           <Box

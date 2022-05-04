@@ -10,19 +10,17 @@ import { Link } from '@spark-web/link';
 import { Strong, Text } from '@spark-web/text';
 import { TextInput } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
-// @ts-expect-error flexsearch sucks
-import type FlexSearchType from 'flexsearch';
-import { Document as _FlexSearchDocument } from 'flexsearch';
+// @ts-expect-error
+import { Document as FlexSearchDocument } from 'flexsearch';
 import { useEffect, useRef } from 'react';
 
 import { GITHUB_URL, HEADER_HEIGHT, SIDEBAR_WIDTH } from './constants';
 import { useSidebarContext } from './sidebar';
 import { BrighteLogo, GitHubIcon } from './vectors/fill';
 
-// @ts-expect-error flexsearch sucks
-const FlexSearchDocument = _FlexSearchDocument as FlexSearchType.Document;
+export type SearchIndexType = { key: string; data: string }[];
 
-export function Header() {
+export function Header({ searchIndex }: { searchIndex: SearchIndexType }) {
   const { sidebarIsOpen, toggleSidebar } = useSidebarContext();
 
   const theme = useTheme();
@@ -89,7 +87,7 @@ export function Header() {
           >
             <Inline gap="xlarge">
               <Notice />
-              <SearchInputBox />
+              <SearchInputBox searchIndex={searchIndex} />
             </Inline>
           </Box>
 
@@ -158,7 +156,7 @@ const GitHubLink = () => {
   );
 };
 
-const SearchInputBox = () => {
+const SearchInputBox = ({ searchIndex }: { searchIndex: SearchIndexType }) => {
   const flexsearchRef = useRef();
 
   useEffect(() => {
@@ -166,11 +164,11 @@ const SearchInputBox = () => {
       if (flexsearchRef.current) {
         return;
       }
-      const flexsearchIndex = await import('../cache/search-index.json');
+      // @ts-expect-error
       const flexsearchDoc = new FlexSearchDocument({
         document: 'content',
       });
-      flexsearchIndex.default.forEach(async element => {
+      searchIndex.forEach(async element => {
         await flexsearchDoc.import(element.key, JSON.parse(element.data));
       });
 
