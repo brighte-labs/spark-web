@@ -10,8 +10,8 @@
   "scripts": {
     "build": "preconstruct build",
     "clean:check": "git clean -nXd",
-    "clean:docs": "yarn --cwd=docs git clean -fXd",
-    "clean:packages": "yarn --cwd=packages git clean -fXd",
+    "clean:docs": "cd docs && git clean -fXd",
+    "clean:packages": "cd packages && git clean -fXd",
     "clean:write": "git clean -fXd",
     "docs:build": "yarn --cwd=docs build",
     "docs:dev": "yarn --cwd=docs dev",
