@@ -27,7 +27,9 @@ return (
 
 You can specify what currency type you'd like for the currency symbol adornment
 at the start of the input component. If unspecified, the currency symbol
-adornment will default to AUD.
+adornment will default to AUD. Note that the currency codes are references to
+the respective currency's
+[ISO 4217 currency codes](https://www.iso.org/iso-4217-currency-codes.html).
 
 ```jsx live
 <Stack gap="large">
