@@ -96,8 +96,8 @@ export const Dropzone = React.forwardRef<HTMLInputElement, DropzoneProps>(
     } = useDropzone({
       accept,
       maxFiles,
-      maxSize: maxFileSizeKb && maxFileSizeKb / 1024,
-      minSize: minFileSizeKb && minFileSizeKb / 1024,
+      maxSize: maxFileSizeKb && maxFileSizeKb / 1000,
+      minSize: minFileSizeKb && minFileSizeKb / 1000,
       multiple: maxFiles > 1,
       onDropAccepted: handleDropAccepted,
       disabled,
@@ -371,8 +371,8 @@ function useDropzoneStyles({
 }
 
 function formatFileSize(numKb: number): string {
-  if (numKb < 1024) {
+  if (numKb < 1000) {
     return `${Math.round(numKb).toFixed(1)}kB`;
   }
-  return `${Math.round(numKb / 1024).toFixed(1)}MB`;
+  return `${Math.round(numKb / 1000).toFixed(1)}MB`;
 }
