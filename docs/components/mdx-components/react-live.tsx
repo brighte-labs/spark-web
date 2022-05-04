@@ -251,7 +251,7 @@ export function ReactLive({
                 cursor: 'pointer',
                 // TODO: use theme
                 fontSize: '0.875rem',
-                fontWeight: typography.fontWeight.medium,
+                fontWeight: typography.fontWeight.semibold,
                 height: COLLAPSE_BUTTON_HEIGHT,
                 left: 0,
                 padding: 0,
