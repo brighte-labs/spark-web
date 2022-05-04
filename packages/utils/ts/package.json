@@ -1,4 +1,7 @@
 {
   "main": "dist/spark-web-utils-ts.cjs.js",
-  "module": "dist/spark-web-utils-ts.esm.js"
+  "module": "dist/spark-web-utils-ts.esm.js",
+  "files": [
+    "dist"
+  ]
 }
