@@ -22,12 +22,21 @@
     "postinstall": "patch-package && preconstruct dev && manypkg check",
     "lint": "eslint .",
     "lint:fix": "yarn run lint --fix",
+    "prepare": "husky install",
     "release": "yarn build && changeset publish",
     "start": "yarn --cwd=docs dev",
     "test": "yarn run typecheck && yarn run test:unit",
     "test:coverage": "yarn test ---coverage",
     "test:unit": "jest",
     "typecheck": "tsc --noEmit && cd docs && yarn typecheck"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx}": [
+      "eslint --fix"
+    ],
+    "**/*.{ts,tsx,md,js,jsx,json}": [
+      "prettier --write"
+    ]
   },
   "prettier": {
     "arrowParens": "avoid",
