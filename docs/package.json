@@ -77,7 +77,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-simple-code-editor": "^0.11.0",
-    "react-use-flexsearch": "^0.1.1",
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1"
   },
@@ -88,7 +87,6 @@
     "@storybook/addon-links": "^6.4.21",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/react": "^6.4.21",
-    "@types/flexsearch": "^0.7.3",
     "@types/node": "16.11.13",
     "@types/react": "^17.0.12",
     "date-fns": "^2.28.0",
