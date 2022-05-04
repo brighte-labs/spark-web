@@ -18,7 +18,7 @@ const CodeElement = ({
     baseline: false,
     tone: inline ? 'accent' : 'neutral',
     size: 'small',
-    weight: 'semibold',
+    weight: 'regular',
   });
 
   return (
