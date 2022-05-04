@@ -1,4 +1,4 @@
-import untitledLiveCode from '@untitled-docs/live-code/rehype/dist/live-code.cjs.js';
+import { plugin as untitledLiveCode } from '@untitled-docs/live-code/rehype/dist/live-code.cjs.js';
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import { readFile } from 'node:fs/promises';
 import remarkGfm from 'remark-gfm';
@@ -40,6 +40,16 @@ export const Package = defineDocumentType(() => ({
     },
   },
   computedFields: {
+    packageName: {
+      type: 'string',
+      resolve: async pkg => {
+        return JSON.parse(
+          (
+            await readFile(`../${pkg._raw.sourceFileDir}/package.json`)
+          ).toString()
+        ).name;
+      },
+    },
     slug: {
       type: 'string',
       resolve: pkg => pkg._raw.sourceFileDir.replace(/^packages\//, ''),
@@ -67,6 +77,6 @@ export default makeSource({
   documentTypes: [Package, Home],
   mdx: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [untitledLiveCode.plugin],
+    rehypePlugins: [untitledLiveCode],
   },
 });

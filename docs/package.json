@@ -56,7 +56,7 @@
     "@spark-web/text-list": "^1.0.3",
     "@spark-web/theme": "^2.0.2",
     "@spark-web/utils": "^1.1.1",
-    "@untitled-docs/live-code": "^0.3.0",
+    "@untitled-docs/live-code": "^0.4.0",
     "autoprefixer": "^10.4.0",
     "babel-loader": "^8.2.3",
     "clipboard-copy": "^4.0.1",
