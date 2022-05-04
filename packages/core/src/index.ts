@@ -1,8 +1,4 @@
-export {
-  AestheticoStylesheet,
-  FontStylesheets,
-  InterStylesheet,
-} from './fonts';
+export { AesteticoStylesheet } from './fonts';
 export { SparkProvider } from './SparkProvider';
 
 // types

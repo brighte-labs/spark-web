@@ -16,7 +16,7 @@ const VisuallyHiddenStory: ComponentStory<typeof VisuallyHidden> = (
 ) => (
   <Inline gap="xsmall" alignY="center">
     <ExclamationCircleIcon tone="critical" size="xsmall" />{' '}
-    <Text weight="medium" tone="critical" baseline={false}>
+    <Text weight="semibold" tone="critical" baseline={false}>
       <VisuallyHidden {...args} />
       This action is not reversible
     </Text>

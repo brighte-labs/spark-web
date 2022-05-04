@@ -60,7 +60,7 @@ export const Alert = ({
           <Icon tone={tone} size={iconSize} />
         </IndicatorContainer>
         <Stack flex={1} gap="medium">
-          {heading && <Text weight="strong">{heading}</Text>}
+          {heading && <Text weight="semibold">{heading}</Text>}
           <Content>{children}</Content>
         </Stack>
       </Box>

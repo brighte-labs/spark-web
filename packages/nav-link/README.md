@@ -47,7 +47,7 @@ Typically `'small'` should be used for vertical navigations (like a sidebar) and
 
 ```jsx live
 <Stack gap="large">
-  <Text weight="medium">
+  <Text weight="semibold">
     Hover or focus to see the different border radius options
   </Text>
   <Stack as="nav" gap="small">

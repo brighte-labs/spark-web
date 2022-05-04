@@ -8,6 +8,6 @@ export type StrongProps = {
 
 export const Strong = ({ children }: StrongProps) => {
   const { typography } = useTheme();
-  const styles = { fontWeight: typography.fontWeight.strong };
+  const styles = { fontWeight: typography.fontWeight.semibold };
   return <strong className={css(styles)}>{children}</strong>;
 };

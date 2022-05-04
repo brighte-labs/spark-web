@@ -89,7 +89,11 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(
       hidden: hiddenLabel,
       visible: (
         <Box as="label" htmlFor={inputId}>
-          <Text inline tone={disabled ? 'disabled' : 'neutral'} weight="strong">
+          <Text
+            inline
+            tone={disabled ? 'disabled' : 'neutral'}
+            weight="semibold"
+          >
             {label}{' '}
             {secondaryLabel && (
               <Text inline tone={disabled ? 'disabled' : 'muted'}>

@@ -1,4 +1,4 @@
-import { FontStylesheets } from '@spark-web/core';
+import { AesteticoStylesheet } from '@spark-web/core';
 import { propsWithCssText } from '@spark-web/next-utils';
 import type { DocumentContext, DocumentInitialProps } from 'next/document';
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document';
@@ -15,7 +15,7 @@ export default class Document extends NextDocument {
     return (
       <Html lang="en-AU">
         <Head>
-          <FontStylesheets />
+          <AesteticoStylesheet />
         </Head>
         <body>
           <Main />

@@ -18,7 +18,7 @@ const HiddenStory: ComponentStory<typeof Hidden> = (args: HiddenProps) => (
   <Stack gap="large">
     <Inline gap="xsmall" alignY="center">
       <InformationCircleIcon tone="info" size="xsmall" />{' '}
-      <Text weight="medium" tone="info" baseline={false}>
+      <Text weight="semibold" tone="info" baseline={false}>
         Resize this window to see elements hide / show
       </Text>
     </Inline>

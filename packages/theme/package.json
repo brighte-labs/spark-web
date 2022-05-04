@@ -10,7 +10,6 @@
   "dependencies": {
     "@babel/runtime": "^7.14.6",
     "@capsizecss/core": "^3.0.0",
-    "@capsizecss/metrics": "^0.1.0",
     "@emotion/css": "^11.7.1",
     "@spark-web/utils": "^1.1.1",
     "facepaint": "^1.2.1",

@@ -67,12 +67,12 @@ export default function Packages(): JSX.Element {
                   <Text
                     overflowStrategy="truncate"
                     size="small"
-                    weight="medium"
+                    weight="semibold"
                   >
                     {key}
                   </Text>
                   <Swatch backgroundColor={value} />
-                  <Text weight="medium">
+                  <Text weight="semibold">
                     <InlineCode>{value}</InlineCode>
                   </Text>
                   <Spacer />

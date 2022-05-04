@@ -11,7 +11,7 @@ Constrained, purposeful text styles as a component.
 <Columns gap="large" collapseBelow="wide">
   <Stack gap="medium">
     <Text size="large">large regular</Text>
-    <Text size="large" weight="medium">
+    <Text size="large" weight="semibold">
       large medium
     </Text>
     <Text size="large" weight="strong">
@@ -20,7 +20,7 @@ Constrained, purposeful text styles as a component.
   </Stack>
   <Stack gap="medium">
     <Text size="standard">standard regular</Text>
-    <Text size="standard" weight="medium">
+    <Text size="standard" weight="semibold">
       standard medium
     </Text>
     <Text size="standard" weight="strong">
@@ -29,7 +29,7 @@ Constrained, purposeful text styles as a component.
   </Stack>
   <Stack gap="small">
     <Text size="small">small regular</Text>
-    <Text size="small" weight="medium">
+    <Text size="small" weight="semibold">
       small medium
     </Text>
     <Text size="small" weight="strong">
@@ -38,7 +38,7 @@ Constrained, purposeful text styles as a component.
   </Stack>
   <Stack gap="small">
     <Text size="xsmall">xsmall regular</Text>
-    <Text size="xsmall" weight="medium">
+    <Text size="xsmall" weight="semibold">
       xsmall medium
     </Text>
     <Text size="xsmall" weight="strong">

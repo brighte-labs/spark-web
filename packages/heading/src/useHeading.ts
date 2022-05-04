@@ -24,7 +24,7 @@ export function useHeading({ align, level }: UseHeadingProps) {
     {
       color,
       fontFamily: typography.fontFamily.display.name,
-      fontWeight: typography.fontWeight.medium,
+      fontWeight: typography.fontWeight.semibold,
       textAlign: align,
     },
     responsiveStyles,

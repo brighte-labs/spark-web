@@ -17,7 +17,7 @@ const SelectStory: ComponentStory<typeof Select> = (args: SelectProps) => (
   <Stack gap="large">
     <Inline gap="xsmall" alignY="center">
       <InformationCircleIcon tone="info" size="xsmall" />
-      <Text weight="medium" tone="info" baseline={false}>
+      <Text weight="semibold" tone="info" baseline={false}>
         {`Must be used inside of a <Field/>`}
       </Text>
     </Inline>

@@ -21,7 +21,7 @@ export function useTextLink(tag: 'a' | 'span') {
     color: textColor,
     cursor: 'pointer',
     textDecoration: 'underline',
-    fontWeight: typography.fontWeight.medium,
+    fontWeight: typography.fontWeight.semibold,
   };
 
   const styles = [resetStyles, linkStyles];

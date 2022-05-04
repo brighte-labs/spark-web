@@ -102,7 +102,7 @@ const TableOfContents = () => {
 
   return (
     <Stack gap="large">
-      <Text weight="medium" id={headingId}>
+      <Text weight="semibold" id={headingId}>
         On this page
       </Text>
       <nav aria-labelledby={headingId}>

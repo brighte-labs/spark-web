@@ -1248,11 +1248,6 @@
   resolved "https://registry.yarnpkg.com/@capsizecss/core/-/core-3.0.0.tgz#81b2fb222bd9716d211e4ddd0dc9cc42f71b4f37"
   integrity sha512-tJNEWMmhHcU5z6ITAiVNN9z+PCTylybVIJqgX7Ts4zN66fe/W2Fe5UWJCCZIP/5uutsl5fYOaVVHZIjsuTVhBQ==
 
-"@capsizecss/metrics@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@capsizecss/metrics/-/metrics-0.1.0.tgz#b80b41d591f223f45745864bdcec5644925c02aa"
-  integrity sha512-Bxla2qjS1zwjM5yJIromRve+Ed02NLLsU0lpBjjI6R3+9Cxa2+P9T2EIjPdiPqhNWOiv8xv0CTinWEOKPn8KIA==
-
 "@changesets/apply-release-plan@^6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@changesets/apply-release-plan/-/apply-release-plan-6.0.0.tgz#6c663ff99d919bba3902343d76c35cbbbb046520"

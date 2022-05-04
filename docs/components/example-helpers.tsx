@@ -18,7 +18,7 @@ const CodeElement = ({
     baseline: false,
     tone: inline ? 'accent' : 'neutral',
     size: 'small',
-    weight: 'medium',
+    weight: 'semibold',
   });
 
   return (
@@ -113,7 +113,7 @@ export const Placeholder = ({
             baseline={false}
             size="small"
             tone="muted"
-            weight="strong"
+            weight="semibold"
           >
             {label}
           </Text>

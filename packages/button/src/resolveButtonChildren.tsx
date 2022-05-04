@@ -35,7 +35,7 @@ export const resolveButtonChildren = ({
             as="span"
             baseline={false}
             overflowStrategy="nowrap"
-            weight="strong"
+            weight="semibold"
             size={mapTokens.fontSize[size]}
             tone={variant?.textTone}
           >

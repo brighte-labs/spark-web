@@ -1,12 +1,11 @@
 import type { FontMetrics } from '@capsizecss/core';
-import interFontMetrics from '@capsizecss/metrics/inter';
 
 import type { Breakpoint } from './breakpoints';
 import { colors } from './colors';
 
 // NOTE: all tokens are currently assumptions and will need to be reviewed with
 // the design team, but the shape shouldn't change too much.
-const aestheticoFontMetrics: FontMetrics = {
+const AesteticoFontMetrics: FontMetrics = {
   capHeight: 666,
   ascent: 980,
   descent: -340,
@@ -35,23 +34,22 @@ export const defaultTokens = {
   typography: {
     fontFamily: {
       sans: {
-        fontMetrics: interFontMetrics as FontMetrics,
-        name: '"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+        fontMetrics: AesteticoFontMetrics,
+        name: '"Aestetico", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       },
       display: {
-        fontMetrics: aestheticoFontMetrics,
-        name: '"Aesthetico", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+        fontMetrics: AesteticoFontMetrics,
+        name: '"Aestetico", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       },
     },
     fontWeight: {
       regular: 400,
-      medium: 500,
-      strong: 700,
+      semibold: 600,
     },
     heading: {
       weight: {
         weak: 'regular',
-        regular: 'medium',
+        regular: 'semibold',
       },
       level: {
         '1': {
@@ -99,41 +97,41 @@ export const defaultTokens = {
     text: {
       xsmall: {
         mobile: {
-          fontSize: 12,
+          fontSize: 13,
           rows: 5,
         },
         tablet: {
-          fontSize: 12,
+          fontSize: 13,
           rows: 5,
         },
       },
       small: {
         mobile: {
-          fontSize: 14,
+          fontSize: 15,
           rows: 5,
         },
         tablet: {
-          fontSize: 14,
+          fontSize: 15,
           rows: 5,
         },
       },
       standard: {
         mobile: {
-          fontSize: 16,
+          fontSize: 17,
           rows: 6,
         },
         tablet: {
-          fontSize: 16,
+          fontSize: 17,
           rows: 6,
         },
       },
       large: {
         mobile: {
-          fontSize: 18,
+          fontSize: 19,
           rows: 7,
         },
         tablet: {
-          fontSize: 18,
+          fontSize: 19,
           rows: 7,
         },
       },

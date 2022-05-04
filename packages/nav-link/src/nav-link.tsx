@@ -110,7 +110,7 @@ export function resolveNavLinkChildren({
           as="span"
           baseline={false}
           overflowStrategy="nowrap"
-          weight="medium"
+          weight="semibold"
           size={mapTextSize[size]}
           tone={isSelected ? 'primaryActive' : 'muted'}
         >

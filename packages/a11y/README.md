@@ -43,7 +43,7 @@ conveyed to non-visual users.
 ```jsx live
 <Inline gap="xsmall" alignY="center">
   <ExclamationCircleIcon tone="critical" size="xsmall" />
-  <Text weight="medium" tone="critical" baseline={false}>
+  <Text weight="semibold" tone="critical" baseline={false}>
     <VisuallyHidden>Danger: </VisuallyHidden>
     This action is not reversible
   </Text>
