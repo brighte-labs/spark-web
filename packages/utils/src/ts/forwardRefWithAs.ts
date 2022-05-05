@@ -45,7 +45,7 @@ export const forwardRefWithAs = <
 >(
   render: (
     props: BaseProps & { as?: ElementType },
-    ref: React.Ref<any>
+    ref: Ref<any>
   ) => Exclude<ReactNode, undefined>
 ): CompWithAsProp<BaseProps, DefaultElementType> => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

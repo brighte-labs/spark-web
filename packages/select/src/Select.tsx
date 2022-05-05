@@ -7,7 +7,8 @@ import { useInput } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
 import { buildDataAttributes } from '@spark-web/utils/internal';
-import * as React from 'react';
+import type { SelectHTMLAttributes } from 'react';
+import { forwardRef, useCallback } from 'react';
 
 type Option = {
   disabled?: boolean;
@@ -18,7 +19,7 @@ type Group = { options: Array<Option>; label: string };
 export type OptionsOrGroups = Array<Option | Group>;
 
 export type SelectProps = Pick<
-  React.SelectHTMLAttributes<HTMLSelectElement>,
+  SelectHTMLAttributes<HTMLSelectElement>,
   'defaultValue' | 'name' | 'onBlur' | 'onChange' | 'required' | 'value'
 > & {
   data?: DataAttributeMap;
@@ -26,7 +27,7 @@ export type SelectProps = Pick<
   placeholder?: string;
 };
 
-export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   (
     {
       data,
@@ -44,7 +45,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     const { disabled, invalid, ...a11yProps } = useFieldContext();
     const styles = useSelectStyles({ disabled, invalid });
 
-    const mapOptions = React.useCallback(
+    const mapOptions = useCallback(
       (opt: Option) => (
         <option key={opt.value} value={opt.value} disabled={opt.disabled}>
           {opt.label}

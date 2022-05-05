@@ -3,13 +3,13 @@ import { Box } from '@spark-web/box';
 import { useHeading } from '@spark-web/heading';
 import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
-import * as React from 'react';
+import type { ReactNode } from 'react';
 
 export function MdxTable({
   children,
   ...rest
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }): JSX.Element {
   const theme = useTheme();
   return (
@@ -46,7 +46,7 @@ export function MdxThead({
   children,
   ...rest
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }): JSX.Element {
   return (
     <Box as="thead" background="surface" {...rest}>
@@ -59,7 +59,7 @@ export function MdxTr({
   children,
   ...rest
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }): JSX.Element {
   const theme = useTheme();
   return (
@@ -85,7 +85,7 @@ export function MdxTh({
   children,
   ...rest
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }): JSX.Element {
   const { border, spacing } = useTheme();
   const textStyles = useHeading({ align: 'left', level: '4' });
@@ -109,7 +109,7 @@ export function MdxTd({
   children,
   ...rest
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }): JSX.Element {
   const theme = useTheme();
   return (

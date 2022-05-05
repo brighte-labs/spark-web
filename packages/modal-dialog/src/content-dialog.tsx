@@ -14,7 +14,8 @@ import { XIcon } from '@spark-web/icon';
 import { Stack } from '@spark-web/stack';
 import type { BrighteTheme } from '@spark-web/theme';
 import { useTheme } from '@spark-web/theme';
-import * as React from 'react';
+import type { ReactNode } from 'react';
+import { forwardRef } from 'react';
 
 const MAX_HEIGHT = '85vh';
 const CONTENT_PADDING = 'xlarge';
@@ -30,7 +31,7 @@ const hideOverlay = keyframes({
   to: { opacity: 1 },
 });
 
-const DialogOverlay = React.forwardRef<HTMLDivElement, DialogOverlayProps>(
+const DialogOverlay = forwardRef<HTMLDivElement, DialogOverlayProps>(
   (props, forwardedRef) => {
     const theme = useTheme();
     return (
@@ -64,7 +65,7 @@ DialogOverlay.displayName = 'DialogOverlay';
 // Dialog Content
 // ------------------------------
 
-const DialogContent = React.forwardRef<
+const DialogContent = forwardRef<
   HTMLDivElement,
   DialogContentProps & { size?: ContentDialogProps['size'] }
 >(({ children, size = 'small', ...rest }, forwardedRef) => {
@@ -226,7 +227,7 @@ export function DialogCloseButton(props: DialogCloseProps): JSX.Element {
 // Content Dialog
 // ------------------------------
 type ContentDialogProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   size?: keyof BrighteTheme['contentWidth'];
   title: string;
   description?: string;
@@ -234,12 +235,12 @@ type ContentDialogProps = {
   | {
       isOpen: boolean;
       onToggle: () => void;
-      trigger?: React.ReactNode;
+      trigger?: ReactNode;
     }
   | {
       isOpen?: never;
       onToggle?: never;
-      trigger: React.ReactNode;
+      trigger: ReactNode;
     }
 );
 

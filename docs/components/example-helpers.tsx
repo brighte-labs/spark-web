@@ -2,7 +2,7 @@ import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
 import { Text, useText } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
-import * as React from 'react';
+import type { ReactNode } from 'react';
 
 // Code
 // ------------------------------
@@ -11,7 +11,7 @@ const CodeElement = ({
   inline,
   ...props
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   inline?: boolean;
 }) => {
   const textStyles = useText({
@@ -69,7 +69,7 @@ export const InlineCode = ({ children }: { children: string }) => {
 type PlaceholderProps = {
   height?: string | number;
   width?: string | number;
-  label?: React.ReactNode;
+  label?: ReactNode;
   shape?: 'rectangle' | 'round';
 };
 

@@ -10,12 +10,13 @@ import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
 import { IndicatorContainer } from '@spark-web/text-list';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
-import * as React from 'react';
+import type { ReactNode } from 'react';
+import { Fragment } from 'react';
 
 type AlertTones = 'caution' | 'critical' | 'info' | 'positive';
 
 export type AlertProps = {
-  children: string | React.ReactNode;
+  children: string | ReactNode;
   closeLabel?: string;
   data?: DataAttributeMap;
   heading?: string;
@@ -96,10 +97,10 @@ const toneToIcon = {
   positive: CheckCircleIcon,
 };
 
-const Content = ({ children }: { children: React.ReactNode }) => {
+const Content = ({ children }: { children: ReactNode }) => {
   if (typeof children === 'string' || typeof children === 'number') {
     return <Text>{children}</Text>;
   }
 
-  return <React.Fragment>{children}</React.Fragment>;
+  return <Fragment>{children}</Fragment>;
 };

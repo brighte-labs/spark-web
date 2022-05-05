@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
 import { useTheme } from '@spark-web/theme';
+import type { ReactNode } from 'react';
 
 import { Header } from './header';
 import type { SidebarNavItemType } from './sidebar';
@@ -11,7 +12,7 @@ export function Layout({
   children,
 }: {
   navigation: SidebarNavItemType[];
-  children: React.ReactNode;
+  children: ReactNode;
 }): JSX.Element {
   const theme = useTheme();
   return (
