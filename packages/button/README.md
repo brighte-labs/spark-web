@@ -147,6 +147,44 @@ users of assistive technology.
 </Inline>
 ```
 
+## Loading
+
+Buttons have an optional `loading` prop to indicate that an action is in
+progress. When this is true a spinner will be displayed.
+
+Note: buttons will not be interative when `loading` is true.
+
+```jsx live
+const [loading, setLoading] = React.useState(false);
+const toggle = event => setLoading(event.target.checked);
+
+return (
+  <Stack gap="large">
+    <Checkbox size="medium" checked={loading} onChange={toggle}>
+      <Text>Toggle loading state</Text>
+    </Checkbox>
+    <Inline gap="large">
+      <Button label="Download" loading={loading}>
+        <DownloadIcon />
+      </Button>
+      <Button loading={loading}>
+        <DownloadIcon />
+        Download
+      </Button>
+    </Inline>
+    <Inline gap="large">
+      <Button label="Download" size="large" loading={loading}>
+        <DownloadIcon />
+      </Button>
+      <Button size="large" loading={loading}>
+        <DownloadIcon />
+        Download
+      </Button>
+    </Inline>
+  </Stack>
+);
+```
+
 ## ButtonLink
 
 The appearance of a button, with the semantics of a link — shares `Button` API,
@@ -171,6 +209,7 @@ with the exception of `href` vs `onClick` props.
 | href              | string                                                                                   |           | Specifies the url the button should redirect to upon being clicked. Only applicable for `ButtonLink`.                                     |
 | id?               | string                                                                                   |           | Unique identifier for the button.                                                                                                         |
 | label?            | string                                                                                   |           | Implicit label for buttons only required for icon-only buttons for accessibility reasons.                                                 |
+| loading?          | boolean                                                                                  |           | When true, the button will display a loading spinner.                                                                                     |
 | onClick?          | Function                                                                                 |           | Function to be fired following a click event of the button. Only applicable for `Button`.                                                 |
 | prominence?       | 'high' \| 'low'                                                                          | 'high'    | Sets the visual prominence of the button.                                                                                                 |
 | size?             | 'medium' \| 'large'                                                                      | 'medium'  | Sets the size of the button.                                                                                                              |
