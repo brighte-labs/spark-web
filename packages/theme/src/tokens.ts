@@ -5,7 +5,7 @@ import { colors } from './colors';
 
 // NOTE: all tokens are currently assumptions and will need to be reviewed with
 // the design team, but the shape shouldn't change too much.
-const AesteticoFontMetrics: FontMetrics = {
+const aesteticoFontMetrics: FontMetrics = {
   capHeight: 666,
   ascent: 980,
   descent: -340,
@@ -34,11 +34,11 @@ export const defaultTokens = {
   typography: {
     fontFamily: {
       sans: {
-        fontMetrics: AesteticoFontMetrics,
+        fontMetrics: aesteticoFontMetrics,
         name: '"Aestetico", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       },
       display: {
-        fontMetrics: AesteticoFontMetrics,
+        fontMetrics: aesteticoFontMetrics,
         name: '"Aestetico", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       },
     },
