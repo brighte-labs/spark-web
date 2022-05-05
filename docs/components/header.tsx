@@ -2,17 +2,17 @@ import { css } from '@emotion/css';
 import { useFocusRing, VisuallyHidden } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
 import { Container } from '@spark-web/container';
-// import { Field } from '@spark-web/field';
+import { Field } from '@spark-web/field';
 import { Hidden } from '@spark-web/hidden';
 import { MenuIcon, XIcon } from '@spark-web/icon';
 import { Inline } from '@spark-web/inline';
 import { Link } from '@spark-web/link';
 import { Strong, Text } from '@spark-web/text';
-// import { TextInput } from '@spark-web/text-input';
+import { TextInput } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
 // @ts-expect-error flexsearch sucks
 import { Document as FlexSearchDocument } from 'flexsearch';
-import { useEffect } from 'react';
+import { Suspense, useState } from 'react';
 
 import { GITHUB_URL, HEADER_HEIGHT, SIDEBAR_WIDTH } from './constants';
 import { useSidebarContext } from './sidebar';
@@ -155,44 +155,62 @@ const GitHubLink = () => {
 };
 
 let flexsearchDoc: any;
+let flexsearchPromise: Promise<any>;
+
+const getSearchInstance = async () => {
+  if (flexsearchDoc) {
+    return flexsearchDoc;
+  }
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  //@ts-ignore seach-index generated after build
+  flexsearchPromise = flexsearchPromise ?? import('../cache/search-index.json');
+  const flexsearchIndex = await flexsearchPromise;
+  //@ts-expect-error
+  flexsearchDoc = new FlexSearchDocument({
+    document: 'content',
+  });
+  flexsearchIndex.default.forEach(async (element: any) => {
+    await flexsearchDoc.import(element.key, JSON.parse(element.data));
+  });
+  return flexsearchDoc;
+};
+
+const useSearch = (query: string) => {
+  if (!flexsearchDoc) {
+    throw getSearchInstance();
+  }
+  return flexsearchDoc.search(query);
+};
+
+const SearchResults = ({ query }: { query: string }) => {
+  const results = useSearch(query);
+
+  return (
+    <div>
+      {results.map((result: any) => (
+        <div key={result}>{JSON.stringify(result)}</div>
+      ))}
+    </div>
+  );
+};
 
 const SearchInputBox = () => {
-  useEffect(() => {
-    const fetchSearchIndex = async () => {
-      if (flexsearchDoc) {
-        return;
-      }
-      //@ts-ignore seach-index generated after build
-      const flexsearchIndex = await import('../cache/search-index.json');
-      //@ts-expect-error
-      flexsearchDoc = new FlexSearchDocument({
-        document: 'content',
-      });
-      flexsearchIndex.default.forEach(async (element: any) => {
-        await flexsearchDoc.import(element.key, JSON.parse(element.data));
-      });
-    };
+  const [searchValue, setSearchValue] = useState('');
+  const onChange: any = (event: any) => {
+    const { value } = event.target;
+    setSearchValue(value);
+  };
 
-    fetchSearchIndex();
-  });
-
-  // const onChange: any = (event: any) => {
-  //   const { value } = event.target;
-  //   if (!flexsearchDoc) {
-  //     console.error('THIS SHOULD BE IMPOSSIBLE!');
-  //     return;
-  //   }
-  //   const results = flexsearchDoc.search(value);
-  //   console.log({ results });
-  // };
-
-  return null;
-
-  // return (
-  //   <>
-  //     <Field label="Search" labelVisibility="hidden">
-  //       <TextInput placeholder="search" onChange={onChange} />
-  //     </Field>
-  //   </>
-  // );
+  return (
+    <>
+      <Field label="Search" labelVisibility="hidden">
+        <TextInput placeholder="search" onChange={onChange} />
+        {searchValue.length > 2 ? (
+          <Suspense fallback={<span>Loading</span>}>
+            <SearchResults query={searchValue} />
+          </Suspense>
+        ) : null}
+      </Field>
+    </>
+  );
 };
