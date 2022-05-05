@@ -2,6 +2,7 @@ import { ButtonLink } from '@spark-web/button';
 import { Divider } from '@spark-web/divider';
 import { Heading } from '@spark-web/heading';
 import type { IconProps } from '@spark-web/icon';
+import { PencilIcon } from '@spark-web/icon';
 import { Inline } from '@spark-web/inline';
 import { Link } from '@spark-web/link';
 import { Stack } from '@spark-web/stack';
@@ -24,7 +25,7 @@ import remarkGfm from 'remark-gfm';
 
 import { DocsContent } from '../../components/content';
 import { mdxComponents } from '../../components/mdx-components/mdx-components';
-import { GitHubIcon, StorybookIcon } from '../../components/vectors/fill';
+import { StorybookIcon } from '../../components/vectors/fill';
 import type { HeadingData } from '../../utils/generate-toc';
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -109,7 +110,7 @@ function OpenInLinks({
   return (
     <Inline gap="large">
       <StorybookLink storybookPath={storybookPath} />
-      <GitHubLink packageSlug={packageSlug} />
+      <EditThisPageLink packageSlug={packageSlug} />
     </Inline>
   );
 }
@@ -143,12 +144,12 @@ function StorybookLink({ storybookPath }: { storybookPath: string | null }) {
   );
 }
 
-function GitHubLink({ packageSlug }: { packageSlug: string }) {
+function EditThisPageLink({ packageSlug }: { packageSlug: string }) {
   return (
     <ButtonLinkWithIcon
-      href={`${GITHUB_URL}/tree/main/packages/${packageSlug}`}
-      label="Open in GitHub"
-      icon={GitHubIcon}
+      href={`${GITHUB_URL}/edit/main/packages/${packageSlug}/README.md`}
+      label="Edit this page"
+      icon={PencilIcon}
     />
   );
 }
