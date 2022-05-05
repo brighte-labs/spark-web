@@ -10,6 +10,7 @@ import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
 import { IndicatorContainer } from '@spark-web/text-list';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
+import { buildDataAttributes } from '@spark-web/utils/internal';
 import * as React from 'react';
 
 type AlertTones = 'caution' | 'critical' | 'info' | 'positive';
@@ -28,6 +29,7 @@ export type AlertProps = {
 export const Alert = ({
   children,
   closeLabel = 'Close alert',
+  data,
   heading,
   icon,
   onClose,
@@ -47,6 +49,7 @@ export const Alert = ({
       gap="medium"
     >
       <Box
+        {...(data ? buildDataAttributes(data) : null)}
         display="flex"
         flex={1}
         alignItems="start"
