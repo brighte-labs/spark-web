@@ -132,6 +132,10 @@ export const useInput = ({ disabled, isNested = false }: UseInputProps) => {
               borderColor: theme.border.color.fieldAccent,
             },
           },
+          ':focus-within': {
+            ...focusRingStyles,
+            borderColor: theme.border.color.fieldAccent,
+          },
         }),
   } as const;
 };
