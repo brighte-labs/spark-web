@@ -372,7 +372,7 @@ function useDropzoneStyles({
 
 function formatFileSize(numKb: number): string {
   if (numKb < 1000) {
-    return `${Math.round(numKb).toFixed(1)}kB`;
+    return `${Math.round(numKb).toFixed()}kB`;
   }
-  return `${Math.round(numKb / 1000).toFixed(1)}MB`;
+  return `${Math.round(numKb / 1000).toFixed()}MB`;
 }
