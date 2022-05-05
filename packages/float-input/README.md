@@ -106,15 +106,41 @@ return (
 );
 ```
 
+### Input Adornments
+
+Similar to [TextInput](/package/text-input/), you can also add adornments to the
+`FloatInput` component (at the start or end).
+
+```jsx live
+const [value, setValue] = React.useState(10000.101);
+
+return (
+  <Stack gap="large">
+    <Field label="Example format fraction digits">
+      <FloatInput fractionDigits={2} value={value} onChange={v => setValue(v)}>
+        <InputAdornment placement="end">
+          <Text>kW</Text>
+        </InputAdornment>
+      </FloatInput>
+    </Field>
+    <Text>The current value is: {value}</Text>
+  </Stack>
+);
+```
+
 ## Props
 
-| Prop            | Type                                  | Default | Description                                                                                                                                                 |
-| --------------- | ------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fractionDigits? | number                                |         | Specifies to what fraction digit to be displayed in the component.                                                                                          |
-| value?          | string \| number                      |         | Value to be set in the component if using in a controlled flow. The `onChange` handler must also be set for this prop to be valid.                          |
-| onChange?       | (value: number \| string) => void     |         | The handler that is fired for value changes inside the component as part of a controlled flow. The `value` prop must also be set for this prop to be valid. |
-| onFocus?        | FocusEventHandler\<HTMLInputElement\> |         | Handler when input element is focused on.                                                                                                                   |
-| onBlur?         | FocusEventHandler\<HTMLInputElement\> |         | Handler when input element is blurred.                                                                                                                      |
+| Prop            | Type                                    | Default | Description                                                                                                                                                 |
+| --------------- | --------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fractionDigits? | number                                  |         | Specifies to what fraction digit to be displayed in the component.                                                                                          |
+| value?          | string \| number                        |         | Value to be set in the component if using in a controlled flow. The `onChange` handler must also be set for this prop to be valid.                          |
+| onChange?       | (value: number \| string) => void       |         | The handler that is fired for value changes inside the component as part of a controlled flow. The `value` prop must also be set for this prop to be valid. |
+| onFocus?        | FocusEventHandler\<HTMLInputElement\>   |         | Handler when input element is focused on.                                                                                                                   |
+| onBlur?         | FocusEventHandler\<HTMLInputElement\>   |         | Handler when input element is blurred.                                                                                                                      |
+| children?       | [AdornmentChildren][adornment-children] |         | Allows setting of adornments at the start and/or end of the input component.                                                                                |
 
 Additional props also include [`TextField`](/package/text-field) props which are
 not listed here.
+
+[adornment-children]:
+  https://github.com/brighte-labs/spark-web/blob/d4da46200f2d6e5e9291d3c650eaaff7e53f411b/packages/text-input/src/childrenToAdornments.tsx#L12

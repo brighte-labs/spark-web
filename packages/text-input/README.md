@@ -90,8 +90,6 @@ return (
 | value?       | string \| number \| readonly string[]                                               |         | Specifies the value of the input field.                                                      |
 | children?    | [AdornmentChildren][adornment-children]                                             |         | Allows setting of adornments at the start and/or end of the input component.                 |
 
-## Input Adornment
-
 [data-attribute-map]:
   https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1
 [adornment-children]:
