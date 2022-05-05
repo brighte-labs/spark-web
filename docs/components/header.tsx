@@ -2,23 +2,23 @@ import { css } from '@emotion/css';
 import { useFocusRing, VisuallyHidden } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
 import { Container } from '@spark-web/container';
+// import { Field } from '@spark-web/field';
 import { Hidden } from '@spark-web/hidden';
 import { MenuIcon, XIcon } from '@spark-web/icon';
 import { Inline } from '@spark-web/inline';
 import { Link } from '@spark-web/link';
 import { Strong, Text } from '@spark-web/text';
+// import { TextInput } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
-// @ts-expect-error
+// @ts-expect-error flexsearch sucks
 import { Document as FlexSearchDocument } from 'flexsearch';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 import { GITHUB_URL, HEADER_HEIGHT, SIDEBAR_WIDTH } from './constants';
 import { useSidebarContext } from './sidebar';
 import { BrighteLogo, GitHubIcon } from './vectors/fill';
 
-export type SearchIndexType = { key: string; data: string }[];
-
-export function Header({ searchIndex }: { searchIndex: SearchIndexType }) {
+export function Header() {
   const { sidebarIsOpen, toggleSidebar } = useSidebarContext();
 
   const theme = useTheme();
@@ -85,7 +85,7 @@ export function Header({ searchIndex }: { searchIndex: SearchIndexType }) {
           >
             <Inline gap="xlarge">
               <Notice />
-              <SearchInputBox searchIndex={searchIndex} />
+              <SearchInputBox />
             </Inline>
           </Box>
 
@@ -154,37 +154,34 @@ const GitHubLink = () => {
   );
 };
 
-const SearchInputBox = ({ searchIndex }: { searchIndex: SearchIndexType }) => {
-  const flexsearchRef = useRef();
+let flexsearchDoc: any;
 
+const SearchInputBox = () => {
   useEffect(() => {
     const fetchSearchIndex = async () => {
-      if (flexsearchRef.current) {
+      if (flexsearchDoc) {
         return;
       }
-      // @ts-expect-error
-      const flexsearchDoc = new FlexSearchDocument({
+      //@ts-ignore seach-index generated after build
+      const flexsearchIndex = await import('../cache/search-index.json');
+      //@ts-expect-error
+      flexsearchDoc = new FlexSearchDocument({
         document: 'content',
       });
-      searchIndex.forEach(async element => {
+      flexsearchIndex.default.forEach(async (element: any) => {
         await flexsearchDoc.import(element.key, JSON.parse(element.data));
       });
-
-      flexsearchRef.current = flexsearchDoc;
     };
 
     fetchSearchIndex();
   });
 
-  // Removing search for now (see https://brighte.atlassian.net/browse/SPRK-62)
-
   // const onChange: any = (event: any) => {
   //   const { value } = event.target;
-  //   if (!flexsearchRef.current) {
+  //   if (!flexsearchDoc) {
   //     console.error('THIS SHOULD BE IMPOSSIBLE!');
   //     return;
   //   }
-  //   const flexsearchDoc: any = flexsearchRef.current;
   //   const results = flexsearchDoc.search(value);
   //   console.log({ results });
   // };

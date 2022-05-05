@@ -43,7 +43,7 @@ const generateSearchIndex = () => {
     `${MANIFEST_DIR}/search-index.json`,
     JSON.stringify(dataSearchIndex)
   );
-}
+};
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
