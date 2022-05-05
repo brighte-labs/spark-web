@@ -21,7 +21,9 @@ const generateSearchIndex = () => {
 
   // const paths = allPackages.map(pkg => `/package/${pkg.slug}`);
 
-  const allPackages = JSON.parse(readFileSync('./.contentlayer/generated/Package/_index.json'));
+  const allPackages = JSON.parse(
+    readFileSync('./.contentlayer/generated/Package/_index.json')
+  );
 
   allPackages.forEach(pkg => {
     index.add({
@@ -67,18 +69,25 @@ export default withPlugins(
           } else {
             // Watch for file changes that content layer outputs to re-build our
             // search index
-            chokidar.watch(
-              path.join(process.cwd(), '.contentlayer', 'generated', 'Package', '_index.json')
-            ).on('all', () => {
-              generateSearchIndex();
-            });
+            chokidar
+              .watch(
+                path.join(
+                  process.cwd(),
+                  '.contentlayer',
+                  'generated',
+                  'Package',
+                  '_index.json'
+                )
+              )
+              .on('all', () => {
+                generateSearchIndex();
+              });
           }
           return redirects;
-        }
+        },
       };
-
     },
-    withPreconstruct
+    withPreconstruct,
   ],
   nextConfig
 );
