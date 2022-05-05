@@ -28,9 +28,9 @@ export const ButtonLink = forwardRefWithAs<'a', ButtonLinkProps>(
     const iconOnly = Boolean(props.label);
     const buttonStyleProps = useButtonStyles({
       iconOnly,
+      prominence,
       size,
       tone,
-      prominence,
     });
 
     return (
@@ -46,6 +46,7 @@ export const ButtonLink = forwardRefWithAs<'a', ButtonLinkProps>(
       >
         {resolveButtonChildren({
           ...props,
+          isLoading: false,
           prominence,
           size,
           tone,

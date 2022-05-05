@@ -45,95 +45,77 @@ options are: `low` and `high`.
 Defaults to `high`.
 
 ```jsx live
-<Stack gap="large">
-  <Text weight="strong">High prominence</Text>
-  <Inline gap="small">
-    <Button prominence="high" tone="primary">
-      <LightBulbIcon />
-      Primary
-    </Button>
-    <Button prominence="high" tone="secondary">
-      <LightBulbIcon />
-      Secondary
-    </Button>
-    <Button prominence="high" tone="neutral">
-      <LightBulbIcon />
-      Neutral
-    </Button>
-    <Button prominence="high" tone="positive">
-      <LightBulbIcon />
-      Positive
-    </Button>
-    <Button prominence="high" tone="critical">
-      <LightBulbIcon />
-      Critical
-    </Button>
-  </Inline>
-  <Divider />
-  <Text weight="strong">Low prominence</Text>
-  <Inline gap="small">
-    <Button prominence="low" tone="primary">
-      <LightBulbIcon />
-      Primary
-    </Button>
-    <Button prominence="low" tone="secondary">
-      <LightBulbIcon />
-      Secondary
-    </Button>
-    <Button prominence="low" tone="neutral">
-      <LightBulbIcon />
-      Neutral
-    </Button>
-    <Button prominence="low" tone="positive">
-      <LightBulbIcon />
-      Positive
-    </Button>
-    <Button prominence="low" tone="critical">
-      <LightBulbIcon />
-      Critical
-    </Button>
-    <Button prominence="low" tone="caution">
-      <LightBulbIcon />
-      Critical
-    </Button>
-    <Button prominence="low" tone="info">
-      <LightBulbIcon />
-      Informative
-    </Button>
-  </Inline>
-  <Divider />
-  <Text weight="strong">None prominence</Text>
-  <Inline gap="small">
-    <Button prominence="none" tone="primary">
-      <LightBulbIcon />
-      Primary
-    </Button>
-    <Button prominence="none" tone="secondary">
-      <LightBulbIcon />
-      Secondary
-    </Button>
-    <Button prominence="none" tone="neutral">
-      <LightBulbIcon />
-      Neutral
-    </Button>
-    <Button prominence="none" tone="positive">
-      <LightBulbIcon />
-      Positive
-    </Button>
-    <Button prominence="none" tone="critical">
-      <LightBulbIcon />
-      Critical
-    </Button>
-    <Button prominence="none" tone="caution">
-      <LightBulbIcon />
-      Critical
-    </Button>
-    <Button prominence="none" tone="info">
-      <LightBulbIcon />
-      Informative
-    </Button>
-  </Inline>
-</Stack>
+const baseButtonTones = [
+  {
+    label: 'Primary',
+    tone: 'primary',
+  },
+  {
+    label: 'Secondary',
+    tone: 'secondary',
+  },
+  {
+    label: 'Neutral',
+    tone: 'neutral',
+  },
+  {
+    label: 'Positive',
+    tone: 'positive',
+  },
+  {
+    label: 'Critical',
+    tone: 'critical',
+  },
+];
+
+const extraButtonTones = [
+  {
+    label: 'Caution',
+    tone: 'caution',
+  },
+  {
+    label: 'Informative',
+    tone: 'info',
+  },
+];
+
+return (
+  <Stack gap="large" dividers>
+    <Stack gap="large">
+      <Text weight="strong">High prominence</Text>
+      <Inline gap="small">
+        {baseButtonTones.map(({ label, tone }) => (
+          <Button key={label} tone={tone} prominence="high">
+            <LightBulbIcon />
+            {label}
+          </Button>
+        ))}
+      </Inline>
+    </Stack>
+    <Stack gap="large">
+      <Text weight="strong">Low prominence</Text>
+      <Inline gap="small">
+        {baseButtonTones.concat(extraButtonTones).map(({ label, tone }) => (
+          <Button key={label} tone={tone} prominence="low">
+            <LightBulbIcon />
+            {label}
+          </Button>
+        ))}
+      </Inline>
+    </Stack>
+    <Stack gap="large">
+      <Text weight="strong">None prominence</Text>
+      <Inline gap="small">
+        {baseButtonTones.concat(extraButtonTones).map(({ label, tone }) => (
+          <Button key={label} tone={tone} prominence="none">
+            <LightBulbIcon />
+            {label}
+          </Button>
+        ))}
+      </Inline>
+    </Stack>
+  </Stack>
+);
 ```
 
 ## Size

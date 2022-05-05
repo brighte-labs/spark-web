@@ -18,6 +18,10 @@ type ChildrenWithText = {
     | [string, ReactElement<IconProps>];
 };
 type IconOnly = {
+  /**
+   * Implicit label for buttons only required for icon-only buttons
+   * for accessibility reasons.
+   */
   label: string;
   children: ReactElement<IconProps>;
 };
@@ -27,7 +31,9 @@ export type ButtonChildrenProps = ChildrenWithText | IconOnly;
 export type NativeButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type CommonButtonProps = {
+  /** Allows setting of data attributes on the underlying element. */
   data?: DataAttributeMap;
+  /** Unique identifier for the underlying element. */
   id?: string;
 } & ButtonChildrenProps &
   ButtonStyleProps;

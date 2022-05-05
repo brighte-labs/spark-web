@@ -1,4 +1,6 @@
+import { VisuallyHidden } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
+import { Spinner } from '@spark-web/spinner';
 import { buildDataAttributes } from '@spark-web/utils/internal';
 import type { MouseEvent as ReactMouseEvent } from 'react';
 import { forwardRef } from 'react';
@@ -6,6 +8,7 @@ import { forwardRef } from 'react';
 import { resolveButtonChildren } from './resolveButtonChildren';
 import type { CommonButtonProps, NativeButtonProps } from './types';
 import { useButtonStyles } from './useButtonStyles';
+import { variants } from './utils';
 
 // TODO:
 // discuss with design:
@@ -16,13 +19,25 @@ import { useButtonStyles } from './useButtonStyles';
 // - validate children?
 
 export type ButtonProps = CommonButtonProps & {
+  /**
+   * Identifies the element (or elements) whose contents or presence
+   * are controlled by the current element.
+   */
   'aria-controls'?: NativeButtonProps['aria-controls'];
+  /**  Identifies the element (or elements) that describes the object. */
   'aria-describedby'?: NativeButtonProps['aria-describedby'];
+  /**  Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed. */
   'aria-expanded'?: NativeButtonProps['aria-expanded'];
-  onClick?: NativeButtonProps['onClick'];
-  size?: CommonButtonProps['size'];
-  type?: 'button' | 'submit' | 'reset';
+  /** When true, prevents onClick from firing. */
   disabled?: boolean;
+  /** When true, the button will display a loading spinner. */
+  loading?: boolean;
+  /** Function to be fired following a click event of the button. Only applicable for Button. */
+  onClick?: NativeButtonProps['onClick'];
+  /** The size of the button. */
+  size?: CommonButtonProps['size'];
+  /** Provide an alternate type if the button is within a form. */
+  type?: 'button' | 'submit' | 'reset';
 };
 
 /**
@@ -38,6 +53,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       data,
       disabled = false,
       id,
+      loading = false,
       onClick,
       prominence = 'high',
       size = 'medium',
@@ -55,8 +71,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       prominence,
     });
 
-    // TODO: add loading state for button
-    const isDisabled = disabled; /* || loading */
+    const isDisabled = disabled || loading;
+    const isLoading = loading && !disabled;
+
+    const variant = variants[prominence][tone];
+
     /**
      * handle "disabled" behaviour w/o disabling buttons
      * @see https://axesslab.com/disabled-buttons-suck/
@@ -80,10 +99,27 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {resolveButtonChildren({
           ...props,
+          isLoading,
           prominence,
           size,
           tone,
         })}
+        {isLoading && (
+          <Box
+            as="span"
+            position="absolute"
+            top={0}
+            bottom={0}
+            left={0}
+            right={0}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <VisuallyHidden>button loading indicator</VisuallyHidden>
+            <Spinner size="xsmall" tone={variant?.textTone} />
+          </Box>
+        )}
       </Box>
     );
   }
