@@ -46,37 +46,16 @@ Defaults to `high`.
 
 ```jsx live
 const baseButtonTones = [
-  {
-    label: 'Primary',
-    tone: 'primary',
-  },
-  {
-    label: 'Secondary',
-    tone: 'secondary',
-  },
-  {
-    label: 'Neutral',
-    tone: 'neutral',
-  },
-  {
-    label: 'Positive',
-    tone: 'positive',
-  },
-  {
-    label: 'Critical',
-    tone: 'critical',
-  },
+  { label: 'Primary', tone: 'primary' },
+  { label: 'Secondary', tone: 'secondary' },
+  { label: 'Neutral', tone: 'neutral' },
+  { label: 'Positive', tone: 'positive' },
+  { label: 'Critical', tone: 'critical' },
 ];
 
 const extraButtonTones = [
-  {
-    label: 'Caution',
-    tone: 'caution',
-  },
-  {
-    label: 'Informative',
-    tone: 'info',
-  },
+  { label: 'Caution', tone: 'caution' },
+  { label: 'Informative', tone: 'info' },
 ];
 
 return (
