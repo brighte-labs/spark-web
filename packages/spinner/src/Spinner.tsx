@@ -41,15 +41,14 @@ const spinAnimation = keyframes({
 
 const strokeDashAnimation = keyframes({
   '0%': { strokeDasharray: '1px, 200px', strokeDashoffset: 0 },
-  '50%': { strokeDasharray: '100px, 200px', strokeDashoffset: '-15px' },
-  '100%': { strokeDasharray: '100px, 200px', strokeDashoffset: '-125px' },
+  '100%': { strokeDasharray: '200px, 200px', strokeDashoffset: '-55px' },
 });
 
 function useSpinnerStyles() {
   return {
     animation: `${spinAnimation} 1.4s linear infinite`,
     '& circle': {
-      animation: `${strokeDashAnimation} 1.4s ease-in-out infinite`,
+      animation: `${strokeDashAnimation} 1.6s cubic-bezier(0.47, 0, 0.75, 0.72) infinite`,
     },
   } as const;
 }

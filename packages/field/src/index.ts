@@ -1,4 +1,4 @@
-export { useFieldContext } from './context';
+export { FieldContextProvider, useFieldContext } from './context';
 export { Field, FieldMessage, useFieldIds } from './Field';
 
 // types

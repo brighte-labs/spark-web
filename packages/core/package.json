@@ -4,6 +4,9 @@
   "license": "MIT",
   "main": "dist/spark-web-core.cjs.js",
   "module": "dist/spark-web-core.esm.js",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@babel/runtime": "^7.14.6",
     "@emotion/css": "^11.7.1",

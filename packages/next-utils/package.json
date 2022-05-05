@@ -4,6 +4,9 @@
   "license": "MIT",
   "main": "dist/spark-web-next-utils.cjs.js",
   "module": "dist/spark-web-next-utils.esm.js",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@babel/runtime": "^7.14.6",
     "@spark-web/link": "^1.0.3",

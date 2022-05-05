@@ -10,6 +10,9 @@ import { buildDataAttributes } from '@spark-web/utils/internal';
 import type { AllHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
+import type { AdornmentsAsChildren } from './childrenToAdornments';
+import { childrenToAdornments } from './childrenToAdornments';
+
 type ValidTypes =
   | 'text'
   | 'password'
@@ -42,41 +45,61 @@ export type TextInputProps = {
    */
   type?: ValidTypes;
   inputMode?: ValidModes;
+  /**
+   * Adorn the input with ornamental element(s) to aid user input, or
+   * interactive element(s) to augment user input. Each child **must** be
+   * wrapped with the `InputAdornment` component to ensure proper layout,
+   * otherwise it will not be rendered.
+   */
+  children?: AdornmentsAsChildren;
 } & NativeInputProps;
 
 /** Organize and emphasize information quickly and effectively in a list of text elements. */
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
-  ({ data, ...consumerProps }, forwardedRef) => {
+  ({ children, data, ...consumerProps }, forwardedRef) => {
     const { disabled, invalid, ...a11yProps } = useFieldContext();
-    const inputStyles = useInput({ disabled, invalid });
+    const { startAdornment, endAdornment } = childrenToAdornments(children);
 
     return (
       <Box
-        as="input"
-        disabled={disabled}
-        ref={forwardedRef}
-        // styles
         background={disabled ? 'inputDisabled' : 'input'}
         border={invalid ? 'critical' : 'field'}
         borderRadius="small"
+        display="inline-flex"
+        alignItems="center"
+        flexDirection="row"
         height="medium"
-        paddingX="medium"
-        className={css(inputStyles)}
-        {...(data ? buildDataAttributes(data) : null)}
-        {...a11yProps}
-        {...consumerProps}
-      />
+        marginY="none"
+        className={css(useInput({ disabled, invalid }))}
+      >
+        {startAdornment}
+        <Box
+          as="input"
+          ref={forwardedRef}
+          disabled={disabled}
+          // Styles
+          flex={1}
+          height="medium"
+          paddingX="medium"
+          paddingLeft={startAdornment ? 'none' : 'medium'}
+          paddingRight={endAdornment ? 'none' : 'medium'}
+          className={css(useInput({ disabled, invalid, isNested: true }))}
+          {...(data ? buildDataAttributes(data) : null)}
+          {...a11yProps}
+          {...consumerProps}
+        />
+        {endAdornment}
+      </Box>
     );
   }
 );
 TextInput.displayName = 'TextInput';
 
-// Styled components
-// ------------------------------
+export type UseInputProps = Pick<FieldContextType, 'disabled' | 'invalid'> & {
+  isNested?: boolean;
+};
 
-export type UseInputProps = Pick<FieldContextType, 'disabled' | 'invalid'>;
-
-export function useInput({ disabled }: UseInputProps) {
+export const useInput = ({ disabled, isNested = false }: UseInputProps) => {
   const theme = useTheme();
   const focusRingStyles = useFocusRing({ always: true });
   const textStyles = useText({
@@ -91,14 +114,28 @@ export function useInput({ disabled }: UseInputProps) {
   return {
     ...typographyStyles,
     ...responsiveStyles,
-    ':enabled': {
-      '&:hover': {
-        borderColor: theme.border.color.fieldHover,
-      },
-      '&:focus': {
-        ...focusRingStyles,
-        borderColor: theme.border.color.fieldAccent,
-      },
-    },
-  };
-}
+    ...(isNested
+      ? {
+          ':focus': {
+            // This removes the nested input outline visibility since
+            // the wrapper will be outlined, but still visibly focusable
+            // to windows high contrast mode users.
+            // @see https://tailwindcss.com/docs/outline-style#removing-outlines
+            outline: '2px solid transparent',
+            outlineOffset: '2px',
+          },
+        }
+      : {
+          ':enabled': {
+            '&:focus': {
+              ...focusRingStyles,
+              borderColor: theme.border.color.fieldAccent,
+            },
+          },
+          ':focus-within': {
+            ...focusRingStyles,
+            borderColor: theme.border.color.fieldAccent,
+          },
+        }),
+  } as const;
+};

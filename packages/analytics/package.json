@@ -4,6 +4,9 @@
   "license": "MIT",
   "main": "dist/spark-web-analytics.cjs.js",
   "module": "dist/spark-web-analytics.esm.js",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@babel/runtime": "^7.14.6"
   },
