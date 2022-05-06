@@ -31,10 +31,10 @@
     "typecheck": "tsc --noEmit && cd docs && yarn typecheck"
   },
   "lint-staged": {
-    "**/*.{ts,tsx,js,jsx}": [
+    "**/*.{ts,tsx,js,jsx,mjs}": [
       "eslint --fix"
     ],
-    "**/*.{ts,tsx,md,js,jsx,json}": [
+    "**/*.{ts,tsx,md,js,jsx,json,mjs}": [
       "prettier --write"
     ]
   },
