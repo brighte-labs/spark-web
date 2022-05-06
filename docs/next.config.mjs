@@ -1,7 +1,7 @@
 import withPreconstruct from '@preconstruct/next';
 import chokidar from 'chokidar';
 // @ts-ignore
-import flexSearch from 'flexsearch';
+import lunr from 'lunr';
 import {
   PHASE_DEVELOPMENT_SERVER,
   PHASE_EXPORT,
@@ -12,42 +12,30 @@ import { withContentlayer } from 'next-contentlayer';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
-const { Document: FlexDocument } = flexSearch;
-
 const generateSearchIndex = () => {
   const MANIFEST_DIR = path.normalize(`${process.cwd()}/cache`);
   const outFile = `${MANIFEST_DIR}/search-index.json`;
-
-  const index = new FlexDocument({
-    document: {
-      id: 'slug',
-      index: ['content'],
-    },
-  });
-
-  // const paths = allPackages.map(pkg => `/package/${pkg.slug}`);
 
   const allPackages = JSON.parse(
     readFileSync('./.contentlayer/generated/Package/_index.json')
   );
 
-  allPackages.forEach(pkg => {
-    index.add({
-      slug: pkg.slug,
-      content: pkg.body.raw,
+  const index = lunr(function () {
+    this.ref('slug');
+    this.field('title', { boost: 100 });
+    this.field('content');
+
+    allPackages.forEach(pkg => {
+      this.add({
+        slug: pkg.slug,
+        content: pkg.body.raw,
+        title: pkg.title,
+      });
     });
   });
 
-  let dataSearchIndex = [];
-
-  index.export(function (key, data) {
-    // you need to store both the key and the data!
-    // e.g. use the key for the filename and save your data
-    dataSearchIndex.push({ key, data });
-  });
-
   mkdirSync(MANIFEST_DIR, { recursive: true });
-  writeFileSync(outFile, JSON.stringify(dataSearchIndex));
+  writeFileSync(outFile, JSON.stringify(index.toJSON()));
 
   console.log(
     `Generated search index (${path.relative(process.cwd(), outFile)}) from ${

@@ -10,8 +10,6 @@ import { Link } from '@spark-web/link';
 import { Strong, Text } from '@spark-web/text';
 import { TextInput } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
-// @ts-expect-error flexsearch sucks
-import { Document as FlexSearchDocument } from 'flexsearch';
 import { Suspense, useState } from 'react';
 
 import { GITHUB_URL, HEADER_HEIGHT, SIDEBAR_WIDTH } from './constants';
@@ -85,7 +83,7 @@ export function Header() {
           >
             <Inline gap="xlarge">
               <Notice />
-              {/* <SearchInputBox /> */}
+              <SearchInputBox />
             </Inline>
           </Box>
 
@@ -154,43 +152,75 @@ const GitHubLink = () => {
   );
 };
 
-let flexsearchDoc: any;
-let flexsearchPromise: Promise<any>;
+let lunrIndex: any;
+let searchIndexPromise: Promise<any>;
 
 const getSearchInstance = async () => {
-  if (flexsearchDoc) {
-    return flexsearchDoc;
+  if (lunrIndex) {
+    return lunrIndex;
   }
-  await new Promise(resolve => setTimeout(resolve, 2000));
-  //@ts-ignore seach-index generated after build
-  flexsearchPromise = flexsearchPromise ?? import('../cache/search-index.json');
-  const flexsearchIndex = await flexsearchPromise;
-  //@ts-expect-error
-  flexsearchDoc = new FlexSearchDocument({
-    document: 'content',
-  });
-  flexsearchIndex.default.forEach(async (element: any) => {
-    await flexsearchDoc.import(element.key, JSON.parse(element.data));
-  });
-  return flexsearchDoc;
+  searchIndexPromise =
+    searchIndexPromise ??
+    //@ts-ignore seach-index generated after build
+    Promise.all([import('../cache/search-index.json'), import('lunr')])
+      .then(([jsonIndex, lunr]) => {
+        return lunr.default.Index.load(jsonIndex);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+  lunrIndex = await searchIndexPromise;
+  console.log('Resolved index promise');
+
+  return lunrIndex;
 };
 
 const useSearch = (query: string) => {
-  if (!flexsearchDoc) {
+  if (!lunrIndex) {
     throw getSearchInstance();
   }
-  return flexsearchDoc.search(query);
+  // Search with a post-fix wildcard, and fuzzy search (for minor typos)
+  return lunrIndex.search(`${query}*~1`);
 };
+
+const SearchResultsContainer = props => (
+  <Box
+    position="absolute"
+    top="100%"
+    background="surface"
+    padding="medium"
+    {...props}
+  />
+);
 
 const SearchResults = ({ query }: { query: string }) => {
   const results = useSearch(query);
 
   return (
-    <div>
-      {results.map((result: any) => (
-        <div key={result}>{JSON.stringify(result)}</div>
-      ))}
-    </div>
+    <SearchResultsContainer>
+      {results.slice(0, 10).map((result: any) => {
+        const match = Object.entries(result.matchData?.metadata ?? {})[0];
+        if (match?.[1].title) {
+          return (
+            <div>
+              <a href={`/package/${result.ref}`}>
+                Component &gt; <strong>{result.ref}</strong>
+              </a>
+            </div>
+          );
+        } else {
+          return (
+            <div>
+              <a href={`/package/${result.ref}`}>
+                Component &gt; {result.ref} &gt; ...<strong>{match[0]}</strong>
+                ...
+              </a>
+            </div>
+          );
+        }
+      })}
+    </SearchResultsContainer>
   );
 };
 
@@ -207,7 +237,9 @@ const SearchInputBox = () => {
       <Field label="Search" labelVisibility="hidden">
         <TextInput placeholder="search" onChange={onChange} />
         {searchValue.length > 2 ? (
-          <Suspense fallback={<span>Loading</span>}>
+          <Suspense
+            fallback={<SearchResultsContainer>Loading</SearchResultsContainer>}
+          >
             <SearchResults query={searchValue} />
           </Suspense>
         ) : null}
