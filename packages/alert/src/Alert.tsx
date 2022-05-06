@@ -10,7 +10,6 @@ import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
 import { IndicatorContainer } from '@spark-web/text-list';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
-import { buildDataAttributes } from '@spark-web/utils/internal';
 import * as React from 'react';
 
 type AlertTones = 'caution' | 'critical' | 'info' | 'positive';
@@ -49,7 +48,7 @@ export const Alert = ({
       gap="medium"
     >
       <Box
-        {...(data ? buildDataAttributes(data) : null)}
+        data={data}
         display="flex"
         flex={1}
         alignItems="start"
