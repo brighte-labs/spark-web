@@ -85,7 +85,7 @@ export function Header() {
           >
             <Inline gap="xlarge">
               <Notice />
-              <SearchInputBox />
+              {/* <SearchInputBox /> */}
             </Inline>
           </Box>
 
@@ -194,6 +194,7 @@ const SearchResults = ({ query }: { query: string }) => {
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SearchInputBox = () => {
   const [searchValue, setSearchValue] = useState('');
   const onChange: any = (event: any) => {
