@@ -7,6 +7,7 @@ import { generateToc } from './utils/generate-toc';
 
 export const Home = defineDocumentType(() => ({
   name: 'Home',
+  contentType: 'mdx',
   filePathPattern: 'docs/pages/index.md',
   isSingleton: true,
   fields: {
@@ -26,6 +27,7 @@ export const Home = defineDocumentType(() => ({
 
 export const Package = defineDocumentType(() => ({
   name: 'Package',
+  contentType: 'mdx',
   filePathPattern: 'packages/**/README.md',
   fields: {
     title: {

@@ -8,23 +8,18 @@ import { Link } from '@spark-web/link';
 import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
 import { TextLink } from '@spark-web/text-link';
-import { plugin as untitledLiveCode } from '@untitled-docs/live-code/rehype';
 import { GITHUB_URL } from 'components/constants';
 import { InlineCode } from 'components/example-helpers';
+import { MDXContent } from 'components/mdx-components/mdx-content';
 import { allPackages } from 'contentlayer/generated';
-import { bundleMDX } from 'mdx-bundler';
-import { getMDXComponent } from 'mdx-bundler/client';
 import type {
   GetStaticPaths,
   GetStaticProps,
   InferGetStaticPropsType,
 } from 'next';
-import { createElement, useMemo } from 'react';
-import rehypeSlug from 'rehype-slug';
-import remarkGfm from 'remark-gfm';
+import { createElement } from 'react';
 
 import { DocsContent } from '../../components/content';
-import { mdxComponents } from '../../components/mdx-components/mdx-components';
 import { StorybookIcon } from '../../components/vectors/fill';
 import type { HeadingData } from '../../utils/generate-toc';
 
@@ -50,22 +45,9 @@ export const getStaticProps: GetStaticProps<{
     };
   }
 
-  const { code } = await bundleMDX({
-    source: pkg.body.raw,
-    mdxOptions(options) {
-      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
-      options.rehypePlugins = [
-        ...(options.rehypePlugins ?? []),
-        rehypeSlug,
-        untitledLiveCode,
-      ];
-      return options;
-    },
-  });
-
   return {
     props: {
-      code,
+      code: pkg.body.code,
       packageName: pkg.packageName,
       storybookPath: pkg.storybookPath ?? null,
       title: pkg.title,
@@ -81,7 +63,6 @@ export default function Packages({
   title,
   toc,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
-  const Component = useMemo(() => getMDXComponent(code), [code]);
   const packageSlug = packageName.replace('@spark-web/', '');
 
   return (
@@ -94,7 +75,7 @@ export default function Packages({
           packageSlug={packageSlug}
         />
         <Divider />
-        <Component components={mdxComponents as any} />
+        <MDXContent code={code} />
       </Stack>
     </DocsContent>
   );
