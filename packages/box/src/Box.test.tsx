@@ -23,8 +23,8 @@ describe('Alert component', () => {
   });
   it('should spread data attributes when they are passed in', () => {
     const data = { testAttr: 'some attr' };
-    const { container } = render(<Box data={data} />);
-    const divEl = container.querySelector('div');
+    const { container } = render(<Box as={'link'} data={data} />);
+    const divEl = container.querySelector('link');
     expect(divEl?.getAttribute('data-testAttr')).toEqual('some attr');
   });
 });
