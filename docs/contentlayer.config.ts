@@ -74,11 +74,12 @@ export const Package = defineDocumentType(() => ({
 }));
 
 export default makeSource({
-  contentDirPath: '../',
   contentDirInclude: ['docs/pages', 'packages'],
-  documentTypes: [Package, Home],
+  contentDirPath: '../',
+  documentTypes: [Home, Package],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [untitledLiveCode],
   },
+  onUnknownDocuments: 'skip-ignore',
 });
