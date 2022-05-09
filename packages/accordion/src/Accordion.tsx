@@ -39,7 +39,7 @@ export type AccordionItemProps = Pick<
   RadixAccordionItemProps,
   'children' | 'value'
 > & {
-  data: DataAttributeMap;
+  data?: DataAttributeMap;
   headingElement?: 'h2' | 'h3' | 'h4';
   label: string;
   level?: '1' | '2' | '3' | '4';
