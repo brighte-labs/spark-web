@@ -7,6 +7,7 @@ import { generateToc } from './utils/generate-toc';
 
 export const Home = defineDocumentType(() => ({
   name: 'Home',
+  contentType: 'mdx',
   filePathPattern: 'docs/pages/index.md',
   isSingleton: true,
   fields: {
@@ -26,6 +27,7 @@ export const Home = defineDocumentType(() => ({
 
 export const Package = defineDocumentType(() => ({
   name: 'Package',
+  contentType: 'mdx',
   filePathPattern: 'packages/**/README.md',
   fields: {
     title: {
@@ -72,11 +74,12 @@ export const Package = defineDocumentType(() => ({
 }));
 
 export default makeSource({
-  contentDirPath: '../',
   contentDirInclude: ['docs/pages', 'packages'],
-  documentTypes: [Package, Home],
+  contentDirPath: '../',
+  documentTypes: [Home, Package],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [untitledLiveCode],
   },
+  onUnknownDocuments: 'skip-ignore',
 });

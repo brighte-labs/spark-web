@@ -9,7 +9,8 @@ import { Text } from '@spark-web/text';
 import { TextList } from '@spark-web/text-list';
 import { useTheme } from '@spark-web/theme';
 import { mergeRefs } from '@spark-web/utils';
-import * as React from 'react';
+import type { InputHTMLAttributes } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import type {
   ErrorCode as DropzoneErrorCode,
   FileWithPath,
@@ -32,7 +33,7 @@ type FileWithPreview = FileWithPath & {
 };
 
 type InputProps = Pick<
-  React.InputHTMLAttributes<HTMLInputElement>,
+  InputHTMLAttributes<HTMLInputElement>,
   'name' | 'onChange' | 'onBlur'
 >;
 export type DropzoneProps = InputProps & {
@@ -48,7 +49,7 @@ export type DropzoneProps = InputProps & {
   showImageThumbnails?: boolean;
 };
 
-export const Dropzone = React.forwardRef<HTMLInputElement, DropzoneProps>(
+export const Dropzone = forwardRef<HTMLInputElement, DropzoneProps>(
   (
     {
       accept,
@@ -62,8 +63,8 @@ export const Dropzone = React.forwardRef<HTMLInputElement, DropzoneProps>(
     },
     forwardedRef
   ) => {
-    const [files, setFiles] = React.useState<FileWithPreview[]>([]);
-    const [fileError, setFileError] = React.useState<FileError>();
+    const [files, setFiles] = useState<FileWithPreview[]>([]);
+    const [fileError, setFileError] = useState<FileError>();
 
     const handleRemoveFile = (id: number) => {
       setFiles((previousFiles: FileWithPreview[]) =>
@@ -119,12 +120,12 @@ export const Dropzone = React.forwardRef<HTMLInputElement, DropzoneProps>(
     } = getInputProps();
 
     // HACK: Runs the `onChange` and `onBlur` functions and swaps in our local state whenever `files` is updated.
-    React.useEffect(() => {
+    useEffect(() => {
       onChange?.({ target: { value: files, name }, type: 'change' } as any);
       onBlur?.({ target: { value: files, name }, type: 'blur' } as any);
     }, [files, name, onBlur, onChange]);
 
-    React.useEffect(() => {
+    useEffect(() => {
       if (!fileRejections.length) {
         setFileError(undefined);
         return;

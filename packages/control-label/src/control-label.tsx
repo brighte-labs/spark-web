@@ -1,10 +1,11 @@
 import { Box } from '@spark-web/box';
 import { DefaultTextPropsProvider, Text } from '@spark-web/text';
-import * as React from 'react';
+import type { ReactNode } from 'react';
+import { Fragment } from 'react';
 
 export type ControlLabelProps = {
-  children: React.ReactNode;
-  control: React.ReactNode;
+  children: ReactNode;
+  control: ReactNode;
   disabled?: boolean;
   htmlFor?: string;
   size: 'small' | 'medium';
@@ -34,10 +35,10 @@ export function ControlLabel({
   );
 }
 
-function Content({ children }: { children: React.ReactNode }) {
+function Content({ children }: { children: ReactNode }) {
   if (typeof children === 'string' || typeof children === 'number') {
     return <Text>{children}</Text>;
   }
 
-  return <React.Fragment>{children}</React.Fragment>;
+  return <Fragment>{children}</Fragment>;
 }

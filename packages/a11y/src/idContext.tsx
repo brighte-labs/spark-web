@@ -4,7 +4,8 @@
 // Replace with React core `useId` when appropriate:
 // See: https://github.com/reactwg/react-18/discussions/111
 
-import * as React from 'react';
+import type { ReactNode } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 
 type IdContextValue = {
   prefix: number;
@@ -16,13 +17,13 @@ const defaultIdContext: IdContextValue = {
   current: 0,
 };
 
-const IdContext = React.createContext<IdContextValue>(defaultIdContext);
+const IdContext = createContext<IdContextValue>(defaultIdContext);
 
 /** Provide stable IDs in server rendered environments. */
-export function IdProvider({ children }: { children: React.ReactNode }) {
-  const currentContext = React.useContext(IdContext);
+export function IdProvider({ children }: { children: ReactNode }) {
+  const currentContext = useContext(IdContext);
   const isRootIdProvider = currentContext === defaultIdContext;
-  const context: IdContextValue = React.useMemo(
+  const context: IdContextValue = useMemo(
     () => ({
       prefix: isRootIdProvider ? 0 : ++currentContext.prefix,
       current: 0,
@@ -38,7 +39,7 @@ export function IdProvider({ children }: { children: React.ReactNode }) {
 
 /** Generate a unique ID. */
 export function useId(deterministicId?: string): string {
-  const context = React.useContext(IdContext);
+  const context = useContext(IdContext);
   const isBrowser = Boolean(globalThis?.document);
 
   if (!isBrowser && context === defaultIdContext) {
@@ -48,7 +49,7 @@ export function useId(deterministicId?: string): string {
     );
   }
 
-  return React.useMemo(
+  return useMemo(
     () =>
       deterministicId || `brighte-id-${context.prefix}-${++context.current}`,
     [context, deterministicId]

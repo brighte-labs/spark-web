@@ -1,10 +1,10 @@
 import { SparkProvider } from '@spark-web/core';
-import * as React from 'react';
+import type { ReactNode } from 'react';
 
 export default function FrameComponent({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }): JSX.Element {
   return <SparkProvider>{children}</SparkProvider>;
 }

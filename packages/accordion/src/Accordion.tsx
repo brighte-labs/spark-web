@@ -11,7 +11,7 @@ import { ChevronDownIcon } from '@spark-web/icon';
 import { Stack } from '@spark-web/stack';
 import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils/src/internal';
-import * as React from 'react';
+import type { RefAttributes } from 'react';
 
 const openAnimation = keyframes({
   from: {
@@ -101,10 +101,8 @@ export function AccordionItem({
 }
 
 export type AccordionProps =
-  | (Omit<AccordionSingleProps, 'asChild'> &
-      React.RefAttributes<HTMLDivElement>)
-  | (Omit<AccordionMultipleProps, 'asChild'> &
-      React.RefAttributes<HTMLDivElement>);
+  | (Omit<AccordionSingleProps, 'asChild'> & RefAttributes<HTMLDivElement>)
+  | (Omit<AccordionMultipleProps, 'asChild'> & RefAttributes<HTMLDivElement>);
 
 export function Accordion({ children, ...rest }: AccordionProps): JSX.Element {
   return (

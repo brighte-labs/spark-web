@@ -5,6 +5,7 @@ import { Strong, Text } from '@spark-web/text';
 import { TextLink } from '@spark-web/text-link';
 import type { TextListProps } from '@spark-web/text-list';
 import { TextList } from '@spark-web/text-list';
+import type { ReactNode } from 'react';
 import { Children, Fragment } from 'react';
 
 import * as sparkComponents from '../../cache/spark-components';
@@ -51,7 +52,7 @@ const TextListMdx = (props: TextListProps) => (
   </TextList>
 );
 
-export const mdxComponents: Record<string, React.ReactNode> = {
+export const mdxComponents: Record<string, ReactNode> = {
   // Native HTML elements
   a: TextLink,
   p: (props: TextProps) => {

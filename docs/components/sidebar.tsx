@@ -5,6 +5,7 @@ import { NavLink } from '@spark-web/nav-link';
 import { Stack } from '@spark-web/stack';
 import { useTheme } from '@spark-web/theme';
 import { useRouter } from 'next/router';
+import type { ReactNode } from 'react';
 import { createContext, useContext, useEffect, useState } from 'react';
 
 import { HEADER_HEIGHT, SIDEBAR_WIDTH } from './constants';
@@ -82,7 +83,7 @@ export const SidebarContext = createContext<SidebarContextType | null>(null);
 export const SidebarContextProvider = ({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) => {
   const [sidebarIsOpen, setOpen] = useState(false);
 

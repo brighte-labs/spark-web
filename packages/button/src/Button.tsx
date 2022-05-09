@@ -1,6 +1,7 @@
 import { Box } from '@spark-web/box';
 import { buildDataAttributes } from '@spark-web/utils/internal';
-import * as React from 'react';
+import type { MouseEvent as ReactMouseEvent } from 'react';
+import { forwardRef } from 'react';
 
 import { resolveButtonChildren } from './resolveButtonChildren';
 import type { CommonButtonProps, NativeButtonProps } from './types';
@@ -28,7 +29,7 @@ export type ButtonProps = CommonButtonProps & {
  * Buttons are used to initialize an action, their label should express what
  * action will occur when the user interacts with it.
  */
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       'aria-controls': ariaControls,
@@ -99,7 +100,7 @@ export function getPreventableClickHandler(
   disabled: boolean
 ) {
   return function handleClick(
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    event: ReactMouseEvent<HTMLButtonElement, MouseEvent>
   ) {
     if (disabled) {
       event.preventDefault();

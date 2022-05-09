@@ -9,6 +9,7 @@ import { useTheme } from '@spark-web/theme';
 import { useLiveCode } from '@untitled-docs/live-code';
 import copy from 'clipboard-copy';
 import { createUrl } from 'playroom/utils';
+import type { ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import Editor from 'react-simple-code-editor';
 
@@ -88,7 +89,7 @@ function RenderedCodeExample({
   children,
   styles,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   styles?: CSSObject;
 }) {
   const { color, border } = useTheme();
@@ -111,7 +112,7 @@ function ErrorMessage({
   children,
   styles,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   styles?: CSSObject;
 }) {
   const { color, border } = useTheme();
