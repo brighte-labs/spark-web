@@ -28,17 +28,18 @@ reveal some associated section of content.
 
 The root of the accordion block containing all parts of the accordion.
 
-| Prop           | Type                   | Default | Description                                                                                                                                  |
-| -------------- | ---------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| type           | 'single' \| 'multiple' |         | Determines whether one or multiple accordion items can be opened at the same time.                                                           |
-| value?         | string                 |         | The controlled value of the item to expand when type is "single". Must be used in conjunction with onValueChange.                            |
-| defaultValue?  | string                 |         | The value of the item to expand when initially rendered and type is "single". Use when you do not need to control the state of the items.    |
-| onValueChange? | (v: string) => void    |         | Event handler called when the expanded state of an item changes and type is "single".                                                        |
-| value?         | string[]               | []      | The controlled value of the item to expand when type is "multiple". Must be used in conjunction with onValueChange.                          |
-| defaultValue?  | string[]               | []      | The value of the item to expand when initially rendered when type is "multiple". Use when you do not need to control the state of the items. |
-| onValueChange? | (v: string[]) => void  |         | Event handler called when the expanded state of an item changes and type is "multiple".                                                      |
-| collapsible?   | boolean                | false   | When type is "single", allows closing content when clicking trigger for an open item.                                                        |
-| disabled?      | boolean                | false   | When true, prevents the user from interacting with the accordion and all its items.                                                          |
+| Prop           | Type                                   | Default | Description                                                                                                                                  |
+| -------------- | -------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| type           | 'single' \| 'multiple'                 |         | Determines whether one or multiple accordion items can be opened at the same time.                                                           |
+| value?         | string                                 |         | The controlled value of the item to expand when type is "single". Must be used in conjunction with onValueChange.                            |
+| defaultValue?  | string                                 |         | The value of the item to expand when initially rendered and type is "single". Use when you do not need to control the state of the items.    |
+| onValueChange? | (v: string) => void                    |         | Event handler called when the expanded state of an item changes and type is "single".                                                        |
+| value?         | string[]                               | []      | The controlled value of the item to expand when type is "multiple". Must be used in conjunction with onValueChange.                          |
+| defaultValue?  | string[]                               | []      | The value of the item to expand when initially rendered when type is "multiple". Use when you do not need to control the state of the items. |
+| onValueChange? | (v: string[]) => void                  |         | Event handler called when the expanded state of an item changes and type is "multiple".                                                      |
+| collapsible?   | boolean                                | false   | When type is "single", allows closing content when clicking trigger for an open item.                                                        |
+| disabled?      | boolean                                | false   | When true, prevents the user from interacting with the accordion and all its items.                                                          |
+| data?          | [DataAttributeMap][data-attribute-map] |         | Sets data attributes on the component.                                                                                                       |
 
 Additional `div` props are passed to the primitive
 [radix accordion root](https://www.radix-ui.com/docs/primitives/components/accordion#root)
@@ -55,3 +56,6 @@ An accordion item section containing heading and collapsible content.
 | headingElement? | 'h2' \| 'h3' \| 'h4'     | 'h3'    | The html element to render the accordion item heading as.                         |
 | level?          | '1' \| '2' \| '3' \| '4' | '3'     | The size of the heading. '1' is largest and '4' is smallest.                      |
 | label           | string                   |         | The heading of the accordion item.                                                |
+
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1

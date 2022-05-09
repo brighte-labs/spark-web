@@ -10,6 +10,7 @@ import { Heading } from '@spark-web/heading';
 import { ChevronDownIcon } from '@spark-web/icon';
 import { Stack } from '@spark-web/stack';
 import { useTheme } from '@spark-web/theme';
+import type { DataAttributeMap } from '@spark-web/utils/src/internal';
 import * as React from 'react';
 
 const openAnimation = keyframes({
@@ -38,14 +39,16 @@ export type AccordionItemProps = Pick<
   RadixAccordionItemProps,
   'children' | 'value'
 > & {
+  data: DataAttributeMap;
   headingElement?: 'h2' | 'h3' | 'h4';
-  level?: '1' | '2' | '3' | '4';
   label: string;
+  level?: '1' | '2' | '3' | '4';
 };
 
 export function AccordionItem({
   headingElement = 'h3',
   children,
+  data,
   label,
   level,
   value,
@@ -53,7 +56,12 @@ export function AccordionItem({
   const { animation } = useTheme();
   return (
     <AccordionPrimitive.Item value={value} asChild>
-      <Box background="surface" borderRadius="medium" padding="large">
+      <Box
+        data={data}
+        background="surface"
+        borderRadius="medium"
+        padding="large"
+      >
         <AccordionPrimitive.Header asChild>
           <Heading as={headingElement ?? 'h3'} level={level ?? '3'}>
             <AccordionPrimitive.Trigger asChild>
