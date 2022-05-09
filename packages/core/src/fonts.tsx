@@ -6,7 +6,7 @@ export function AesteticoStylesheet(): JSX.Element {
   return (
     <link
       rel="stylesheet"
-      href="https://spark-web-docs-a22gianxx-brighte.vercel.app/fonts.css"
+      href="https://spark-web-docs-fa4i8lp4e-brighte.vercel.app/fonts.css"
     />
   );
 }
