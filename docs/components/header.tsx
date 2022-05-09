@@ -173,7 +173,6 @@ const getSearchInstance = async () => {
       });
 
   lunrIndex = await searchIndexPromise;
-  console.log('Resolved index promise');
 
   return lunrIndex;
 };
