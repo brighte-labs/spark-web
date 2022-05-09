@@ -23,9 +23,6 @@ export const Home = defineDocumentType(() => ({
       type: 'json',
       resolve: async doc => generateToc(doc.body.raw),
     },
-    plaintext: {
-      type: 'string',
-    },
   },
 }));
 
