@@ -167,7 +167,7 @@ export type ResponsiveBoxProps = {
    * The `top` property participates in specifying the vertical position of a
    * positioned element. It has no effect on non-positioned elements.
    */
-  top?: ResponsiveProp<0>;
+  top?: ResponsiveProp<0 | 100>;
   /**
    * The `right` property participates in specifying the horizontal position of
    * a positioned element. It has no effect on non-positioned elements.
