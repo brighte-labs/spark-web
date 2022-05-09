@@ -1,5 +1,6 @@
 import { VisuallyHidden } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
+import type { IconProps } from '@spark-web/icon';
 import { Spinner } from '@spark-web/spinner';
 import { buildDataAttributes } from '@spark-web/utils/internal';
 import type { MouseEvent as ReactMouseEvent } from 'react';
@@ -104,22 +105,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           size,
           tone,
         })}
-        {isLoading && (
-          <Box
-            as="span"
-            position="absolute"
-            top={0}
-            bottom={0}
-            left={0}
-            right={0}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <VisuallyHidden>button loading indicator</VisuallyHidden>
-            <Spinner size="xsmall" tone={variant?.textTone} />
-          </Box>
-        )}
+        {isLoading && <Loading tone={variant?.textTone} />}
       </Box>
     );
   }
@@ -144,4 +130,23 @@ export function getPreventableClickHandler(
       onClick?.(event);
     }
   };
+}
+
+function Loading({ tone }: { tone?: IconProps['tone'] }) {
+  return (
+    <Box
+      as="span"
+      position="absolute"
+      top={0}
+      bottom={0}
+      left={0}
+      right={0}
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <VisuallyHidden>button loading indicator</VisuallyHidden>
+      <Spinner size="xsmall" tone={tone} />
+    </Box>
+  );
 }
