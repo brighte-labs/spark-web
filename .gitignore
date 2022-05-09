@@ -49,3 +49,6 @@ coverage
 
 # Contentlayer
 .contentlayer
+
+# VSCode settings
+.vscode/settings.json
