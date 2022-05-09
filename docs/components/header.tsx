@@ -1,14 +1,17 @@
 import { css } from '@emotion/css';
 import { useFocusRing, VisuallyHidden } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
+import { Columns } from '@spark-web/columns';
 import { Container } from '@spark-web/container';
 import { Field } from '@spark-web/field';
 import { Hidden } from '@spark-web/hidden';
 import { MenuIcon, XIcon } from '@spark-web/icon';
 import { Inline } from '@spark-web/inline';
 import { Link } from '@spark-web/link';
+import { Stack } from '@spark-web/stack';
 import { Strong, Text } from '@spark-web/text';
 import { TextInput } from '@spark-web/text-input';
+import { TextLink } from '@spark-web/text-link';
 import { useTheme } from '@spark-web/theme';
 import { Suspense, useState } from 'react';
 
@@ -184,7 +187,7 @@ const useSearch = (query: string) => {
   return lunrIndex.search(`${query}*~1`);
 };
 
-const SearchResultsContainer = props => (
+const SearchResultsContainer = (props: any) => (
   <Box
     position="absolute"
     top="100%"
@@ -195,7 +198,7 @@ const SearchResultsContainer = props => (
 );
 
 const SearchResults = ({ query }: { query: string }) => {
-  const results = useSearch(query);
+  const results = useSearch(query) ?? [];
 
   return (
     <SearchResultsContainer>
@@ -203,20 +206,20 @@ const SearchResults = ({ query }: { query: string }) => {
         const match = Object.entries(result.matchData?.metadata ?? {})[0];
         if (match?.[1].title) {
           return (
-            <div>
-              <a href={`/package/${result.ref}`}>
+            <Text>
+              <TextLink href={`/package/${result.ref}`}>
                 Component &gt; <strong>{result.ref}</strong>
-              </a>
-            </div>
+              </TextLink>
+            </Text>
           );
         } else {
           return (
-            <div>
-              <a href={`/package/${result.ref}`}>
-                Component &gt; {result.ref} &gt; ...<strong>{match[0]}</strong>
-                ...
-              </a>
-            </div>
+            <Text>
+              <TextLink href={`/package/${result.ref}`}>
+                Component &gt; {result.ref} &gt; ...
+                <strong>{match[0]}</strong>
+              </TextLink>
+            </Text>
           );
         }
       })}
@@ -240,7 +243,11 @@ const SearchInputBox = () => {
           <Suspense
             fallback={<SearchResultsContainer>Loading</SearchResultsContainer>}
           >
-            <SearchResults query={searchValue} />
+            <Columns>
+              <Stack>
+                <SearchResults query={searchValue} />
+              </Stack>
+            </Columns>
           </Suspense>
         ) : null}
       </Field>
