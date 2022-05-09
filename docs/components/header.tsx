@@ -1,7 +1,6 @@
 import { css } from '@emotion/css';
 import { useFocusRing, VisuallyHidden } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
-import { Columns } from '@spark-web/columns';
 import { Container } from '@spark-web/container';
 import { Field } from '@spark-web/field';
 import { Hidden } from '@spark-web/hidden';
@@ -187,14 +186,19 @@ const useSearch = (query: string) => {
   return lunrIndex.search(`${query}*~1`);
 };
 
-const SearchResultsContainer = (props: any) => (
+const SearchResultsContainer = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => (
   <Box
     position="absolute"
-    top="100%"
+    top={{ tablet: 100 }}
     background="surface"
     padding="medium"
-    {...props}
-  />
+  >
+    <Stack gap="xlarge">{children}</Stack>
+  </Box>
 );
 
 const SearchResults = ({ query }: { query: string }) => {
@@ -204,6 +208,7 @@ const SearchResults = ({ query }: { query: string }) => {
     <SearchResultsContainer>
       {results.slice(0, 10).map((result: any) => {
         const match = Object.entries(result.matchData?.metadata ?? {})[0];
+        //@ts-expect-error
         if (match?.[1].title) {
           return (
             <Text>
@@ -243,11 +248,7 @@ const SearchInputBox = () => {
           <Suspense
             fallback={<SearchResultsContainer>Loading</SearchResultsContainer>}
           >
-            <Columns>
-              <Stack>
-                <SearchResults query={searchValue} />
-              </Stack>
-            </Columns>
+            <SearchResults query={searchValue} />
           </Suspense>
         ) : null}
       </Field>
