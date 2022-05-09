@@ -1,6 +1,7 @@
 import { plugin as untitledLiveCode } from '@untitled-docs/live-code/rehype/dist/live-code.cjs.js';
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import { readFile } from 'node:fs/promises';
+import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
 import { generateToc } from './utils/generate-toc';
@@ -79,7 +80,7 @@ export default makeSource({
   documentTypes: [Home, Package],
   mdx: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [untitledLiveCode],
+    rehypePlugins: [rehypeSlug, untitledLiveCode],
   },
   onUnknownDocuments: 'skip-ignore',
 });
