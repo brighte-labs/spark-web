@@ -1,10 +1,13 @@
+import type { DataAttributeMap } from '@spark-web/utils/src/internal';
 import { cleanup, render } from '@testing-library/react';
+import type { ElementType } from 'react';
 
-import type { BoxProps } from './Box';
 import { Box } from './Box';
 
-const renderComponent = (props: BoxProps) =>
-  render(<Box as={props?.asElement} data={props?.data} />);
+const renderComponent = (props: {
+  asElement?: ElementType;
+  data?: DataAttributeMap;
+}) => render(<Box as={props?.asElement} data={props?.data} />);
 
 describe('Alert component', () => {
   afterEach(cleanup);
