@@ -29,6 +29,4 @@ export type CheckboxProps = {
   tone?: Tone;
   /** The checkbox label content. */
   children: ReactNode;
-  /** Sets data attributes on the component. */
-  data?: DataAttributeMap;
 } & CheckboxPrimitiveProps;
