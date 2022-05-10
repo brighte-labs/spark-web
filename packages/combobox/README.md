@@ -14,13 +14,13 @@ from a large list of values.
 const [value, setValue] = React.useState(null);
 
 return (
-  <Field label="What's your favourite ice cream flavour?">
+  <Field label="What's your Adventure Time character?">
     <Combobox
-      placeholder="Select a flavour"
+      placeholder="Select a character"
       items={[
-        { label: 'Chocolate', value: 'chocolate' },
-        { label: 'Vanilla', value: 'vanilla' },
-        { label: 'Strawberry', value: 'strawberry' },
+        { label: 'Jake', value: 'jake' },
+        { label: 'Finn', value: 'finn' },
+        { label: 'BMO', value: 'bmo' },
       ]}
       onChange={value => setValue(value)}
       value={value}
@@ -32,13 +32,13 @@ return (
 ### Uncontrolled component
 
 ```jsx live
-<Field label="What's your favourite ice cream flavour?">
+<Field label="What's your favourite Adventure Time character?">
   <Combobox
-    placeholder="Select a flavour"
+    placeholder="Select a character"
     items={[
-      { label: 'Chocolate', value: 'chocolate' },
-      { label: 'Vanilla', value: 'vanilla' },
-      { label: 'Strawberry', value: 'strawberry' },
+      { label: 'Jake', value: 'jake' },
+      { label: 'Finn', value: 'finn' },
+      { label: 'BMO', value: 'bmo' },
     ]}
   />
 </Field>
@@ -49,13 +49,13 @@ return (
 ### Disabled
 
 ```jsx live
-<Field label="What's your favourite ice cream flavour?" disabled>
+<Field label="What's your favourite Adventure Time character?" disabled>
   <Combobox
-    placeholder="Select a flavour"
+    placeholder="Select a character"
     items={[
-      { label: 'Chocolate', value: 'chocolate' },
-      { label: 'Vanilla', value: 'vanilla' },
-      { label: 'Strawberry', value: 'strawberry' },
+      { label: 'Jake', value: 'jake' },
+      { label: 'Finn', value: 'finn' },
+      { label: 'BMO', value: 'bmo' },
     ]}
   />
 </Field>
@@ -65,16 +65,16 @@ return (
 
 ```jsx live
 <Field
-  label="What's your favourite ice cream flavour?"
+  label="What's your favourite Adventure Time character?"
   tone="critical"
   message="Required"
 >
   <Combobox
-    placeholder="Select a flavour"
+    placeholder="Select a character"
     items={[
-      { label: 'Chocolate', value: 'chocolate' },
-      { label: 'Vanilla', value: 'vanilla' },
-      { label: 'Strawberry', value: 'strawberry' },
+      { label: 'Jake', value: 'jake' },
+      { label: 'Finn', value: 'finn' },
+      { label: 'BMO', value: 'bmo' },
     ]}
   />
 </Field>
