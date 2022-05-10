@@ -44,6 +44,7 @@ elements only have styling rules that have been explicitly specified.
 | id?             | string                                                                                                         |         | An identifier that must be unique in the whole document.                                                                                                     |
 | className?      | string                                                                                                         |         | Custom css styles.                                                                                                                                           |
 | asElement?      | string                                                                                                         |         | An option to indicate what the underlying element of the box should be.                                                                                      |
+| data?           | [DataAttributeMap][data-attribute-map]                                                                         |         | Sets data attributes on the component.                                                                                                                       |
 |                 |                                                                                                                |         |                                                                                                                                                              |
 | background?     | keyof [BrighteTheme][brighte-theme]['color']['background']                                                     |         | Sets the backgroud of the component.                                                                                                                         |
 | cursor?         | 'default' \| 'pointer'                                                                                         |         | Sets the type of mouse cursor, if any, to show when the mouse pointer is over an element.                                                                    |
@@ -103,3 +104,5 @@ prop. Extra props will also be forwarded to the underlying element.
   https://github.com/brighte-labs/spark-web/blob/e503bea4f7668d187ec7a78f99c5ed374417588b/packages/theme/src/makeTheme.ts#L158
 [responsive-prop]:
   https://github.com/brighte-labs/spark-web/blob/e503bea4f7668d187ec7a78f99c5ed374417588b/packages/theme/src/themeUtils.ts#L11
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1

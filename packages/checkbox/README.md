@@ -106,13 +106,12 @@ listed here.
 
 ### CheckboxPrimitive
 
-| Prop      | Type                                   | Default | Description                               |
-| --------- | -------------------------------------- | ------- | ----------------------------------------- |
-| checked?  | boolean                                |         | When true, the checkbox will be checked.  |
-| disabled? | boolean                                |         | When true, the checkbox will be disabled. |
-| size?     | 'small' \| 'medium'                    | 'small' | The size of the checkbox.                 |
-| value?    | string                                 |         | The value of the checkbox.                |
-| data?     | [DataAttributeMap][data-attribute-map] |         | Sets data attributes on the component.    |
+| Prop      | Type                | Default | Description                               |
+| --------- | ------------------- | ------- | ----------------------------------------- |
+| checked?  | boolean             |         | When true, the checkbox will be checked.  |
+| disabled? | boolean             |         | When true, the checkbox will be disabled. |
+| size?     | 'small' \| 'medium' | 'small' | The size of the checkbox.                 |
+| value?    | string              |         | The value of the checkbox.                |
 
 The `CheckboxPrimitive` component also extends `InputHTMLAttributes` props and
 are not listed here.
