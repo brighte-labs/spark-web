@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
 import type { BoxProps } from '@spark-web/box';
 import { Box } from '@spark-web/box';
+import type { DataAttributeMap } from '@spark-web/utils/src/internal';
 import { forwardRefWithAs } from '@spark-web/utils/ts';
 import type { CSSProperties, ReactNode } from 'react';
 import { useMemo } from 'react';
@@ -29,6 +30,8 @@ type BlockProps = {
 export type TextProps = Partial<UseTextProps> & {
   /** The text content. */
   children?: ReactNode;
+  /** Sets data attributes on the component. */
+  data?: DataAttributeMap;
   /** An identifier which must be unique in the whole document. */
   id?: BoxProps['id'];
   /** When enabled, numbers will be the same width. Similar to a monospaced font. */
@@ -43,6 +46,7 @@ export const Text = forwardRefWithAs<'div', TextProps>(
       // box props
       as,
       children,
+      data,
       id,
 
       //text props
@@ -82,6 +86,7 @@ export const Text = forwardRefWithAs<'div', TextProps>(
       return (
         <Box
           as={as ?? 'span'}
+          data={data}
           ref={forwardedRef}
           id={id}
           className={css(styles)}

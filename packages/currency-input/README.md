@@ -41,12 +41,15 @@ the respective currency's
 </Stack>
 ```
 
-| Prop          | Type                                 | Default | Description                                                                       |
-| ------------- | ------------------------------------ | ------- | --------------------------------------------------------------------------------- |
-| currencyType? | [CurrencyType][currency-symbol-type] | 'AUD'   | Specifies what currency symbol you want as a starting adornment to the component. |
+| Prop          | Type                                   | Default | Description                                                                       |
+| ------------- | -------------------------------------- | ------- | --------------------------------------------------------------------------------- |
+| currencyType? | [CurrencyType][currency-symbol-type]   | 'AUD'   | Specifies what currency symbol you want as a starting adornment to the component. |
+| data?         | [DataAttributeMap][data-attribute-map] |         | Sets data attributes on the component.                                            |
 
 Note that `CurrencyInput` also extends [`FloatInput`](/package/float-input)'s
 props and are not listed here.
 
 [currency-symbol-type]:
   https://github.com/brighte-labs/spark-web/blob/56249831f3013f4e070eb7b4633447a29cea4ebb/packages/currency-input/src/currencySymbolMap.ts
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1
