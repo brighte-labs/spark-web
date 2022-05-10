@@ -60,10 +60,14 @@ foreground colour is inverted.
 
 ## Props
 
-| Prop      | Type            | Default | Description                                         |
-| --------- | --------------- | ------- | --------------------------------------------------- |
-| children  | React.ReactNode |         | Content to be rendered as the heading.              |
-| id?       | string          |         | Sets a unique identifier for the element.           |
-| truncate? | boolean         |         | Indicate whether to truncate text to a single line. |
+| Prop      | Type                                   | Default | Description                                         |
+| --------- | -------------------------------------- | ------- | --------------------------------------------------- |
+| children  | React.ReactNode                        |         | Content to be rendered as the heading.              |
+| id?       | string                                 |         | Sets a unique identifier for the element.           |
+| truncate? | boolean                                |         | Indicate whether to truncate text to a single line. |
+| data?     | [DataAttributeMap][data-attribute-map] |         | Sets data attributes on the component.              |
 
 Extra props are passed into the underlying [`Box`](/package/box) component.
+
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1
