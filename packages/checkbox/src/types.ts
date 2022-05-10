@@ -1,5 +1,5 @@
 import type { Tone } from '@spark-web/field';
-import type { DataAttributeMap } from '@spark-web/utils/src/internal';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { InputHTMLAttributes, ReactNode } from 'react';
 
 export type CheckboxSize = 'small' | 'medium';

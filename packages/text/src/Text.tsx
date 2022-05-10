@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import type { BoxProps } from '@spark-web/box';
 import { Box } from '@spark-web/box';
-import type { DataAttributeMap } from '@spark-web/utils/src/internal';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
 import { forwardRefWithAs } from '@spark-web/utils/ts';
 import type { CSSProperties, ReactNode } from 'react';
 import { useMemo } from 'react';

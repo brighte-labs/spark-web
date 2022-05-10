@@ -10,7 +10,7 @@ import { Heading } from '@spark-web/heading';
 import { ChevronDownIcon } from '@spark-web/icon';
 import { Stack } from '@spark-web/stack';
 import { useTheme } from '@spark-web/theme';
-import type { DataAttributeMap } from '@spark-web/utils/src/internal';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { RefAttributes } from 'react';
 
 const openAnimation = keyframes({

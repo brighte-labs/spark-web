@@ -2,7 +2,7 @@ import { css } from '@emotion/css';
 import type { BoxProps } from '@spark-web/box';
 import { Box } from '@spark-web/box';
 import { useOverflowStrategy } from '@spark-web/text';
-import type { DataAttributeMap } from '@spark-web/utils/src/internal';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
 import { forwardRefWithAs } from '@spark-web/utils/ts';
 import type { ReactNode } from 'react';
 

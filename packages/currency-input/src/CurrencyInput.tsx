@@ -6,7 +6,7 @@ import type {
 import { FloatInput } from '@spark-web/float-input';
 import { Text } from '@spark-web/text';
 import { InputAdornment } from '@spark-web/text-input';
-import type { DataAttributeMap } from '@spark-web/utils/src/internal';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
 import { forwardRef } from 'react';
 
 import type { CurrencyType } from './currencySymbolMap';

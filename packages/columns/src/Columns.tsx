@@ -7,7 +7,7 @@ import type {
   ResponsiveRangeProps,
 } from '@spark-web/theme';
 import { useTheme } from '@spark-web/theme';
-import type { DataAttributeMap } from '@spark-web/utils/src/internal';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
 import { forwardRefWithAs } from '@spark-web/utils/ts';
 import type { ReactNode } from 'react';
 import { Children } from 'react';
