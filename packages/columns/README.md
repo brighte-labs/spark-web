@@ -81,6 +81,7 @@ Columns can be collapsed into a single vertical stack responsively using the
 | collapseBelow? | [ResponsiveRangeProps][responsive-range-props]['below'] |         | At which breakpoint, if amy, should the columns collapse.                              |
 | gap?           | [Gap][gap]                                              |         | The size of the gap between each column.                                               |
 | template?      | number[]                                                |         | Define the relative width of each column. By default each column is the same width.    |
+| data?          | [DataAttributeMap][data-attribute-map]                  |         | Sets data attributes on the component.                                                 |
 
 [`Box`](/package/box) props are also included as `Column` props and are not
 listed here (excluding `display`, `alignItems`, `gap`, `flexDirection`,
@@ -94,3 +95,5 @@ Extra props are passed into the underlying [`Box`](/package/box) component.
   https://github.com/brighte-labs/spark-web/blob/e503bea4f7668d187ec7a78f99c5ed374417588b/packages/theme/src/themeUtils.ts#L130
 [gap]:
   https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/columns/src/Columns.tsx#L17
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1

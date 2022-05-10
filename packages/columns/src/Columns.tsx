@@ -7,6 +7,7 @@ import type {
   ResponsiveRangeProps,
 } from '@spark-web/theme';
 import { useTheme } from '@spark-web/theme';
+import type { DataAttributeMap } from '@spark-web/utils/src/internal';
 import { forwardRefWithAs } from '@spark-web/utils/ts';
 import type { ReactNode } from 'react';
 import { Children } from 'react';
@@ -32,6 +33,8 @@ export type ColumnsProps = {
   children: ReactNode;
   /** At which breakpoint, if any, should the columns collapse. */
   collapseBelow?: ResponsiveRangeProps['below'];
+  /** Sets data attributes on the component. */
+  data?: DataAttributeMap;
   /** The size of the gap between each column. */
   gap?: Gap;
   /** Define the relative width of each column. By default each column is the same width. */
@@ -40,7 +43,7 @@ export type ColumnsProps = {
 
 export const Columns = forwardRefWithAs<'div', ColumnsProps>(
   (
-    { alignY = 'top', collapseBelow, gap, template, ...props },
+    { alignY = 'top', collapseBelow, data, gap, template, ...props },
     forwardedRef
   ) => {
     const { spacing, utils } = useTheme();
@@ -78,6 +81,7 @@ export const Columns = forwardRefWithAs<'div', ColumnsProps>(
             '> *': { minWidth: 0 },
           })
         )}
+        data={data}
         {...props}
       />
     );
