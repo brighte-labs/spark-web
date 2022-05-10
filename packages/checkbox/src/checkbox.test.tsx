@@ -71,4 +71,9 @@ describe('Checkbox component', () => {
       'aria-describedby'
     );
   });
+  it('should pass through data props correctly', () => {
+    const data = { testAttr: 'some attr' };
+    const { container } = render(<Checkbox data={data}>{text}</Checkbox>);
+    expect(container.innerHTML).toContain('data-testattr="some attr"');
+  });
 });

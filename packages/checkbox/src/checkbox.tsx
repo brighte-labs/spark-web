@@ -10,6 +10,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
       children,
+      data,
       disabled = false,
       id: idProp,
       message,
@@ -35,6 +36,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               disabled={disabled}
               size={size}
               id={inputId}
+              data={data}
             />
           }
           disabled={disabled}

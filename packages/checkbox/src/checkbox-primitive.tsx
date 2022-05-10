@@ -12,7 +12,7 @@ import type { CheckboxPrimitiveProps, CheckboxSize } from './types';
 export const CheckboxPrimitive = forwardRef<
   HTMLInputElement,
   CheckboxPrimitiveProps
->(({ size = 'small', ...inputProps }, forwardedRef) => {
+>(({ size = 'small', data, ...inputProps }, forwardedRef) => {
   return (
     /**
      * Text is being used here to add the `::before` and `::after` pseudo elements
@@ -20,6 +20,7 @@ export const CheckboxPrimitive = forwardRef<
      */
     <Text>
       <Box
+        data={data}
         className={css({
           display: 'flex',
           alignItems: 'center',
