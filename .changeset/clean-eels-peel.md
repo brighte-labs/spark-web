@@ -1,5 +1,4 @@
 ---
-'@spark-web/docs': minor
 '@spark-web/box': minor
 ---
 
