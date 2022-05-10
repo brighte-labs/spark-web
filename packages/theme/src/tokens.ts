@@ -54,41 +54,41 @@ export const defaultTokens = {
       level: {
         '1': {
           mobile: {
-            fontSize: 28,
+            fontSize: 35,
             rows: 9,
           },
           tablet: {
-            fontSize: 42,
+            fontSize: 35,
             rows: 11,
           },
         },
         '2': {
           mobile: {
-            fontSize: 21,
+            fontSize: 23,
             rows: 8,
           },
           tablet: {
-            fontSize: 28,
+            fontSize: 23,
             rows: 9,
           },
         },
         '3': {
           mobile: {
-            fontSize: 18,
+            fontSize: 19,
             rows: 6,
           },
           tablet: {
-            fontSize: 21,
+            fontSize: 19,
             rows: 7,
           },
         },
         '4': {
           mobile: {
-            fontSize: 14,
+            fontSize: 17,
             rows: 5,
           },
           tablet: {
-            fontSize: 18,
+            fontSize: 17,
             rows: 7,
           },
         },
