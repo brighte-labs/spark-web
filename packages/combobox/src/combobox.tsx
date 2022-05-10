@@ -1,21 +1,16 @@
-import { useFocusRing } from '@spark-web/a11y';
-import { Box } from '@spark-web/box';
 import { useFieldContext } from '@spark-web/field';
-import { ChevronDownIcon } from '@spark-web/icon';
-import { Spinner } from '@spark-web/spinner';
-import { Text, useText } from '@spark-web/text';
-import { useTheme } from '@spark-web/theme';
-import type {
-  GroupBase,
-  SelectComponentsConfig,
-  StylesConfig,
-  ThemeConfig,
-} from 'react-select';
-import ReactSelect, { components } from 'react-select';
+import { useEffect, useRef, useState } from 'react';
+import ReactSelect from 'react-select';
 
-// NOTE: use of `null` instead of `undefined` for the component value type
-// avoids a "controlled VS uncontrolled component" console error
+import {
+  reactSelectComponentsOverride,
+  useReactSelectStylesOverride,
+  useReactSelectThemeOverride,
+} from './react-select-overrides';
+
 type Nullable<T> = T | null;
+
+type Awaitable<T> = T | Promise<T>;
 
 export type ComboboxProps<Item = unknown> = {
   /** The text that appears in the form control when it has no value set. */
@@ -23,7 +18,7 @@ export type ComboboxProps<Item = unknown> = {
   /** The value of the input. */
   inputValue?: string;
   /** Array of items for the user to select from. */
-  items: Item[];
+  items: Awaitable<Item[]>;
   /** Called when an item is selected. */
   onChange?: (value: Nullable<Item>) => void;
   /** Called whenever the input value changes. Use to filter the items. */
@@ -32,170 +27,31 @@ export type ComboboxProps<Item = unknown> = {
   value?: Nullable<Item>;
 };
 
-const useReactSelectStylesOverride = <Item,>({
-  invalid,
-}: {
-  invalid: boolean;
-}): StylesConfig<Item, boolean, GroupBase<Item>> => {
-  const theme = useTheme();
-
-  const [textStyles] = useText({
-    baseline: false,
-    tone: 'neutral',
-    size: 'standard',
-    weight: 'regular',
-  });
-
-  const focusRingStyles = useFocusRing({ always: true });
-
-  return {
-    option: (provided, state) => ({
-      ...provided,
-      ...textStyles,
-      borderRadius: theme.border.radius.small,
-      ...(state.isSelected
-        ? {
-            color: theme.color.foreground.primaryActive,
-            backgroundColor: theme.color.background.primaryMuted,
-          }
-        : {}),
-      ...(state.isFocused
-        ? {
-            backgroundColor: state.isSelected
-              ? theme.backgroundInteractions.primaryLowHover
-              : theme.color.background.surfaceMuted,
-
-            '> *': {
-              color: state.isSelected
-                ? theme.color.foreground.primaryHover
-                : undefined,
-              stroke: state.isSelected
-                ? theme.color.foreground.primaryHover
-                : undefined,
-            },
-          }
-        : {}),
-      ':active': {
-        backgroundColor: state.isSelected
-          ? theme.backgroundInteractions.positiveLowActive
-          : theme.color.background.surfacePressed,
-
-        '> *': {
-          color: state.isSelected
-            ? theme.color.foreground.primaryActive
-            : undefined,
-          stroke: state.isSelected
-            ? theme.color.foreground.primaryActive
-            : undefined,
-        },
-      },
-    }),
-    control: (provided, state) => ({
-      ...provided,
-      ...textStyles,
-      ...(state.isFocused
-        ? focusRingStyles
-        : invalid
-        ? {
-            borderColor: theme.color.foreground.critical,
-          }
-        : {}),
-    }),
-    menu: provided => ({
-      ...provided,
-      boxShadow: theme.shadow.medium,
-      borderRadius: theme.border.radius.medium,
-    }),
-    menuList: provided => ({
-      ...provided,
-      padding: theme.spacing.small,
-      display: 'flex',
-      flexDirection: 'column',
-      gap: theme.spacing.xsmall,
-    }),
-    dropdownIndicator: (provided, state) => ({
-      ...provided,
-      transitionProperty: 'transform',
-      transitionTimingFunction: 'linear',
-      transitionDuration: '100ms',
-      ...(state.isFocused
-        ? {
-            transform: 'rotate(180deg)',
-          }
-        : {}),
-    }),
-  };
-};
-
-const useReactSelectComponentsOverride = <Item,>(): SelectComponentsConfig<
-  Item,
-  boolean,
-  GroupBase<Item>
-> => {
-  return {
-    DropdownIndicator: props => (
-      <components.DropdownIndicator {...props}>
-        <ChevronDownIcon size="xxsmall" tone="muted" />
-      </components.DropdownIndicator>
-    ),
-    IndicatorSeparator: () => null,
-    LoadingMessage: props => (
-      <components.LoadingMessage {...props}>
-        <Box paddingY="large">
-          <Spinner size="xsmall" tone="primary" />
-        </Box>
-      </components.LoadingMessage>
-    ),
-    NoOptionsMessage: props => (
-      <components.NoOptionsMessage {...props}>
-        <Box paddingY="large">
-          <Text>No matching results</Text>
-        </Box>
-      </components.NoOptionsMessage>
-    ),
-  };
-};
-
-const useReactSelectThemeOverride = (): ThemeConfig => {
-  const theme = useTheme();
-
-  return selectTheme => ({
-    ...selectTheme,
-    borderRadius: theme.border.radius.small,
-    colors: {
-      ...selectTheme.colors,
-      primary: '#00a87b',
-      primary75: '#00c28d',
-      primary50: '#9acbb8',
-      primary25: '#c8eada',
-      danger: '#e61e32',
-      dangerLight: '#fec1b5',
-      neutral0: 'white',
-      neutral5: '#fafcfe',
-      neutral10: '#f1f4fb',
-      neutral20: '#dce1ec',
-      neutral30: '#c7cedb',
-      // neutral40,
-      neutral50: '#98a2b8',
-      neutral60: '#646f84',
-      neutral70: '#1a2a3a',
-      // neutral80,
-      // neutral90,
-    },
-    spacing: {
-      baseUnit: theme.spacing.xsmall,
-      controlHeight: theme.sizing.medium,
-      menuGutter: theme.spacing.xxsmall,
-    },
-  });
-};
-
 const isBrowser = typeof window !== 'undefined';
+
+const useAwaitableItems = <Item,>(awaitableItems: Awaitable<Item[]>) => {
+  const ref = useRef<Awaitable<Item[]>>();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [items, setItems] = useState<Item[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      ref.current = awaitableItems;
+      setLoading(true);
+      const items = await awaitableItems;
+      if (ref.current !== awaitableItems) return;
+      setItems(items);
+      setLoading(false);
+    })();
+  }, [awaitableItems]);
+
+  return { loading, items };
+};
 
 export const Combobox = <Item,>({
   placeholder,
   inputValue,
-  items,
+  items: _items,
   onChange,
   onInputChange,
   value,
@@ -206,14 +62,16 @@ export const Combobox = <Item,>({
     id: inputId,
     'aria-describedby': ariaDescribedBy,
   } = useFieldContext();
+
   const stylesOverride = useReactSelectStylesOverride<Item>({ invalid });
-  const componentsOverride = useReactSelectComponentsOverride<Item>();
   const themeOverride = useReactSelectThemeOverride();
+
+  const { items, loading } = useAwaitableItems(_items);
 
   return (
     <ReactSelect<Item>
       aria-describedby={ariaDescribedBy}
-      components={componentsOverride}
+      components={reactSelectComponentsOverride}
       inputId={inputId}
       inputValue={inputValue}
       onChange={onChange}
@@ -222,7 +80,7 @@ export const Combobox = <Item,>({
       value={value}
       options={items}
       isDisabled={disabled}
-      // isLoading={loading}
+      isLoading={loading}
       placeholder={placeholder}
       theme={themeOverride}
       menuPortalTarget={isBrowser ? document.body : undefined}

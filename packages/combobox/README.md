@@ -44,6 +44,31 @@ return (
 </Field>
 ```
 
+### Async
+
+```jsx live
+const [items, setItems] = React.useState([]);
+const [value, setValue] = React.useState(null);
+
+const fetchItems = async input => {
+  if (!input) return [];
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  return [{ label: input, value: input }];
+};
+
+return (
+  <Field label="Search the interwebs">
+    <Combobox
+      placeholder="Start typing..."
+      items={items}
+      onChange={value => setValue(value)}
+      onInputChange={input => setItems(fetchItems(input))}
+      value={value}
+    />
+  </Field>
+);
+```
+
 ## Appearance
 
 ### Disabled
@@ -86,7 +111,7 @@ return (
 | ------------- | --------------------------------- | ------- | ------------------------------------------------------------------- |
 | placeholder   | string                            |         | The text that appears in the form control when it has no value set. |
 | inputValue    | string                            |         | The value of the input.                                             |
-| items         | Item[]                            |         | Array of items for the user to select from.                         |
+| items         | Item[] \| Promise\<Item[]\>       |         | Array of items for the user to select from.                         |
 | onChange      | (value: Nullable\<Item\>) => void |         | Called when an item is selected.                                    |
 | onInputChange | (inputValue: string) => void      |         | Called whenever the input value changes. Use to filter the items.   |
 | value         | Nullable\<Item\>                  |         | The selected item.                                                  |
