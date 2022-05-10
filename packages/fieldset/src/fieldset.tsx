@@ -2,12 +2,15 @@ import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
 import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
+import type { DataAttributeMap } from '@spark-web/utils/src/internal';
 import type { ReactNode, VFC } from 'react';
 import { forwardRef } from 'react';
 
 export type FieldsetProps = {
   /** The form fields that comprise the set. */
   children?: ReactNode;
+  /** Sets data attributes on the component. */
+  data?: DataAttributeMap;
   /** An identifier which must be unique in the whole document. */
   id?: string;
   /**
@@ -20,8 +23,8 @@ export type FieldsetProps = {
 };
 
 export const Fieldset = forwardRef<HTMLFieldSetElement, FieldsetProps>(
-  ({ children, id, legend, gap = 'small' }, ref) => (
-    <Box as="fieldset" ref={ref} id={id}>
+  ({ children, data, id, legend, gap = 'small' }, ref) => (
+    <Box data={data} as="fieldset" ref={ref} id={id}>
       {legend && (
         <>
           <Text as="legend" inline tone="neutral" weight="strong">

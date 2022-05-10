@@ -18,4 +18,11 @@ describe('Fieldset component', () => {
     const legendEl = fieldsetEl.firstElementChild!;
     expect(legendEl.tagName).toBe('LEGEND');
   });
+  it('should attach data attributes when passed in', () => {
+    const data = { testAttr: 'some attr' };
+    const { container } = render(<Fieldset data={data}>Test content</Fieldset>);
+
+    const fieldsetEl = container.firstElementChild!;
+    expect(fieldsetEl.getAttribute('data-testattr')).toEqual('some attr');
+  });
 });

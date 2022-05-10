@@ -57,9 +57,13 @@ Provide a caption that describes the set of form fields.
 
 ## Props
 
-| Prop      | Type                           | Default | Description                                               |
-| --------- | ------------------------------ | ------- | --------------------------------------------------------- |
-| children? | React.ReactNode                |         | The form fields that comprise the set.                    |
-| id?       | string                         |         | Sets a unique identifier for the element.                 |
-| legend?   | string                         |         | Provide a caption that describes the set of form fields.  |
-| gap?      | 'small' \| 'medium' \| 'large' | 'small' | Sets the size of the gap between the legend and children. |
+| Prop      | Type                                   | Default | Description                                               |
+| --------- | -------------------------------------- | ------- | --------------------------------------------------------- |
+| children? | React.ReactNode                        |         | The form fields that comprise the set.                    |
+| id?       | string                                 |         | Sets a unique identifier for the element.                 |
+| legend?   | string                                 |         | Provide a caption that describes the set of form fields.  |
+| gap?      | 'small' \| 'medium' \| 'large'         | 'small' | Sets the size of the gap between the legend and children. |
+| data?     | [DataAttributeMap][data-attribute-map] |         | Sets data attributes on the component.                    |
+
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1
