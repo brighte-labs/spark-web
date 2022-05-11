@@ -103,10 +103,11 @@ Items can be aligned horizontally using the `align` prop.
 
 ## Props
 
-| Prop    | Type                               | Default | Description                                    |
-| ------- | ---------------------------------- | ------- | ---------------------------------------------- |
-| align?  | [ResponsiveProp\<Align>][align]    | 'left'  | Horizontally align items within the container. |
-| alignY? | [ResponsiveProp\<AlignY>][align-y] | 'top'   | Vertically align items within the container.   |
+| Prop    | Type                                   | Default | Description                                    |
+| ------- | -------------------------------------- | ------- | ---------------------------------------------- |
+| align?  | [ResponsiveProp\<Align>][align]        | 'left'  | Horizontally align items within the container. |
+| alignY? | [ResponsiveProp\<AlignY>][align-y]     | 'top'   | Vertically align items within the container.   |
+| data?   | [DataAttributeMap][data-attribute-map] |         | Sets data attributes on the component.         |
 
 [`Box`](/package/box) props are also included as `Inline` props and are not
 listed here (excluding `display`, `alignItems`, `flexDirection`,
@@ -116,3 +117,5 @@ listed here (excluding `display`, `alignItems`, `flexDirection`,
   https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/inline/src/Inline.tsx#L16
 [align-y]:
   https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/inline/src/Inline.tsx#L18
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1
