@@ -128,3 +128,7 @@ available space. By setting the `inline` prop to `true` the `NavLink` will be
 | inline?       | boolean                                                                            | false    | Indicates if NavLink should be inline or not.                                                |
 | isSelected?   | boolean                                                                            | false    | When true, add active styles to the NavLink and sets the `aria-current` attribute to `page`. |
 | size?         | string                                                                             | 'medium' | Sets the size of the NavLink.                                                                |
+| data?         | [DataAttributeMap][data-attribute-map]                                             |          | Sets data attributes on the component.                                                       |
+
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1

@@ -5,6 +5,7 @@ import type { IconProps } from '@spark-web/icon';
 import { useLinkComponent } from '@spark-web/link';
 import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { ReactElement } from 'react';
 import { Children, cloneElement, forwardRef, isValidElement } from 'react';
 
@@ -17,6 +18,7 @@ type NavLinkChildren =
 export type NavLinkProps = Pick<HTMLAnchorElement, 'href'> & {
   borderRadius?: 'full' | 'small';
   children: NavLinkChildren;
+  data?: DataAttributeMap;
   inline?: boolean;
   isSelected?: boolean;
   size?: 'medium' | 'large';
@@ -27,6 +29,7 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
     {
       borderRadius = 'small',
       children,
+      data,
       href,
       inline = false,
       isSelected = false,
@@ -43,6 +46,7 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
         asElement="a"
         href={href}
         aria-current={isSelected ? 'page' : undefined}
+        data={data}
         // styles
         background={isSelected ? 'primaryMuted' : undefined}
         display={inline ? 'inline-flex' : 'flex'}
