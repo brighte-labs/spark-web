@@ -14,6 +14,7 @@ import { XIcon } from '@spark-web/icon';
 import { Stack } from '@spark-web/stack';
 import type { BrighteTheme } from '@spark-web/theme';
 import { useTheme } from '@spark-web/theme';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { ReactNode } from 'react';
 import { forwardRef } from 'react';
 
@@ -228,6 +229,7 @@ export function DialogCloseButton(props: DialogCloseProps): JSX.Element {
 // ------------------------------
 type ContentDialogProps = {
   children: ReactNode;
+  data: DataAttributeMap;
   size?: keyof BrighteTheme['contentWidth'];
   title: string;
   description?: string;
@@ -246,6 +248,7 @@ type ContentDialogProps = {
 
 export function ContentDialog({
   children,
+  data,
   trigger,
   title,
   description,
@@ -263,7 +266,12 @@ export function ContentDialog({
       <DialogWrapper size={size}>
         <DialogClose />
 
-        <Box display="flex" flexDirection="column" overflow="hidden">
+        <Box
+          display="flex"
+          data={data}
+          flexDirection="column"
+          overflow="hidden"
+        >
           <DialogTitle>{title}</DialogTitle>
           <Stack
             gap="large"

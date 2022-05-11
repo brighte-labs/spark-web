@@ -200,6 +200,7 @@ The content dialog will fill the available vertical space. When this happens the
 | isOpen       | boolean                                             |         | Sets whether the modal should be open or not. Used only for controlled modal dialogs.             |
 | onToggle     | () => void                                          |         | Callback function called upon modal dialog being toggled. Used only for controlled modal dialogs. |
 | trigger      | React.ReactNode                                     |         | Component that toggles the modal. Used by uncontrolled modal dialogs.                             |
+| data?        | [DataAttributeMap][data-attribute-map]              |         | Sets data attributes on the component.                                                            |
 
 ## DialogCloseButton
 
@@ -213,3 +214,5 @@ here.
 
 [brighte-theme]:
   https://github.com/brighte-labs/spark-web/blob/e503bea4f7668d187ec7a78f99c5ed374417588b/packages/theme/src/makeTheme.ts#L158
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1
