@@ -226,7 +226,7 @@ export function DialogCloseButton(props: DialogCloseProps): JSX.Element {
 
 // Content Dialog
 // ------------------------------
-type ContentDialogProps = {
+export type ContentDialogProps = {
   children: ReactNode;
   size?: keyof BrighteTheme['contentWidth'];
   title: string;
