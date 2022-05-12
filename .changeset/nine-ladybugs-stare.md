@@ -1,4 +1,5 @@
 ---
+'@spark-web/currency-input': patch
 '@spark-web/inline': patch
 '@spark-web/link': patch
 '@spark-web/modal-dialog': patch
