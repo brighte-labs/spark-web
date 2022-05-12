@@ -10,7 +10,7 @@ import { forwardRef } from 'react';
 import type { RadioPrimitiveProps, RadioSize } from './types';
 
 export const RadioPrimitive = forwardRef<HTMLInputElement, RadioPrimitiveProps>(
-  ({ size = 'small', ...inputProps }, forwardedRef) => {
+  ({ size = 'small', data, ...inputProps }, forwardedRef) => {
     return (
       /**
        * Text is being used here to add the `::before` and `::after` pseudo elements
@@ -23,6 +23,7 @@ export const RadioPrimitive = forwardRef<HTMLInputElement, RadioPrimitiveProps>(
             alignItems: 'center',
             justifyContent: 'center',
           })}
+          data={data}
         >
           {/**
            * Zero-width space character, used to align radio button with label text

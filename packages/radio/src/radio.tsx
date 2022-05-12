@@ -9,7 +9,7 @@ import { useRadioGroupItem } from './use-radio-group-state';
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
   (
-    { children, disabled, id, size: sizeProp, ...consumerProps },
+    { children, data, disabled, id, size: sizeProp, ...consumerProps },
     forwardedRef
   ) => {
     const groupState = useRadioGroupContext();
@@ -29,6 +29,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
           control={
             <RadioPrimitive
               {...inputProps}
+              data={data}
               ref={forwardedRef}
               disabled={isDisabled}
               size={size}

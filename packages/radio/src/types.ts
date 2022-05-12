@@ -1,4 +1,5 @@
 import type { Tone } from '@spark-web/field';
+import type { DataAttributeMap } from '@spark-web/utils/src/internal';
 import type { InputHTMLAttributes, ReactNode } from 'react';
 
 export type RadioSize = 'small' | 'medium';
@@ -11,6 +12,8 @@ type InputProps = Omit<
 export type RadioPrimitiveProps = {
   /** When true, the radio will be checked. */
   checked?: boolean;
+  /** Allows setting of data attributes on the underlying element. */
+  data?: DataAttributeMap;
   /** When true, the radio will be disabled. */
   disabled?: boolean;
   /** The size of the radio. */

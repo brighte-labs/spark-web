@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 
+import type { DataAttributeMap } from '@spark-web/utils/internal';
 import { render, screen } from '@testing-library/react';
 
 import { useRadioGroupContext } from './context';
@@ -21,15 +22,23 @@ const renderComponent = ({
   label,
   disabled,
   size,
+  data,
 }: {
   name?: string;
   value?: string;
   label: string;
   disabled?: boolean;
   size?: RadioSize;
+  data?: DataAttributeMap;
 }) => {
   return render(
-    <Radio name={name} value={value} disabled={disabled} size={size}>
+    <Radio
+      name={name}
+      value={value}
+      disabled={disabled}
+      size={size}
+      data={data}
+    >
       {label}
     </Radio>
   );
@@ -53,5 +62,19 @@ describe('Radio component', () => {
     useRadioGroupContextMock.mockReturnValue({ disabled: true });
     renderComponent({ label, name: 'name', value: 'value' });
     expect(screen.getByRole('radio')).toBeDisabled();
+  });
+  it('should assign a value to the input correctly when passed in', () => {
+    const value = 'some value';
+    renderComponent({ label, value });
+    expect(screen.getByDisplayValue('some value')).toBeTruthy();
+  });
+  it('should display data props when passed down', () => {
+    const data = { testAttr: 'some attr' };
+    const value = 'some value';
+    renderComponent({ label, value, data });
+    const attributeUnderTest = screen
+      .getByDisplayValue('some value')
+      .parentElement?.getAttribute('data-testattr');
+    expect(attributeUnderTest).toEqual('some attr');
   });
 });

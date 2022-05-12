@@ -148,12 +148,16 @@ listed here.
 
 ### RadioPrimitive
 
-| Prop      | Type                | Default | Description                            |
-| --------- | ------------------- | ------- | -------------------------------------- |
-| checked?  | boolean             |         | When true, the radio will be checked.  |
-| disabled? | boolean             |         | When true, the radio will be disabled. |
-| size?     | 'small' \| 'medium' | 'small' | The size of the radio.                 |
-| value?    | string              |         | The value of the radio.                |
+| Prop      | Type                                   | Default | Description                            |
+| --------- | -------------------------------------- | ------- | -------------------------------------- |
+| checked?  | boolean                                |         | When true, the radio will be checked.  |
+| disabled? | boolean                                |         | When true, the radio will be disabled. |
+| size?     | 'small' \| 'medium'                    | 'small' | The size of the radio.                 |
+| value?    | string                                 |         | The value of the radio.                |
+| data?     | [DataAttributeMap][data-attribute-map] |         | Sets data attributes on the component. |
+
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1
 
 The `CheckboxPrimitive` component also extends `InputHTMLAttributes` props and
 are not listed here.
