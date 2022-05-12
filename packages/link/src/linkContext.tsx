@@ -10,6 +10,7 @@ import { createContext, forwardRef, useContext } from 'react';
 
 export interface LinkComponentProps
   extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  data?: DataAttributeMap;
   href: string;
 }
 
