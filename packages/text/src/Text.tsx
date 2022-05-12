@@ -109,7 +109,13 @@ export const Text = forwardRefWithAs<'div', TextProps>(
 
     return (
       <TextContext.Provider value={textContextValue}>
-        <Box as={as} ref={forwardedRef} id={id} className={css(styles)}>
+        <Box
+          as={as}
+          data={data}
+          ref={forwardedRef}
+          id={id}
+          className={css(styles)}
+        >
           {content}
         </Box>
       </TextContext.Provider>
