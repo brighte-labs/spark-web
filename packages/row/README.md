@@ -112,11 +112,12 @@ element in the Row.
 
 ## Props
 
-| Prop      | Type                               | Default   | Description                                           |
-| --------- | ---------------------------------- | --------- | ----------------------------------------------------- |
-| align?    | [ResponsiveProp\<Align>][align]    | 'left'    | Horizontally align items within the container.        |
-| alignY?   | [ResponsiveProp\<AlignY>][align-y] | 'stretch' | Vertically align items within the container.          |
-| dividers? | boolean                            |           | Sets whether to place a divider between each element. |
+| Prop      | Type                                   | Default   | Description                                           |
+| --------- | -------------------------------------- | --------- | ----------------------------------------------------- |
+| align?    | [ResponsiveProp\<Align>][align]        | 'left'    | Horizontally align items within the container.        |
+| alignY?   | [ResponsiveProp\<AlignY>][align-y]     | 'stretch' | Vertically align items within the container.          |
+| dividers? | boolean                                |           | Sets whether to place a divider between each element. |
+| data?     | [DataAttributeMap][data-attribute-map] |           | Sets data attributes on the component.                |
 
 `Row` props also include [`Box`](/package/box) props and are not listed here
 (excludes `display`, `alignItems`, `flexDirection`, `justifyContent` and
@@ -128,3 +129,5 @@ Extra props are also passed into the underlying [`Box`](/package/box) component.
   https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/inline/src/Inline.tsx#L16
 [align-y]:
   https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/inline/src/Inline.tsx#L18
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1
