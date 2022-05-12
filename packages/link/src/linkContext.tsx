@@ -1,3 +1,4 @@
+import type { DataAttributeMap } from '@spark-web/utils/internal';
 import assert from 'assert';
 import dedent from 'dedent';
 import type {
