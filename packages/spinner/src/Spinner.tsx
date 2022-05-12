@@ -3,7 +3,7 @@ import { Box } from '@spark-web/box';
 import type { IconProps } from '@spark-web/icon';
 import { createIcon } from '@spark-web/icon';
 import { useSynchronizedAnimation } from '@spark-web/utils';
-import type { DataAttributeMap } from '@spark-web/utils/src/internal';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
 
 export type SpinnerProps = {
   // TODO: match tones to design in Figma
