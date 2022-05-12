@@ -12,7 +12,6 @@ import {
 } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
-import { buildDataAttributes } from '@spark-web/utils/internal';
 import type { ReactElement, ReactNode } from 'react';
 import { Children, forwardRef } from 'react';
 
@@ -71,7 +70,7 @@ export const TextList = forwardRef<ListElement, TextListProps>(
           as={element}
           ref={forwardedRef}
           gap={gap}
-          {...(data ? buildDataAttributes(data) : null)}
+          data={data}
           {...consumerProps}
         >
           {listItems.map((listItem, index) => {

@@ -3,7 +3,6 @@ import { Box } from '@spark-web/box';
 import type { LinkComponentProps } from '@spark-web/link';
 import { useLinkComponent } from '@spark-web/link';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
-import { buildDataAttributes } from '@spark-web/utils/internal';
 import { forwardRefWithAs } from '@spark-web/utils/ts';
 
 import { useTextLink } from './useTextLink';
@@ -31,7 +30,7 @@ export const TextLink = forwardRefWithAs<'a', TextLinkProps>(
         asElement="a"
         ref={ref}
         className={css(styles)}
-        {...(data ? buildDataAttributes(data) : undefined)}
+        data={data}
         {...consumerProps}
       />
     );

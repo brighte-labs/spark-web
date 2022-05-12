@@ -6,7 +6,6 @@ import { useFieldContext } from '@spark-web/field';
 import { useText } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
-import { buildDataAttributes } from '@spark-web/utils/internal';
 import type { AllHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
@@ -84,7 +83,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           paddingLeft={startAdornment ? 'none' : 'medium'}
           paddingRight={endAdornment ? 'none' : 'medium'}
           className={css(useInput({ disabled, invalid, isNested: true }))}
-          {...(data ? buildDataAttributes(data) : null)}
+          data={data}
           {...a11yProps}
           {...consumerProps}
         />

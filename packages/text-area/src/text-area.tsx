@@ -2,7 +2,6 @@ import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
 import { useFieldContext } from '@spark-web/field';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
-import { buildDataAttributes } from '@spark-web/utils/internal';
 import type { TextareaHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
@@ -53,7 +52,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         <Box
           {...a11yProps}
           {...consumerProps}
-          {...(data ? buildDataAttributes(data) : null)}
+          data={data}
           as="textarea"
           ref={forwardedRef}
           rows={3}
