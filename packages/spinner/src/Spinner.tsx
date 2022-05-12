@@ -3,14 +3,17 @@ import { Box } from '@spark-web/box';
 import type { IconProps } from '@spark-web/icon';
 import { createIcon } from '@spark-web/icon';
 import { useSynchronizedAnimation } from '@spark-web/utils';
+import type { DataAttributeMap } from '@spark-web/utils/src/internal';
 
 export type SpinnerProps = {
   // TODO: match tones to design in Figma
   tone?: IconProps['tone'];
   size?: 'xxsmall' | 'xsmall';
+  /** Allows setting of data attributes on the underlying element. */
+  data?: DataAttributeMap;
 };
 
-export function Spinner({ tone, size = 'xxsmall' }: SpinnerProps) {
+export function Spinner({ tone, size = 'xxsmall', data }: SpinnerProps) {
   const spinAnimationRef = useSynchronizedAnimation(spinAnimation);
   const strokeAnimationRef = useSynchronizedAnimation(strokeDashAnimation);
   const styles = useSpinnerStyles();
@@ -25,11 +28,13 @@ export function Spinner({ tone, size = 'xxsmall' }: SpinnerProps) {
       display="inline-flex"
       alignItems="center"
       justifyContent="center"
+      data={data}
     >
       <SpinnerIcon size={size} tone={tone} ref={strokeAnimationRef} />
     </Box>
   );
 }
+
 Spinner.displayName = 'Spinner';
 
 const SpinnerIcon = createIcon(<circle cx={12} cy={12} r={9} />, 'SpinnerIcon');

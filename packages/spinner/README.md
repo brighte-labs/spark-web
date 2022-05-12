@@ -55,3 +55,16 @@ Defaults to `xsmall`.
   </Row>
 </Inline>
 ```
+
+## Props
+
+### Spinner
+
+| Prop  | Type                                   | Default   | Description                                                       |
+| ----- | -------------------------------------- | --------- | ----------------------------------------------------------------- |
+| size? | 'xxsmall' \| 'xsmall'                  |           | The size of the nested radios.                                    |
+| tone? | 'critical' \| 'positive' \| 'neutral'  | 'neutral' | Provide a tone to influence elements of the field, and its input. |
+| data? | [DataAttributeMap][data-attribute-map] |           | Sets data attributes on the component.                            |
+
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1

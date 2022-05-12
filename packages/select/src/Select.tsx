@@ -6,7 +6,6 @@ import type { UseInputProps } from '@spark-web/text-input';
 import { useInput } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
-import { buildDataAttributes } from '@spark-web/utils/internal';
 import type { SelectHTMLAttributes } from 'react';
 import { forwardRef, useCallback } from 'react';
 
@@ -58,7 +57,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       <Box position="relative">
         <Box
           {...a11yProps}
-          {...(data ? buildDataAttributes(data) : null)}
+          data={data}
           as="select"
           defaultValue={defaultValue ?? placeholder ? '' : undefined}
           disabled={disabled}
