@@ -103,10 +103,11 @@ Nest Stack components to create more complex white space rules.
 
 ## Props
 
-| Prop      | Type                            | Default   | Description                                           |
-| --------- | ------------------------------- | --------- | ----------------------------------------------------- |
-| align?    | [ResponsiveProp\<Align>][align] | 'stretch' | Horizontally align items within the container.        |
-| dividers? | boolean                         |           | Sets whether to place a divider between each element. |
+| Prop      | Type                                   | Default   | Description                                           |
+| --------- | -------------------------------------- | --------- | ----------------------------------------------------- |
+| align?    | [ResponsiveProp\<Align>][align]        | 'stretch' | Horizontally align items within the container.        |
+| dividers? | boolean                                |           | Sets whether to place a divider between each element. |
+| data?     | [DataAttributeMap][data-attribute-map] |           | Sets data attributes on the component.                |
 
 `Stack` props also include [`Box`](/package/box) props and are not listed here
 (excludes `display`, `className`, `alignItems`, `flexDirection`,
@@ -116,3 +117,5 @@ Extra props are also passed into the underlying [`Box`](/package/box) component.
 
 [align]:
   https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/stack/src/Stack.tsx#L24
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1

@@ -27,11 +27,12 @@ export type StackProps = {
 } & ValidBoxProps;
 
 export const Stack = forwardRefWithAs<'div', StackProps>(
-  ({ align = 'stretch', children, dividers, ...props }, forwardedRef) => {
+  ({ align = 'stretch', children, data, dividers, ...props }, forwardedRef) => {
     const alignItems = alignToAlignItems(align);
     const rootProps = {
       ref: forwardedRef,
       alignItems,
+      data,
       display: 'flex',
       flexDirection: 'column',
       ...props,
