@@ -7,7 +7,7 @@ describe('Link component', () => {
   afterEach(cleanup);
 
   const renderComponent = (props?: LinkProps) => {
-    const href = props?.href ? props?.href : 'test';
+    const href = props?.href ? props.href : 'test';
     return render(
       <Link data={props?.data} href={href}>
         Test
