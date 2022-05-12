@@ -179,10 +179,11 @@ const getSearchInstance = async () => {
 
 const useSearch = (query: string) => {
   if (!lunrIndex) {
+    // This will throw a promise, triggering the <Suspense> boundary
     throw getSearchInstance();
   }
   // Search with a post-fix wildcard, and fuzzy search (for minor typos)
-  return lunrIndex.search(`${query}*~1`);
+  return lunrIndex.search(`${query}*`);
 };
 
 const SearchResultsContainer = ({
@@ -216,12 +217,25 @@ const SearchResults = ({ query }: { query: string }) => {
               </TextLink>
             </Text>
           );
+        } else if (
+          // A heading: h1, h2, h3, h4, h5, h6
+          Object.keys(match?.[1] || {}).some(matchKey =>
+            /^h[1-6]$/.test(matchKey)
+          )
+        ) {
+          return (
+            <Text>
+              <TextLink href={`/package/${result.ref}`}>
+                Component &gt; {result.ref} &gt; <strong>{match[0]}</strong>
+              </TextLink>
+            </Text>
+          );
         } else {
           return (
             <Text>
               <TextLink href={`/package/${result.ref}`}>
                 Component &gt; {result.ref} &gt; ...
-                <strong>{match[0]}</strong>
+                <strong>{match[0]}</strong> ...
               </TextLink>
             </Text>
           );
