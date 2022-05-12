@@ -15,7 +15,7 @@ import { currencySymbolMap } from './currencySymbolMap';
 /** NOTE: The "start" adornment is filled, so we can only accept a single child element. */
 export type CurrencyInputProps = {
   currencyType?: CurrencyType;
-  data: DataAttributeMap;
+  data?: DataAttributeMap;
 } & Omit<FloatInputProps, 'fractionDigits'>;
 
 /** A component for inputting numbers into the app via a keyboard. Enforces 2 fraction digits. */

@@ -229,7 +229,7 @@ export function DialogCloseButton(props: DialogCloseProps): JSX.Element {
 // ------------------------------
 type ContentDialogProps = {
   children: ReactNode;
-  data: DataAttributeMap;
+  data?: DataAttributeMap;
   size?: keyof BrighteTheme['contentWidth'];
   title: string;
   description?: string;
