@@ -1,10 +1,10 @@
 import type { HeadingProps } from '@spark-web/heading';
-import { Heading } from '@spark-web/heading';
 import type { TextProps } from '@spark-web/text';
 import { Strong, Text } from '@spark-web/text';
 import { TextLink } from '@spark-web/text-link';
 import type { TextListProps } from '@spark-web/text-list';
 import { TextList } from '@spark-web/text-list';
+import { Heading } from 'components/content/toc-context';
 import type { ReactNode } from 'react';
 import { Children, Fragment } from 'react';
 
@@ -58,18 +58,10 @@ export const mdxComponents: Record<string, ReactNode> = {
   p: (props: TextProps) => {
     return <Text as="p" {...props} />;
   },
-  h1: ({ level = '1', ...props }: HeadingProps) => {
-    return <Heading level={level} {...props} />;
-  },
-  h2: ({ level = '2', ...props }: HeadingProps) => {
-    return <Heading level={level} {...props} />;
-  },
-  h3: ({ level = '3', ...props }: HeadingProps) => {
-    return <Heading level={level} {...props} />;
-  },
-  h4: ({ level = '4', ...props }: HeadingProps) => {
-    return <Heading level={level} {...props} />;
-  },
+  h1: (props: HeadingProps) => <Heading {...props} level="1" />,
+  h2: (props: HeadingProps) => <Heading {...props} level="2" />,
+  h3: (props: HeadingProps) => <Heading {...props} level="3" />,
+  h4: (props: HeadingProps) => <Heading {...props} level="4" />,
   strong: Strong,
   ul: (props: TextListProps) => <TextListMdx {...props} type="bullet" />,
   ol: (props: TextListProps) => <TextListMdx {...props} type="number" />,

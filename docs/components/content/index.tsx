@@ -12,7 +12,7 @@ import { Fragment, useCallback } from 'react';
 
 import type { HeadingData } from '../../utils/generate-toc';
 import { ASIDE_WIDTH, HEADER_HEIGHT, SIDEBAR_WIDTH } from '../constants';
-import { TocContextProvider, useTocContext } from './context';
+import { TocContextProvider, useIsActive, useTocContext } from './toc-context';
 
 const MAIN_ID = 'spark-docs-main';
 
@@ -140,6 +140,7 @@ const HeadingList = () => {
       return (
         <Fragment key={heading.title}>
           <HeadingItem
+            id={heading.id}
             level={heading.level}
             key={heading.title}
             href={`#${heading.id}`}
@@ -158,14 +159,22 @@ const HeadingList = () => {
   return <Box as="ul">{headings.map(heading => headingMap(heading))}</Box>;
 };
 
-type HeadingItemProps = LinkProps & Pick<HeadingData, 'level'>;
-const HeadingItem = ({ href, onClick, children, level }: HeadingItemProps) => {
+type HeadingItemProps = LinkProps & Pick<HeadingData, 'id' | 'level'>;
+const HeadingItem = ({
+  id,
+  href,
+  onClick,
+  children,
+  level,
+}: HeadingItemProps) => {
   const { color } = useTheme();
+
+  const isActive = useIsActive(id);
 
   const textStyles = useText({
     tone: 'neutral',
     size: level === 4 ? 'xsmall' : level === 3 ? 'small' : 'standard',
-    weight: 'regular',
+    weight: isActive ? 'strong' : 'regular',
   });
 
   return (
