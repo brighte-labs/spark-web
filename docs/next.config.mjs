@@ -12,6 +12,21 @@ import { withContentlayer } from 'next-contentlayer';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
+const tocToHeadingObj = (toc, output = {}) => {
+  if (!toc || !Array.isArray(toc) || !toc.length) {
+    return output;
+  }
+
+  toc.forEach(({ level, title, items }) => {
+    const levelName = `h${level}`;
+    output[levelName] = output[levelName] || [];
+    output[levelName].push(title);
+    tocToHeadingObj(items, output);
+  });
+
+  return output;
+};
+
 const generateSearchIndex = () => {
   const MANIFEST_DIR = path.normalize(`${process.cwd()}/cache`);
   const outFile = `${MANIFEST_DIR}/search-index.json`;
@@ -23,13 +38,21 @@ const generateSearchIndex = () => {
   const index = lunr(function () {
     this.ref('slug');
     this.field('title', { boost: 100 });
+    this.field('h1', { boost: 80 });
+    this.field('h2', { boost: 70 });
+    this.field('h3', { boost: 60 });
+    this.field('h4', { boost: 50 });
+    this.field('h5', { boost: 40 });
+    this.field('h6', { boost: 30 });
     this.field('content');
 
     allPackages.forEach(pkg => {
+      const headings = tocToHeadingObj(pkg.toc);
       this.add({
         slug: pkg.slug,
-        content: pkg.body.raw,
+        content: pkg.plaintext,
         title: pkg.title,
+        ...headings,
       });
     });
   });
