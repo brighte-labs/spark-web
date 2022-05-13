@@ -7,12 +7,23 @@ import { useIconButtonStyles } from './useIconButtonStyles';
 type IconButtonProps = {
   handleClick: NativeButtonProps['onClick'];
   children: ReactNode;
+  'aria-label'?: string;
+  'aria-pressed'?: boolean;
 };
 
-export const IconButton = ({ handleClick, children }: IconButtonProps) => {
+export const IconButton = ({
+  handleClick,
+  children,
+  ...rest
+}: IconButtonProps) => {
   return (
     <>
-      <Box as="button" onClick={handleClick} {...useIconButtonStyles()}>
+      <Box
+        as="button"
+        onClick={handleClick}
+        {...useIconButtonStyles()}
+        {...rest}
+      >
         {children}
       </Box>
     </>
