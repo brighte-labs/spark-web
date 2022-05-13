@@ -9,7 +9,6 @@ import { IconButton } from './IconButton';
 
 export type PasswordInputProps = Omit<TextInputProps, 'children' | 'inputMode'>;
 
-/** A component for inputting numbers into the app via a keyboard. Enforces 2 fraction digits. */
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
   (props, forwardedRef) => {
     const { disabled } = useFieldContext();
