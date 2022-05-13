@@ -1,11 +1,10 @@
 import { Box } from '@spark-web/box';
-import type { NativeButtonProps } from '@spark-web/button/src/types';
-import type { ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 import { useIconButtonStyles } from './useIconButtonStyles';
 
 type IconButtonProps = {
-  handleClick: NativeButtonProps['onClick'];
+  handleClick: ButtonHTMLAttributes<HTMLButtonElement>['onClick'];
   children: ReactNode;
   'aria-label'?: string;
   'aria-pressed'?: boolean;
