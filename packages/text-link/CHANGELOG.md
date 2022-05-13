@@ -1,5 +1,38 @@
 # @spark-web/text-link
 
+## 1.0.4
+
+### Patch Changes
+
+- [#65](https://github.com/brighte-labs/spark-web/pull/65)
+  [`182a53a`](https://github.com/brighte-labs/spark-web/commit/182a53a484892df48754e89dd714459a7f69fcff)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Remove "Inter"
+  font, change font-weights and font-sizes.
+
+* [#87](https://github.com/brighte-labs/spark-web/pull/87)
+  [`5744b68`](https://github.com/brighte-labs/spark-web/commit/5744b6820f626b93a14e11e1fbd96bcbe1b12b27)
+  Thanks [@ChristopherMitchell242](https://github.com/ChristopherMitchell242)! -
+  Data attribute added to component props to allow consumers to attach
+  customattributes to components
+
+- [#52](https://github.com/brighte-labs/spark-web/pull/52)
+  [`82ab744`](https://github.com/brighte-labs/spark-web/commit/82ab744f198466810f3386bc459b8ab4d57c820e)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Add files array
+  to package.json files
+
+- Updated dependencies
+  [[`1ef4f82`](https://github.com/brighte-labs/spark-web/commit/1ef4f82df999c487b79cd216c17ca5735e444fc5),
+  [`182a53a`](https://github.com/brighte-labs/spark-web/commit/182a53a484892df48754e89dd714459a7f69fcff),
+  [`5744b68`](https://github.com/brighte-labs/spark-web/commit/5744b6820f626b93a14e11e1fbd96bcbe1b12b27),
+  [`82ab744`](https://github.com/brighte-labs/spark-web/commit/82ab744f198466810f3386bc459b8ab4d57c820e),
+  [`df618d9`](https://github.com/brighte-labs/spark-web/commit/df618d92d534e06f06ecedc95ea6bdd51cdc906b)]:
+  - @spark-web/text@1.0.4
+  - @spark-web/theme@3.0.0
+  - @spark-web/link@1.0.4
+  - @spark-web/a11y@1.0.4
+  - @spark-web/box@1.0.4
+  - @spark-web/utils@1.1.2
+
 ## 1.0.3
 
 ### Patch Changes

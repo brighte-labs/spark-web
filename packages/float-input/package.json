@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/float-input",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "dist/spark-web-float-input.cjs.js",
   "module": "dist/spark-web-float-input.esm.js",
@@ -10,12 +10,12 @@
   "dependencies": {
     "@babel/runtime": "^7.14.6",
     "@emotion/css": "^11.7.1",
-    "@spark-web/field": "^1.0.0",
-    "@spark-web/icon": "^1.0.0",
-    "@spark-web/inline": "^1.0.0",
-    "@spark-web/stack": "^1.0.0",
-    "@spark-web/text": "^1.0.0",
-    "@spark-web/text-input": "^1.0.0",
+    "@spark-web/field": "^1.1.0",
+    "@spark-web/icon": "^1.1.2",
+    "@spark-web/inline": "^1.0.4",
+    "@spark-web/stack": "^1.0.4",
+    "@spark-web/text": "^1.0.4",
+    "@spark-web/text-input": "^1.1.0",
     "numeral": "^2.0.6"
   },
   "devDependencies": {

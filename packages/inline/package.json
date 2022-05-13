@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/inline",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "main": "dist/spark-web-inline.cjs.js",
   "module": "dist/spark-web-inline.esm.js",
@@ -10,9 +10,9 @@
   "dependencies": {
     "@babel/runtime": "^7.14.6",
     "@emotion/css": "^11.7.1",
-    "@spark-web/box": "^1.0.3",
-    "@spark-web/theme": "^2.0.2",
-    "@spark-web/utils": "^1.1.1"
+    "@spark-web/box": "^1.0.4",
+    "@spark-web/theme": "^3.0.0",
+    "@spark-web/utils": "^1.1.2"
   },
   "devDependencies": {
     "@types/react": "^17.0.12",

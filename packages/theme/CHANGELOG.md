@@ -1,5 +1,25 @@
 # @spark-web/theme
 
+## 3.0.0
+
+### Major Changes
+
+- [#65](https://github.com/brighte-labs/spark-web/pull/65)
+  [`182a53a`](https://github.com/brighte-labs/spark-web/commit/182a53a484892df48754e89dd714459a7f69fcff)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Remove "Inter"
+  font, change font-weights and font-sizes.
+
+### Patch Changes
+
+- [#52](https://github.com/brighte-labs/spark-web/pull/52)
+  [`82ab744`](https://github.com/brighte-labs/spark-web/commit/82ab744f198466810f3386bc459b8ab4d57c820e)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Add files array
+  to package.json files
+
+- Updated dependencies
+  [[`82ab744`](https://github.com/brighte-labs/spark-web/commit/82ab744f198466810f3386bc459b8ab4d57c820e)]:
+  - @spark-web/utils@1.1.2
+
 ## 2.0.2
 
 ### Patch Changes

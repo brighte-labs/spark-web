@@ -1,5 +1,20 @@
 # @spark-web/a11y
 
+## 1.0.4
+
+### Patch Changes
+
+- [#52](https://github.com/brighte-labs/spark-web/pull/52)
+  [`82ab744`](https://github.com/brighte-labs/spark-web/commit/82ab744f198466810f3386bc459b8ab4d57c820e)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Add files array
+  to package.json files
+
+- Updated dependencies
+  [[`182a53a`](https://github.com/brighte-labs/spark-web/commit/182a53a484892df48754e89dd714459a7f69fcff),
+  [`82ab744`](https://github.com/brighte-labs/spark-web/commit/82ab744f198466810f3386bc459b8ab4d57c820e)]:
+  - @spark-web/theme@3.0.0
+  - @spark-web/utils@1.1.2
+
 ## 1.0.3
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @spark-web/ssr
 
+## 1.0.3
+
+### Patch Changes
+
+- [#52](https://github.com/brighte-labs/spark-web/pull/52)
+  [`82ab744`](https://github.com/brighte-labs/spark-web/commit/82ab744f198466810f3386bc459b8ab4d57c820e)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Add files array
+  to package.json files
+
 ## 1.0.2
 
 ### Patch Changes

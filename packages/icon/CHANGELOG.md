@@ -1,5 +1,23 @@
 # @spark-web/icon
 
+## 1.1.2
+
+### Patch Changes
+
+- [#52](https://github.com/brighte-labs/spark-web/pull/52)
+  [`82ab744`](https://github.com/brighte-labs/spark-web/commit/82ab744f198466810f3386bc459b8ab4d57c820e)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Add files array
+  to package.json files
+
+- Updated dependencies
+  [[`1ef4f82`](https://github.com/brighte-labs/spark-web/commit/1ef4f82df999c487b79cd216c17ca5735e444fc5),
+  [`182a53a`](https://github.com/brighte-labs/spark-web/commit/182a53a484892df48754e89dd714459a7f69fcff),
+  [`5744b68`](https://github.com/brighte-labs/spark-web/commit/5744b6820f626b93a14e11e1fbd96bcbe1b12b27),
+  [`82ab744`](https://github.com/brighte-labs/spark-web/commit/82ab744f198466810f3386bc459b8ab4d57c820e)]:
+  - @spark-web/text@1.0.4
+  - @spark-web/theme@3.0.0
+  - @spark-web/utils@1.1.2
+
 ## 1.1.1
 
 ### Patch Changes

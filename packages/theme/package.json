@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/theme",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "license": "MIT",
   "main": "dist/spark-web-theme.cjs.js",
   "module": "dist/spark-web-theme.esm.js",
@@ -11,7 +11,7 @@
     "@babel/runtime": "^7.14.6",
     "@capsizecss/core": "^3.0.0",
     "@emotion/css": "^11.7.1",
-    "@spark-web/utils": "^1.1.1",
+    "@spark-web/utils": "^1.1.2",
     "facepaint": "^1.2.1",
     "lodash": "^4.17.21",
     "polished": "^4.1.3"
