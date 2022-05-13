@@ -174,7 +174,7 @@ const HeadingItem = ({
   const textStyles = useText({
     tone: 'neutral',
     size: level === 4 ? 'xsmall' : level === 3 ? 'small' : 'standard',
-    weight: isActive ? 'strong' : 'regular',
+    weight: isActive ? 'semibold' : 'regular',
   });
 
   return (
