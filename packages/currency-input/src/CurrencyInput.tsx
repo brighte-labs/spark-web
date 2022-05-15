@@ -31,9 +31,14 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
     }
 
     return (
-      <FloatInput ref={forwardedRef} fractionDigits={2} {...floatInputProps}>
+      <FloatInput
+        data={data}
+        ref={forwardedRef}
+        fractionDigits={2}
+        {...floatInputProps}
+      >
         <InputAdornment placement="start">
-          <Text data={data} tone={disabled ? 'disabled' : 'placeholder'}>
+          <Text tone={disabled ? 'disabled' : 'placeholder'}>
             {currencySymbolMap[currencyType ?? 'AUD']}
           </Text>
         </InputAdornment>
