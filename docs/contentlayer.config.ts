@@ -96,6 +96,7 @@ export const Package = defineDocumentType(() => ({
 export default makeSource({
   contentDirInclude: ['{docs/pages,packages}'],
   contentDirPath: '..',
+  disableImportAliasWarning: true,
   documentTypes: [Home, Package],
   mdx: {
     remarkPlugins: [remarkGfm],

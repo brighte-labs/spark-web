@@ -1,9 +1,9 @@
 import type { HeadingProps } from '@spark-web/heading';
 import { Heading as SparkHeading } from '@spark-web/heading';
-import { HEADER_HEIGHT } from 'components/constants';
 import type { ProviderProps } from 'react';
 import { createContext, useContext, useMemo } from 'react';
 
+import { HEADER_HEIGHT } from '../../components/constants';
 import type { HeadingData } from '../../utils/generate-toc';
 import {
   IntersectionObserverProvider,

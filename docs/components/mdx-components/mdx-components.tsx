@@ -4,11 +4,11 @@ import { Strong, Text } from '@spark-web/text';
 import { TextLink } from '@spark-web/text-link';
 import type { TextListProps } from '@spark-web/text-list';
 import { TextList } from '@spark-web/text-list';
-import { Heading } from 'components/content/toc-context';
 import type { ReactNode } from 'react';
 import { Children, Fragment } from 'react';
 
 import * as sparkComponents from '../../cache/spark-components';
+import { Heading } from '../../components/content/toc-context';
 import { InlineCode } from '../example-helpers';
 import { CodeBlock } from './code-block';
 import { MdxTable, MdxTd, MdxTh, MdxThead, MdxTr } from './mdx-table';

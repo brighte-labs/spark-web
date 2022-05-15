@@ -2,7 +2,6 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
-    "baseUrl": ".",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
@@ -12,7 +11,6 @@
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
-    "paths": { "contentlayer/generated": ["./.contentlayer/generated"] },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,

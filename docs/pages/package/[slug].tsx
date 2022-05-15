@@ -8,10 +8,6 @@ import { Link } from '@spark-web/link';
 import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
 import { TextLink } from '@spark-web/text-link';
-import { GITHUB_URL } from 'components/constants';
-import { InlineCode } from 'components/example-helpers';
-import { MDXContent } from 'components/mdx-components/mdx-content';
-import { allPackages } from 'contentlayer/generated';
 import type {
   GetStaticPaths,
   GetStaticProps,
@@ -19,7 +15,11 @@ import type {
 } from 'next';
 import { createElement } from 'react';
 
+import { allPackages } from '../../.contentlayer/generated';
+import { GITHUB_URL } from '../../components/constants';
 import { DocsContent } from '../../components/content';
+import { InlineCode } from '../../components/example-helpers';
+import { MDXContent } from '../../components/mdx-components/mdx-content';
 import { StorybookIcon } from '../../components/vectors/fill';
 import type { HeadingData } from '../../utils/generate-toc';
 
