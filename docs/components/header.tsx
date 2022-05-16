@@ -2,30 +2,18 @@ import { css } from '@emotion/css';
 import { useFocusRing, VisuallyHidden } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
 import { Container } from '@spark-web/container';
-import { Field } from '@spark-web/field';
 import { Hidden } from '@spark-web/hidden';
 import { MenuIcon, XIcon } from '@spark-web/icon';
-import { Inline } from '@spark-web/inline';
 import { Link } from '@spark-web/link';
-import { Stack } from '@spark-web/stack';
-import { Strong, Text } from '@spark-web/text';
-import { TextInput } from '@spark-web/text-input';
-import { TextLink } from '@spark-web/text-link';
 import { useTheme } from '@spark-web/theme';
-import { Suspense, useState } from 'react';
 
 import { GITHUB_URL, HEADER_HEIGHT, SIDEBAR_WIDTH } from './constants';
+import { Search } from './search';
 import { useSidebarContext } from './sidebar';
 import { BrighteLogo, GitHubIcon } from './vectors/fill';
 
 export function Header() {
-  const { sidebarIsOpen, toggleSidebar } = useSidebarContext();
-
   const theme = useTheme();
-
-  const focusRingStyles = useFocusRing();
-
-  const ToggleMenuIcon = sidebarIsOpen ? XIcon : MenuIcon;
 
   return (
     <Box
@@ -45,50 +33,9 @@ export function Header() {
           alignItems="center"
           className={css({ height: HEADER_HEIGHT })}
         >
-          <Hidden above="mobile">
-            <Box
-              as="button"
-              type="button"
-              onClick={toggleSidebar}
-              padding="large"
-              className={css({ ':focus': focusRingStyles })}
-            >
-              <VisuallyHidden>Mobile menu</VisuallyHidden>
-              <ToggleMenuIcon size="xsmall" tone="muted" />
-            </Box>
-          </Hidden>
-
-          <Box
-            paddingLeft={{ tablet: 'xxlarge' }}
-            className={css({
-              width: SIDEBAR_WIDTH,
-            })}
-          >
-            <Link
-              href="/"
-              className={css({
-                borderRadius: theme.border.radius.small,
-                display: 'inline-block',
-                margin: -theme.spacing.xsmall,
-                padding: theme.spacing.xsmall,
-                ':focus': focusRingStyles,
-              })}
-            >
-              <VisuallyHidden>Home</VisuallyHidden>
-              <BrighteLogo tone="primary" />
-            </Link>
-          </Box>
-
-          <Box
-            paddingX="xlarge"
-            display={{ mobile: 'none', tablet: 'inline-block' }}
-          >
-            <Inline gap="xlarge">
-              <Notice />
-              <SearchInputBox />
-            </Inline>
-          </Box>
-
+          <MobileMenu />
+          <HomeLink />
+          <Search />
           <Box
             paddingRight={{ mobile: 'medium', tablet: 'xxlarge' }}
             className={css({ marginLeft: 'auto' })}
@@ -101,20 +48,56 @@ export function Header() {
   );
 }
 
-const Notice = () => (
-  <Box
-    background="cautionMuted"
-    paddingX="large"
-    paddingY="medium"
-    borderRadius="full"
-  >
-    <Text tone="caution">
-      <Strong>Spark v0</Strong> &middot; Please note: this is a work-in-progress
-    </Text>
-  </Box>
-);
+function MobileMenu() {
+  const { sidebarIsOpen, toggleSidebar } = useSidebarContext();
+  const focusRingStyles = useFocusRing();
+  const ToggleMenuIcon = sidebarIsOpen ? XIcon : MenuIcon;
 
-const GitHubLink = () => {
+  return (
+    <Hidden above="mobile">
+      <Box
+        as="button"
+        type="button"
+        onClick={toggleSidebar}
+        padding="large"
+        className={css({ ':focus': focusRingStyles })}
+      >
+        <VisuallyHidden>Mobile menu</VisuallyHidden>
+        <ToggleMenuIcon size="xsmall" tone="muted" />
+      </Box>
+    </Hidden>
+  );
+}
+
+function HomeLink() {
+  const theme = useTheme();
+  const focusRingStyles = useFocusRing();
+
+  return (
+    <Box
+      paddingLeft={{ tablet: 'xxlarge' }}
+      className={css({
+        width: SIDEBAR_WIDTH,
+      })}
+    >
+      <Link
+        href="/"
+        className={css({
+          borderRadius: theme.border.radius.small,
+          display: 'inline-block',
+          margin: -theme.spacing.xsmall,
+          padding: theme.spacing.xsmall,
+          ':focus': focusRingStyles,
+        })}
+      >
+        <VisuallyHidden>Home</VisuallyHidden>
+        <BrighteLogo tone="primary" />
+      </Link>
+    </Box>
+  );
+}
+
+function GitHubLink() {
   const theme = useTheme();
   const focusRingStyles = useFocusRing();
 
@@ -152,130 +135,4 @@ const GitHubLink = () => {
       <GitHubIcon tone="muted" size="small" />
     </Link>
   );
-};
-
-let lunrIndex: any;
-let searchIndexPromise: Promise<any>;
-
-const getSearchInstance = async () => {
-  if (lunrIndex) {
-    return lunrIndex;
-  }
-  searchIndexPromise =
-    searchIndexPromise ??
-    //@ts-ignore seach-index generated after build
-    Promise.all([import('../cache/search-index.json'), import('lunr')])
-      .then(([jsonIndex, lunr]) => {
-        return lunr.default.Index.load(jsonIndex);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-
-  lunrIndex = await searchIndexPromise;
-
-  return lunrIndex;
-};
-
-const useSearch = (query: string) => {
-  if (!lunrIndex) {
-    // This will throw a promise, triggering the <Suspense> boundary
-    throw getSearchInstance();
-  }
-  // Search with a post-fix wildcard, and fuzzy search (for minor typos)
-  return lunrIndex.search(`${query}*`);
-};
-
-const SearchResultsContainer = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
-  const theme = useTheme();
-  return (
-    <Box
-      position="absolute"
-      background="surface"
-      padding="medium"
-      className={css(
-        theme.utils.responsiveStyles({
-          tablet: {
-            top: 100,
-            // ☝️ arbitrary value that should be revised
-          },
-        })
-      )}
-    >
-      <Stack gap="xlarge">{children}</Stack>
-    </Box>
-  );
-};
-
-const SearchResults = ({ query }: { query: string }) => {
-  const results = useSearch(query) ?? [];
-
-  return (
-    <SearchResultsContainer>
-      {results.slice(0, 10).map((result: any) => {
-        const match = Object.entries(result.matchData?.metadata ?? {})[0];
-        //@ts-expect-error
-        if (match?.[1].title) {
-          return (
-            <Text>
-              <TextLink href={`/package/${result.ref}`}>
-                Component &gt; <strong>{result.ref}</strong>
-              </TextLink>
-            </Text>
-          );
-        } else if (
-          // @ts-expect-error: Argument of type 'unknown' is not assignable to parameter of type 'object'.
-          Object.keys(match?.[1] || {}).some(matchKey =>
-            // A heading: h1, h2, h3, h4, h5, h6
-            /^h[1-6]$/.test(matchKey)
-          )
-        ) {
-          return (
-            <Text>
-              <TextLink href={`/package/${result.ref}`}>
-                Component &gt; {result.ref} &gt; <strong>{match[0]}</strong>
-              </TextLink>
-            </Text>
-          );
-        } else {
-          return (
-            <Text>
-              <TextLink href={`/package/${result.ref}`}>
-                Component &gt; {result.ref} &gt; ...
-                <strong>{match[0]}</strong> ...
-              </TextLink>
-            </Text>
-          );
-        }
-      })}
-    </SearchResultsContainer>
-  );
-};
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const SearchInputBox = () => {
-  const [searchValue, setSearchValue] = useState('');
-  const onChange: any = (event: any) => {
-    const { value } = event.target;
-    setSearchValue(value);
-  };
-
-  return (
-    <>
-      <Field label="Search" labelVisibility="hidden">
-        <TextInput placeholder="search" onChange={onChange} />
-        {searchValue.length > 2 ? (
-          <Suspense
-            fallback={<SearchResultsContainer>Loading</SearchResultsContainer>}
-          >
-            <SearchResults query={searchValue} />
-          </Suspense>
-        ) : null}
-      </Field>
-    </>
-  );
-};
+}
