@@ -36,12 +36,7 @@ export function Header() {
           <MobileMenu />
           <HomeLink />
           <Search />
-          <Box
-            paddingRight={{ mobile: 'medium', tablet: 'xxlarge' }}
-            className={css({ marginLeft: 'auto' })}
-          >
-            <GitHubLink />
-          </Box>
+          <GitHub />
         </Box>
       </Container>
     </Box>
@@ -97,42 +92,47 @@ function HomeLink() {
   );
 }
 
-function GitHubLink() {
+function GitHub() {
   const theme = useTheme();
   const focusRingStyles = useFocusRing();
 
   return (
-    <Link
-      href={GITHUB_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={css({
-        display: 'inline-block',
-        borderRadius: theme.border.radius.full,
-
-        ':focus': focusRingStyles,
-
-        '& > svg': {
-          transitionProperty: 'all',
-          transitionTimingFunction: 'cubic-bezier(0.02, 1.505, 0.745, 1.235)',
-          transitionDuration: `${theme.animation.standard.duration}ms`,
-        },
-
-        '&:focus > svg': {
-          fill: theme.backgroundInteractions.primaryHover,
-        },
-
-        '&:hover > svg': {
-          fill: theme.backgroundInteractions.primaryHover,
-        },
-
-        '&:active > svg': {
-          fill: theme.backgroundInteractions.primaryActive,
-        },
-      })}
+    <Box
+      paddingRight={{ mobile: 'medium', tablet: 'xxlarge' }}
+      className={css({ marginLeft: 'auto' })}
     >
-      <VisuallyHidden>Spark Web on GitHub</VisuallyHidden>
-      <GitHubIcon tone="muted" size="small" />
-    </Link>
+      <Link
+        href={GITHUB_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={css({
+          display: 'inline-block',
+          borderRadius: theme.border.radius.full,
+
+          ':focus': focusRingStyles,
+
+          '& > svg': {
+            transitionProperty: 'all',
+            transitionTimingFunction: 'cubic-bezier(0.02, 1.505, 0.745, 1.235)',
+            transitionDuration: `${theme.animation.standard.duration}ms`,
+          },
+
+          '&:focus > svg': {
+            fill: theme.backgroundInteractions.primaryHover,
+          },
+
+          '&:hover > svg': {
+            fill: theme.backgroundInteractions.primaryHover,
+          },
+
+          '&:active > svg': {
+            fill: theme.backgroundInteractions.primaryActive,
+          },
+        })}
+      >
+        <VisuallyHidden>Spark Web on GitHub</VisuallyHidden>
+        <GitHubIcon tone="muted" size="small" />
+      </Link>
+    </Box>
   );
 }
