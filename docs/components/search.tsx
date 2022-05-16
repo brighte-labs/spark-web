@@ -71,7 +71,7 @@ async function getSearchInstance() {
   return lunrIndex;
 }
 
-function useSearch(query: string) {
+function useSearch(query: string): any[] {
   if (!lunrIndex) {
     // This will throw a promise, triggering the <Suspense> boundary
     throw getSearchInstance();
@@ -99,15 +99,19 @@ function SearchResultsContainer({ children }: { children: React.ReactNode }) {
 function SearchResults({ query }: { query: string }) {
   const results = useSearch(query) ?? [];
 
-  return (
-    <SearchResultsContainer>
+  let content = <Text>No results found</Text>;
+
+  if (results.length > 0) {
+    content = (
       <Stack as="ul" gap="small">
         {results.slice(0, 10).map((result: any, index: number) => (
           <SearchItem key={index} result={result} />
         ))}
       </Stack>
-    </SearchResultsContainer>
-  );
+    );
+  }
+
+  return <SearchResultsContainer>{content}</SearchResultsContainer>;
 }
 
 function SearchItem({ result }: { result: any }) {
