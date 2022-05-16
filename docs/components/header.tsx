@@ -8,7 +8,7 @@ import { Link } from '@spark-web/link';
 import { useTheme } from '@spark-web/theme';
 
 import { GITHUB_URL, HEADER_HEIGHT, SIDEBAR_WIDTH } from './constants';
-import { Search } from './search';
+// import { Search } from './search';
 import { useSidebarContext } from './sidebar';
 import { BrighteLogo, GitHubIcon } from './vectors/fill';
 
@@ -35,7 +35,7 @@ export function Header() {
         >
           <MobileMenu />
           <HomeLink />
-          <Search />
+          {/* <Search /> */}
           <GitHub />
         </Box>
       </Container>
