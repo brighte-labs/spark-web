@@ -7,12 +7,10 @@ import { forwardRef, useState } from 'react';
 
 import { IconButton } from './IconButton';
 
-export type PasswordInputProps = {
-  'aria-label'?: string;
-} & Omit<TextInputProps, 'children' | 'inputMode'>;
+export type PasswordInputProps = Omit<TextInputProps, 'children' | 'inputMode'>;
 
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
-  ({ 'aria-label': ariaLabel, ...props }, forwardedRef) => {
+  (props, forwardedRef) => {
     const { disabled } = useFieldContext();
     const [showPassword, setShowPassword] = useState(false);
 
@@ -22,24 +20,18 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
       disabled
     );
 
+    const Icon = showPassword ? EyeOffIcon : EyeIcon;
+
     return (
       <TextInput
         {...props}
         ref={forwardedRef}
-        inputMode={'text'}
+        inputMode="text"
         type={showPassword ? 'text' : 'password'}
       >
         <InputAdornment placement="end">
-          <IconButton
-            handleClick={handleClick}
-            aria-label={ariaLabel}
-            aria-pressed={showPassword}
-          >
-            {showPassword ? (
-              <EyeOffIcon tone={disabled ? 'disabled' : 'neutral'} />
-            ) : (
-              <EyeIcon tone={disabled ? 'disabled' : 'neutral'} />
-            )}
+          <IconButton handleClick={handleClick} aria-pressed={showPassword}>
+            <Icon tone={disabled ? 'disabled' : 'neutral'} />
           </IconButton>
         </InputAdornment>
       </TextInput>
