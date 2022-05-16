@@ -32,7 +32,13 @@ type ValidModes =
 
 type NativeInputProps = Pick<
   AllHTMLAttributes<HTMLInputElement>,
-  'onBlur' | 'onFocus' | 'onChange' | 'placeholder' | 'value'
+  | 'name'
+  | 'onBlur'
+  | 'onChange'
+  | 'onFocus'
+  | 'placeholder'
+  | 'value'
+  | 'required'
 >;
 
 export type TextInputProps = {
