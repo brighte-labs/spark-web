@@ -51,7 +51,7 @@ export function Search() {
 let lunrIndex: any;
 let searchIndexPromise: Promise<any>;
 
-const getSearchInstance = async () => {
+async function getSearchInstance() {
   if (lunrIndex) {
     return lunrIndex;
   }
@@ -69,16 +69,16 @@ const getSearchInstance = async () => {
   lunrIndex = await searchIndexPromise;
 
   return lunrIndex;
-};
+}
 
-const useSearch = (query: string) => {
+function useSearch(query: string) {
   if (!lunrIndex) {
     // This will throw a promise, triggering the <Suspense> boundary
     throw getSearchInstance();
   }
   // Search with a post-fix wildcard, and fuzzy search (for minor typos)
   return lunrIndex.search(`${query}*`);
-};
+}
 
 function SearchResultsContainer({ children }: { children: React.ReactNode }) {
   return (

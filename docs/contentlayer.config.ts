@@ -9,7 +9,7 @@ import remarkStripMarkdown from 'strip-markdown';
 
 import { generateToc } from './utils/generate-toc';
 
-const mdxToStr = async (mdx: string): Promise<string> => {
+async function mdxToStr(mdx: string): Promise<string> {
   const file = await remark()
     .use(remarkGfm)
     .use(remarkMdx)
@@ -17,7 +17,7 @@ const mdxToStr = async (mdx: string): Promise<string> => {
     .use([remarkStripMarkdown, { remove: ['jsx', 'import', 'export'] }])
     .process(mdx);
   return String(file);
-};
+}
 
 export const Home = defineDocumentType(() => ({
   name: 'Home',
