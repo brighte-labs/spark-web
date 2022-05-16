@@ -190,16 +190,26 @@ const SearchResultsContainer = ({
   children,
 }: {
   children: React.ReactNode;
-}) => (
-  <Box
-    position="absolute"
-    top={{ tablet: 100 }}
-    background="surface"
-    padding="medium"
-  >
-    <Stack gap="xlarge">{children}</Stack>
-  </Box>
-);
+}) => {
+  const theme = useTheme();
+  return (
+    <Box
+      position="absolute"
+      background="surface"
+      padding="medium"
+      className={css(
+        theme.utils.responsiveStyles({
+          tablet: {
+            top: 100,
+            // ☝️ arbitrary value that should be revised
+          },
+        })
+      )}
+    >
+      <Stack gap="xlarge">{children}</Stack>
+    </Box>
+  );
+};
 
 const SearchResults = ({ query }: { query: string }) => {
   const results = useSearch(query) ?? [];
