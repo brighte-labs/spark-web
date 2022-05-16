@@ -13,13 +13,9 @@ const mdxToStr = async (mdx: string): Promise<string> => {
   const file = await remark()
     .use(remarkGfm)
     .use(remarkMdx)
-    .use([
-      remarkStripMarkdown,
-      //@ts-expect-error
-      { remove: ['jsx', 'import', 'export'] },
-    ])
+    //@ts-expect-error: Can't pass property remove to object Pluggable<any[]>.
+    .use([remarkStripMarkdown, { remove: ['jsx', 'import', 'export'] }])
     .process(mdx);
-
   return String(file);
 };
 
@@ -101,8 +97,7 @@ export default makeSource({
   contentDirInclude: ['{docs/pages,packages}'],
   contentDirPath: '..',
   documentTypes: [Home, Package],
-  // @ts-expect-error
-  mdxOptions: {
+  mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypeSlug, untitledLiveCode],
   },
