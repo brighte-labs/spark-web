@@ -79,6 +79,7 @@ export const InputAdornment = ({
           dimensions.
         */}
         <Box
+          display="flex"
           alignItems="center"
           justifyContent="center"
           style={{ minWidth: sizing.xxsmall }}
