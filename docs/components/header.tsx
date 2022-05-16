@@ -218,8 +218,9 @@ const SearchResults = ({ query }: { query: string }) => {
             </Text>
           );
         } else if (
-          // A heading: h1, h2, h3, h4, h5, h6
+          // @ts-expect-error: Argument of type 'unknown' is not assignable to parameter of type 'object'.
           Object.keys(match?.[1] || {}).some(matchKey =>
+            // A heading: h1, h2, h3, h4, h5, h6
             /^h[1-6]$/.test(matchKey)
           )
         ) {
