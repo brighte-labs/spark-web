@@ -1,5 +1,6 @@
 import { useFieldContext } from '@spark-web/field';
 import { useEffect, useRef, useState } from 'react';
+import type { GetOptionLabel, GetOptionValue } from 'react-select';
 import ReactSelect from 'react-select';
 
 import {
@@ -25,6 +26,15 @@ export type ComboboxProps<Item = unknown> = {
   onInputChange?: (inputValue: string) => void;
   /** The selected item. */
   value?: Nullable<Item>;
+  /**
+   * Resolves option data to a string to be displayed as the label by components
+   *
+   * Note: Failure to resolve to a string type can interfere with filtering and
+   * screen reader support.
+   */
+  getOptionLabel?: GetOptionLabel<Item>;
+  /** Resolves option data to a string to compare options and specify value attributes */
+  getOptionValue?: GetOptionValue<Item>;
 };
 
 const isBrowser = typeof window !== 'undefined';
@@ -54,6 +64,8 @@ export const Combobox = <Item,>({
   items: _items,
   onChange,
   onInputChange,
+  getOptionLabel,
+  getOptionValue,
   value,
 }: ComboboxProps<Item>) => {
   const {
@@ -84,6 +96,8 @@ export const Combobox = <Item,>({
       placeholder={placeholder}
       theme={themeOverride}
       menuPortalTarget={isBrowser ? document.body : undefined}
+      getOptionLabel={getOptionLabel}
+      getOptionValue={getOptionValue}
     />
   );
 };
