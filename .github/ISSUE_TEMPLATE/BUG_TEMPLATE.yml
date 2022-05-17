@@ -30,67 +30,17 @@ body:
       placeholder: I saw a blue screen of death!
     validations:
       required: true
-  - type: dropdown
+  - type: text
     id: component
     attributes:
       label: Component
-      description:
-        If this issue is related to a specific component in the Spark-Web
-        library, let us know which one?
-      options:
-        - a11y
-        - accordion
-        - alert
-        - analytics
-        - box
-        - button
-        - checkbox
-        - columns
-        - combobox
-        - container
-        - control-lable
-        - core
-        - currency input
-        - divider
-        - dropzone
-        - field
-        - fieldset
-        - float-input
-        - heading
-        - hidden
-        - icon
-        - inline
-        - link
-        - modal dialog
-        - nav link
-        - next utils
-        - radio
-        - row
-        - select
-        - spinner
-        - ssr
-        - stack
-        - text
-        - text area
-        - text input
-        - text link
-        - text list
-        - theme
-        - utils
-    validations:
-      required: false
-  - type: textarea
-    id: version
-    attributes:
-      label: Version
-      description: What version of the component did you get this error with?
-      render: shell
+      description: Which component / version did you find the bug in?
     validations:
       required: false
   - type: dropdown
     id: browsers
     attributes:
-      label: What browsers are you seeing the problem on?
+      label: What browser are you seeing the problem on?
       multiple: true
       options:
         - Firefox
