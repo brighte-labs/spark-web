@@ -3,7 +3,7 @@ import { Box } from '@spark-web/box';
 import { useFieldContext } from '@spark-web/field';
 import { ChevronDownIcon } from '@spark-web/icon';
 import type { UseInputProps } from '@spark-web/text-input';
-import { useInput } from '@spark-web/text-input';
+import { FocusIndicator, useInput } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { SelectHTMLAttributes } from 'react';
@@ -54,7 +54,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     );
 
     return (
-      <Box position="relative">
+      <Box
+        position="relative"
+        background={disabled ? 'inputDisabled' : 'input'}
+      >
         <Box
           {...a11yProps}
           aria-invalid={invalid || undefined}
@@ -93,6 +96,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             return mapOptions(optionOrGroup);
           })}
         </Box>
+        <FocusIndicator invalid={invalid} />
         <Box
           position="absolute"
           top={0}

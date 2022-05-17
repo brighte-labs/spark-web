@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
 import { useFieldContext } from '@spark-web/field';
+import { FocusIndicator } from '@spark-web/text-input';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { TextareaHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
@@ -48,12 +49,16 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     const textAreaStyles = useTextAreaStyles({ disabled, invalid });
 
     return (
-      <Box position="relative">
+      <Box
+        position="relative"
+        background={disabled ? 'inputDisabled' : 'input'}
+      >
         <Box
           {...a11yProps}
           {...consumerProps}
-          data={data}
           as="textarea"
+          aria-invalid={invalid || undefined}
+          data={data}
           ref={forwardedRef}
           rows={3}
           // Styles
@@ -65,6 +70,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           width="full"
           className={css(textAreaStyles)}
         />
+        <FocusIndicator invalid={invalid} />
       </Box>
     );
   }
