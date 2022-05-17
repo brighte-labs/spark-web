@@ -57,8 +57,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       <Box position="relative">
         <Box
           {...a11yProps}
-          data={data}
+          aria-invalid={invalid || undefined}
           as="select"
+          data={data}
           defaultValue={defaultValue ?? placeholder ? '' : undefined}
           disabled={disabled}
           name={name}

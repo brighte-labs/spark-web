@@ -71,6 +71,7 @@ export const Combobox = <Item,>({
   return (
     <ReactSelect<Item>
       aria-describedby={ariaDescribedBy}
+      aria-invalid={invalid || undefined}
       components={reactSelectComponentsOverride}
       inputId={inputId}
       inputValue={inputValue}

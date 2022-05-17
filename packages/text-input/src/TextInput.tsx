@@ -80,6 +80,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         {startAdornment}
         <Box
           as="input"
+          aria-invalid={invalid || undefined}
           ref={forwardedRef}
           disabled={disabled}
           // Styles
