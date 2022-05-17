@@ -13,4 +13,5 @@ for this change.
 - [ ] I've updated unit tests where needed
 - [ ] I've updated the components README.md where needed
 - [ ] I've added major version bumps for my breaking changes
-- [ ] All the components ive updated are reflected in the changelog
+- [ ] I've added changesets where needed
+- [ ] All the components I've updated are reflected in the changelog
