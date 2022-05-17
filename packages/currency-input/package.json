@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/currency-input",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "dist/spark-web-currency-input.cjs.js",
   "module": "dist/spark-web-currency-input.esm.js",
@@ -13,7 +13,7 @@
     "@spark-web/field": "^1.1.0",
     "@spark-web/float-input": "^1.0.0",
     "@spark-web/text": "^1.0.4",
-    "@spark-web/text-input": "^1.1.0"
+    "@spark-web/text-input": "^1.1.1"
   },
   "devDependencies": {
     "react": "^17.0.2"
