@@ -32,6 +32,43 @@ body:
       options:
         - a11y
         - accordion
+        - alert
+        - analytics
+        - box
+        - button
+        - checkbox
+        - columns
+        - combobox
+        - container
+        - control-lable
+        - core
+        - currency input
+        - divider
+        - dropzone
+        - field
+        - fieldset
+        - float-input
+        - heading
+        - hidden
+        - icon
+        - inline
+        - link
+        - modal dialog
+        - nav link
+        - next utils
+        - radio
+        - row
+        - select
+        - spinner
+        - ssr
+        - stack
+        - text
+        - text area
+        - text input
+        - text link
+        - text list
+        - theme
+        - utils
     validations:
       required: false
   - type: textarea
