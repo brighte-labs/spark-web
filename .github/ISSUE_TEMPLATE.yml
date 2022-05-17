@@ -15,7 +15,6 @@ body:
       label: What happened?
       description: Can you tell us what happened as well as what you expected to happen?
       placeholder: I saw a blue screen of death!
-      value: "A bug happened!"
     validations:
       required: true
   - type: dropdown
@@ -28,14 +27,12 @@ body:
         - accordion
     validations:
       required: false
-  - type: dropdown
+  - type: textarea
     id: version
     attributes:
       label: Version
       description: What version of the component did you get this error with?
-      options:
-        - 1.0.0
-        - 1.0.1
+      render: shell
     validations:
       required: false
   - type: dropdown
@@ -53,7 +50,7 @@ body:
     id: logs
     attributes:
       label: Steps to Reproduce
-      description: To help us debug as quickly as possible, please can you provide the steps to reproduce. If your not sure, provide your current node version, npm version, browser and version and we will reach out to you.
+      description: To help us debug as quickly as possible, please can you provide the steps to reproduce. If your not sure, provide your current node version, npm version, browser version and we will reach out to you.
       render: shell
   - type: textarea
     id: logs
