@@ -67,45 +67,60 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     return (
       <Box
-        background={disabled ? 'inputDisabled' : 'input'}
-        border={invalid ? 'critical' : 'field'}
-        borderRadius="small"
         display="inline-flex"
         alignItems="center"
-        flexDirection="row"
-        height="medium"
-        marginY="none"
-        className={css(useInput({ disabled, invalid }))}
+        position="relative"
+        background={disabled ? 'inputDisabled' : 'input'}
       >
         {startAdornment}
         <Box
           as="input"
           aria-invalid={invalid || undefined}
           ref={forwardedRef}
+          data={data}
           disabled={disabled}
+          position="relative"
           // Styles
           flex={1}
           height="medium"
           paddingX="medium"
           paddingLeft={startAdornment ? 'none' : 'medium'}
           paddingRight={endAdornment ? 'none' : 'medium'}
-          className={css(useInput({ disabled, invalid, isNested: true }))}
-          data={data}
+          className={css(useInput({ disabled, invalid }))}
           {...a11yProps}
           {...consumerProps}
         />
+        <FocusIndicator invalid={invalid} />
         {endAdornment}
       </Box>
     );
   }
 );
+
 TextInput.displayName = 'TextInput';
 
-export type UseInputProps = Pick<FieldContextType, 'disabled' | 'invalid'> & {
-  isNested?: boolean;
+export const FocusIndicator = ({ invalid }: { invalid: boolean }) => {
+  return (
+    <Box
+      aria-hidden="true"
+      as="span"
+      data={{ 'focus-indicator': 'true' }}
+      // Styles
+      border={invalid ? 'critical' : 'field'}
+      borderRadius="small"
+      position="absolute"
+      bottom={0}
+      left={0}
+      right={0}
+      top={0}
+      className={css({ pointerEvents: 'none' })}
+    />
+  );
 };
 
-export const useInput = ({ disabled, isNested = false }: UseInputProps) => {
+export type UseInputProps = Pick<FieldContextType, 'disabled' | 'invalid'>;
+
+export const useInput = ({ disabled }: UseInputProps) => {
   const theme = useTheme();
   const focusRingStyles = useFocusRing({ always: true });
   const textStyles = useText({
@@ -120,28 +135,12 @@ export const useInput = ({ disabled, isNested = false }: UseInputProps) => {
   return {
     ...typographyStyles,
     ...responsiveStyles,
-    ...(isNested
-      ? {
-          ':focus': {
-            // This removes the nested input outline visibility since
-            // the wrapper will be outlined, but still visibly focusable
-            // to windows high contrast mode users.
-            // @see https://tailwindcss.com/docs/outline-style#removing-outlines
-            outline: '2px solid transparent',
-            outlineOffset: '2px',
-          },
-        }
-      : {
-          ':enabled': {
-            '&:focus': {
-              ...focusRingStyles,
-              borderColor: theme.border.color.fieldAccent,
-            },
-          },
-          ':focus-within': {
-            ...focusRingStyles,
-            borderColor: theme.border.color.fieldAccent,
-          },
-        }),
+    ':focus': { outline: 'none' },
+    ':enabled': {
+      ':focus + [data-focus-indicator]': {
+        borderColor: theme.border.color.fieldAccent,
+        ...focusRingStyles,
+      },
+    },
   } as const;
 };

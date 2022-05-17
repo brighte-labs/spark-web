@@ -1,5 +1,5 @@
 export { InputAdornment } from './InputAdornment';
-export { TextInput, useInput } from './TextInput';
+export { FocusIndicator, TextInput, useInput } from './TextInput';
 
 // types
 
