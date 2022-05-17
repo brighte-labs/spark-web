@@ -9,6 +9,20 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report! We'll get onto this ASAP!!
+  - type: severity
+    id: severity
+    attributes:
+      label: Severity
+      description:
+        Is this a production issue? Is it stopping you working? Let us know how
+        to prioritise this issue.
+      options:
+        - Production Issue
+        - Blocking Development
+        - Nice to have
+        - Low priority but raising so it doesnt get forgotten!
+    validations:
+      required: true
   - type: textarea
     id: what-happened
     attributes:
