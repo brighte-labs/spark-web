@@ -71,7 +71,15 @@ export const useFocusRing = ({
   };
 
   return {
-    outline: 0,
+    /**
+     * This removes the nested input outline visibility since
+     * the wrapper will be outlined, but still visibly focusable
+     * to windows high contrast mode users.
+     *
+     * @see https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors
+     */
+    outline: '2px solid transparent',
+    outlineOffset: '2px',
     ...(always
       ? styles
       : {
