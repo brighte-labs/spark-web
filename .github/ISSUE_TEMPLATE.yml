@@ -1,7 +1,7 @@
 name: Bug Report
 description: File a bug report
-title: "[Bug]: "
-labels: [ "bug", "triage" ]
+title: '[Bug]: '
+labels: [ 'bug', 'triage' ]
 assignees:
   -
 body:
@@ -13,7 +13,8 @@ body:
     id: what-happened
     attributes:
       label: What happened?
-      description: Can you tell us what happened as well as what you expected to happen?
+      description:
+        Can you tell us what happened as well as what you expected to happen?
       placeholder: I saw a blue screen of death!
     validations:
       required: true
@@ -21,7 +22,9 @@ body:
     id: version
     attributes:
       label: Component
-      description: If this issue is related to a specific component in the Spark-Web library, let us know which one?
+      description:
+        If this issue is related to a specific component in the Spark-Web
+        library, let us know which one?
       options:
         - a11y
         - accordion
@@ -50,11 +53,16 @@ body:
     id: logs
     attributes:
       label: Steps to Reproduce
-      description: To help us debug as quickly as possible, please can you provide the steps to reproduce. If your not sure, provide your current node version, npm version, browser version and we will reach out to you.
+      description:
+        To help us debug as quickly as possible, please can you provide the
+        steps to reproduce. If your not sure, provide your current node version,
+        npm version, browser version and we will reach out to you.
       render: shell
   - type: textarea
     id: logs
     attributes:
       label: Relevant Info
-      description: Please copy and paste any relevant info that would help us reproduce/debug. Logs, Screenshots etc are all helpful!
+      description:
+        Please copy and paste any relevant info that would help us
+        reproduce/debug. Logs, Screenshots etc are all helpful!
       render: shell
