@@ -19,7 +19,7 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: version
+    id: component
     attributes:
       label: Component
       description:
@@ -50,7 +50,7 @@ body:
         - Microsoft Edge
         - Internet Explorer (Yuck!)
   - type: textarea
-    id: logs
+    id: steps
     attributes:
       label: Steps to Reproduce
       description:
@@ -59,7 +59,7 @@ body:
         npm version, browser version and we will reach out to you.
       render: shell
   - type: textarea
-    id: logs
+    id: info
     attributes:
       label: Relevant Info
       description:
