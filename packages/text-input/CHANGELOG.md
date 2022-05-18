@@ -1,5 +1,24 @@
 # @spark-web/text-input
 
+## 1.1.1
+
+### Patch Changes
+
+- [#94](https://github.com/brighte-labs/spark-web/pull/94)
+  [`4ad9817`](https://github.com/brighte-labs/spark-web/commit/4ad9817d1f7acdecd3c8bbb3be517f5c11fe8d4b)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Fix alignment of
+  icon adornments
+
+* [#98](https://github.com/brighte-labs/spark-web/pull/98)
+  [`4750af7`](https://github.com/brighte-labs/spark-web/commit/4750af73f0e3a82ebde940cb13659a21c7e88007)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Add aria-invalid
+  attribute
+
+- [#72](https://github.com/brighte-labs/spark-web/pull/72)
+  [`dc53688`](https://github.com/brighte-labs/spark-web/commit/dc53688cc271316f00ef25f101e94c3891f4f75d)
+  Thanks [@matildaPan](https://github.com/matildaPan)! - Add name and required
+  to valid TextInput props
+
 ## 1.1.0
 
 ### Minor Changes
