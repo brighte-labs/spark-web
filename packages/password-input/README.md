@@ -82,9 +82,5 @@ return (
 
 ## Props
 
-| Prop        | Type   | Default | Description                                                    |
-| ----------- | ------ | ------- | -------------------------------------------------------------- |
-| aria-label? | string |         | Sets an accessibility label for the show password icon button. |
-
 The component passes props into its underlying [TextInput](/package/text-input)
 component and are not listed here.
