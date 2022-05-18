@@ -11,13 +11,13 @@ const fonts = `
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://spark-web-docs-fa4i8lp4e-brighte.vercel.app/fonts/aestetico-regular.woff2) format("woff2");
+  src: url(https://static-assets.prod.cloud.brighte.com.au/fonts/Aestetico-Regular.woff2) format("woff2");
 }
 @font-face {
   font-family: Aestetico;
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(https://spark-web-docs-fa4i8lp4e-brighte.vercel.app/fonts/aestetico-semibold.woff2) format("woff2");
+  src: url(https://static-assets.prod.cloud.brighte.com.au/fonts/Aestetico-SemiBold.woff2) format("woff2");
 }
 `.trim();
