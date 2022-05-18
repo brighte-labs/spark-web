@@ -15,7 +15,6 @@ export function useIconButtonStyles() {
     gap: 'small',
     height: 'small',
     justifyContent: 'center',
-    marginTop: 'small',
     paddingX: 'xsmall',
     position: 'relative',
     width: 'small',
