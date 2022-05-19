@@ -1,11 +1,11 @@
 import { createContext, useContext } from 'react';
 
-type FieldState = {
+export type FieldState = {
   disabled: boolean;
   invalid: boolean;
 };
 
-type InputPropsDerivedFromField = {
+export type InputPropsDerivedFromField = {
   'aria-describedby'?: string;
   'aria-invalid': true | undefined;
   id: string;
