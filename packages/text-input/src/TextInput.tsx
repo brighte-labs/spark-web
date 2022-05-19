@@ -1,16 +1,18 @@
 import { css } from '@emotion/css';
 import { useFocusRing } from '@spark-web/a11y';
+import type { BoxProps } from '@spark-web/box';
 import { Box } from '@spark-web/box';
 import type { FieldContextType } from '@spark-web/field';
 import { useFieldContext } from '@spark-web/field';
 import { useText } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
-import type { InputHTMLAttributes } from 'react';
+import type { InputHTMLAttributes, ReactElement } from 'react';
 import { forwardRef } from 'react';
 
 import type { AdornmentsAsChildren } from './childrenToAdornments';
 import { childrenToAdornments } from './childrenToAdornments';
+import type { InputAdornmentProps } from './InputAdornment';
 
 type ValidTypes =
   | 'text'
@@ -66,13 +68,12 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const { startAdornment, endAdornment } = childrenToAdornments(children);
 
     return (
-      <Box
+      <InputContainer
         display="inline-flex"
         alignItems="center"
-        position="relative"
-        background={disabled ? 'inputDisabled' : 'input'}
+        startAdornment={startAdornment}
+        endAdornment={endAdornment}
       >
-        {startAdornment}
         <Box
           as="input"
           aria-invalid={invalid || undefined}
@@ -90,33 +91,12 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           {...a11yProps}
           {...consumerProps}
         />
-        <FocusIndicator invalid={invalid} />
-        {endAdornment}
-      </Box>
+      </InputContainer>
     );
   }
 );
 
 TextInput.displayName = 'TextInput';
-
-export const FocusIndicator = ({ invalid }: { invalid: boolean }) => {
-  return (
-    <Box
-      aria-hidden="true"
-      as="span"
-      data={{ 'focus-indicator': 'true' }}
-      // Styles
-      border={invalid ? 'critical' : 'field'}
-      borderRadius="small"
-      position="absolute"
-      bottom={0}
-      left={0}
-      right={0}
-      top={0}
-      className={css({ pointerEvents: 'none' })}
-    />
-  );
-};
 
 export type UseInputProps = Pick<FieldContextType, 'disabled' | 'invalid'>;
 
@@ -143,4 +123,50 @@ export const useInput = ({ disabled }: UseInputProps) => {
       },
     },
   } as const;
+};
+
+export type InputContainerProps = {
+  startAdornment?: ReactElement<InputAdornmentProps> | null;
+  endAdornment?: ReactElement<InputAdornmentProps> | null;
+} & Omit<BoxProps, 'background' | 'position'>;
+
+export const InputContainer = ({
+  children,
+  startAdornment,
+  endAdornment,
+  ...boxProps
+}: InputContainerProps) => {
+  const { disabled, invalid } = useFieldContext();
+
+  return (
+    <Box
+      position="relative"
+      background={disabled ? 'inputDisabled' : 'input'}
+      {...boxProps}
+    >
+      {startAdornment}
+      {children}
+      <FocusIndicator invalid={invalid} />
+      {endAdornment}
+    </Box>
+  );
+};
+
+const FocusIndicator = ({ invalid }: { invalid: boolean }) => {
+  return (
+    <Box
+      aria-hidden="true"
+      as="span"
+      data={{ 'focus-indicator': 'true' }}
+      // Styles
+      border={invalid ? 'critical' : 'field'}
+      borderRadius="small"
+      position="absolute"
+      bottom={0}
+      left={0}
+      right={0}
+      top={0}
+      className={css({ pointerEvents: 'none' })}
+    />
+  );
 };
