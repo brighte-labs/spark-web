@@ -18,14 +18,19 @@ export function useIconButtonStyles() {
     paddingX: 'xsmall',
     position: 'relative',
     width: 'small',
-    // interactions styles
     className: css({
+      transitionProperty:
+        'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
+      transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+      transitionDuration: `${theme.animation.standard.duration}ms`,
+
+      // interactions styles
       '&:hover': {
         backgroundColor: theme.backgroundInteractions['neutralLowHover'],
       },
       '&:active': {
         backgroundColor: theme.backgroundInteractions['neutralLowActive'],
-        transform: 'scale(0.98)',
+        transform: 'scale(0.94)',
       },
       ':focus': focusRingStyles,
     }),
