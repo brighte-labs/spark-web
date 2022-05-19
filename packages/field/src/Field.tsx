@@ -10,6 +10,7 @@ import { buildDataAttributes } from '@spark-web/utils/internal';
 import type { ReactElement, ReactNode } from 'react';
 import { forwardRef, Fragment } from 'react';
 
+import type { FieldContextType } from './context';
 import { FieldContextProvider } from './context';
 
 export type Tone = keyof typeof messageToneMap;
@@ -69,15 +70,18 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(
     const { descriptionId, inputId, messageId } = useFieldIds(idProp);
 
     // field context
-    const fieldContext = {
-      'aria-describedby': mergeIds(
-        message && messageId,
-        description && descriptionId
-      ),
-      id: inputId,
-      disabled,
-      invalid: Boolean(message && tone === 'critical'),
-    };
+    const invalid = Boolean(message && tone === 'critical');
+    const fieldContext: FieldContextType = [
+      { disabled, invalid },
+      {
+        'aria-describedby': mergeIds(
+          message && messageId,
+          description && descriptionId
+        ),
+        'aria-invalid': invalid || undefined,
+        id: inputId,
+      },
+    ];
 
     // label prep
     const hiddenLabel = (

@@ -35,7 +35,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     },
     forwardedRef
   ) => {
-    const { disabled, invalid, ...a11yProps } = useFieldContext();
+    const [{ disabled, invalid }, a11yProps] = useFieldContext();
     const consumerProps = {
       value,
       defaultValue,
@@ -51,10 +51,9 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     return (
       <InputContainer>
         <Box
-          {...a11yProps}
           {...consumerProps}
+          {...a11yProps}
           as="textarea"
-          aria-invalid={invalid || undefined}
           data={data}
           ref={forwardedRef}
           rows={3}

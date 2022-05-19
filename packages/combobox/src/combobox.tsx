@@ -68,12 +68,8 @@ export const Combobox = <Item,>({
   getOptionValue,
   value,
 }: ComboboxProps<Item>) => {
-  const {
-    disabled,
-    invalid,
-    id: inputId,
-    'aria-describedby': ariaDescribedBy,
-  } = useFieldContext();
+  const [{ disabled, invalid }, { id: inputId, ...a11yProps }] =
+    useFieldContext();
 
   const stylesOverride = useReactSelectStylesOverride<Item>({ invalid });
   const themeOverride = useReactSelectThemeOverride();
@@ -82,8 +78,7 @@ export const Combobox = <Item,>({
 
   return (
     <ReactSelect<Item>
-      aria-describedby={ariaDescribedBy}
-      aria-invalid={invalid || undefined}
+      {...a11yProps}
       components={reactSelectComponentsOverride}
       inputId={inputId}
       inputValue={inputValue}

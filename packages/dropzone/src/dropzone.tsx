@@ -85,7 +85,7 @@ export const Dropzone = forwardRef<HTMLInputElement, DropzoneProps>(
       setFiles(prevFiles => [...prevFiles, ...acceptedFilesWithPreview]);
     };
 
-    const { disabled, invalid, ...a11yProps } = useFieldContext();
+    const [{ disabled, invalid }, a11yProps] = useFieldContext();
 
     const {
       fileRejections,
@@ -183,7 +183,6 @@ export const Dropzone = forwardRef<HTMLInputElement, DropzoneProps>(
       <Stack gap="large">
         <VisuallyHidden
           as="input"
-          aria-invalid={invalid}
           disabled={disabled}
           name={name}
           onBlur={onBlur}

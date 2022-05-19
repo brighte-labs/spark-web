@@ -41,7 +41,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     },
     forwardedRef
   ) => {
-    const { disabled, invalid, ...a11yProps } = useFieldContext();
+    const [{ disabled, invalid }, a11yProps] = useFieldContext();
     const styles = useSelectStyles({ disabled, invalid });
 
     const mapOptions = useCallback(
@@ -69,7 +69,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         </Box>
         <Box
           {...a11yProps}
-          aria-invalid={invalid || undefined}
           as="select"
           data={data}
           defaultValue={defaultValue ?? placeholder ? '' : undefined}
