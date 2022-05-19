@@ -1,11 +1,9 @@
 export { InputAdornment } from './InputAdornment';
-export { InputContainer, TextInput, useInput } from './TextInput';
+export { InputContainer } from './InputContainer';
+export { TextInput, useInput } from './TextInput';
 
 // types
 
 export type { AdornmentChild } from './childrenToAdornments';
-export type {
-  InputContainerProps,
-  TextInputProps,
-  UseInputProps,
-} from './TextInput';
+export type { InputContainerProps } from './InputContainer';
+export type { TextInputProps, UseInputProps } from './TextInput';
