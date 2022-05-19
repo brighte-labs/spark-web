@@ -6,7 +6,7 @@ import { useFieldContext } from '@spark-web/field';
 import { useText } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
-import type { AllHTMLAttributes } from 'react';
+import type { InputHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
 import type { AdornmentsAsChildren } from './childrenToAdornments';
@@ -31,7 +31,7 @@ type ValidModes =
   | 'search';
 
 type NativeInputProps = Pick<
-  AllHTMLAttributes<HTMLInputElement>,
+  InputHTMLAttributes<HTMLInputElement>,
   | 'name'
   | 'onBlur'
   | 'onChange'
