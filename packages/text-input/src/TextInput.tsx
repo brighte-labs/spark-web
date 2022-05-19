@@ -2,7 +2,7 @@ import { css } from '@emotion/css';
 import { useFocusRing } from '@spark-web/a11y';
 import type { BoxProps } from '@spark-web/box';
 import { Box } from '@spark-web/box';
-import type { FieldContextType } from '@spark-web/field';
+import type { FieldState } from '@spark-web/field';
 import { useFieldContext } from '@spark-web/field';
 import { useText } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
@@ -97,7 +97,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
 TextInput.displayName = 'TextInput';
 
-export type UseInputProps = Pick<FieldContextType[0], 'disabled' | 'invalid'>;
+export type UseInputProps = FieldState;
 
 export const useInput = ({ disabled }: UseInputProps) => {
   const theme = useTheme();
