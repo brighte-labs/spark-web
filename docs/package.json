@@ -75,7 +75,7 @@
     "@types/node": "16.11.13",
     "@types/react": "^17.0.12",
     "autoprefixer": "^10.4.0",
-    "babel-loader": "^8.2.3",
+    "babel-loader": "^8.2.5",
     "chokidar": "^3.5.3",
     "contentlayer": "^0.2.5",
     "date-fns": "^2.28.0",
