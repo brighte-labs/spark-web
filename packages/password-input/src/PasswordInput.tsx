@@ -14,7 +14,7 @@ export type PasswordInputProps = Omit<TextInputProps, 'children' | 'inputMode'>;
 
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
   (props, forwardedRef) => {
-    const { disabled } = useFieldContext();
+    const [{ disabled }] = useFieldContext();
     const [showPassword, setShowPassword] = useState(false);
 
     const toggleShowPassword = () => setShowPassword(!showPassword);

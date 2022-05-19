@@ -17,7 +17,7 @@ export const InputContainer = ({
   endAdornment,
   ...boxProps
 }: InputContainerProps) => {
-  const { disabled, invalid } = useFieldContext();
+  const [{ disabled, invalid }] = useFieldContext();
 
   return (
     <Box
