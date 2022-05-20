@@ -18,7 +18,7 @@
     "@spark-web/text": "^1.0.4",
     "@spark-web/text-input": "^1.1.1",
     "@spark-web/theme": "^3.0.0",
-    "react-select": "^5.3.1"
+    "react-select": "^5.3.2"
   },
   "devDependencies": {
     "@types/react": "^17.0.12",
