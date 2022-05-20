@@ -146,3 +146,4 @@ return (
 | value          | Nullable\<Item\>                  |                                | The selected item.                                                               |
 | getOptionLabel | (option: Item) => string          | (option: Item) => option.label | Resolves option data to a string to be displayed as the label by components      |
 | getOptionValue | (option: Item) => string          | (option: Item) => option.value | Resolves option data to a string to compare options and specify value attributes |
+| isLoading      | boolean                           |                                | Is the select in a state of loading (async). Useful when manually loading items  |

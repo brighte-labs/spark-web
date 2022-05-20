@@ -35,6 +35,8 @@ export type ComboboxProps<Item = unknown> = {
   getOptionLabel?: GetOptionLabel<Item>;
   /** Resolves option data to a string to compare options and specify value attributes */
   getOptionValue?: GetOptionValue<Item>;
+  /** Is the select in a state of loading (async) */
+  isLoading?: boolean;
 };
 
 const isBrowser = typeof window !== 'undefined';
@@ -66,6 +68,7 @@ export const Combobox = <Item,>({
   onInputChange,
   getOptionLabel,
   getOptionValue,
+  isLoading,
   value,
 }: ComboboxProps<Item>) => {
   const [{ disabled, invalid }, { id: inputId, ...a11yProps }] =
@@ -88,7 +91,8 @@ export const Combobox = <Item,>({
       value={value}
       options={items}
       isDisabled={disabled}
-      isLoading={loading}
+      // * When using react-query or manually loading items, we need to use isLoading to determine the loading status
+      isLoading={isLoading ?? loading}
       placeholder={placeholder}
       theme={themeOverride}
       menuPortalTarget={isBrowser ? document.body : undefined}
