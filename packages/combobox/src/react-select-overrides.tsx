@@ -23,6 +23,7 @@ export const reactSelectComponentsOverride: SelectComponentsConfig<
     </components.DropdownIndicator>
   ),
   IndicatorSeparator: () => null,
+  LoadingIndicator: () => null,
   LoadingMessage: props => (
     <components.LoadingMessage {...props}>
       <Box paddingY="large">
