@@ -7,48 +7,13 @@ import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import { useRouter } from 'next/router';
 import type { ReactNode } from 'react';
-import {
-  createContext,
-  Fragment,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 import { HEADER_HEIGHT, SIDEBAR_WIDTH } from './constants';
 
-// from https://stackoverflow.com/questions/42123407/does-typescript-support-mutually-exclusive-types#comment123255834_53229567
-type UnionKeys<T> = T extends T ? keyof T : never;
-
-// Improve intellisense
-type Expand<T> = T extends T ? { [K in keyof T]: T[K] } : never;
-
-type OneOf<T extends {}[]> = {
-  [K in keyof T]: Expand<
-    T[K] & Partial<Record<Exclude<UnionKeys<T[number]>, keyof T[K]>, never>>
-  >;
-}[number];
-
-/*
-* ie; an object like:
-  {
-    name: "Home",
-    href: "/",
-  },
-  {
-    name: "Components",
-    children: [
-      {
-        name: "Button",
-        href: "/packages/button",
-      }
-    ]
-  }
-]
-*/
-export type SidebarNavType = Array<
-  { name: string } & OneOf<[{ href: string }, { children: SidebarNavType }]>
->;
+type SidebarLink = { name: string; href: string };
+type SidebarGroup = { name: string; children: SidebarLink[] };
+export type SidebarNavType = (SidebarLink | SidebarGroup)[];
 
 // recursively render nav items and their children
 export const NavItems = ({ items }: { items: SidebarNavType }) => {
@@ -57,22 +22,20 @@ export const NavItems = ({ items }: { items: SidebarNavType }) => {
     <Stack as="ul" gap="small">
       {items.map((navItem, key) => (
         <Stack key={key} as="li" gap="small">
-          {navItem.children ? (
-            <Fragment>
-              <Stack gap="medium" paddingLeft="medium" paddingTop="medium">
-                <Text
-                  as="span"
-                  baseline={false}
-                  overflowStrategy="nowrap"
-                  weight="semibold"
-                  size="standard"
-                  tone={'muted'}
-                >
-                  {navItem.name}
-                </Text>
-                <NavItems items={navItem.children} />
-              </Stack>
-            </Fragment>
+          {'children' in navItem ? (
+            <Stack gap="medium" paddingLeft="medium" paddingTop="medium">
+              <Text
+                as="span"
+                baseline={false}
+                overflowStrategy="nowrap"
+                weight="semibold"
+                size="standard"
+                tone={'muted'}
+              >
+                {navItem.name}
+              </Text>
+              <NavItems items={navItem.children} />
+            </Stack>
           ) : (
             <NavLink href={navItem.href} isSelected={navItem.href === asPath}>
               {navItem.name}
