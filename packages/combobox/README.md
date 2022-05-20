@@ -14,7 +14,7 @@ from a large list of values.
 const [value, setValue] = React.useState(null);
 
 return (
-  <Field label="What's your Adventure Time character?">
+  <Field label="What's your favourite Adventure Time character?">
     <Combobox
       placeholder="Select a character"
       items={[
