@@ -3,17 +3,89 @@ import { Box } from '@spark-web/box';
 import { Hidden } from '@spark-web/hidden';
 import { NavLink } from '@spark-web/nav-link';
 import { Stack } from '@spark-web/stack';
+import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import { useRouter } from 'next/router';
 import type { ReactNode } from 'react';
-import { createContext, useContext, useEffect, useState } from 'react';
+import {
+  createContext,
+  Fragment,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 
 import { HEADER_HEIGHT, SIDEBAR_WIDTH } from './constants';
 
-export type SidebarNavItemType = { name: string; href: string };
+// from https://stackoverflow.com/questions/42123407/does-typescript-support-mutually-exclusive-types#comment123255834_53229567
+type UnionKeys<T> = T extends T ? keyof T : never;
 
-export const Sidebar = ({ items }: { items: SidebarNavItemType[] }) => {
-  const { asPath, events } = useRouter();
+// Improve intellisense
+type Expand<T> = T extends T ? { [K in keyof T]: T[K] } : never;
+
+type OneOf<T extends {}[]> = {
+  [K in keyof T]: Expand<
+    T[K] & Partial<Record<Exclude<UnionKeys<T[number]>, keyof T[K]>, never>>
+  >;
+}[number];
+
+/*
+* ie; an object like:
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "Components",
+    children: [
+      {
+        name: "Button",
+        href: "/packages/button",
+      }
+    ]
+  }
+]
+*/
+export type SidebarNavType = Array<
+  { name: string } & OneOf<[{ href: string }, { children: SidebarNavType }]>
+>;
+
+// recursively render nav items and their children
+export const NavItems = ({ items }: { items: SidebarNavType }) => {
+  const { asPath } = useRouter();
+  return (
+    <Stack as="ul" gap="small">
+      {items.map((navItem, key) => (
+        <Stack key={key} as="li" gap="small">
+          {navItem.children ? (
+            <Fragment>
+              <Stack gap="medium" paddingLeft="medium" paddingTop="medium">
+                <Text
+                  as="span"
+                  baseline={false}
+                  overflowStrategy="nowrap"
+                  weight="semibold"
+                  size="standard"
+                  tone={'muted'}
+                >
+                  {navItem.name}
+                </Text>
+                <NavItems items={navItem.children} />
+              </Stack>
+            </Fragment>
+          ) : (
+            <NavLink href={navItem.href} isSelected={navItem.href === asPath}>
+              {navItem.name}
+            </NavLink>
+          )}
+        </Stack>
+      ))}
+    </Stack>
+  );
+};
+
+export const Sidebar = ({ items }: { items: SidebarNavType }) => {
+  const { events } = useRouter();
   const { sidebarIsOpen, closeSidebar } = useSidebarContext();
   useEffect(() => {
     // subscribe to next/router event
@@ -52,15 +124,7 @@ export const Sidebar = ({ items }: { items: SidebarNavItemType[] }) => {
         className={css(fixedScrollableArea)}
       >
         <nav aria-label="Page navigation">
-          <Stack as="ul" gap="small">
-            {items.map(({ href, name }) => (
-              <Box key={name} as="li">
-                <NavLink href={href} isSelected={href === asPath}>
-                  {name}
-                </NavLink>
-              </Box>
-            ))}
-          </Stack>
+          <NavItems items={items} />
         </nav>
       </Box>
     </Hidden>

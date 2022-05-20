@@ -4,14 +4,14 @@ import { useTheme } from '@spark-web/theme';
 import type { ReactNode } from 'react';
 
 import { Header } from './header';
-import type { SidebarNavItemType } from './sidebar';
+import type { SidebarNavType } from './sidebar';
 import { Sidebar, SidebarContextProvider } from './sidebar';
 
 export function Layout({
   navigation,
   children,
 }: {
-  navigation: SidebarNavItemType[];
+  navigation: SidebarNavType;
   children: ReactNode;
 }): JSX.Element {
   const theme = useTheme();
