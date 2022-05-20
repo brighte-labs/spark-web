@@ -1,3 +1,5 @@
+const babelConfig = require('../babel.config');
+
 module.exports = {
   title: 'Playroom | Brighte Spark',
   components: './playroom/components.ts',
@@ -20,18 +22,7 @@ module.exports = {
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
-            options: {
-              presets: [
-                '@babel/preset-env',
-                '@babel/preset-typescript',
-                [
-                  '@babel/preset-react',
-                  {
-                    runtime: 'automatic',
-                  },
-                ],
-              ],
-            },
+            options: babelConfig,
           },
         },
       ],
