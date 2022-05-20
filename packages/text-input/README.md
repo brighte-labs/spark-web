@@ -118,9 +118,9 @@ slots to place the start and end adornments.
 
 ### InputContainer
 
-| Prop            | Type                               | Default | Description |
-| --------------- | ---------------------------------- | ------- | ----------- | --- |
-| startAdornment? | ReactElement\<InputAdornmentProps> |         |             |     |
-| endAdornment?   | ReactElement\<InputAdornmentProps> |         |             |     |
+| Prop            | Type                                | Default | Description                     |
+| --------------- | ----------------------------------- | ------- | ------------------------------- |
+| startAdornment? | ReactElement\<InputAdornmentProps\> |         | Slot to start render adornment. |
+| endAdornment?   | ReactElement\<InputAdornmentProps\> |         | Slot to end render adornment.   |
 
 Extra props are passed into the underlying [`Box`](/package/box) component.

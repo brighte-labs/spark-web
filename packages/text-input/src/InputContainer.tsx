@@ -7,7 +7,9 @@ import type { ReactElement } from 'react';
 import type { InputAdornmentProps } from './InputAdornment';
 
 export type InputContainerProps = {
+  /** Slot to start render adornment. */
   startAdornment?: ReactElement<InputAdornmentProps> | null;
+  /** Slot to end render adornment. */
   endAdornment?: ReactElement<InputAdornmentProps> | null;
 } & Omit<BoxProps, 'background' | 'position'>;
 
