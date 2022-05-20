@@ -6,14 +6,14 @@ import { DefaultSeo } from 'next-seo';
 
 import { allPackages } from '../.contentlayer/generated';
 import { Layout } from '../components/layout';
-import type { SidebarNavType } from '../components/sidebar';
+import type { SidebarItem } from '../components/sidebar';
 
 function App({
   Component,
   pageProps,
   navigation,
 }: AppProps & {
-  navigation: SidebarNavType;
+  navigation: SidebarItem[];
 }): JSX.Element {
   return (
     <SparkProvider linkComponent={UniversalNextLink}>
