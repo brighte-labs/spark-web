@@ -9,7 +9,7 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.18.0",
-    "@emotion/css": "^11.7.1",
+    "@emotion/css": "^11.9.0",
     "@radix-ui/react-dialog": "^0.1.5",
     "@spark-web/a11y": "^1.0.4",
     "@spark-web/box": "^1.0.4",

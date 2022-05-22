@@ -16,7 +16,7 @@
     "typecheck": "./scripts/generate-components-index.js && yarn contentlayer:build && tsc --noEmit"
   },
   "dependencies": {
-    "@emotion/css": "^11.7.1",
+    "@emotion/css": "^11.9.0",
     "@spark-web/a11y": "^1.0.4",
     "@spark-web/accordion": "^1.0.4",
     "@spark-web/alert": "^1.0.4",
