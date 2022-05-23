@@ -1,9 +1,10 @@
 import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
+import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
-import type { ReactNode, VFC } from 'react';
+import type { ReactNode } from 'react';
 import { forwardRef } from 'react';
 
 export type FieldsetProps = {
@@ -23,8 +24,8 @@ export type FieldsetProps = {
 };
 
 export const Fieldset = forwardRef<HTMLFieldSetElement, FieldsetProps>(
-  ({ children, data, id, legend, gap = 'small' }, ref) => (
-    <Box data={data} as="fieldset" ref={ref} id={id}>
+  ({ children, data, id, legend, gap = 'small' }, forwardedRef) => (
+    <Box as="fieldset" data={data} id={id} ref={forwardedRef}>
       {legend && (
         <>
           <Text as="legend" inline tone="neutral" weight="semibold">
@@ -33,7 +34,7 @@ export const Fieldset = forwardRef<HTMLFieldSetElement, FieldsetProps>(
           <Gap gap={gap} />
         </>
       )}
-      {children}
+      <Stack gap={gap}>{children}</Stack>
     </Box>
   )
 );
@@ -44,7 +45,7 @@ Fieldset.displayName = 'Fieldset';
  * Hack to get around `<fieldset/>` not supporting `display: flex`.
  * @see https://www.chromestatus.com/feature/5962796351094784
  */
-const Gap: VFC<{ gap: 'small' | 'medium' | 'large' }> = ({ gap }) => {
+const Gap = ({ gap }: { gap: 'small' | 'medium' | 'large' }) => {
   const { spacing } = useTheme();
   return <Box aria-hidden className={css({ height: spacing[gap] })} />;
 };
