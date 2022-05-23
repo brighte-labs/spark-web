@@ -110,9 +110,7 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(
       'reserve-space': (
         <Fragment>
           {hiddenLabel}
-          <Text inline aria-hidden>
-            &nbsp;
-          </Text>
+          <Text aria-hidden>&nbsp;</Text>
         </Fragment>
       ),
     };
