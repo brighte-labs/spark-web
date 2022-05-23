@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/row",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "main": "dist/spark-web-row.cjs.js",
   "module": "dist/spark-web-row.esm.js",
@@ -10,10 +10,10 @@
   "dependencies": {
     "@babel/runtime": "^7.18.0",
     "@emotion/css": "^11.9.0",
-    "@spark-web/box": "^1.0.4",
-    "@spark-web/divider": "^1.0.4",
-    "@spark-web/theme": "^3.0.0",
-    "@spark-web/utils": "^1.1.2"
+    "@spark-web/box": "^1.0.5",
+    "@spark-web/divider": "^1.0.5",
+    "@spark-web/theme": "^3.0.1",
+    "@spark-web/utils": "^1.1.3"
   },
   "devDependencies": {
     "@types/react": "^17.0.12",

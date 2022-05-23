@@ -1,5 +1,27 @@
 # @spark-web/checkbox
 
+## 1.0.5
+
+### Patch Changes
+
+- [#113](https://github.com/brighte-labs/spark-web/pull/113)
+  [`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update
+  dependencies
+
+- Updated dependencies
+  [[`08752c3`](https://github.com/brighte-labs/spark-web/commit/08752c350b53cde0657ec32f03f9932dec835e33),
+  [`efa263a`](https://github.com/brighte-labs/spark-web/commit/efa263aee2c33297edb19203ae1d82abd99d298d),
+  [`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba)]:
+  - @spark-web/a11y@1.0.5
+  - @spark-web/field@2.0.0
+  - @spark-web/box@1.0.5
+  - @spark-web/control-label@1.0.5
+  - @spark-web/icon@1.1.3
+  - @spark-web/stack@1.0.5
+  - @spark-web/text@1.0.5
+  - @spark-web/theme@3.0.1
+
 ## 1.0.4
 
 ### Patch Changes

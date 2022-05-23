@@ -1,5 +1,28 @@
 # @spark-web/fieldset
 
+## 1.1.0
+
+### Minor Changes
+
+- [#122](https://github.com/brighte-labs/spark-web/pull/122)
+  [`5acb5b1`](https://github.com/brighte-labs/spark-web/commit/5acb5b1122bc23537cbda06aebab463b86f7f7d9)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Add Stack to
+  control space between children
+
+### Patch Changes
+
+- [#113](https://github.com/brighte-labs/spark-web/pull/113)
+  [`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update
+  dependencies
+
+- Updated dependencies
+  [[`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba)]:
+  - @spark-web/box@1.0.5
+  - @spark-web/stack@1.0.5
+  - @spark-web/text@1.0.5
+  - @spark-web/theme@3.0.1
+
 ## 1.0.4
 
 ### Patch Changes

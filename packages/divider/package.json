@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/divider",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "main": "dist/spark-web-divider.cjs.js",
   "module": "dist/spark-web-divider.esm.js",
@@ -10,7 +10,7 @@
   "dependencies": {
     "@babel/runtime": "^7.18.0",
     "@emotion/css": "^11.9.0",
-    "@spark-web/theme": "^3.0.0"
+    "@spark-web/theme": "^3.0.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.12",

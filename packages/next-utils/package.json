@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/next-utils",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "main": "dist/spark-web-next-utils.cjs.js",
   "module": "dist/spark-web-next-utils.esm.js",
@@ -9,8 +9,8 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.18.0",
-    "@spark-web/link": "^1.0.4",
-    "@spark-web/ssr": "1.0.3",
+    "@spark-web/link": "^1.0.5",
+    "@spark-web/ssr": "1.0.4",
     "next": "^12.1.6"
   },
   "devDependencies": {
