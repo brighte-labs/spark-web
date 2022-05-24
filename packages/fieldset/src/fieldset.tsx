@@ -28,7 +28,7 @@ export const Fieldset = forwardRef<HTMLFieldSetElement, FieldsetProps>(
     <Box as="fieldset" data={data} id={id} ref={forwardedRef}>
       {legend && (
         <>
-          <Text as="legend" inline tone="neutral" weight="semibold">
+          <Text as="legend" tone="neutral" weight="semibold">
             {legend}
           </Text>
           <Gap gap={gap} />
