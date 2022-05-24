@@ -115,18 +115,7 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(
     };
 
     const LabelWrapper =
-      labelVisibility === 'hidden'
-        ? Fragment
-        : ({ children }: { children: ReactNode }) => (
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="spaceBetween"
-              gap="large"
-            >
-              {children}
-            </Box>
-          );
+      labelVisibility === 'hidden' ? Fragment : FieldLabelWrapper;
 
     return (
       <FieldContextProvider value={fieldContext}>
@@ -167,6 +156,18 @@ export function useFieldIds(id?: string) {
 
 // Styled components
 // ------------------------------
+function FieldLabelWrapper({ children }: { children: ReactNode }) {
+  return (
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="spaceBetween"
+      gap="large"
+    >
+      {children}
+    </Box>
+  );
+}
 
 const messageToneMap = {
   critical: 'critical',
