@@ -47,6 +47,7 @@ describe('Combobox component', () => {
           items={comboProps?.items || items}
           onChange={value => value}
           value={'value'}
+          data={comboProps?.data}
         />
       </Field>
     );
@@ -90,6 +91,16 @@ describe('Combobox component', () => {
     renderComponent(undefined, props);
     expect(screen.getByRole('combobox').getAttribute('aria-invalid')).toEqual(
       'true'
+    );
+  });
+  it('should pass through data attributes', () => {
+    const props: ComboboxProps = {
+      items,
+      data: { testAttr: 'some attr' },
+    };
+    renderComponent(props);
+    expect(screen.getByRole('combobox').getAttribute('data-testAttr')).toEqual(
+      'some attr'
     );
   });
 });

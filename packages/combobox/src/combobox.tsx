@@ -1,4 +1,9 @@
 import { useFieldContext } from '@spark-web/field';
+import type {
+  DataAttributeMap } from '@spark-web/utils/internal';
+import {
+  buildDataAttributes
+} from '@spark-web/utils/internal';
 import { useEffect, useRef, useState } from 'react';
 import type { GetOptionLabel, GetOptionValue } from 'react-select';
 import ReactSelect from 'react-select';
@@ -45,6 +50,9 @@ export type ComboboxProps<Item = unknown> = {
 
   /** The selected item. */
   value?: Nullable<Item>;
+
+  /** Sets data attributes on the component. */
+  data?: DataAttributeMap;
 };
 
 const isBrowser = typeof window !== 'undefined';
@@ -78,6 +86,7 @@ export const Combobox = <Item,>({
   getOptionValue,
   isLoading,
   value,
+  data,
 }: ComboboxProps<Item>) => {
   const [{ disabled, invalid }, { id: inputId, ...a11yProps }] =
     useFieldContext();
@@ -86,7 +95,7 @@ export const Combobox = <Item,>({
   const themeOverride = useReactSelectThemeOverride();
   const componentsOverride = getReactSelectComponentsOverride({
     ...a11yProps,
-    // TODO: pass in data attributes as well
+    ...(data ? buildDataAttributes(data) : undefined),
   });
 
   const { items, loading } = useAwaitableItems(_items);

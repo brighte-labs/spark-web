@@ -136,14 +136,18 @@ return (
 
 ## Props
 
-| Prop           | Type                              | Default                        | Description                                                                       |
-| -------------- | --------------------------------- | ------------------------------ | --------------------------------------------------------------------------------- |
-| getOptionLabel | (option: Item) => string          | (option: Item) => option.label | Resolves option data to a string to be displayed as the label by components.      |
-| getOptionValue | (option: Item) => string          | (option: Item) => option.value | Resolves option data to a string to compare options and specify value attributes. |
-| inputValue     | string                            |                                | The value of the input.                                                           |
-| isLoading      | boolean                           |                                | When true, shows a loading indicator in the dropdown instead of results.          |
-| items          | Item[] \| Promise\<Item[]\>       |                                | Array of items for the user to select from.                                       |
-| onChange       | (value: Nullable\<Item\>) => void |                                | Called when an item is selected.                                                  |
-| onInputChange  | (inputValue: string) => void      |                                | Called whenever the input value changes. Use to filter the items.                 |
-| placeholder    | string                            |                                | The text that appears in the form control when it has no value set.               |
-| value          | Nullable\<Item\>                  |                                | The selected item.                                                                |
+| Prop           | Type                                   | Default                        | Description                                                                       |
+| -------------- | -------------------------------------- | ------------------------------ | --------------------------------------------------------------------------------- |
+| getOptionLabel | (option: Item) => string               | (option: Item) => option.label | Resolves option data to a string to be displayed as the label by components.      |
+| getOptionValue | (option: Item) => string               | (option: Item) => option.value | Resolves option data to a string to compare options and specify value attributes. |
+| inputValue     | string                                 |                                | The value of the input.                                                           |
+| isLoading      | boolean                                |                                | When true, shows a loading indicator in the dropdown instead of results.          |
+| items          | Item[] \| Promise\<Item[]\>            |                                | Array of items for the user to select from.                                       |
+| onChange       | (value: Nullable\<Item\>) => void      |                                | Called when an item is selected.                                                  |
+| onInputChange  | (inputValue: string) => void           |                                | Called whenever the input value changes. Use to filter the items.                 |
+| placeholder    | string                                 |                                | The text that appears in the form control when it has no value set.               |
+| value          | Nullable\<Item\>                       |                                | The selected item.                                                                |
+| data?          | [DataAttributeMap][data-attribute-map] |                                | Sets data attributes on the component.                                            |
+
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1
