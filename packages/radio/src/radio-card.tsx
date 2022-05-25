@@ -1,9 +1,10 @@
 import { useId } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
-import { Content } from '@spark-web/control-label';
 import { Stack } from '@spark-web/stack';
+import type { TextProps } from '@spark-web/text';
 import { Text } from '@spark-web/text';
-import { forwardRef } from 'react';
+import type { ReactNode } from 'react';
+import { forwardRef, Fragment } from 'react';
 
 import { useRadioGroupContext } from './context';
 import { RadioPrimitive } from './radio-primitive';
@@ -70,3 +71,13 @@ export const RadioCard = forwardRef<HTMLInputElement, RadioCardProps>(
 );
 
 RadioCard.displayName = 'RadioCard';
+
+function Content({
+  children,
+}: { children: ReactNode } & Pick<TextProps, 'id' | 'weight'>) {
+  if (typeof children === 'string' || typeof children === 'number') {
+    return <Text>{children}</Text>;
+  }
+
+  return <Fragment>{children}</Fragment>;
+}
