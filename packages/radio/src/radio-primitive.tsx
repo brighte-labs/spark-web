@@ -49,8 +49,9 @@ function useRadioStyles({ size }: { size: RadioSize }) {
   const theme = useTheme();
   const focusRingStyles = useFocusRing({ always: true });
 
-  const sizeToken = sizeToScaleKey[size];
-  const resolvedSize = theme.sizing[sizeToken];
+  const outerSize = sizeToScaleKey[size];
+  // Maps to 6px for small, and 9px for medium
+  const innerSize = theme.sizing[outerSize] / 2.6666666667;
 
   const transitionProperties = {
     transitionProperty:
@@ -61,10 +62,13 @@ function useRadioStyles({ size }: { size: RadioSize }) {
 
   return {
     border: 'field',
-    display: 'inline-block',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
     background: 'surface',
-    height: sizeToken,
-    width: sizeToken,
+    height: outerSize,
+    width: outerSize,
     borderRadius: 'full',
     position: 'relative',
     className: css({
@@ -99,8 +103,14 @@ function useRadioStyles({ size }: { size: RadioSize }) {
       '&:checked::before': {
         background: theme.color.background.surface,
         borderRadius: theme.border.radius.full,
-        height: resolvedSize / 2.6666666667,
-        width: resolvedSize / 2.6666666667,
+        height: innerSize,
+        width: innerSize,
+      },
+
+      'label:hover &:not([disabled], &[aria-disabled=true]):checked': {
+        // TODO: radio gets lighter on hover instead of darker like in the designs, will fix once tokens are revised
+        background: theme.backgroundInteractions.primaryHover,
+        border: theme.border.color.fieldAccent,
       },
 
       '&[disabled]:checked, &[aria-disabled=true]:checked': {
