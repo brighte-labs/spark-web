@@ -7,7 +7,7 @@ import { forwardRef } from 'react';
 import type { RadioPrimitiveProps, RadioSize } from './types';
 
 export const RadioPrimitive = forwardRef<HTMLInputElement, RadioPrimitiveProps>(
-  ({ size = 'small', data, ...inputProps }, forwardedRef) => {
+  ({ size = 'small', ...inputProps }, forwardedRef) => {
     const theme = useTheme();
     const responsiveStyles = theme.utils.responsiveStyles({
       mobile: { height: theme.typography.text.small.mobile.capHeight },
@@ -26,11 +26,10 @@ export const RadioPrimitive = forwardRef<HTMLInputElement, RadioPrimitiveProps>(
         <Box
           {...inputProps}
           {...radioStyles}
-          as="input"
           aria-checked={inputProps.checked}
           aria-disabled={inputProps.disabled}
           ref={forwardedRef}
-          data={data}
+          as="input"
           type="radio"
         />
         {/* Used for styling of Radio Card */}
@@ -64,15 +63,21 @@ function useRadioStyles({ size }: { size: RadioSize }) {
 
   return {
     border: 'field',
+    borderRadius: 'full',
+    background: 'surface',
+
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-    background: 'surface',
+
     height: outerSize,
     width: outerSize,
-    borderRadius: 'full',
+
     position: 'relative',
+
+    shadow: 'small',
+
     className: css({
       appearance: 'none',
       verticalAlign: 'text-bottom',

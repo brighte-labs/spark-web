@@ -37,6 +37,8 @@ export const RadioCard = forwardRef<HTMLInputElement, RadioCardProps>(
         aria-labelledby={labelId}
         aria-describedby={description ? descriptionId : undefined}
         htmlFor={id}
+        // Styles
+        cursor={isDisabled ? 'default' : 'pointer'}
         padding="large"
         position="relative"
       >
