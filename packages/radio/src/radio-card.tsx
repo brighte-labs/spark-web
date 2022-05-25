@@ -57,7 +57,14 @@ export const RadioCard = forwardRef<HTMLInputElement, RadioCardProps>(
             id={id}
           />
           <Stack gap="large">
-            <Content id={labelId} weight={description ? 'semibold' : 'regular'}>
+            <Content
+              id={labelId}
+              /**
+               * If no description is provided, use a lighter font-weight
+               * users can provide their own Text if they need to override this
+               */
+              weight={description ? 'semibold' : 'regular'}
+            >
               {children}
             </Content>
             {description && (
