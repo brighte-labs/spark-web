@@ -33,6 +33,8 @@ export const RadioPrimitive = forwardRef<HTMLInputElement, RadioPrimitiveProps>(
           data={data}
           type="radio"
         />
+        {/* Used for styling of Radio Card */}
+        <span aria-hidden />
       </Box>
     );
   }
@@ -120,6 +122,40 @@ function useRadioStyles({ size }: { size: RadioSize }) {
       },
       '&[disabled]:checked::before, &[aria-disabled=true]:checked::before': {
         background: theme.color.background.fieldAccent,
+      },
+
+      // RadioCard styles
+      '&[data-radio-card=true] + span': {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        borderColor: theme.border.color.field,
+        borderStyle: 'solid',
+        borderWidth: theme.border.width.standard,
+        borderRadius: theme.border.radius.small,
+        pointerEvents: 'none',
+        ...transitionProperties,
+      },
+
+      'label:hover &:not([disabled], &[aria-disabled=true]) + span': {
+        borderColor: theme.border.color.primaryHover,
+      },
+
+      '&[data-radio-card=true]:focus': {
+        borderColor: theme.border.color.primary,
+        boxShadow: 'none',
+      },
+
+      '&[data-radio-card=true]:focus + span': {
+        borderColor: theme.border.color.primary,
+        ...focusRingStyles,
+      },
+
+      '&[data-radio-card=true]:checked + span': {
+        borderColor: theme.border.color.primary,
+        borderWidth: theme.border.width.large,
       },
     }),
   } as const;

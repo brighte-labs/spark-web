@@ -1,3 +1,4 @@
+import type { ContentProps } from '@spark-web/control-label';
 import type { Tone } from '@spark-web/field';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { InputHTMLAttributes, ReactNode } from 'react';
@@ -57,4 +58,9 @@ export type RadioGroupProps<Value extends string> = {
 
   /** The value of the nested radios. */
   value: Value;
+};
+
+export type RadioCardProps = Omit<RadioProps, 'children' | 'id'> & {
+  children: ContentProps['children'];
+  description?: string;
 };
