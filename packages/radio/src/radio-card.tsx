@@ -74,9 +74,10 @@ RadioCard.displayName = 'RadioCard';
 
 function Content({
   children,
+  ...textProps
 }: { children: ReactNode } & Pick<TextProps, 'id' | 'weight'>) {
   if (typeof children === 'string' || typeof children === 'number') {
-    return <Text>{children}</Text>;
+    return <Text {...textProps}>{children}</Text>;
   }
 
   return <Fragment>{children}</Fragment>;
