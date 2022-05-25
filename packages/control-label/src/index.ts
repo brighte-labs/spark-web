@@ -1,4 +1,5 @@
-export { ControlLabel } from './control-label';
+export { Content, ControlLabel } from './control-label';
 
 // types
-export type { ControlLabelProps } from './control-label';
+
+export type { ContentProps, ControlLabelProps } from './control-label';
