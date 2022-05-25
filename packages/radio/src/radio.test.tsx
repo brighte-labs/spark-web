@@ -74,7 +74,7 @@ describe('Radio component', () => {
     renderComponent({ label, value, data });
     const attributeUnderTest = screen
       .getByDisplayValue('some value')
-      .parentElement?.getAttribute('data-testattr');
+      .getAttribute('data-testattr');
     expect(attributeUnderTest).toEqual('some attr');
   });
 });
