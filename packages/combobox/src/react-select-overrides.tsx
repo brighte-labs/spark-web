@@ -1,5 +1,6 @@
 import { useFocusRing } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
+import type { InputPropsDerivedFromField } from '@spark-web/field';
 import { ChevronDownIcon } from '@spark-web/icon';
 import { Spinner } from '@spark-web/spinner';
 import { Text, useText } from '@spark-web/text';
@@ -12,18 +13,10 @@ import type {
 } from 'react-select';
 import { components } from 'react-select';
 
-export const reactSelectComponentsOverride: SelectComponentsConfig<
-  any,
-  false,
-  GroupBase<any>
-> = {
-  Input: props => (
-    <components.Input
-      {...props}
-      aria-invalid={props.selectProps['aria-invalid']}
-      aria-describedby={props.selectProps['aria-labelledby']}
-    />
-  ),
+export const getReactSelectComponentsOverride = (
+  componentProps: Omit<InputPropsDerivedFromField, 'id'>
+): SelectComponentsConfig<any, false, GroupBase<any>> => ({
+  Input: props => <components.Input {...props} {...componentProps} />,
   DropdownIndicator: props => (
     <components.DropdownIndicator {...props}>
       <ChevronDownIcon size="xxsmall" tone="muted" />
@@ -45,7 +38,7 @@ export const reactSelectComponentsOverride: SelectComponentsConfig<
       </Box>
     </components.NoOptionsMessage>
   ),
-};
+});
 
 export const useReactSelectStylesOverride = <Item,>({
   invalid,

@@ -4,7 +4,7 @@ import type { GetOptionLabel, GetOptionValue } from 'react-select';
 import ReactSelect from 'react-select';
 
 import {
-  reactSelectComponentsOverride,
+  getReactSelectComponentsOverride,
   useReactSelectStylesOverride,
   useReactSelectThemeOverride,
 } from './react-select-overrides';
@@ -84,14 +84,16 @@ export const Combobox = <Item,>({
 
   const stylesOverride = useReactSelectStylesOverride<Item>({ invalid });
   const themeOverride = useReactSelectThemeOverride();
+  const componentsOverride = getReactSelectComponentsOverride({
+    ...a11yProps,
+    // TODO: pass in data attributes as well
+  });
 
   const { items, loading } = useAwaitableItems(_items);
 
   return (
     <ReactSelect<Item>
-      {...a11yProps}
-      aria-labelledby={a11yProps['aria-describedby']}
-      components={reactSelectComponentsOverride}
+      components={componentsOverride}
       inputId={inputId}
       inputValue={inputValue}
       onChange={onChange}
