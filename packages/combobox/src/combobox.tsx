@@ -1,9 +1,6 @@
 import { useFieldContext } from '@spark-web/field';
-import type {
-  DataAttributeMap } from '@spark-web/utils/internal';
-import {
-  buildDataAttributes
-} from '@spark-web/utils/internal';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
+import { buildDataAttributes } from '@spark-web/utils/internal';
 import { useEffect, useRef, useState } from 'react';
 import type { GetOptionLabel, GetOptionValue } from 'react-select';
 import ReactSelect from 'react-select';
