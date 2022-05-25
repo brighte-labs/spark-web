@@ -1,9 +1,13 @@
 import { css } from '@emotion/css';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
+import { buildDataAttributes } from '@spark-web/utils/internal';
 import { forwardRefWithAs } from '@spark-web/utils/ts';
 import type { ReactNode } from 'react';
 
 export type VisuallyHiddenProps = {
   children?: ReactNode;
+  /** Map of data attributes. */
+  data?: DataAttributeMap;
 };
 
 /**
@@ -11,8 +15,15 @@ export type VisuallyHiddenProps = {
  * @see https://a11yproject.com/posts/how-to-hide-content/
  */
 export const VisuallyHidden = forwardRefWithAs<'span', VisuallyHiddenProps>(
-  ({ as: Tag = 'span', ...props }, ref) => {
-    return <Tag ref={ref} className={css(visuallyHiddenStyles)} {...props} />;
+  ({ as: Tag = 'span', data, ...props }, forwardedRef) => {
+    return (
+      <Tag
+        {...props}
+        {...(data ? buildDataAttributes(data) : undefined)}
+        ref={forwardedRef}
+        className={css(visuallyHiddenStyles)}
+      />
+    );
   }
 );
 

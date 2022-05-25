@@ -52,8 +52,12 @@ conveyed to non-visual users.
 
 ### Props
 
-| Prop     | Type            | Default | Description                                           |
-| -------- | --------------- | ------- | ----------------------------------------------------- |
-| children | React.ReactNode |         | Children elements to be hidden within this component. |
+| Prop     | Type                                   | Default | Description                                           |
+| -------- | -------------------------------------- | ------- | ----------------------------------------------------- |
+| children | React.ReactNode                        |         | Children elements to be hidden within this component. |
+| data?    | [DataAttributeMap][data-attribute-map] |         | Sets data attributes on the component.                |
+
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1
 
 Additional props are passed to the `span` element and are not listed.
