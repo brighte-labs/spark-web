@@ -1,4 +1,4 @@
-import { useId } from '@spark-web/a11y';
+import { composeId, useId } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
 import { Stack } from '@spark-web/stack';
 import type { TextProps } from '@spark-web/text';
@@ -27,14 +27,14 @@ export const RadioCard = forwardRef<HTMLInputElement, RadioCardProps>(
     const isDisabled = disabled ?? groupState?.disabled ?? false;
     const size = 'small';
 
-    const id = useId();
-    const labelId = `${id}-label`;
-    const descriptionId = `${id}-description`;
+    const inputId = useId();
+    const labelId = composeId(inputId, 'label');
+    const descriptionId = composeId(inputId, 'description');
 
     return (
       <Stack
         as="label"
-        htmlFor={id}
+        htmlFor={inputId}
         // Styles
         background={isDisabled ? 'inputDisabled' : 'surface'}
         cursor={isDisabled ? 'default' : 'pointer'}
@@ -55,7 +55,7 @@ export const RadioCard = forwardRef<HTMLInputElement, RadioCardProps>(
             ref={forwardedRef}
             disabled={isDisabled}
             size={size}
-            id={id}
+            id={inputId}
           />
           <Stack gap="large">
             <Content
