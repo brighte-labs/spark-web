@@ -1,4 +1,5 @@
 import type { Tone } from '@spark-web/field';
+import type { FieldsetProps } from '@spark-web/fieldset';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { InputHTMLAttributes, ReactNode } from 'react';
 
@@ -37,8 +38,17 @@ export type RadioGroupProps<Value extends string> = {
   /** When true, disables the group of nested radios. */
   disabled?: boolean;
 
+  /** Vertical spacing between children. */
+  gap?: FieldsetProps['gap'];
+
   /** An identifier which must be unique in the whole document. */
   id?: string;
+
+  /**
+   * Provide a caption that describes the set of form fields.
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend
+   */
+  legend: FieldsetProps['legend'];
 
   /** Provide a message, informing the user about changes in state. */
   message?: string;

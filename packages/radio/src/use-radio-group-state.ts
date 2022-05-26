@@ -3,7 +3,10 @@ import type { ChangeEvent } from 'react';
 
 import type { RadioGroupProps, RadioProps } from './types';
 
-type StateHookProps<T extends string> = Omit<RadioGroupProps<T>, 'children'>;
+type StateHookProps<T extends string> = Omit<
+  RadioGroupProps<T>,
+  'children' | 'gap' | 'legend'
+>;
 
 export function useRadioGroupState<Value extends string>(
   props: StateHookProps<Value>
