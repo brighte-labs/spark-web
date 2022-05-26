@@ -33,7 +33,7 @@ export const RadioPrimitive = forwardRef<HTMLInputElement, RadioPrimitiveProps>(
           type="radio"
         />
         {/* Used for styling of Radio Card */}
-        <span aria-hidden />
+        <span aria-hidden data-radio-border="true" />
       </Box>
     );
   }
@@ -130,7 +130,7 @@ function useRadioStyles({ size }: { size: RadioSize }) {
       },
 
       // RadioCard styles
-      '&[data-radio-card=true] + span': {
+      '&[data-radio-card=true] + [data-radio-border=true]': {
         position: 'absolute',
         top: 0,
         right: 0,
@@ -144,21 +144,27 @@ function useRadioStyles({ size }: { size: RadioSize }) {
         ...transitionProperties,
       },
 
-      'label:hover &:not([disabled], &[aria-disabled=true]) + span': {
-        borderColor: theme.border.color.primaryHover,
-      },
+      'label:hover &:not([disabled], &[aria-disabled=true]) + [data-radio-border=true]':
+        {
+          borderColor: theme.border.color.primaryHover,
+        },
 
       '&[data-radio-card=true]:focus': {
         borderColor: theme.border.color.primary,
         boxShadow: 'none',
       },
 
-      '&[data-radio-card=true]:focus + span': {
+      '&[data-radio-card=true]:focus + [data-radio-border=true]': {
         borderColor: theme.border.color.primary,
         ...focusRingStyles,
       },
 
-      '&[data-radio-card=true]:checked + span': {
+      '&[data-radio-card=true]:is([disabled], &[aria-disabled=true]) + [data-radio-border=true]':
+        {
+          borderColor: theme.border.color.field,
+        },
+
+      '&[data-radio-card=true]:checked + [data-radio-border=true]': {
         borderColor: theme.border.color.primary,
         borderWidth: theme.border.width.large,
       },

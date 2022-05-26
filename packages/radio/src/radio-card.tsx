@@ -38,6 +38,7 @@ export const RadioCard = forwardRef<HTMLInputElement, RadioCardProps>(
         aria-describedby={description ? descriptionId : undefined}
         htmlFor={id}
         // Styles
+        background={isDisabled ? 'inputDisabled' : 'surface'}
         cursor={isDisabled ? 'default' : 'pointer'}
         padding="large"
         position="relative"
@@ -63,12 +64,13 @@ export const RadioCard = forwardRef<HTMLInputElement, RadioCardProps>(
                * If no description is provided, use a lighter font-weight
                * users can provide their own Text if they need to override this
                */
+              tone={isDisabled ? 'disabled' : 'neutral'}
               weight={description ? 'semibold' : 'regular'}
             >
               {children}
             </Content>
             {description && (
-              <Text id={descriptionId} tone="muted">
+              <Text id={descriptionId} tone={isDisabled ? 'disabled' : 'muted'}>
                 {description}
               </Text>
             )}
@@ -84,7 +86,7 @@ RadioCard.displayName = 'RadioCard';
 function Content({
   children,
   ...textProps
-}: { children: ReactNode } & Pick<TextProps, 'id' | 'weight'>) {
+}: { children: ReactNode } & Pick<TextProps, 'id' | 'tone' | 'weight'>) {
   if (typeof children === 'string' || typeof children === 'number') {
     return <Text {...textProps}>{children}</Text>;
   }
