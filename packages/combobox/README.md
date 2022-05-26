@@ -14,7 +14,7 @@ from a large list of values.
 const [value, setValue] = React.useState(null);
 
 return (
-  <Field label="What's your favourite Adventure Time character?">
+  <Field label="Who's your favourite Adventure Time character?">
     <Combobox
       placeholder="Select a character"
       items={[
@@ -32,7 +32,7 @@ return (
 ### Uncontrolled component
 
 ```jsx live
-<Field label="What's your favourite Adventure Time character?">
+<Field label="Who's your favourite Adventure Time character?">
   <Combobox
     placeholder="Select a character"
     items={[
@@ -98,12 +98,42 @@ return (
 );
 ```
 
+## Grouped
+
+```jsx live
+<Field label="Who's your favourite character?">
+  <Combobox
+    placeholder="Select a character"
+    items={[
+      {
+        label: 'Futurama',
+        options: [
+          { label: 'Fry', value: 'fry' },
+          { label: 'Leela', value: 'leela' },
+          { label: 'Bender', value: 'bender' },
+          { label: 'Zoidberg', value: 'zoidberg' },
+        ],
+      },
+      {
+        label: 'South Park',
+        options: [
+          { label: 'Stan', value: 'stan' },
+          { label: 'Kyle', value: 'kyle' },
+          { label: 'Cartman', value: 'cartman' },
+          { label: 'Kenny', value: 'kenny' },
+        ],
+      },
+    ]}
+  />
+</Field>
+```
+
 ## Appearance
 
 ### Disabled
 
 ```jsx live
-<Field label="What's your favourite Adventure Time character?" disabled>
+<Field label="Who's your favourite Adventure Time character?" disabled>
   <Combobox
     placeholder="Select a character"
     items={[
@@ -119,7 +149,7 @@ return (
 
 ```jsx live
 <Field
-  label="What's your favourite Adventure Time character?"
+  label="Who's your favourite Adventure Time character?"
   tone="critical"
   message="Required"
 >
