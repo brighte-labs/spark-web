@@ -46,13 +46,17 @@ const sizeToScaleKey = {
   medium: 'xsmall',
 } as const;
 
+const outerToInnerSize = {
+  xxsmall: 6,
+  xsmall: 9,
+} as const;
+
 function useRadioStyles({ size }: { size: RadioSize }) {
   const theme = useTheme();
   const focusRingStyles = useFocusRing({ always: true });
 
   const outerSize = sizeToScaleKey[size];
-  // Maps to 6px for small, and 9px for medium
-  const innerSize = theme.sizing[outerSize] / 2.6666666667;
+  const innerSize = outerToInnerSize[outerSize];
 
   const transitionProperties = {
     transitionProperty:
