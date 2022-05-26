@@ -60,5 +60,6 @@ export type RadioGroupProps<Value extends string> = {
 };
 
 export type RadioCardProps = Omit<RadioProps, 'id' | 'size'> & {
+  /** The radio description. */
   description?: string;
 };
