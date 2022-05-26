@@ -16,14 +16,18 @@ import { components } from 'react-select';
 export const getReactSelectComponentsOverride = (
   componentProps: Omit<InputPropsDerivedFromField, 'id'>
 ): SelectComponentsConfig<any, false, GroupBase<any>> => ({
-  Input: props => <components.Input {...props} {...componentProps} />,
   DropdownIndicator: props => (
     <components.DropdownIndicator {...props}>
       <ChevronDownIcon size="xxsmall" tone="muted" />
     </components.DropdownIndicator>
   ),
+
+  Input: props => <components.Input {...props} {...componentProps} />,
+
   IndicatorSeparator: () => null,
+
   LoadingIndicator: () => null,
+
   LoadingMessage: props => (
     <components.LoadingMessage {...props}>
       <Box paddingY="large">
@@ -31,6 +35,7 @@ export const getReactSelectComponentsOverride = (
       </Box>
     </components.LoadingMessage>
   ),
+
   NoOptionsMessage: props => (
     <components.NoOptionsMessage {...props}>
       <Box paddingY="large">
@@ -54,9 +59,70 @@ export const useReactSelectStylesOverride = <Item,>({
     weight: 'regular',
   });
 
+  const [groupHeadingStyles] = useText({
+    baseline: true,
+    tone: 'muted',
+    size: 'xsmall',
+    weight: 'semibold',
+  });
+
   const focusRingStyles = useFocusRing({ always: true });
 
   return {
+    control: (provided, state) => ({
+      ...provided,
+      ...textStyles,
+      ...(state.isFocused
+        ? focusRingStyles
+        : invalid
+        ? {
+            borderColor: theme.color.foreground.critical,
+          }
+        : {}),
+    }),
+
+    dropdownIndicator: (provided, state) => ({
+      ...provided,
+      transitionProperty: 'transform',
+      transitionTimingFunction: 'linear',
+      transitionDuration: '150ms',
+      ...(state.isFocused
+        ? {
+            transform: 'rotate(180deg)',
+          }
+        : {}),
+    }),
+
+    group: provided => ({
+      ...provided,
+      ...groupHeadingStyles,
+      padding: 0,
+      margin: 0,
+    }),
+
+    groupHeading: provided => ({
+      ...provided,
+      ...groupHeadingStyles,
+      padding: theme.spacing.medium,
+      paddingBottom: theme.spacing.small,
+      margin: 0,
+    }),
+
+    menu: provided => ({
+      ...provided,
+      padding: theme.spacing.small,
+      boxShadow: theme.shadow.medium,
+      borderRadius: theme.border.radius.medium,
+    }),
+
+    menuList: provided => ({
+      ...provided,
+      padding: 0,
+      display: 'flex',
+      flexDirection: 'column',
+      gap: theme.spacing.xsmall,
+    }),
+
     option: (provided, state) => ({
       ...provided,
       ...textStyles,
@@ -98,40 +164,6 @@ export const useReactSelectStylesOverride = <Item,>({
         },
       },
     }),
-    control: (provided, state) => ({
-      ...provided,
-      ...textStyles,
-      ...(state.isFocused
-        ? focusRingStyles
-        : invalid
-        ? {
-            borderColor: theme.color.foreground.critical,
-          }
-        : {}),
-    }),
-    menu: provided => ({
-      ...provided,
-      boxShadow: theme.shadow.medium,
-      borderRadius: theme.border.radius.medium,
-    }),
-    menuList: provided => ({
-      ...provided,
-      padding: theme.spacing.small,
-      display: 'flex',
-      flexDirection: 'column',
-      gap: theme.spacing.xsmall,
-    }),
-    dropdownIndicator: (provided, state) => ({
-      ...provided,
-      transitionProperty: 'transform',
-      transitionTimingFunction: 'linear',
-      transitionDuration: '100ms',
-      ...(state.isFocused
-        ? {
-            transform: 'rotate(180deg)',
-          }
-        : {}),
-    }),
   };
 };
 
@@ -143,6 +175,7 @@ export const useReactSelectThemeOverride = (): ThemeConfig => {
     borderRadius: theme.border.radius.small,
     colors: {
       ...selectTheme.colors,
+      // TODO: map from theme object when tokens are revised
       primary: '#00a87b',
       primary75: '#00c28d',
       primary50: '#9acbb8',
