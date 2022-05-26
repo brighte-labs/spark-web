@@ -34,8 +34,6 @@ export const RadioCard = forwardRef<HTMLInputElement, RadioCardProps>(
     return (
       <Stack
         as="label"
-        aria-labelledby={labelId}
-        aria-describedby={description ? descriptionId : undefined}
         htmlFor={id}
         // Styles
         background={isDisabled ? 'inputDisabled' : 'surface'}
@@ -51,6 +49,8 @@ export const RadioCard = forwardRef<HTMLInputElement, RadioCardProps>(
         >
           <RadioPrimitive
             {...inputProps}
+            aria-labelledby={labelId}
+            aria-describedby={description ? descriptionId : undefined}
             data={{ ...data, 'radio-card': 'true' }}
             ref={forwardedRef}
             disabled={isDisabled}
