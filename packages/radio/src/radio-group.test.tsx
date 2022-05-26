@@ -21,6 +21,7 @@ const RadioGroupMock = ({
 
   return (
     <RadioGroup
+      legend="Legend"
       value={selected ?? ''}
       onChange={setSelected}
       message={message}
