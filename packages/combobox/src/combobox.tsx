@@ -2,7 +2,7 @@ import { useFieldContext } from '@spark-web/field';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
 import { buildDataAttributes } from '@spark-web/utils/internal';
 import { useEffect, useRef, useState } from 'react';
-import type { GetOptionLabel, GetOptionValue } from 'react-select';
+import type { GetOptionLabel, GetOptionValue, GroupBase } from 'react-select';
 import ReactSelect from 'react-select';
 
 import {
@@ -31,7 +31,7 @@ export type ComboboxProps<Item = unknown> = {
   inputValue?: string;
 
   /** Array of items for the user to select from. */
-  items: Awaitable<Item[]>;
+  items: Awaitable<(Item | GroupBase<Item>)[]>;
 
   /** When true, shows a loading indicator in the dropdown instead of results. */
   isLoading?: boolean;
