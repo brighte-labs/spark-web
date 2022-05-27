@@ -36,7 +36,7 @@ const extensions = ['js', 'jsx', 'json', 'ts', 'tsx', 'tson'];
 const exportRegex = /export {[^}]*} from ['"]([^'"]*)['"]/gs;
 const repoRoot = path.resolve(path.basename(import.meta.url), '..', '..');
 
-export const generateProps = sourceFileDir => {
+export const generateProps = (sourceFileDir: string) => {
   const packageSrcDir = path.join(repoRoot, sourceFileDir, 'src');
 
   const fileData = fs
