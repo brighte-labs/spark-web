@@ -2,26 +2,17 @@ import fs from 'fs';
 import path from 'path';
 import docgenTypescript from 'react-docgen-typescript';
 
+const repoRoot = path.resolve(path.basename(import.meta.url), '..', '..');
+
+const tsConfig = JSON.parse(
+  fs.readFileSync(path.join(repoRoot, 'tsconfig.json')).toString()
+);
+
 const docgen = docgenTypescript.withCompilerOptions(
   {
+    ...tsConfig,
     noErrorTruncation: true,
-    compilerOptions: {
-      esModuleInterop: true,
-      forceConsistentCasingInFileNames: true,
-      isolatedModules: true,
-      jsx: 'react-jsx',
-      module: 'esnext',
-      moduleResolution: 'node',
-      noEmit: true,
-      noUnusedLocals: true,
-      skipLibCheck: true,
-      strict: true,
-      target: 'esnext',
-      types: ['node', 'jest'],
-    },
-    include: ['**/*'],
-    exclude: ['**/dist/**/*', 'docs', '**/node_modules/**/*'],
-  } as any,
+  },
   {
     propFilter: {
       skipPropsWithName: ['children'],
@@ -34,7 +25,6 @@ const docgen = docgenTypescript.withCompilerOptions(
 
 const extensions = ['js', 'jsx', 'json', 'ts', 'tsx', 'tson'];
 const exportRegex = /export {[^}]*} from ['"]([^'"]*)['"]/gs;
-const repoRoot = path.resolve(path.basename(import.meta.url), '..', '..');
 
 export const generateProps = (sourceFileDir: string) => {
   const packageSrcDir = path.join(repoRoot, sourceFileDir, 'src');
