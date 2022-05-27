@@ -118,7 +118,7 @@ function SearchItem({ result }: { result: any }) {
   const match = Object.entries(result.matchData?.metadata ?? {})[0];
   let children = (
     <>
-      Component &gt; {result.ref} &gt; ... <Strong>{match[0]}</Strong>...
+      Component &gt; {result.ref} &gt; ... <Strong>{match[0]}</Strong> ...
     </>
   );
   // @ts-expect-error: Object is of type 'unknown'
@@ -126,6 +126,15 @@ function SearchItem({ result }: { result: any }) {
     children = (
       <>
         Component &gt; <Strong>{result.ref}</Strong>
+      </>
+    );
+  }
+
+  // @ts-expect-error: Object is of type 'unknown'
+  if (match?.[1].props) {
+    children = (
+      <>
+        Component &gt; {result.ref} &gt; Props &gt; <Strong>{match[0]}</Strong>
       </>
     );
   }
