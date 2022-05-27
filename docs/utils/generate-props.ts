@@ -1,8 +1,8 @@
-#!/usr/bin/env node
-const path = require('path');
-const fs = require('fs');
+import fs from 'fs';
+import path from 'path';
+import docgenTypescript from 'react-docgen-typescript';
 
-const docgen = require('react-docgen-typescript').withCompilerOptions(
+const docgen = docgenTypescript.withCompilerOptions(
   {
     noErrorTruncation: true,
     compilerOptions: {
@@ -34,9 +34,10 @@ const docgen = require('react-docgen-typescript').withCompilerOptions(
 
 const extensions = ['js', 'jsx', 'json', 'ts', 'tsx', 'tson'];
 const exportRegex = /export {[^}]*} from ['"]([^'"]*)['"]/gs;
+const repoRoot = path.resolve(path.basename(import.meta.url), '..', '..');
 
 export const generateProps = sourceFileDir => {
-  const packageSrcDir = path.join(sourceFileDir, 'src');
+  const packageSrcDir = path.join(repoRoot, sourceFileDir, 'src');
 
   const fileData = fs
     .readFileSync(path.join(packageSrcDir, 'index.ts'))
