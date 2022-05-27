@@ -21,7 +21,7 @@ const docgen = docgenTypescript.withCompilerOptions(
     },
     include: ['**/*'],
     exclude: ['**/dist/**/*', 'docs', '**/node_modules/**/*'],
-  },
+  } as any,
   {
     propFilter: {
       skipPropsWithName: ['children'],
