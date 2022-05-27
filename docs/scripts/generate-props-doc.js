@@ -32,12 +32,8 @@ const docgen = require('react-docgen-typescript').withCompilerOptions(
   }
 );
 
-// const resolvedPath = path.resolve('../../packages/divider/src/Divider.tsx');
-// const resolvedPath = path.resolve('../../packages/box/src/Box.tsx');
-// const resolvedPath = path.resolve('../../packages/accordion/src/Accordion.tsx');
-
 const extensions = ['js', 'jsx', 'json', 'ts', 'tsx', 'tson'];
-const exportRegex = /export {[^}]*} from ['"]([^;"]*)['"]/gs;
+const exportRegex = /export {[^}]*} from ['"]([^'"]*)['"]/gs;
 
 export const generateProps = sourceFileDir => {
   const packageSrcDir = path.join(sourceFileDir, 'src');
