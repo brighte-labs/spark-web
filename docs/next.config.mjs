@@ -7,6 +7,12 @@ import { withSearchIndex } from './utils/with-search-index.mjs';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  webpack: config => ({
+    ...config,
+    infrastructureLogging: {
+      level: 'error',
+    },
+  }),
 };
 
 export default withPlugins(
