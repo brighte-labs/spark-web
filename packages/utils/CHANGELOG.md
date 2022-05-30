@@ -1,5 +1,14 @@
 # @spark-web/utils
 
+## 1.1.4
+
+### Patch Changes
+
+- [#139](https://github.com/brighte-labs/spark-web/pull/139)
+  [`3d519f7`](https://github.com/brighte-labs/spark-web/commit/3d519f7cd4cf5b36dc09548891c835c294a5acef)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Check if
+  animationTarget defined
+
 ## 1.1.3
 
 ### Patch Changes

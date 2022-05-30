@@ -1,5 +1,14 @@
 # @spark-web/fieldset
 
+## 1.1.1
+
+### Patch Changes
+
+- [#129](https://github.com/brighte-labs/spark-web/pull/129)
+  [`5adbc6e`](https://github.com/brighte-labs/spark-web/commit/5adbc6ed7f1bddd9d1e0d0ed2b2556f87fdcd98e)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Tighten up
+  spacing in Fieldset
+
 ## 1.1.0
 
 ### Minor Changes

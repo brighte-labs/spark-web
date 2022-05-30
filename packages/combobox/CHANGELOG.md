@@ -1,5 +1,23 @@
 # @spark-web/combobox
 
+## 1.3.0
+
+### Minor Changes
+
+- [#133](https://github.com/brighte-labs/spark-web/pull/133)
+  [`17f79f7`](https://github.com/brighte-labs/spark-web/commit/17f79f7c0e0bcb74fbaa12e8b3cbc9063c8a1a85)
+  Thanks [@ChristopherMitchell242](https://github.com/ChristopherMitchell242)! -
+  Update combobox to accept both aria attributes and data attributes
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3d519f7`](https://github.com/brighte-labs/spark-web/commit/3d519f7cd4cf5b36dc09548891c835c294a5acef),
+  [`2a1c354`](https://github.com/brighte-labs/spark-web/commit/2a1c3549e03f91d012906f90b13c1f8d7ba18d1e),
+  [`d0ce080`](https://github.com/brighte-labs/spark-web/commit/d0ce08000f4c62d7402450b09f086d5806f1b50b)]:
+  - @spark-web/utils@1.1.4
+  - @spark-web/field@2.0.1
+
 ## 1.2.0
 
 ### Minor Changes

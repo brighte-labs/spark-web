@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/fieldset",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "MIT",
   "main": "dist/spark-web-fieldset.cjs.js",
   "module": "dist/spark-web-fieldset.esm.js",
