@@ -4,6 +4,10 @@
 
 ### Minor Changes
 
+- [#134](https://github.com/brighte-labs/spark-web/pull/134)
+  [`3fdfa83`](https://github.com/brighte-labs/spark-web/commit/3fdfa837e11541c01573ab59a9796306157c3b46)
+  Thanks [@yaminideveloper](https://github.com/yaminideveloper)! - Enabled and
+  style grouped items
 - [#133](https://github.com/brighte-labs/spark-web/pull/133)
   [`17f79f7`](https://github.com/brighte-labs/spark-web/commit/17f79f7c0e0bcb74fbaa12e8b3cbc9063c8a1a85)
   Thanks [@ChristopherMitchell242](https://github.com/ChristopherMitchell242)! -
@@ -33,12 +37,12 @@
   Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update
   dependencies
 
-* [#108](https://github.com/brighte-labs/spark-web/pull/108)
+- [#108](https://github.com/brighte-labs/spark-web/pull/108)
   [`efa263a`](https://github.com/brighte-labs/spark-web/commit/efa263aee2c33297edb19203ae1d82abd99d298d)
   Thanks [@lukebennett88](https://github.com/lukebennett88)! - Refactor to work
   with updated field context
 
-* Updated dependencies
+- Updated dependencies
   [[`08752c3`](https://github.com/brighte-labs/spark-web/commit/08752c350b53cde0657ec32f03f9932dec835e33),
   [`efa263a`](https://github.com/brighte-labs/spark-web/commit/efa263aee2c33297edb19203ae1d82abd99d298d),
   [`27bc235`](https://github.com/brighte-labs/spark-web/commit/27bc235168b09bf8c03710b5fcde6ea0fd70824c),
