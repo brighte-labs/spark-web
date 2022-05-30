@@ -5,14 +5,6 @@ import { render } from '@testing-library/react';
 import type { SpinnerProps } from './Spinner';
 import { Spinner } from './Spinner';
 
-jest.mock('@spark-web/utils', () => {
-  const original = jest.requireActual('@spark-web/utils');
-  return {
-    ...original,
-    useSynchronizedAnimation: jest.fn(),
-  };
-});
-
 const renderComponent = (props?: SpinnerProps) => {
   return render(<Spinner data={props?.data} />);
 };
