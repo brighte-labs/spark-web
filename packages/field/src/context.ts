@@ -1,11 +1,17 @@
 import { createContext, useContext } from 'react';
 
-export type FieldContextType = {
-  'aria-describedby'?: string;
-  id: string;
+export type FieldState = {
   disabled: boolean;
   invalid: boolean;
 };
+
+export type InputPropsDerivedFromField = {
+  'aria-describedby'?: string;
+  'aria-invalid': true | undefined;
+  id: string;
+};
+
+export type FieldContextType = [FieldState, InputPropsDerivedFromField];
 
 export const FieldContext = createContext<FieldContextType | null>(null);
 export const FieldContextProvider = FieldContext.Provider;

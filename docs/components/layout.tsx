@@ -4,19 +4,19 @@ import { useTheme } from '@spark-web/theme';
 import type { ReactNode } from 'react';
 
 import { Header } from './header';
-import type { SidebarNavItemType } from './sidebar';
-import { Sidebar, SidebarContextProvider } from './sidebar';
+import type { SidebarItem } from './sidebar';
+import { Sidebar, SidebarProvider } from './sidebar';
 
 export function Layout({
   navigation,
   children,
 }: {
-  navigation: SidebarNavItemType[];
+  navigation: SidebarItem[];
   children: ReactNode;
 }): JSX.Element {
   const theme = useTheme();
   return (
-    <SidebarContextProvider>
+    <SidebarProvider>
       <Box
         display="flex"
         flexDirection="column"
@@ -41,6 +41,6 @@ export function Layout({
           </Box>
         </Box>
       </Box>
-    </SidebarContextProvider>
+    </SidebarProvider>
   );
 }

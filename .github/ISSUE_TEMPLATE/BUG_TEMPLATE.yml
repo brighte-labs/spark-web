@@ -1,0 +1,67 @@
+name: Bug Report
+description: File a bug report
+title: '[Bug]: '
+labels: ['bug', 'triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! We'll get onto this ASAP!!
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description:
+        Is this a production issue? Is it stopping you working? Let us know how
+        to prioritise this issue.
+      options:
+        - Production Issue
+        - Blocking Development
+        - Nice to have
+        - Low priority but raising so it doesnt get forgotten!
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description:
+        Can you tell us what happened as well as what you expected to happen?
+      placeholder: I saw a blue screen of death!
+    validations:
+      required: true
+  - type: text
+    id: component
+    attributes:
+      label: Component
+      description: Which component / version did you find the bug in?
+    validations:
+      required: false
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: What browser are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - Internet Explorer (Yuck!)
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description:
+        To help us debug as quickly as possible, please can you provide the
+        steps to reproduce. If your not sure, provide your current node version,
+        npm version, browser version and we will reach out to you.
+      render: shell
+  - type: textarea
+    id: info
+    attributes:
+      label: Relevant Info
+      description:
+        Please copy and paste any relevant info that would help us
+        reproduce/debug. Logs, Screenshots etc are all helpful!
+      render: shell

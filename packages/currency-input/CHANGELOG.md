@@ -1,5 +1,45 @@
 # @spark-web/currency-input
 
+## 1.0.2
+
+### Patch Changes
+
+- [#113](https://github.com/brighte-labs/spark-web/pull/113)
+  [`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update
+  dependencies
+
+* [#108](https://github.com/brighte-labs/spark-web/pull/108)
+  [`efa263a`](https://github.com/brighte-labs/spark-web/commit/efa263aee2c33297edb19203ae1d82abd99d298d)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Refactor to work
+  with updated field context
+
+* Updated dependencies
+  [[`efa263a`](https://github.com/brighte-labs/spark-web/commit/efa263aee2c33297edb19203ae1d82abd99d298d),
+  [`27bc235`](https://github.com/brighte-labs/spark-web/commit/27bc235168b09bf8c03710b5fcde6ea0fd70824c),
+  [`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba),
+  [`efa263a`](https://github.com/brighte-labs/spark-web/commit/efa263aee2c33297edb19203ae1d82abd99d298d),
+  [`08752c3`](https://github.com/brighte-labs/spark-web/commit/08752c350b53cde0657ec32f03f9932dec835e33)]:
+  - @spark-web/field@2.0.0
+  - @spark-web/text-input@1.2.0
+  - @spark-web/float-input@1.0.1
+  - @spark-web/text@1.0.5
+
+## 1.0.1
+
+### Patch Changes
+
+- [#93](https://github.com/brighte-labs/spark-web/pull/93)
+  [`5f12f24`](https://github.com/brighte-labs/spark-web/commit/5f12f24ee6a6f1576113139ec1f2093e1c64e812)
+  Thanks [@ChristopherMitchell242](https://github.com/ChristopherMitchell242)! -
+  Data Attribute for Currency Input Component should be passed through to the
+  underlying input component
+- Updated dependencies
+  [[`4ad9817`](https://github.com/brighte-labs/spark-web/commit/4ad9817d1f7acdecd3c8bbb3be517f5c11fe8d4b),
+  [`4750af7`](https://github.com/brighte-labs/spark-web/commit/4750af73f0e3a82ebde940cb13659a21c7e88007),
+  [`dc53688`](https://github.com/brighte-labs/spark-web/commit/dc53688cc271316f00ef25f101e94c3891f4f75d)]:
+  - @spark-web/text-input@1.1.1
+
 ## 1.0.0
 
 ### Major Changes

@@ -1,9 +1,9 @@
 import { Stack } from '@spark-web/stack';
-import { MDXContent } from 'components/mdx-components/mdx-content';
-import { home } from 'contentlayer/generated';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 
+import { home } from '../.contentlayer/generated';
 import { DocsContent } from '../components/content';
+import { MDXContent } from '../components/mdx-components/mdx-content';
 import type { HeadingData } from '../utils/generate-toc';
 
 export const getStaticProps: GetStaticProps<{

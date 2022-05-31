@@ -21,7 +21,7 @@ export type CurrencyInputProps = {
 /** A component for inputting numbers into the app via a keyboard. Enforces 2 fraction digits. */
 export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
   ({ currencyType, data, ...props }, forwardedRef) => {
-    const { disabled } = useFieldContext();
+    const [{ disabled }] = useFieldContext();
 
     const { onChange, value, ...rest } = props;
 
@@ -31,9 +31,14 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
     }
 
     return (
-      <FloatInput ref={forwardedRef} fractionDigits={2} {...floatInputProps}>
+      <FloatInput
+        data={data}
+        ref={forwardedRef}
+        fractionDigits={2}
+        {...floatInputProps}
+      >
         <InputAdornment placement="start">
-          <Text data={data} tone={disabled ? 'disabled' : 'placeholder'}>
+          <Text tone={disabled ? 'disabled' : 'placeholder'}>
             {currencySymbolMap[currencyType ?? 'AUD']}
           </Text>
         </InputAdornment>

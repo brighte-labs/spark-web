@@ -1,0 +1,39 @@
+name: Feature Request
+description: Request a feature
+title: '[Feature Request]: '
+labels: ['feature', 'triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! We'll get onto this ASAP!!
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description:
+        Help us prioritise this feature over others. Do you need this urgently
+        for an application going into production? Is it a nice to have? Let us
+        know!
+      options:
+        - Production App Request
+        - Blocking Development
+        - Nice to have
+        - Low priority but raising so it doesnt get forgotten!
+    validations:
+      required: true
+  - type: text
+    id: component
+    attributes:
+      label: Component
+      description:
+        If this issue is related to a specific component in the Spark-Web
+        library, let us know which one?
+    validations:
+      required: false
+  - type: textarea
+    id: request
+    attributes:
+      label: Feature Request
+      description: Let us know about the feature you'd like to see!
+      render: shell

@@ -3,7 +3,7 @@ import { Box } from '@spark-web/box';
 import { useFieldContext } from '@spark-web/field';
 import { ChevronDownIcon } from '@spark-web/icon';
 import type { UseInputProps } from '@spark-web/text-input';
-import { useInput } from '@spark-web/text-input';
+import { InputContainer, useInput } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { SelectHTMLAttributes } from 'react';
@@ -41,7 +41,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     },
     forwardedRef
   ) => {
-    const { disabled, invalid, ...a11yProps } = useFieldContext();
+    const [{ disabled, invalid }, a11yProps] = useFieldContext();
     const styles = useSelectStyles({ disabled, invalid });
 
     const mapOptions = useCallback(
@@ -54,11 +54,23 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     );
 
     return (
-      <Box position="relative">
+      <InputContainer>
+        <Box
+          position="absolute"
+          top={0}
+          bottom={0}
+          right={0}
+          display="flex"
+          alignItems="center"
+          padding="medium"
+          className={css({ pointerEvents: 'none' })}
+        >
+          <ChevronDownIcon size="xxsmall" tone="placeholder" />
+        </Box>
         <Box
           {...a11yProps}
-          data={data}
           as="select"
+          data={data}
           defaultValue={defaultValue ?? placeholder ? '' : undefined}
           disabled={disabled}
           name={name}
@@ -92,19 +104,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             return mapOptions(optionOrGroup);
           })}
         </Box>
-        <Box
-          position="absolute"
-          top={0}
-          bottom={0}
-          right={0}
-          display="flex"
-          alignItems="center"
-          padding="medium"
-          className={css({ pointerEvents: 'none' })}
-        >
-          <ChevronDownIcon size="xxsmall" tone="placeholder" />
-        </Box>
-      </Box>
+      </InputContainer>
     );
   }
 );

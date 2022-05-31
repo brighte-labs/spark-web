@@ -41,11 +41,13 @@ const renderComponent = ({
 describe('Select component', () => {
   const name = 'test select';
   beforeEach(() => {
-    useFieldContextMock.mockReturnValue({
-      disabled: false,
-      invalid: false,
-      'aria-label': name,
-    });
+    useFieldContextMock.mockReturnValue([
+      {
+        disabled: false,
+        invalid: false,
+      },
+      { 'aria-label': name },
+    ]);
   });
 
   afterEach(cleanup);
@@ -104,11 +106,13 @@ describe('Select component', () => {
   });
 
   it('should be disabled by field context', () => {
-    useFieldContextMock.mockReturnValue({
-      disabled: true,
-      invalid: true,
-      'aria-label': name,
-    });
+    useFieldContextMock.mockReturnValue([
+      {
+        disabled: true,
+        invalid: true,
+      },
+      { 'aria-label': name },
+    ]);
     renderComponent({ name, options: [] });
     expect(screen.getByLabelText(name)).toBeDisabled();
   });

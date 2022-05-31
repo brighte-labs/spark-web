@@ -2,9 +2,23 @@ import { plugin as untitledLiveCode } from '@untitled-docs/live-code/rehype/dist
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import { readFile } from 'node:fs/promises';
 import rehypeSlug from 'rehype-slug';
+import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
+import remarkMdx from 'remark-mdx';
+import remarkStripMarkdown from 'strip-markdown';
 
+import { generateProps } from './utils/generate-props';
 import { generateToc } from './utils/generate-toc';
+
+async function mdxToStr(mdx: string): Promise<string> {
+  const file = await remark()
+    .use(remarkGfm)
+    .use(remarkMdx)
+    //@ts-expect-error: Can't pass property remove to object Pluggable<any[]>.
+    .use([remarkStripMarkdown, { remove: ['jsx', 'import', 'export'] }])
+    .process(mdx);
+  return String(file);
+}
 
 export const Home = defineDocumentType(() => ({
   name: 'Home',
@@ -81,12 +95,23 @@ export const Package = defineDocumentType(() => ({
       type: 'json',
       resolve: async doc => generateToc(doc.body.raw),
     },
+    plaintext: {
+      type: 'string',
+      resolve: async doc => {
+        return mdxToStr(doc.body.raw);
+      },
+    },
+    props: {
+      type: 'json',
+      resolve: async doc => generateProps(doc._raw.sourceFileDir),
+    },
   },
 }));
 
 export default makeSource({
-  contentDirInclude: ['docs/pages', 'packages'],
-  contentDirPath: '../',
+  contentDirInclude: ['{docs/pages,packages}'],
+  contentDirPath: '..',
+  disableImportAliasWarning: true,
   documentTypes: [Home, Package],
   mdx: {
     remarkPlugins: [remarkGfm],

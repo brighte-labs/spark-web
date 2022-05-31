@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/ssr",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "main": "dist/spark-web-ssr.cjs.js",
   "module": "dist/spark-web-ssr.esm.js",
@@ -8,8 +8,8 @@
     "dist"
   ],
   "dependencies": {
-    "@babel/runtime": "^7.14.6",
-    "@emotion/css": "^11.7.1",
+    "@babel/runtime": "^7.18.0",
+    "@emotion/css": "^11.9.0",
     "@emotion/server": "^11.4.0"
   },
   "engines": {
