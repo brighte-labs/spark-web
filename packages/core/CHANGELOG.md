@@ -1,5 +1,39 @@
 # @spark-web/core
 
+## 2.1.0
+
+### Minor Changes
+
+- [#126](https://github.com/brighte-labs/spark-web/pull/126)
+  [`ac71142`](https://github.com/brighte-labs/spark-web/commit/ac7114274c3d517c5844c6969f9b8de259a0b0ae)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Load fonts from
+  Brighte subdomain
+
+  Export font URLS
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3d519f7`](https://github.com/brighte-labs/spark-web/commit/3d519f7cd4cf5b36dc09548891c835c294a5acef)]:
+  - @spark-web/utils@1.1.4
+
+## 2.0.1
+
+### Patch Changes
+
+- [#113](https://github.com/brighte-labs/spark-web/pull/113)
+  [`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update
+  dependencies
+
+- Updated dependencies
+  [[`08752c3`](https://github.com/brighte-labs/spark-web/commit/08752c350b53cde0657ec32f03f9932dec835e33),
+  [`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba)]:
+  - @spark-web/a11y@1.0.5
+  - @spark-web/link@1.0.5
+  - @spark-web/theme@3.0.1
+  - @spark-web/utils@1.1.3
+
 ## 2.0.0
 
 ### Major Changes

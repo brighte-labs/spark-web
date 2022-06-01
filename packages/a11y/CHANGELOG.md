@@ -1,5 +1,24 @@
 # @spark-web/a11y
 
+## 1.0.5
+
+### Patch Changes
+
+- [#101](https://github.com/brighte-labs/spark-web/pull/101)
+  [`08752c3`](https://github.com/brighte-labs/spark-web/commit/08752c350b53cde0657ec32f03f9932dec835e33)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Make focus styles
+  more accessible for Windows High Contrast users
+
+* [#113](https://github.com/brighte-labs/spark-web/pull/113)
+  [`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update
+  dependencies
+
+* Updated dependencies
+  [[`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba)]:
+  - @spark-web/theme@3.0.1
+  - @spark-web/utils@1.1.3
+
 ## 1.0.4
 
 ### Patch Changes

@@ -23,6 +23,11 @@ function tocToHeadingObj(toc, output = {}) {
   return output;
 }
 
+function extractProps(props = []) {
+  // Only interested in the prop names, which happen to be the keys
+  return props.flatMap(({ props }) => Object.keys(props));
+}
+
 function generateSearchIndex() {
   const MANIFEST_DIR = path.normalize(`${process.cwd()}/cache`);
   const outFile = `${MANIFEST_DIR}/search-index.json`;
@@ -40,14 +45,17 @@ function generateSearchIndex() {
     this.field('h4', { boost: 50 });
     this.field('h5', { boost: 40 });
     this.field('h6', { boost: 30 });
+    this.field('props', { boost: 20 });
     this.field('content');
 
     allPackages.forEach(pkg => {
       const headings = tocToHeadingObj(pkg.toc);
+      const props = extractProps(pkg.props);
       this.add({
         slug: pkg.slug,
         content: pkg.plaintext,
         title: pkg.title,
+        props,
         ...headings,
       });
     });

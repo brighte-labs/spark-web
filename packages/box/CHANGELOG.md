@@ -1,5 +1,19 @@
 # @spark-web/box
 
+## 1.0.5
+
+### Patch Changes
+
+- [#113](https://github.com/brighte-labs/spark-web/pull/113)
+  [`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update
+  dependencies
+
+- Updated dependencies
+  [[`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba)]:
+  - @spark-web/theme@3.0.1
+  - @spark-web/utils@1.1.3
+
 ## 1.0.4
 
 ### Patch Changes

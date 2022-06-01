@@ -7,6 +7,7 @@ import remarkGfm from 'remark-gfm';
 import remarkMdx from 'remark-mdx';
 import remarkStripMarkdown from 'strip-markdown';
 
+import { generateProps } from './utils/generate-props';
 import { generateToc } from './utils/generate-toc';
 
 async function mdxToStr(mdx: string): Promise<string> {
@@ -89,6 +90,10 @@ export const Package = defineDocumentType(() => ({
       resolve: async doc => {
         return mdxToStr(doc.body.raw);
       },
+    },
+    props: {
+      type: 'json',
+      resolve: async doc => generateProps(doc._raw.sourceFileDir),
     },
   },
 }));

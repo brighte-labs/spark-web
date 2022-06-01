@@ -1,4 +1,4 @@
-import { SparkProvider } from '@spark-web/core';
+import { AesteticoStylesheet, SparkProvider } from '@spark-web/core';
 import { UniversalNextLink } from '@spark-web/next-utils';
 import type { AppProps } from 'next/app';
 import NextHead from 'next/head';
@@ -25,6 +25,7 @@ function App({
         titleTemplate="%s | Brighte Spark Design System"
         defaultTitle="Brighte Spark Design System"
       />
+      <AesteticoStylesheet />
       <Layout navigation={navigation}>
         <Component {...pageProps} />
       </Layout>

@@ -1,5 +1,50 @@
 # @spark-web/field
 
+## 2.0.1
+
+### Patch Changes
+
+- [#128](https://github.com/brighte-labs/spark-web/pull/128)
+  [`2a1c354`](https://github.com/brighte-labs/spark-web/commit/2a1c3549e03f91d012906f90b13c1f8d7ba18d1e)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Fix collapsing
+  gap on stack that wraps label, description, input and message
+
+* [#123](https://github.com/brighte-labs/spark-web/pull/123)
+  [`d0ce080`](https://github.com/brighte-labs/spark-web/commit/d0ce08000f4c62d7402450b09f086d5806f1b50b)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Tighten up
+  spacing
+
+* Updated dependencies
+  [[`3d519f7`](https://github.com/brighte-labs/spark-web/commit/3d519f7cd4cf5b36dc09548891c835c294a5acef)]:
+  - @spark-web/utils@1.1.4
+
+## 2.0.0
+
+### Major Changes
+
+- [#108](https://github.com/brighte-labs/spark-web/pull/108)
+  [`efa263a`](https://github.com/brighte-labs/spark-web/commit/efa263aee2c33297edb19203ae1d82abd99d298d)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Refactor
+  useFieldContext to return tuple
+
+### Patch Changes
+
+- [#113](https://github.com/brighte-labs/spark-web/pull/113)
+  [`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update
+  dependencies
+
+- Updated dependencies
+  [[`08752c3`](https://github.com/brighte-labs/spark-web/commit/08752c350b53cde0657ec32f03f9932dec835e33),
+  [`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba)]:
+  - @spark-web/a11y@1.0.5
+  - @spark-web/box@1.0.5
+  - @spark-web/icon@1.1.3
+  - @spark-web/stack@1.0.5
+  - @spark-web/text@1.0.5
+  - @spark-web/theme@3.0.1
+  - @spark-web/utils@1.1.3
+
 ## 1.1.0
 
 ### Minor Changes

@@ -1,4 +1,3 @@
-import { AesteticoStylesheet } from '@spark-web/core';
 import { propsWithCssText } from '@spark-web/next-utils';
 import type { DocumentContext, DocumentInitialProps } from 'next/document';
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document';
@@ -14,9 +13,7 @@ export default class Document extends NextDocument {
   render(): JSX.Element {
     return (
       <Html lang="en-AU">
-        <Head>
-          <AesteticoStylesheet />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
