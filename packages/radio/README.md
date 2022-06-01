@@ -13,17 +13,15 @@ In order to toggle between options, all Radio components should have a matching
 
 ```jsx live
 <Fieldset legend="Favourite Shrek character" gap="large">
-  <Stack gap="large">
-    <Radio name="character" value="Shrek">
-      Shrek
-    </Radio>
-    <Radio name="character" value="Fiona">
-      Fiona
-    </Radio>
-    <Radio name="character" value="Donkey">
-      Donkey
-    </Radio>
-  </Stack>
+  <Radio name="character" value="Shrek">
+    Shrek
+  </Radio>
+  <Radio name="character" value="Fiona">
+    Fiona
+  </Radio>
+  <Radio name="character" value="Donkey">
+    Donkey
+  </Radio>
 </Fieldset>
 ```
 
@@ -34,37 +32,33 @@ Radio buttons are available in two sizes: `small` and `medium`.
 ```jsx live
 <Stack gap="large">
   <Fieldset legend="Radio variations (small)" gap="large">
-    <Stack gap="large">
-      <Radio size="small" checked={false}>
-        Unchecked
-      </Radio>
-      <Radio size="small" checked>
-        Checked
-      </Radio>
-      <Radio size="small" disabled>
-        Disabled
-      </Radio>
-      <Radio size="small" checked disabled>
-        Checked + disabled
-      </Radio>
-    </Stack>
+    <Radio size="small" checked={false}>
+      Unchecked
+    </Radio>
+    <Radio size="small" checked>
+      Checked
+    </Radio>
+    <Radio size="small" disabled>
+      Disabled
+    </Radio>
+    <Radio size="small" checked disabled>
+      Checked + disabled
+    </Radio>
   </Fieldset>
   <Divider />
   <Fieldset legend="Radio variations (medium)" gap="large">
-    <Stack gap="large">
-      <Radio size="medium" checked={false}>
-        Unchecked
-      </Radio>
-      <Radio size="medium" checked>
-        Checked
-      </Radio>
-      <Radio size="medium" disabled>
-        Disabled
-      </Radio>
-      <Radio size="medium" checked disabled>
-        Checked + disabled
-      </Radio>
-    </Stack>
+    <Radio size="medium" checked={false}>
+      Unchecked
+    </Radio>
+    <Radio size="medium" checked>
+      Checked
+    </Radio>
+    <Radio size="medium" disabled>
+      Disabled
+    </Radio>
+    <Radio size="medium" checked disabled>
+      Checked + disabled
+    </Radio>
   </Fieldset>
 </Stack>
 ```
@@ -87,18 +81,16 @@ const [selected, setSelected] = React.useState('Shrek');
 
 return (
   <Fieldset legend="Favourite Shrek character" gap="medium">
-    <Stack gap="large">
-      <RadioGroup value={selected} onChange={setSelected}>
-        <Radio value="Shrek">Shrek</Radio>
-        <Radio value="Fiona">Fiona</Radio>
-        <Radio value="Donkey">Donkey</Radio>
-      </RadioGroup>
-      {selected && (
-        <Text>
-          The selected character is <Strong>{selected}</Strong>
-        </Text>
-      )}
-    </Stack>
+    <RadioGroup value={selected} onChange={setSelected}>
+      <Radio value="Shrek">Shrek</Radio>
+      <Radio value="Fiona">Fiona</Radio>
+      <Radio value="Donkey">Donkey</Radio>
+    </RadioGroup>
+    {selected && (
+      <Text>
+        The selected character is <Strong>{selected}</Strong>
+      </Text>
+    )}
   </Fieldset>
 );
 ```
@@ -129,18 +121,16 @@ const statuses = {
 
 return (
   <Fieldset legend="Radio variations" gap="medium">
-    <Stack gap="large">
-      <RadioGroup
-        message={statuses[selected]?.message}
-        tone={statuses[selected]?.tone}
-        value={selected}
-        onChange={setSelected}
-      >
-        <Radio value="critical">Critical</Radio>
-        <Radio value="positive">Positive</Radio>
-        <Radio value="neutral">Neutral</Radio>
-      </RadioGroup>
-    </Stack>
+    <RadioGroup
+      message={statuses[selected]?.message}
+      tone={statuses[selected]?.tone}
+      value={selected}
+      onChange={setSelected}
+    >
+      <Radio value="critical">Critical</Radio>
+      <Radio value="positive">Positive</Radio>
+      <Radio value="neutral">Neutral</Radio>
+    </RadioGroup>
   </Fieldset>
 );
 ```

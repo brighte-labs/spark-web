@@ -38,37 +38,33 @@ Checkboxes are available in two sizes: `small` and `medium`.
 ```jsx live
 <Stack gap="large">
   <Fieldset legend="Checkbox variations (small)" gap="large">
-    <Stack gap="large">
-      <Checkbox size="small" checked={false}>
-        Unchecked
-      </Checkbox>
-      <Checkbox size="small" checked>
-        Checked
-      </Checkbox>
-      <Checkbox size="small" disabled>
-        Disabled
-      </Checkbox>
-      <Checkbox size="small" checked disabled>
-        Checked + disabled
-      </Checkbox>
-    </Stack>
+    <Checkbox size="small" checked={false}>
+      Unchecked
+    </Checkbox>
+    <Checkbox size="small" checked>
+      Checked
+    </Checkbox>
+    <Checkbox size="small" disabled>
+      Disabled
+    </Checkbox>
+    <Checkbox size="small" checked disabled>
+      Checked + disabled
+    </Checkbox>
   </Fieldset>
   <Divider />
   <Fieldset legend="Checkbox variations (medium)" gap="large">
-    <Stack gap="large">
-      <Checkbox size="medium" checked={false}>
-        Unchecked
-      </Checkbox>
-      <Checkbox size="medium" checked>
-        Checked
-      </Checkbox>
-      <Checkbox size="medium" disabled>
-        Disabled
-      </Checkbox>
-      <Checkbox size="medium" checked disabled>
-        Checked + disabled
-      </Checkbox>
-    </Stack>
+    <Checkbox size="medium" checked={false}>
+      Unchecked
+    </Checkbox>
+    <Checkbox size="medium" checked>
+      Checked
+    </Checkbox>
+    <Checkbox size="medium" disabled>
+      Disabled
+    </Checkbox>
+    <Checkbox size="medium" checked disabled>
+      Checked + disabled
+    </Checkbox>
   </Fieldset>
 </Stack>
 ```
@@ -82,17 +78,15 @@ illustrate intent. The supported tones are: `critical`, `positive` and
 
 ```jsx live
 <Fieldset legend="Message and tone" gap="large">
-  <Stack gap="large">
-    <Checkbox message="Critical message" tone="critical">
-      Critical
-    </Checkbox>
-    <Checkbox message="Positive message" tone="positive">
-      Positive
-    </Checkbox>
-    <Checkbox message="Neutral message" tone="neutral">
-      Neutral
-    </Checkbox>
-  </Stack>
+  <Checkbox message="Critical message" tone="critical">
+    Critical
+  </Checkbox>
+  <Checkbox message="Positive message" tone="positive">
+    Positive
+  </Checkbox>
+  <Checkbox message="Neutral message" tone="neutral">
+    Neutral
+  </Checkbox>
 </Fieldset>
 ```
 
