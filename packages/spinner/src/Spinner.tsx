@@ -29,6 +29,7 @@ export function Spinner({ tone, size = 'xxsmall', data }: SpinnerProps) {
       alignItems="center"
       justifyContent="center"
       data={data}
+      role="progressbar"
     >
       <SpinnerIcon size={size} tone={tone} ref={strokeAnimationRef} />
     </Box>
