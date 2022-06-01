@@ -1,4 +1,5 @@
 const babelConfig = require('../babel.config');
+const webpack = require('webpack');
 
 module.exports = {
   title: 'Playroom | Brighte Spark',
@@ -30,5 +31,6 @@ module.exports = {
     resolve: {
       extensions: ['.js', '.ts', '.tsx'],
     },
+    plugins: [new webpack.ProvidePlugin({ process: 'process/browser' })],
   }),
 };

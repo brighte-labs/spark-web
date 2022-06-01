@@ -1,0 +1,29 @@
+diff --git a/node_modules/react-docgen-typescript/lib/parser.js b/node_modules/react-docgen-typescript/lib/parser.js
+index e98cd64..09dc39e 100644
+--- a/node_modules/react-docgen-typescript/lib/parser.js
++++ b/node_modules/react-docgen-typescript/lib/parser.js
+@@ -797,7 +797,17 @@ function getTextValueOfFunctionProperty(exp, source, propertyName) {
+         return (expr.left &&
+             expr.left.name &&
+             expr.left.name.escapedText ===
+-                propertyName);
++                propertyName &&
++            // Ensure the .displayName is for the function we're processing. This
++            // avoids a situation where a file has multiple functions, only one of
++            // which has a .displayName; we don't want all functions inheriting that
++            // value by mistake.
++            statement.flowNode &&
++            statement.flowNode.node &&
++            statement.flowNode.node.name &&
++            statement.flowNode.node.name.escapedText &&
++            statement.flowNode.node.name.escapedText === exp.escapedName
++      );
+     })
+         .filter(function (statement) {
+         return ts.isStringLiteral(statement
+@@ -961,4 +971,3 @@ function parseWithProgramProvider(filePathOrPaths, compilerOptions, parserOpts,
+         return __spreadArray(__spreadArray([], docs, true), filteredComponentDocs, true);
+     }, []);
+ }
+-//# sourceMappingURL=parser.js.map
+\ No newline at end of file

@@ -72,6 +72,26 @@ Columns can be collapsed into a single vertical stack responsively using the
 </Columns>
 ```
 
+### Template
+
+If you need more control over how your columns are distributed, you can use the
+`template` prop. `template` receives an array of numbers that represent the
+relative width of each column.
+
+```jsx live
+<Columns gap="small" template={[1, 3, 1]} collapseBelow="tablet">
+  <Box border="field" padding="small">
+    <Text>nav</Text>
+  </Box>
+  <Box border="field" padding="small">
+    <Text>main</Text>
+  </Box>
+  <Box border="field" padding="small">
+    <Text>aside</Text>
+  </Box>
+</Columns>
+```
+
 ## Props
 
 | Prop           | Type                                                    | Default | Description                                                                            |

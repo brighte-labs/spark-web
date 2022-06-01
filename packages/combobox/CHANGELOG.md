@@ -1,5 +1,63 @@
 # @spark-web/combobox
 
+## 1.3.0
+
+### Minor Changes
+
+- [#134](https://github.com/brighte-labs/spark-web/pull/134)
+  [`3fdfa83`](https://github.com/brighte-labs/spark-web/commit/3fdfa837e11541c01573ab59a9796306157c3b46)
+  Thanks [@yaminideveloper](https://github.com/yaminideveloper)! - Enabled and
+  style grouped items
+- [#133](https://github.com/brighte-labs/spark-web/pull/133)
+  [`17f79f7`](https://github.com/brighte-labs/spark-web/commit/17f79f7c0e0bcb74fbaa12e8b3cbc9063c8a1a85)
+  Thanks [@ChristopherMitchell242](https://github.com/ChristopherMitchell242)! -
+  Update combobox to accept both aria attributes and data attributes
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3d519f7`](https://github.com/brighte-labs/spark-web/commit/3d519f7cd4cf5b36dc09548891c835c294a5acef),
+  [`2a1c354`](https://github.com/brighte-labs/spark-web/commit/2a1c3549e03f91d012906f90b13c1f8d7ba18d1e),
+  [`d0ce080`](https://github.com/brighte-labs/spark-web/commit/d0ce08000f4c62d7402450b09f086d5806f1b50b)]:
+  - @spark-web/utils@1.1.4
+  - @spark-web/field@2.0.1
+
+## 1.2.0
+
+### Minor Changes
+
+- [#115](https://github.com/brighte-labs/spark-web/pull/115)
+  [`3d62131`](https://github.com/brighte-labs/spark-web/commit/3d62131698aa935dd8fd3f9080bf22517d35c69a)
+  Thanks [@clothoo](https://github.com/clothoo)! - expose isLoading prop
+
+### Patch Changes
+
+- [#113](https://github.com/brighte-labs/spark-web/pull/113)
+  [`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update
+  dependencies
+
+- [#108](https://github.com/brighte-labs/spark-web/pull/108)
+  [`efa263a`](https://github.com/brighte-labs/spark-web/commit/efa263aee2c33297edb19203ae1d82abd99d298d)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Refactor to work
+  with updated field context
+
+- Updated dependencies
+  [[`08752c3`](https://github.com/brighte-labs/spark-web/commit/08752c350b53cde0657ec32f03f9932dec835e33),
+  [`efa263a`](https://github.com/brighte-labs/spark-web/commit/efa263aee2c33297edb19203ae1d82abd99d298d),
+  [`27bc235`](https://github.com/brighte-labs/spark-web/commit/27bc235168b09bf8c03710b5fcde6ea0fd70824c),
+  [`156236d`](https://github.com/brighte-labs/spark-web/commit/156236d2474aee66a0b8e2030635f9c08a5b78ba),
+  [`efa263a`](https://github.com/brighte-labs/spark-web/commit/efa263aee2c33297edb19203ae1d82abd99d298d),
+  [`08752c3`](https://github.com/brighte-labs/spark-web/commit/08752c350b53cde0657ec32f03f9932dec835e33)]:
+  - @spark-web/a11y@1.0.5
+  - @spark-web/field@2.0.0
+  - @spark-web/text-input@1.2.0
+  - @spark-web/box@1.0.5
+  - @spark-web/icon@1.1.3
+  - @spark-web/spinner@1.0.2
+  - @spark-web/text@1.0.5
+  - @spark-web/theme@3.0.1
+
 ## 1.1.0
 
 ### Minor Changes

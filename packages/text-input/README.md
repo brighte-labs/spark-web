@@ -82,7 +82,7 @@ The `InputContainer` is used internally to handle some shared styling between
 components that are wrapped in the `Field` component.
 
 Typically input adornments (icons or buttons that _appear_ to be inside the
-input) will be absolutely positioning on above it and padding is applied to make
+input) will be absolutely positioning above it and padding is applied to make
 sure that text does not get obscured below the adornments.
 
 On top of this, password managers will insert buttons above the input which can
