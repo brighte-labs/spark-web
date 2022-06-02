@@ -49,8 +49,21 @@ const PropsTable = ({ propsData }: { propsData: Props }) => {
     })
     .map(([key, prop]) => {
       let type = prop.type.name;
-      if (type === 'enum') {
-        type = prop.type.value.map(({ value }) => value).join(' | ');
+      if (prop.type.name === 'enum') {
+        if (prop.type.raw) {
+          if (
+            prop.type.raw.includes('|') ||
+            ['boolean' /* TODO: more? */].includes(prop.type.raw)
+          ) {
+            type = prop.type.raw;
+          } else {
+            type = `${prop.type.raw}: ${prop.type.value
+              .map(({ value }) => value)
+              .join(' | ')}`;
+          }
+        } else if (prop.type.value) {
+          type = prop.type.value.map(({ value }) => value).join(' | ');
+        }
       }
       return {
         name: key,
