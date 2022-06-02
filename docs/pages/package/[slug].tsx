@@ -20,6 +20,7 @@ import { GITHUB_URL } from '../../components/constants';
 import { DocsContent } from '../../components/content';
 import { InlineCode } from '../../components/example-helpers';
 import { MDXContent } from '../../components/mdx-components/mdx-content';
+import { ComponentPropsDocTables } from '../../components/mdx-components/props-doc-tables';
 import { StorybookIcon } from '../../components/vectors/fill';
 import type { HeadingData } from '../../utils/generate-toc';
 
@@ -37,6 +38,7 @@ export const getStaticProps: GetStaticProps<{
   storybookPath: string | null;
   title: string;
   toc: HeadingData[];
+  propsDoc: any;
 }> = async ({ params }) => {
   const pkg = allPackages.find(p => p.slug === params!.slug);
   if (!pkg) {
@@ -52,6 +54,7 @@ export const getStaticProps: GetStaticProps<{
       storybookPath: pkg.storybookPath ?? null,
       title: pkg.title,
       toc: pkg.toc,
+      propsDoc: pkg.props,
     },
   };
 };
@@ -62,6 +65,7 @@ export default function Packages({
   storybookPath,
   title,
   toc,
+  propsDoc,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
   const packageSlug = packageName.replace('@spark-web/', '');
 
@@ -76,6 +80,11 @@ export default function Packages({
         />
         <Divider />
         <MDXContent code={code} />
+        <Divider />
+        <Divider />
+        <Divider />
+        <Divider />
+        <ComponentPropsDocTables componentPropsDoc={propsDoc} />
       </Stack>
     </DocsContent>
   );
