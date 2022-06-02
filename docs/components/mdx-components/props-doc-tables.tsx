@@ -30,23 +30,6 @@ const PropsTable = ({ propsData }: { propsData: Props }) => {
   // Sort the required props before the non-required props,
   // Then sort alphabetically
   const props = Object.entries(propsData)
-    .sort(([, a], [, b]) => {
-      // If they have different required-ness, sort them in different buckets
-      if (a.required !== b.required) {
-        if (a.required) {
-          return -1;
-        } else {
-          return 1;
-        }
-      }
-      // Alphabetically sort the props if they're in the same required-ness
-      // bucket
-      if (a.type.name < b.type.name) {
-        return 1;
-      } else {
-        return -1;
-      }
-    })
     .map(([key, prop]) => {
       let type = prop.type.name;
       if (prop.type.name === 'enum') {
@@ -76,6 +59,19 @@ const PropsTable = ({ propsData }: { propsData: Props }) => {
         }),
         description: prop.description,
       };
+    })
+    .sort((a, b) => {
+      // If they have different required-ness, sort them in different buckets
+      if (a.required !== b.required) {
+        if (a.required) {
+          return -1;
+        } else {
+          return 1;
+        }
+      }
+      // Alphabetically sort the props if they're in the same required-ness
+      // bucket
+      return a.name.localeCompare(b.name);
     });
 
   if (!props.length) {
