@@ -58,11 +58,13 @@ const PropsTable = ({ propsData }: { propsData: Props }) => {
             type = prop.type.raw;
           } else {
             type = `${prop.type.raw}: ${prop.type.value
-              .map(({ value }) => value)
+              .map(({ value }: { value: any }) => value)
               .join(' | ')}`;
           }
         } else if (prop.type.value) {
-          type = prop.type.value.map(({ value }) => value).join(' | ');
+          type = prop.type.value
+            .map(({ value }: { value: any }) => value)
+            .join(' | ');
         }
       }
       return {
