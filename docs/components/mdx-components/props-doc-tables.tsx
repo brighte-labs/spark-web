@@ -1,6 +1,6 @@
 import { Heading } from '@spark-web/heading';
 import { Stack } from '@spark-web/stack';
-import type { ComponentDoc, PropItem, Props } from 'react-docgen-typescript';
+import type { ComponentDoc, Props } from 'react-docgen-typescript';
 
 import { MdxTable, MdxTd, MdxTh, MdxThead, MdxTr } from './mdx-table';
 
@@ -24,37 +24,50 @@ export const ComponentPropsDocTables = ({
 };
 
 const PropsTable = ({ propsData }: { propsData: Props }) => {
-  type PropItemKey = keyof PropItem;
-  const propItems = [
-    'name',
-    'required',
-    'type',
-    'description',
-    'defaultValue',
-    'parent',
-    'declarations',
-    'tags',
-  ] as PropItemKey[];
-
-  const propKeys = Object.keys(propsData);
+  // Sort the required props before the non-required props
+  // Then sort alphabetically
+  const props = Object.entries(propsData).sort(([, a], [, b]) => {
+    // If they have different required-ness, sort them in different buckets
+    if (a.required !== b.required) {
+      if (a.required) {
+        return -1;
+      } else {
+        return 1;
+      }
+    }
+    // Alphabetically sort the props if they're in the same "required"-ness
+    // portion
+    if (a.type.name < b.type.name) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
 
   return (
     <MdxTable>
       <MdxThead>
         <MdxTr>
-          {propItems.map(item => (
-            <MdxTh key={`${item}-prop-th`}>{item}</MdxTh>
-          ))}
+          <MdxTh>Prop</MdxTh>
+          <MdxTh>Type</MdxTh>
+          <MdxTh>Default</MdxTh>
+          <MdxTh>Description</MdxTh>
         </MdxTr>
       </MdxThead>
 
-      {propKeys.map(key => (
-        <MdxTr key={`${key}-prop-tr`}>
-          {propItems.map(item => (
-            <MdxTd key={`${item}-prop-td`}>
-              {JSON.stringify(propsData[key][item])}
-            </MdxTd>
-          ))}
+      {props.map(([key, prop]) => (
+        <MdxTr key={key}>
+          <MdxTd>
+            {key}
+            {prop.required ? '' : '?'}
+          </MdxTd>
+          <MdxTd>{prop.type.name}</MdxTd>
+          <MdxTd>
+            {typeof prop.defaultValue?.value !== 'undefined'
+              ? JSON.stringify(prop.defaultValue.value)
+              : null}
+          </MdxTd>
+          <MdxTd>{prop.description}</MdxTd>
         </MdxTr>
       ))}
     </MdxTable>
