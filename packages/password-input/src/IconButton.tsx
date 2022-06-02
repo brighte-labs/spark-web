@@ -16,7 +16,13 @@ export const IconButton = ({
   ...rest
 }: IconButtonProps) => {
   return (
-    <Box as="button" onClick={handleClick} {...useIconButtonStyles()} {...rest}>
+    <Box
+      {...rest}
+      {...useIconButtonStyles()}
+      as="button"
+      type="button"
+      onClick={handleClick}
+    >
       {children}
     </Box>
   );
