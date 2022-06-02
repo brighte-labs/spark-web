@@ -12,6 +12,9 @@ export const ComponentPropsDocTables = ({
   return (
     <>
       {componentPropsDoc.map(PropsDoc => {
+        if (!Object.keys(PropsDoc.props).length) {
+          return null;
+        }
         return (
           <Stack key={PropsDoc.displayName} gap="medium">
             <Heading level="2">{PropsDoc.displayName} Props</Heading>
