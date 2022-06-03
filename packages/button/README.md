@@ -198,23 +198,7 @@ with the exception of `href` vs `onClick` props.
 
 ## Props
 
-| Prop              | Type                                                                                     | Default   | Description                                                                                                                               |
-| ----------------- | ---------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| aria-controls?    | string                                                                                   |           | Identifies the element (or elements) whose contents or presence are controlled by the current element. Only applicable for `Button`.      |
-| aria-describedby? | string                                                                                   |           | Identifies the element (or elements) that describes the object. Only applicable for `Button`.                                             |
-| aria-expanded?    | string                                                                                   |           | Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed. Only applicable for `Button`. |
-| children          | string \| React.ReactElement\<IconProps>                                                 |           | Children element to be rendered inside the button.                                                                                        |
-| data?             | [DataAttributeMap][data-attribute-map]                                                   |           | Allows setting of data attributes on the button.                                                                                          |
-| disabled?         | boolean                                                                                  |           | When true, prevents `onClick` from firing. Only applicable for `Button`.                                                                  |
-| href              | string                                                                                   |           | Specifies the url the button should redirect to upon being clicked. Only applicable for `ButtonLink`.                                     |
-| id?               | string                                                                                   |           | Unique identifier for the button.                                                                                                         |
-| label?            | string                                                                                   |           | Implicit label for buttons only required for icon-only buttons for accessibility reasons.                                                 |
-| loading?          | boolean                                                                                  |           | When true, the button will display a loading spinner.                                                                                     |
-| onClick?          | Function                                                                                 |           | Function to be fired following a click event of the button. Only applicable for `Button`.                                                 |
-| prominence?       | 'high' \| 'low'                                                                          | 'high'    | Sets the visual prominence of the button.                                                                                                 |
-| size?             | 'medium' \| 'large'                                                                      | 'medium'  | Sets the size of the button.                                                                                                              |
-| tone?             | 'primary' \| 'secondary' \| 'neutral' \| 'positive' \| 'caution' \| 'critical' \| 'info' | 'primary' | Sets the tone of the button.                                                                                                              |
-| type?             | 'button' \| 'submit' \| 'reset'                                                          | 'button'  | Sets the button type. Only applicable for `Button`.                                                                                       |
+<PropsTable displayName="Button"/>
 
 [data-attribute-map]:
   https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1

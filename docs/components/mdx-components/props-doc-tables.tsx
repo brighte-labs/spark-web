@@ -5,24 +5,18 @@ import type { ComponentDoc, Props } from 'react-docgen-typescript';
 import { MdxTable, MdxTd, MdxTh, MdxThead, MdxTr } from './mdx-table';
 
 export const ComponentPropsDocTables = ({
-  componentPropsDoc,
+  propsDoc,
 }: {
-  componentPropsDoc: ComponentDoc[];
+  propsDoc: ComponentDoc | undefined;
 }) => {
+  if (!propsDoc || !Object.keys(propsDoc.props).length) {
+    return null;
+  }
   return (
-    <>
-      {componentPropsDoc.map(PropsDoc => {
-        if (!Object.keys(PropsDoc.props).length) {
-          return null;
-        }
-        return (
-          <Stack key={PropsDoc.displayName} gap="medium">
-            <Heading level="2">{PropsDoc.displayName} Props</Heading>
-            <PropsTable propsData={PropsDoc.props} />
-          </Stack>
-        );
-      })}
-    </>
+    <Stack key={propsDoc.displayName} gap="medium">
+      <Heading level="4">{propsDoc.displayName} Props</Heading>
+      <PropsTable propsData={propsDoc.props} />
+    </Stack>
   );
 };
 

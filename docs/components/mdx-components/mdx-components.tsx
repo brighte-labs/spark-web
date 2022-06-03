@@ -5,10 +5,12 @@ import { TextLink } from '@spark-web/text-link';
 import type { TextListProps } from '@spark-web/text-list';
 import { TextList } from '@spark-web/text-list';
 import type { ReactNode } from 'react';
-import { Children, Fragment } from 'react';
+import { Children, createContext, Fragment, useContext } from 'react';
+import type { ComponentDoc } from 'react-docgen-typescript';
 
 import * as sparkComponents from '../../cache/spark-components';
 import { Heading } from '../../components/content/toc-context';
+import { ComponentPropsDocTables } from '../../components/mdx-components/props-doc-tables';
 import { InlineCode } from '../example-helpers';
 import { CodeBlock } from './code-block';
 import { MdxTable, MdxTd, MdxTh, MdxThead, MdxTr } from './mdx-table';
@@ -21,6 +23,10 @@ interface CodeProps {
   live: true;
   metastring?: string;
 }
+
+export const DataContext = createContext<{ props: ComponentDoc[] } | null>(
+  null
+);
 
 function Code({ children, className, demo, ...props }: CodeProps): JSX.Element {
   const trimmedChildren = children.trim();
@@ -74,6 +80,13 @@ export const mdxComponents: Record<string, ReactNode> = {
   // avoid wrapping live examples in pre tag
   pre: Fragment,
   code: Code,
+  PropsTable: ({ displayName }: { displayName: string }) => {
+    const data = useContext(DataContext);
+    const propsDoc = data!.props.find(comp => {
+      return comp.displayName === displayName;
+    });
+    return <ComponentPropsDocTables propsDoc={propsDoc} />;
+  },
   // Design System Components
   ...sparkComponents,
 };

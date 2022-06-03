@@ -20,7 +20,6 @@ import { GITHUB_URL } from '../../components/constants';
 import { DocsContent } from '../../components/content';
 import { InlineCode } from '../../components/example-helpers';
 import { MDXContent } from '../../components/mdx-components/mdx-content';
-import { ComponentPropsDocTables } from '../../components/mdx-components/props-doc-tables';
 import { StorybookIcon } from '../../components/vectors/fill';
 import type { HeadingData } from '../../utils/generate-toc';
 
@@ -79,12 +78,7 @@ export default function Packages({
           packageSlug={packageSlug}
         />
         <Divider />
-        <MDXContent code={code} />
-        <Divider />
-        <Divider />
-        <Divider />
-        <Divider />
-        <ComponentPropsDocTables componentPropsDoc={propsDoc} />
+        <MDXContent code={code} data={{ props: propsDoc }} />
       </Stack>
     </DocsContent>
   );
