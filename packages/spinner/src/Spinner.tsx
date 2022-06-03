@@ -1,4 +1,5 @@
 import { css, keyframes } from '@emotion/css';
+import { VisuallyHidden } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
 import type { IconProps } from '@spark-web/icon';
 import { createIcon } from '@spark-web/icon';
@@ -30,7 +31,15 @@ export function Spinner({ tone, size = 'xxsmall', data }: SpinnerProps) {
       justifyContent="center"
       data={data}
     >
-      <SpinnerIcon size={size} tone={tone} ref={strokeAnimationRef} />
+      <VisuallyHidden>
+        Image of a partial circle indicating "loading".
+      </VisuallyHidden>
+      <SpinnerIcon
+        size={size}
+        tone={tone}
+        ref={strokeAnimationRef}
+        aria-hidden="true"
+      />
     </Box>
   );
 }
