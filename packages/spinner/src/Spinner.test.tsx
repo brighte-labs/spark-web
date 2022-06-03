@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import type { SpinnerProps } from './Spinner';
 import { Spinner } from './Spinner';
@@ -13,7 +13,9 @@ describe('Spinner component', () => {
   it('should have spinner as svg', () => {
     const { container } = renderComponent();
     expect(container.querySelector('svg')).toBeInTheDocument();
+    expect(screen.getByText(/loading/i)).toBeInTheDocument();
   });
+
   it('should display data props when passed down', () => {
     const data = { testAttr: 'some attr' };
     const { container } = renderComponent({ data });
