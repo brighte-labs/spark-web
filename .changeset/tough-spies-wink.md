@@ -5,7 +5,6 @@
 '@spark-web/heading': major
 '@spark-web/modal-dialog': major
 '@spark-web/radio': major
-'@spark-web/row': major
 '@spark-web/text-list': major
 ---
 

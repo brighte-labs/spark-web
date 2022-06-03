@@ -35,12 +35,13 @@ export type RowProps = {
 
 export const Row = forwardRefWithAs<'div', RowProps>(
   (
-    { align = 'left', alignY = 'stretch', children, data, dividers },
+    { align = 'left', alignY = 'stretch', children, data, dividers, ...rest },
     forwardedRef
   ) => {
     const justifyContent = alignToJustifyContent(align);
     const alignItems = alignYToAlignItems(alignY);
     const rootProps = {
+      ...rest,
       ref: forwardedRef,
       display: 'flex',
       alignItems,
