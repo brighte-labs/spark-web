@@ -1,6 +1,6 @@
 import { useLiveReload, useMDXComponent } from 'next-contentlayer/hooks';
-import type { ComponentDoc } from 'react-docgen-typescript';
 
+import type { DataContextType } from './mdx-components';
 import { DataContext, mdxComponents } from './mdx-components';
 
 export function MDXContent({
@@ -8,12 +8,12 @@ export function MDXContent({
   data,
 }: {
   code: string;
-  data: ComponentDoc[];
+  data: DataContextType;
 }) {
   useLiveReload();
   const Component = useMDXComponent(code);
   return (
-    <DataContext.Provider value={{ props: data }}>
+    <DataContext.Provider value={data}>
       <Component components={mdxComponents} />
     </DataContext.Provider>
   );

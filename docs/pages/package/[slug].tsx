@@ -47,8 +47,6 @@ export const getStaticProps: GetStaticProps<{
     };
   }
 
-  const propsDoc = formatPropsData(pkg.props);
-
   return {
     props: {
       code: pkg.body.code,
@@ -56,65 +54,70 @@ export const getStaticProps: GetStaticProps<{
       storybookPath: pkg.storybookPath ?? null,
       title: pkg.title,
       toc: pkg.toc,
-      propsDoc,
+      propsDoc: formatPropsData(pkg.props),
     },
   };
 };
 
-const formatPropsData = (originalPropsData: ComponentDoc[]) => {
-  // Sort the required props before the non-required props,
-  // Then sort alphabetically
-  return originalPropsData.map(propsData => {
-    const props = Object.entries(propsData.props)
-      .map(([key, prop]) => {
-        let type = prop.type.name;
-        if (prop.type.name === 'enum') {
-          if (prop.type.raw) {
-            if (
-              prop.type.raw.includes('|') ||
-              ['boolean' /* TODO: more? */].includes(prop.type.raw)
-            ) {
-              type = prop.type.raw;
-            } else {
-              type = `${prop.type.raw}: ${prop.type.value
+const formatPropsData = (originalPropsData: ComponentDoc[]) =>
+  originalPropsData
+    .map(propsData => ({
+      displayName: propsData.displayName,
+      props: Object.entries(propsData.props)
+        .map(([key, prop]) => {
+          let type = prop.type.name;
+          if (prop.type.name === 'enum') {
+            if (prop.type.raw) {
+              if (
+                prop.type.raw.includes('|') ||
+                ['boolean' /* TODO: more? */].includes(prop.type.raw)
+              ) {
+                type = prop.type.raw;
+              } else {
+                type = `${prop.type.raw}: ${prop.type.value
+                  .map(({ value }: { value: any }) => value)
+                  .join(' | ')}`;
+              }
+            } else if (prop.type.value) {
+              type = prop.type.value
                 .map(({ value }: { value: any }) => value)
-                .join(' | ')}`;
+                .join(' | ');
             }
-          } else if (prop.type.value) {
-            type = prop.type.value
-              .map(({ value }: { value: any }) => value)
-              .join(' | ');
           }
-        }
-        return {
-          name: key,
-          required: prop.required,
-          type,
-          ...(typeof prop.defaultValue?.value !== 'undefined' && {
-            defaultValue: prop.defaultValue.value,
-          }),
-          description: prop.description,
-        };
-      })
-      .sort((a, b) => {
-        // If they have different required-ness, sort them in different buckets
-        if (a.required !== b.required) {
-          if (a.required) {
-            return -1;
-          } else {
-            return 1;
+
+          return {
+            name: key,
+            required: prop.required,
+            type,
+            ...(typeof prop.defaultValue?.value !== 'undefined' && {
+              defaultValue: prop.defaultValue.value,
+            }),
+            description: prop.description,
+          };
+        })
+        // Sort the required props before the non-required props,
+        // Then sort alphabetically
+        .sort((a, b) => {
+          // If they have different required-ness, sort them in different buckets
+          if (a.required !== b.required) {
+            if (a.required) {
+              return -1;
+            } else {
+              return 1;
+            }
           }
-        }
-        // Alphabetically sort the props if they're in the same required-ness
-        // bucket
-        return a.name.localeCompare(b.name);
-      });
-    return {
-      ...originalPropsData,
-      props,
-    };
-  });
-};
+          // Alphabetically sort the props if they're in the same required-ness
+          // bucket
+          return a.name.localeCompare(b.name);
+        }),
+    }))
+    .reduce(
+      (memo, { displayName, ...rest }) => ({
+        ...memo,
+        [displayName]: rest,
+      }),
+      {}
+    );
 
 export default function Packages({
   code,

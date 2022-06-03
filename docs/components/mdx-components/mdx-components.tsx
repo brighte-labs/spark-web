@@ -6,7 +6,6 @@ import type { TextListProps } from '@spark-web/text-list';
 import { TextList } from '@spark-web/text-list';
 import type { ReactNode } from 'react';
 import { Children, createContext, Fragment, useContext } from 'react';
-import type { ComponentDoc } from 'react-docgen-typescript';
 
 import * as sparkComponents from '../../cache/spark-components';
 import { Heading } from '../../components/content/toc-context';
@@ -24,9 +23,11 @@ interface CodeProps {
   metastring?: string;
 }
 
-export const DataContext = createContext<{ props: ComponentDoc[] } | null>(
-  null
-);
+export type DataContextType = {
+  props: Record<string, { displayName: string; props: Record<string, any> }>;
+};
+
+export const DataContext = createContext<DataContextType>(null);
 
 function Code({ children, className, demo, ...props }: CodeProps): JSX.Element {
   const trimmedChildren = children.trim();
@@ -82,9 +83,12 @@ export const mdxComponents: Record<string, ReactNode> = {
   code: Code,
   PropsTable: ({ displayName }: { displayName: string }) => {
     const data = useContext(DataContext);
-    const propsDoc = data!.props.find(comp => {
-      return comp.displayName === displayName;
-    });
+
+    if (!data?.props) {
+      return null;
+    }
+
+    const propsDoc = data.props[displayName];
     return <ComponentPropsDocTables propsDoc={propsDoc} />;
   },
   // Design System Components
