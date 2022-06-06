@@ -25,7 +25,7 @@ interface CodeProps {
 
 export type DataContextType = {
   props: Record<string, { displayName: string; props: Record<string, any> }>;
-};
+} | null;
 
 export const DataContext = createContext<DataContextType>(null);
 
