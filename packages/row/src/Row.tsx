@@ -17,8 +17,6 @@ type ValidBoxProps = Omit<
   | 'flexDirection'
   | 'justifyContent'
   | 'flexWrap'
-  | 'className'
-  | 'style'
   | 'dangerouslySetInnerHTML'
 >;
 
