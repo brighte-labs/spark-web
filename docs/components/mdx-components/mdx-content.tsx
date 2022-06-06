@@ -8,12 +8,12 @@ export function MDXContent({
   data,
 }: {
   code: string;
-  data: DataContextType;
+  data?: DataContextType;
 }) {
   useLiveReload();
   const Component = useMDXComponent(code);
   return (
-    <DataContext.Provider value={data}>
+    <DataContext.Provider value={data ?? null}>
       <Component components={mdxComponents} />
     </DataContext.Provider>
   );
