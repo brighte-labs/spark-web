@@ -1,5 +1,13 @@
 # @spark-web/text-input
 
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3db131b`](https://github.com/brighte-labs/spark-web/commit/3db131bfadbc4149d05b7c74be1a3e68cdd5b18f)]:
+  - @spark-web/field@3.0.0
+
 ## 1.2.0
 
 ### Minor Changes

@@ -1,5 +1,22 @@
 # @spark-web/modal-dialog
 
+## 2.0.0
+
+### Major Changes
+
+- [#99](https://github.com/brighte-labs/spark-web/pull/99)
+  [`3db131b`](https://github.com/brighte-labs/spark-web/commit/3db131bfadbc4149d05b7c74be1a3e68cdd5b18f)
+  Thanks [@oscargws](https://github.com/oscargws)! - Removed props spreading
+  from multiple packages
+
+### Patch Changes
+
+- Updated dependencies
+  [[`949001a`](https://github.com/brighte-labs/spark-web/commit/949001aca3304a4f13750885575de8ec9e8503b3),
+  [`3db131b`](https://github.com/brighte-labs/spark-web/commit/3db131bfadbc4149d05b7c74be1a3e68cdd5b18f)]:
+  - @spark-web/button@1.1.2
+  - @spark-web/heading@2.0.0
+
 ## 1.0.5
 
 ### Patch Changes

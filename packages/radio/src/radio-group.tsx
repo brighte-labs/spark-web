@@ -6,12 +6,24 @@ import { useRadioGroupState } from './use-radio-group-state';
 
 export const RadioGroup = <Value extends string>({
   children,
-  id: idProp,
+  disabled,
+  name,
+  onChange,
+  size,
+  value,
   message,
+  id: idProp,
+  'aria-describedby': ariaDescribedBy,
   tone = 'neutral',
-  ...props
 }: RadioGroupProps<Value>): JSX.Element => {
-  const context = useRadioGroupState(props);
+  const context = useRadioGroupState({
+    disabled,
+    name,
+    onChange,
+    size,
+    value,
+    'aria-describedby': ariaDescribedBy,
+  });
   const { inputId: radioGroupId, messageId } = useFieldIds(idProp);
   return (
     <RadioGroupContext.Provider

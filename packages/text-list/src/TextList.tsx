@@ -123,7 +123,7 @@ const bulletSize = {
 
 export const IndicatorContainer = ({
   size = 'standard',
-  ...props
+  children,
 }: TextProps) => {
   const { typography, utils } = useTheme();
   const { mobile, tablet } = typography.text[size];
@@ -140,8 +140,9 @@ export const IndicatorContainer = ({
       cursor="default"
       flexShrink={0}
       className={css(responsiveStyles)}
-      {...props}
-    />
+    >
+      {children}
+    </Box>
   );
 };
 

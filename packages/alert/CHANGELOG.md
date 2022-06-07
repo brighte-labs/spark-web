@@ -1,5 +1,13 @@
 # @spark-web/alert
 
+## 1.0.6
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3db131b`](https://github.com/brighte-labs/spark-web/commit/3db131bfadbc4149d05b7c74be1a3e68cdd5b18f)]:
+  - @spark-web/text-list@2.0.0
+
 ## 1.0.5
 
 ### Patch Changes

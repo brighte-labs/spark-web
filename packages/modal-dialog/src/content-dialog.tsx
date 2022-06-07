@@ -1,6 +1,5 @@
 import { css, keyframes } from '@emotion/css';
 import type {
-  DialogCloseProps,
   DialogContentProps,
   DialogDescriptionProps,
   DialogOverlayProps,
@@ -36,7 +35,7 @@ const DialogOverlay = forwardRef<HTMLDivElement, DialogOverlayProps>(
   (props, forwardedRef) => {
     const theme = useTheme();
     return (
-      <DialogPrimitive.Overlay {...props} asChild>
+      <DialogPrimitive.Overlay asChild>
         <Box
           ref={forwardedRef}
           background="backdrop"
@@ -192,10 +191,10 @@ function DialogDescription({ children, ...rest }: DialogDescriptionProps) {
 
 // Dialog Close
 // ------------------------------
-function DialogClose(props: DialogCloseProps) {
+function DialogClose() {
   const focusRingStyles = useFocusRing();
   return (
-    <DialogPrimitive.Close {...props} asChild>
+    <DialogPrimitive.Close asChild>
       <Box
         as="button"
         type="button"
@@ -221,8 +220,8 @@ function DialogClose(props: DialogCloseProps) {
 
 // Dialog Close Button
 // ------------------------------
-export function DialogCloseButton(props: DialogCloseProps): JSX.Element {
-  return <DialogPrimitive.Close {...props} />;
+export function DialogCloseButton(): JSX.Element {
+  return <DialogPrimitive.Close />;
 }
 
 // Content Dialog

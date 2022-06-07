@@ -1,4 +1,4 @@
-import { css } from '@emotion/css';
+import { Box } from '@spark-web/box';
 import { Text } from '@spark-web/text';
 import type { ReactNode } from 'react';
 import { Children, cloneElement, isValidElement } from 'react';
@@ -74,8 +74,14 @@ function HiddenWhenLoading({
   isLoading: boolean;
 }) {
   return (
-    <span className={isLoading ? css({ opacity: 0 }) : undefined}>
+    <Box
+      as="span"
+      display="inline-flex"
+      alignItems="center"
+      justifyContent="center"
+      opacity={isLoading ? 0 : undefined}
+    >
       {children}
-    </span>
+    </Box>
   );
 }

@@ -1,5 +1,18 @@
 # @spark-web/button
 
+## 1.1.2
+
+### Patch Changes
+
+- [#144](https://github.com/brighte-labs/spark-web/pull/144)
+  [`949001a`](https://github.com/brighte-labs/spark-web/commit/949001aca3304a4f13750885575de8ec9e8503b3)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Better align
+  icons inside of buttons
+
+- Updated dependencies
+  [[`500939d`](https://github.com/brighte-labs/spark-web/commit/500939de7c45c93d48078f39151035ab9eba057f)]:
+  - @spark-web/spinner@1.0.3
+
 ## 1.1.1
 
 ### Patch Changes

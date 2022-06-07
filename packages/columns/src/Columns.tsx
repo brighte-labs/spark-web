@@ -24,6 +24,7 @@ type ValidBoxProps = Omit<
   | 'flexDirection'
   | 'justifyContent'
   | 'flexWrap'
+  | 'dangerouslySetInnerHTML'
 >;
 
 export type ColumnsProps = {

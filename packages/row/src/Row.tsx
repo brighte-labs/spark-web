@@ -12,7 +12,12 @@ import { alignToJustifyContent, alignYToAlignItems } from './alignment';
 
 type ValidBoxProps = Omit<
   BoxProps,
-  'display' | 'alignItems' | 'flexDirection' | 'justifyContent' | 'flexWrap'
+  | 'display'
+  | 'alignItems'
+  | 'flexDirection'
+  | 'justifyContent'
+  | 'flexWrap'
+  | 'dangerouslySetInnerHTML'
 >;
 
 export type RowProps = {
@@ -28,17 +33,17 @@ export type RowProps = {
 
 export const Row = forwardRefWithAs<'div', RowProps>(
   (
-    { align = 'left', alignY = 'stretch', children, data, dividers, ...props },
+    { align = 'left', alignY = 'stretch', children, data, dividers, ...rest },
     forwardedRef
   ) => {
     const justifyContent = alignToJustifyContent(align);
     const alignItems = alignYToAlignItems(alignY);
     const rootProps = {
+      ...rest,
       ref: forwardedRef,
       display: 'flex',
       alignItems,
       justifyContent,
-      ...props,
     } as const;
 
     // bail early w/o dividers to avoid unnecessary map

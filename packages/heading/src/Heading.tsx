@@ -29,7 +29,7 @@ export type HeadingProps = UseHeadingProps & {
 };
 
 export const Heading = forwardRefWithAs<'h1', HeadingProps>(
-  ({ align, as, children, data, id, level, truncate, ...props }, ref) => {
+  ({ align, as, children, data, id, level, truncate }, ref) => {
     const overflowStyles = useOverflowStrategy(
       truncate ? 'truncate' : undefined
     );
@@ -50,7 +50,6 @@ export const Heading = forwardRefWithAs<'h1', HeadingProps>(
           ref={ref}
           id={id}
           className={css(styles)}
-          {...props}
         >
           {content}
         </Box>
