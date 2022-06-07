@@ -23,8 +23,19 @@ interface CodeProps {
   metastring?: string;
 }
 
+export type PropsType = {
+  name: string;
+  required: boolean;
+  type: string;
+  defaultValue: any;
+  description: string;
+};
+
 export type DataContextType = {
-  props: Record<string, { displayName: string; props: Record<string, any> }>;
+  props: Record<
+    string,
+    { displayName: string; props: Record<string, PropsType> }
+  >;
 } | null;
 
 export const DataContext = createContext<DataContextType>(null);

@@ -20,6 +20,7 @@ import { allPackages } from '../../.contentlayer/generated';
 import { GITHUB_URL } from '../../components/constants';
 import { DocsContent } from '../../components/content';
 import { InlineCode } from '../../components/example-helpers';
+import type { DataContextType } from '../../components/mdx-components/mdx-components';
 import { MDXContent } from '../../components/mdx-components/mdx-content';
 import { StorybookIcon } from '../../components/vectors/fill';
 import type { HeadingData } from '../../utils/generate-toc';
@@ -59,7 +60,9 @@ export const getStaticProps: GetStaticProps<{
   };
 };
 
-const formatPropsData = (originalPropsData: ComponentDoc[]) =>
+const formatPropsData = (
+  originalPropsData: ComponentDoc[]
+): Record<string, DataContextType> =>
   originalPropsData
     .map(propsData => ({
       displayName: propsData.displayName,
