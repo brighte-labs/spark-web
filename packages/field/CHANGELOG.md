@@ -1,5 +1,14 @@
 # @spark-web/field
 
+## 3.0.0
+
+### Major Changes
+
+- [#99](https://github.com/brighte-labs/spark-web/pull/99)
+  [`3db131b`](https://github.com/brighte-labs/spark-web/commit/3db131bfadbc4149d05b7c74be1a3e68cdd5b18f)
+  Thanks [@oscargws](https://github.com/oscargws)! - Removed props spreading
+  from multiple packages
+
 ## 2.0.1
 
 ### Patch Changes

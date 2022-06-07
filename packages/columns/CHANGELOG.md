@@ -1,5 +1,21 @@
 # @spark-web/columns
 
+## 2.0.0
+
+### Major Changes
+
+- [#99](https://github.com/brighte-labs/spark-web/pull/99)
+  [`3db131b`](https://github.com/brighte-labs/spark-web/commit/3db131bfadbc4149d05b7c74be1a3e68cdd5b18f)
+  Thanks [@oscargws](https://github.com/oscargws)! - Removed props spreading
+  from multiple packages
+
+### Minor Changes
+
+- [#146](https://github.com/brighte-labs/spark-web/pull/146)
+  [`4e2dc42`](https://github.com/brighte-labs/spark-web/commit/4e2dc429711b2d0d9e180716dcee6a124608f694)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Add className and
+  style back to layout primitives
+
 ## 1.0.5
 
 ### Patch Changes

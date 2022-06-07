@@ -1,5 +1,21 @@
 # @spark-web/row
 
+## 1.1.0
+
+### Minor Changes
+
+- [#146](https://github.com/brighte-labs/spark-web/pull/146)
+  [`4e2dc42`](https://github.com/brighte-labs/spark-web/commit/4e2dc429711b2d0d9e180716dcee6a124608f694)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Add className and
+  style back to layout primitives
+
+### Patch Changes
+
+- [#145](https://github.com/brighte-labs/spark-web/pull/145)
+  [`87a7824`](https://github.com/brighte-labs/spark-web/commit/87a782476b456508987450b55c51628047b80250)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update props that
+  Row receives
+
 ## 1.0.5
 
 ### Patch Changes

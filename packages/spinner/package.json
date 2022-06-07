@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/spinner",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "dist/spark-web-spinner.cjs.js",
   "module": "dist/spark-web-spinner.esm.js",

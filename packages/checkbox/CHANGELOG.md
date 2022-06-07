@@ -1,5 +1,18 @@
 # @spark-web/checkbox
 
+## 1.0.6
+
+### Patch Changes
+
+- [#119](https://github.com/brighte-labs/spark-web/pull/119)
+  [`e1a119a`](https://github.com/brighte-labs/spark-web/commit/e1a119a0f1123f771c0da31e6cf2664f7e1ddc16)
+  Thanks [@oscargws](https://github.com/oscargws)! - Feature: add fieldset to
+  checkbox and radio docs
+
+- Updated dependencies
+  [[`3db131b`](https://github.com/brighte-labs/spark-web/commit/3db131bfadbc4149d05b7c74be1a3e68cdd5b18f)]:
+  - @spark-web/field@3.0.0
+
 ## 1.0.5
 
 ### Patch Changes

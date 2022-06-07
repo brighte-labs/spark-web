@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/text-list",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "license": "MIT",
   "main": "dist/spark-web-text-list.cjs.js",
   "module": "dist/spark-web-text-list.esm.js",

@@ -1,5 +1,13 @@
 # @spark-web/spinner
 
+## 1.0.3
+
+### Patch Changes
+
+- [#142](https://github.com/brighte-labs/spark-web/pull/142)
+  [`500939d`](https://github.com/brighte-labs/spark-web/commit/500939de7c45c93d48078f39151035ab9eba057f)
+  Thanks [@clothoo](https://github.com/clothoo)! - Add role 'progressbar'
+
 ## 1.0.2
 
 ### Patch Changes

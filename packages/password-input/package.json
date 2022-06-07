@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/password-input",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "dist/spark-web-password-input.cjs.js",
   "module": "dist/spark-web-password-input.esm.js",
@@ -12,12 +12,12 @@
     "@emotion/css": "^11.9.0",
     "@spark-web/a11y": "^1.0.5",
     "@spark-web/box": "^1.0.5",
-    "@spark-web/button": "^1.1.1",
-    "@spark-web/field": "^2.0.0",
-    "@spark-web/float-input": "^1.0.1",
+    "@spark-web/button": "^1.1.2",
+    "@spark-web/field": "^3.0.0",
+    "@spark-web/float-input": "^1.0.2",
     "@spark-web/icon": "^1.1.3",
     "@spark-web/text": "^1.0.5",
-    "@spark-web/text-input": "^1.2.0",
+    "@spark-web/text-input": "^1.2.1",
     "@spark-web/theme": "^3.0.1"
   },
   "devDependencies": {

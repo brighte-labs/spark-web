@@ -1,5 +1,22 @@
 # @spark-web/password-input
 
+## 1.0.1
+
+### Patch Changes
+
+- [#143](https://github.com/brighte-labs/spark-web/pull/143)
+  [`e6897d0`](https://github.com/brighte-labs/spark-web/commit/e6897d0dab1e444f3aa2b7ed8e65841bb7defb76)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Add type="button"
+  to IconButton to prevent submitting form
+
+- Updated dependencies
+  [[`949001a`](https://github.com/brighte-labs/spark-web/commit/949001aca3304a4f13750885575de8ec9e8503b3),
+  [`3db131b`](https://github.com/brighte-labs/spark-web/commit/3db131bfadbc4149d05b7c74be1a3e68cdd5b18f)]:
+  - @spark-web/button@1.1.2
+  - @spark-web/field@3.0.0
+  - @spark-web/float-input@1.0.2
+  - @spark-web/text-input@1.2.1
+
 ## 1.0.0
 
 ### Major Changes

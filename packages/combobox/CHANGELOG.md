@@ -1,5 +1,16 @@
 # @spark-web/combobox
 
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies
+  [[`500939d`](https://github.com/brighte-labs/spark-web/commit/500939de7c45c93d48078f39151035ab9eba057f),
+  [`3db131b`](https://github.com/brighte-labs/spark-web/commit/3db131bfadbc4149d05b7c74be1a3e68cdd5b18f)]:
+  - @spark-web/spinner@1.0.3
+  - @spark-web/field@3.0.0
+  - @spark-web/text-input@1.2.1
+
 ## 1.3.0
 
 ### Minor Changes

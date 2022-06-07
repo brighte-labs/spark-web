@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/button",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "MIT",
   "main": "dist/spark-web-button.cjs.js",
   "module": "dist/spark-web-button.esm.js",
@@ -14,7 +14,7 @@
     "@spark-web/box": "^1.0.5",
     "@spark-web/icon": "^1.1.3",
     "@spark-web/link": "^1.0.5",
-    "@spark-web/spinner": "^1.0.2",
+    "@spark-web/spinner": "^1.0.3",
     "@spark-web/text": "^1.0.5",
     "@spark-web/theme": "^3.0.1",
     "@spark-web/utils": "^1.1.3"
