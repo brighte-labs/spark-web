@@ -5,9 +5,10 @@ import type { ButtonHTMLAttributes, ReactElement } from 'react';
 import { useIconButtonStyles } from './useIconButtonStyles';
 
 type IconButtonProps = {
-  handleClick: ButtonHTMLAttributes<HTMLButtonElement>['onClick'];
-  children: ReactElement<IconProps>;
+  'aria-label': string;
   'aria-pressed'?: boolean;
+  children: ReactElement<IconProps>;
+  handleClick: ButtonHTMLAttributes<HTMLButtonElement>['onClick'];
 };
 
 export const IconButton = ({

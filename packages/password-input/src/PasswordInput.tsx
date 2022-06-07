@@ -33,7 +33,11 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
         type={showPassword ? 'text' : 'password'}
       >
         <InputAdornment placement="end">
-          <IconButton handleClick={handleClick} aria-pressed={showPassword}>
+          <IconButton
+            aria-label={`${showPassword ? 'Hide' : 'Show'} password`}
+            aria-pressed={showPassword}
+            handleClick={handleClick}
+          >
             <Icon tone={disabled ? 'disabled' : 'neutral'} />
           </IconButton>
         </InputAdornment>
