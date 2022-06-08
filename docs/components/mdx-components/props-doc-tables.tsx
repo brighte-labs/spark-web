@@ -10,17 +10,17 @@ export type FormattedPropsType = {
 
 export const ComponentPropsDocTables = ({
   propsDoc,
+  displayName,
 }: {
-  propsDoc:
-    | { displayName: string; props: Record<string, PropsType> }
-    | undefined;
+  propsDoc: { props: Record<string, PropsType> } | undefined;
+  displayName: string;
 }) => {
   if (!propsDoc || !Object.keys(propsDoc?.props).length) {
     return null;
   }
   return (
-    <Stack key={propsDoc.displayName} gap="medium">
-      <Heading level="4">{propsDoc.displayName} Props</Heading>
+    <Stack key={displayName} gap="medium">
+      <Heading level="3">{displayName}</Heading>
       <PropsTable props={propsDoc.props} />
     </Stack>
   );

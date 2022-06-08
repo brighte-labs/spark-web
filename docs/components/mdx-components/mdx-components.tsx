@@ -100,7 +100,9 @@ export const mdxComponents: Record<string, ReactNode> = {
     }
 
     const propsDoc = data.props[displayName];
-    return <ComponentPropsDocTables propsDoc={propsDoc} />;
+    return (
+      <ComponentPropsDocTables propsDoc={propsDoc} displayName={displayName} />
+    );
   },
   // Design System Components
   ...sparkComponents,
