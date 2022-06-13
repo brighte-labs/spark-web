@@ -75,11 +75,9 @@ export default function Packages({
   return (
     <DocsContent pageTitle={title} includeNavigation toc={toc}>
       <Stack gap="xlarge">
-        <Heading level="1">
-          {title} - v{packageVersion}
-        </Heading>
+        <Text tone="muted">v{packageVersion}</Text>
+        <Heading level="1">{title}</Heading>
         <ComponentMaturity componentMaturityStatus={componentMaturityStatus} />
-        <Heading level="2" />
         <OpenInLinks packageSlug={packageSlug} storybookPath={storybookPath} />
         <InstallationInstructions
           packageName={packageName}
@@ -106,8 +104,8 @@ function ComponentMaturity({
           : 'Early Adoption'
       }
     >
-      This component is considered {componentMaturityStatus}. See http://blah
-      for more information about what this means.
+      This component is considered {componentMaturityStatus}. Reach out to the
+      Spark team to understand more about what this means.
     </Alert>
   );
 }
