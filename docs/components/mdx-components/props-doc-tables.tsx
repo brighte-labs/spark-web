@@ -1,6 +1,3 @@
-import { Heading } from '@spark-web/heading';
-import { Stack } from '@spark-web/stack';
-
 import type { PropsType } from './mdx-components';
 import { MdxTable, MdxTd, MdxTh, MdxThead, MdxTr } from './mdx-table';
 
@@ -18,12 +15,7 @@ export const ComponentPropsDocTables = ({
   if (!propsDoc || !Object.keys(propsDoc?.props).length) {
     return null;
   }
-  return (
-    <Stack key={displayName} gap="medium">
-      <Heading level="3">{displayName}</Heading>
-      <PropsTable props={propsDoc.props} />
-    </Stack>
-  );
+  return <PropsTable key={displayName} props={propsDoc.props} />;
 };
 
 const PropsTable = ({ props }: { props: Record<string, PropsType> }) => {

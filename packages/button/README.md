@@ -196,9 +196,17 @@ with the exception of `href` vs `onClick` props.
 </Text>
 ```
 
-## Props
+## BaseButton
 
-<PropsTable displayName="Button"/>
+Unstyled button primitive that:
 
-[data-attribute-map]:
-  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1
+- Forwards the button ref
+- Provides a default type of `button` (so it doesn't accidently submit forms if
+  left off)
+- Prevents `onClick` from firing when disabled without disabling the button
+- Forces focus of the underlying button when clicked (to address a bug in
+  Safari)
+
+## Button Props
+
+<PropsTable displayName="Button" />
