@@ -3,7 +3,7 @@ import { useFocusRing } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
 import type { FieldState } from '@spark-web/field';
 import { useFieldContext } from '@spark-web/field';
-import { useText } from '@spark-web/text';
+import { useOverflowStrategy, useText } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { InputHTMLAttributes } from 'react';
@@ -100,6 +100,7 @@ export type UseInputProps = FieldState;
 
 export const useInput = ({ disabled }: UseInputProps) => {
   const theme = useTheme();
+  const overflowStyles = useOverflowStrategy('truncate');
   const focusRingStyles = useFocusRing({ always: true });
   const textStyles = useText({
     baseline: false,
@@ -113,6 +114,7 @@ export const useInput = ({ disabled }: UseInputProps) => {
   return {
     ...typographyStyles,
     ...responsiveStyles,
+    ...overflowStyles,
     ':focus': { outline: 'none' },
     ':enabled': {
       ':focus + [data-focus-indicator]': {
