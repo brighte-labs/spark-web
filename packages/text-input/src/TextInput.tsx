@@ -65,6 +65,12 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   ({ children, data, ...consumerProps }, forwardedRef) => {
     const [{ disabled, invalid }, a11yProps] = useFieldContext();
     const { startAdornment, endAdornment } = childrenToAdornments(children);
+    const [boxProps, inputStyles] = useInputStyles({
+      disabled,
+      invalid,
+      startAdornment: Boolean(startAdornment),
+      endAdornment: Boolean(endAdornment),
+    });
 
     return (
       <InputContainer
@@ -74,20 +80,14 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         endAdornment={endAdornment}
       >
         <Box
+          {...boxProps}
           {...consumerProps}
           {...a11yProps}
           as="input"
-          ref={forwardedRef}
+          className={css(inputStyles)}
           data={data}
           disabled={disabled}
-          position="relative"
-          // Styles
-          flex={1}
-          height="medium"
-          paddingX="medium"
-          paddingLeft={startAdornment ? 'none' : 'medium'}
-          paddingRight={endAdornment ? 'none' : 'medium'}
-          className={css(useInput({ disabled, invalid }))}
+          ref={forwardedRef}
         />
       </InputContainer>
     );
@@ -96,9 +96,21 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
 TextInput.displayName = 'TextInput';
 
-export type UseInputProps = FieldState;
+export type UseInputStylesProps = FieldState & {
+  startAdornment?: boolean;
+  endAdornment?: boolean;
+};
 
-export const useInput = ({ disabled }: UseInputProps) => {
+/**
+ * Returns a tuple where the first item is an object of props to spread onto the
+ * underlying Box component that our inputs are created with, and the second
+ * item is a CSS object to be passed to Emotion's `css` function
+ **/
+export const useInputStyles = ({
+  disabled,
+  startAdornment,
+  endAdornment,
+}: UseInputStylesProps) => {
   const theme = useTheme();
   const overflowStyles = useOverflowStrategy('truncate');
   const focusRingStyles = useFocusRing({ always: true });
@@ -111,16 +123,28 @@ export const useInput = ({ disabled }: UseInputProps) => {
 
   const [typographyStyles, responsiveStyles] = textStyles;
 
-  return {
-    ...typographyStyles,
-    ...responsiveStyles,
-    ...overflowStyles,
-    ':focus': { outline: 'none' },
-    ':enabled': {
-      ':focus + [data-focus-indicator]': {
-        borderColor: theme.border.color.fieldAccent,
-        ...focusRingStyles,
-      },
+  return [
+    {
+      flex: 1,
+      position: 'relative',
+      height: 'medium',
+      paddingLeft: startAdornment ? 'none' : 'medium',
+      paddingRight: endAdornment ? 'none' : 'medium',
+      shadow: 'small',
+      width: 'full',
     },
-  } as const;
+    {
+      ...typographyStyles,
+      ...responsiveStyles,
+      ...overflowStyles,
+      ':enabled': {
+        ':focus + [data-focus-indicator]': {
+          borderColor: theme.border.color.fieldAccent,
+          ...focusRingStyles,
+        },
+      },
+      ':focus': { outline: 'none' },
+      ':invalid': { color: theme.color.foreground.muted },
+    },
+  ] as const;
 };

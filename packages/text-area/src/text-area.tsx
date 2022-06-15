@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
+import type { BoxProps } from '@spark-web/box';
 import { Box } from '@spark-web/box';
 import { useFieldContext } from '@spark-web/field';
 import { InputContainer } from '@spark-web/text-input';
-import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { TextareaHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
@@ -17,9 +17,8 @@ export type TextAreaProps = Pick<
   | 'placeholder'
   | 'required'
   | 'value'
-> & {
-  data?: DataAttributeMap;
-};
+> &
+  Pick<BoxProps, 'data'>;
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
@@ -36,35 +35,26 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     forwardedRef
   ) => {
     const [{ disabled, invalid }, a11yProps] = useFieldContext();
-    const consumerProps = {
-      value,
-      defaultValue,
-      disabled,
-      name,
-      onBlur,
-      onChange,
-      placeholder,
-      required,
-    };
-    const textAreaStyles = useTextAreaStyles({ disabled, invalid });
+    const [boxProps, textAreaStyles] = useTextAreaStyles({ disabled, invalid });
 
     return (
       <InputContainer>
         <Box
-          {...consumerProps}
+          {...boxProps}
           {...a11yProps}
           as="textarea"
-          data={data}
-          ref={forwardedRef}
-          rows={3}
-          // Styles
-          background={disabled ? 'inputDisabled' : 'input'}
-          border={invalid ? 'critical' : 'field'}
-          borderRadius="small"
-          paddingX="medium"
-          height="medium"
-          width="full"
           className={css(textAreaStyles)}
+          data={data}
+          defaultValue={defaultValue}
+          disabled={disabled}
+          name={name}
+          onBlur={onBlur}
+          onChange={onChange}
+          placeholder={placeholder}
+          ref={forwardedRef}
+          required={required}
+          rows={3}
+          value={value}
         />
       </InputContainer>
     );
