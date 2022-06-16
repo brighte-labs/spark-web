@@ -3,7 +3,9 @@ import type { BoxProps } from '@spark-web/box';
 import { Box } from '@spark-web/box';
 import { useFieldContext } from '@spark-web/field';
 import { ChevronDownIcon } from '@spark-web/icon';
+import type { UseInputStylesProps } from '@spark-web/text-input';
 import { InputContainer, useInputStyles } from '@spark-web/text-input';
+import { useTheme } from '@spark-web/theme';
 import type { SelectHTMLAttributes } from 'react';
 import { forwardRef, useCallback } from 'react';
 
@@ -40,7 +42,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     forwardedRef
   ) => {
     const [{ disabled, invalid }, a11yProps] = useFieldContext();
-    const [boxProps, inputStyles] = useInputStyles({
+    const [boxProps, inputStyles] = useSelectStyles({
       disabled,
       invalid,
     });
@@ -112,3 +114,18 @@ const Indicator = () => {
     </Box>
   );
 };
+
+function useSelectStyles(props: UseInputStylesProps) {
+  const [boxProps, inputStyles] = useInputStyles(props);
+  const theme = useTheme();
+  return [
+    boxProps,
+    {
+      ...inputStyles,
+      // Prevent text going underneath the chevron icon
+      paddingRight:
+        theme.sizing.xxsmall + // size of chevron icon
+        theme.spacing.medium * 2, // paddingX value
+    },
+  ] as const;
+}

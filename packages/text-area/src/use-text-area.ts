@@ -2,12 +2,9 @@ import type { UseInputStylesProps } from '@spark-web/text-input';
 import { useInputStyles } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
 
-export function useTextAreaStyles({ disabled, invalid }: UseInputStylesProps) {
+export function useTextAreaStyles(props: UseInputStylesProps) {
   const theme = useTheme();
-  const [boxProps, inputStyles] = useInputStyles({
-    disabled,
-    invalid,
-  });
+  const [boxProps, inputStyles] = useInputStyles(props);
 
   return [
     boxProps,
