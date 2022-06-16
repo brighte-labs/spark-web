@@ -1,14 +1,14 @@
 import { css } from '@emotion/css';
-import type { BoxProps } from '@spark-web/box';
 import { Box } from '@spark-web/box';
 import { useFieldContext } from '@spark-web/field';
 import { InputContainer } from '@spark-web/text-input';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { TextareaHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
 import { useTextAreaStyles } from './use-text-area';
 
-export type TextAreaProps = Pick<
+export type NativeTextAreaProps = Pick<
   TextareaHTMLAttributes<HTMLTextAreaElement>,
   | 'defaultValue'
   | 'name'
@@ -17,8 +17,12 @@ export type TextAreaProps = Pick<
   | 'placeholder'
   | 'required'
   | 'value'
-> &
-  Pick<BoxProps, 'data'>;
+>;
+
+export type TextAreaProps = NativeTextAreaProps & {
+  /** Allows setting of data attributes on the underlying element. */
+  data?: DataAttributeMap;
+};
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (

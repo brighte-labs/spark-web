@@ -1,30 +1,41 @@
 import { css } from '@emotion/css';
-import type { BoxProps } from '@spark-web/box';
 import { Box } from '@spark-web/box';
 import { useFieldContext } from '@spark-web/field';
 import { ChevronDownIcon } from '@spark-web/icon';
 import type { UseInputStylesProps } from '@spark-web/text-input';
 import { InputContainer, useInputStyles } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { SelectHTMLAttributes } from 'react';
 import { forwardRef, useCallback } from 'react';
 
-type Option = {
+export type Option = {
+  /** Whether or not the option is disabled. */
   disabled?: boolean;
+  /** Label for the option. */
   label: string;
+  /** Value of the option. */
   value: string | number;
 };
-type Group = { options: Array<Option>; label: string };
+export type Group = {
+  /** List of options for the group. */
+  options: Array<Option>;
+  /** Label for the group. */
+  label: string;
+};
 export type OptionsOrGroups = Array<Option | Group>;
-
-export type SelectProps = Pick<
+export type NativeSelectProps = Pick<
   SelectHTMLAttributes<HTMLSelectElement>,
   'defaultValue' | 'name' | 'onBlur' | 'onChange' | 'required' | 'value'
-> &
-  Pick<BoxProps, 'data'> & {
-    options: OptionsOrGroups;
-    placeholder?: string;
-  };
+>;
+export type SelectProps = NativeSelectProps & {
+  /** Allows setting of data attributes on the underlying element. */
+  data?: DataAttributeMap;
+  /** The values that can be selected by the input. */
+  options: OptionsOrGroups;
+  /** Placeholder text for when the input does not have an initial value. */
+  placeholder?: string;
+};
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   (
