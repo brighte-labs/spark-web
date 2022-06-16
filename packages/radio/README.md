@@ -30,7 +30,7 @@ In order to toggle between options, all Radio components should have a matching
 Radio buttons are available in two sizes: `small` and `medium`.
 
 ```jsx live
-<Stack gap="large">
+<Fieldset legend="Shrek Characters" gap="large">
   <Radio size="small" checked={false}>
     Unchecked
   </Radio>
@@ -56,7 +56,7 @@ Radio buttons are available in two sizes: `small` and `medium`.
   <Radio size="medium" checked disabled>
     Checked + disabled
   </Radio>
-</Stack>
+</Fieldset>
 ```
 
 ## RadioGroup
@@ -123,19 +123,17 @@ const statuses = {
 };
 
 return (
-  <Stack gap="large">
-    <RadioGroup
-      legend="Message and Tone"
-      message={statuses[selected]?.message}
-      tone={statuses[selected]?.tone}
-      value={selected}
-      onChange={setSelected}
-    >
-      <Radio value="critical">Critical</Radio>
-      <Radio value="positive">Positive</Radio>
-      <Radio value="neutral">Neutral</Radio>
-    </RadioGroup>
-  </Stack>
+  <RadioGroup
+    legend="Message and Tone"
+    message={statuses[selected]?.message}
+    tone={statuses[selected]?.tone}
+    value={selected}
+    onChange={setSelected}
+  >
+    <Radio value="critical">Critical</Radio>
+    <Radio value="positive">Positive</Radio>
+    <Radio value="neutral">Neutral</Radio>
+  </RadioGroup>
 );
 ```
 
