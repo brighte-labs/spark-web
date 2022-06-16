@@ -1,4 +1,8 @@
+import { Stack } from '@spark-web/stack';
+import { Text } from '@spark-web/text';
+
 import type { PropsType } from './mdx-components';
+import { InlineCode } from './mdx-components';
 import { MdxTable, MdxTd, MdxTh, MdxThead, MdxTr } from './mdx-table';
 
 export type FormattedPropsType = {
@@ -25,11 +29,15 @@ const PropsTable = ({ props }: { props: Record<string, PropsType> }) => {
 
   return (
     <MdxTable>
+      <colgroup>
+        <col style={{ width: '20%' }} />
+        <col style={{ width: '30%' }} />
+        <col style={{ width: '50%' }} />
+      </colgroup>
       <MdxThead>
         <MdxTr>
           <MdxTh>Prop</MdxTh>
           <MdxTh>Type</MdxTh>
-          <MdxTh>Default</MdxTh>
           <MdxTh>Description</MdxTh>
         </MdxTr>
       </MdxThead>
@@ -39,12 +47,27 @@ const PropsTable = ({ props }: { props: Record<string, PropsType> }) => {
         return (
           <MdxTr key={prop.name}>
             <MdxTd>
-              {prop.name}
-              {prop.required ? '' : '?'}
+              <Text as="p" overflowStrategy="breakword">
+                {prop.name}
+                {prop.required ? '' : '?'}
+              </Text>
             </MdxTd>
-            <MdxTd>{prop.type}</MdxTd>
-            <MdxTd>{JSON.stringify(prop.defaultValue)}</MdxTd>
-            <MdxTd>{prop.description}</MdxTd>
+            <MdxTd>
+              <Text as="p" overflowStrategy="breakword">
+                {prop.type}
+              </Text>
+            </MdxTd>
+            <MdxTd>
+              <Stack gap="xlarge">
+                <Text as="p">{prop.description}</Text>
+                {typeof prop.defaultValue !== 'undefined' ? (
+                  <Text as="p">
+                    <strong>Default</strong>:{' '}
+                    <InlineCode>{JSON.stringify(prop.defaultValue)}</InlineCode>
+                  </Text>
+                ) : null}
+              </Stack>
+            </MdxTd>
           </MdxTr>
         );
       })}

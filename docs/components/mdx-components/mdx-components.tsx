@@ -12,6 +12,7 @@ import { Heading } from '../../components/content/toc-context';
 import { ComponentPropsDocTables } from '../../components/mdx-components/props-doc-tables';
 import { InlineCode } from '../example-helpers';
 import { CodeBlock } from './code-block';
+import type { MdxTdProps } from './mdx-table';
 import { MdxTable, MdxTd, MdxTh, MdxThead, MdxTr } from './mdx-table';
 
 interface CodeProps {
@@ -39,6 +40,8 @@ export type DataContextType = {
 } | null;
 
 export const DataContext = createContext<DataContextType>(null);
+
+export { InlineCode };
 
 function Code({ children, className, demo, ...props }: CodeProps): JSX.Element {
   const trimmedChildren = children.trim();
@@ -88,7 +91,11 @@ export const mdxComponents: Record<string, ReactNode> = {
   thead: MdxThead,
   tr: MdxTr,
   th: MdxTh,
-  td: MdxTd,
+  td: ({ children, ...props }: MdxTdProps) => (
+    <MdxTd {...props}>
+      <Text>{children}</Text>
+    </MdxTd>
+  ),
   // avoid wrapping live examples in pre tag
   pre: Fragment,
   code: Code,
