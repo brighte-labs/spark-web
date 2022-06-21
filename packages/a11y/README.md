@@ -23,14 +23,7 @@ hidden from assistive technology.
 </Inline>
 ```
 
-### Props
-
-| Prop   | Type   | Default | Description                                                                 |
-| ------ | ------ | ------- | --------------------------------------------------------------------------- |
-| label? | string |         | Label used to describe the symbol that will be announced to screen readers. |
-| symbol | string |         | Emoji symbol.                                                               |
-
-## Visually hidden
+## VisuallyHidden
 
 Content which should be visually hidden, but remain accessible to assistive
 technologies such as screen readers, can be implemented using the
@@ -52,8 +45,22 @@ conveyed to non-visual users.
 
 ### Props
 
-| Prop     | Type            | Default | Description                                           |
-| -------- | --------------- | ------- | ----------------------------------------------------- |
-| children | React.ReactNode |         | Children elements to be hidden within this component. |
+### Emoji Props
+
+| Prop   | Type                                   | Default | Description                                                                 |
+| ------ | -------------------------------------- | ------- | --------------------------------------------------------------------------- |
+| data?  | [DataAttributeMap][data-attribute-map] |         | Sets data attributes on the component.                                      |
+| label? | string                                 |         | Label used to describe the symbol that will be announced to screen readers. |
+| symbol | string                                 |         | Emoji symbol.                                                               |
+
+### VisuallyHidden Props
+
+| Prop     | Type                                   | Default | Description                                           |
+| -------- | -------------------------------------- | ------- | ----------------------------------------------------- |
+| data?    | [DataAttributeMap][data-attribute-map] |         | Sets data attributes on the component.                |
+| children | React.ReactNode                        |         | Children elements to be hidden within this component. |
 
 Additional props are passed to the `span` element and are not listed.
+
+[data-attribute-map]:
+  https://github.com/brighte-labs/spark-web/blob/e7f6f4285b4cfd876312cc89fbdd094039aa239a/packages/utils/src/internal/buildDataAttributes.ts#L1
