@@ -21,10 +21,12 @@ export function ControlLabel({
   return (
     <Box
       as="label"
-      alignItems="start"
-      display="inline-flex"
-      gap={size}
       htmlFor={htmlFor}
+      // Styles
+      cursor={disabled ? 'default' : 'pointer'}
+      display="inline-flex"
+      alignItems="start"
+      gap={size}
       userSelect="none"
     >
       {control}
