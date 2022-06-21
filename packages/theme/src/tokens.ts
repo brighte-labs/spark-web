@@ -148,148 +148,142 @@ export const defaultTokens = {
       large: 2,
     },
     color: {
-      neutral: colors.neutral[700],
-      standard: colors.neutral[200],
-      standardInverted: colors.neutral[0],
+      // Neutral
+      surface: colors.neutral['200'],
 
-      field: colors.neutral[200],
-      fieldHover: colors.neutral[300],
-      fieldAccent: colors.primary[500],
-      fieldDisabled: colors.neutral[300],
+      // Primary
+      primary: colors.brandPrimary['300'],
+      primaryBold: colors.brandPrimary['500'],
 
-      // tones
+      // Input
+      input: colors.neutral['200'],
+      inputHover: colors.neutral['300'],
+      inputActive: colors.brandPrimary['600'],
+      inputCritical: colors.critical['600'],
+      inputCriticalHover: colors.critical['700'],
 
-      primary: colors.primary[500],
-      primaryHover: colors.primary[600],
-      primaryActive: colors.primary[700],
+      // Positive
+      positive: colors.positive['300'],
 
-      secondary: colors.secondary[500],
-      secondaryHover: colors.secondary[600],
-      secondaryActive: colors.secondary[700],
+      // Info
+      info: colors.informative['300'],
 
-      accent: '#8b5cf6',
-      accentMuted: '#997dd8',
+      // Caution
+      caution: colors.caution['300'],
 
-      caution: colors.yellow[600],
-      cautionMuted: colors.yellow[500],
-
-      critical: colors.red[600],
-      criticalMuted: colors.red[500],
-
-      info: colors.blue[600],
-      infoMuted: colors.blue[500],
-
-      positive: colors.green[600],
-      positiveMuted: colors.green[500],
+      // Critical
+      critical: colors.critical['300'],
+      criticalBold: colors.critical['600'],
     },
   },
   color: {
     foreground: {
-      neutral: colors.neutral[700],
-      neutralInverted: colors.neutral[0],
-      muted: colors.neutral[600],
-      mutedInverted: 'hsla(0, 0%, 100%, 0.75)',
-      link: colors.primary[600],
-      disabled: colors.neutral[500],
-      fieldAccent: colors.primary[500],
-      placeholder: colors.neutral[600],
+      // Neutrals
+      bold: colors.neutral['700'],
+      subtle: colors.neutral['600'],
+      boldInverted: colors.neutral['0'],
+      boldDisabled: colors.neutral['600'],
+      subtleDisabled: colors.neutral['500'],
+      // TODO: Check with Jordan
+      boldInvertedDisabled: colors.neutral['0'],
+      // TODO: Check with Jordan
+      link: colors.informative['600'],
 
-      // tones
-      accent: '#8b5cf6',
+      // Primary
+      primarySubtle: colors.brandPrimary['700'],
+      primaryBold: colors.brandPrimary['0'],
 
-      primary: colors.primary[500],
-      primaryHover: colors.primary[600],
-      primaryActive: colors.primary[700],
+      // Positive
+      positiveSubtle: colors.positive['700'],
+      positiveBold: colors.positive['0'],
 
-      secondary: colors.secondary[500],
-      secondaryHover: colors.secondary[600],
-      secondaryActive: colors.secondary[700],
+      // Info
+      infoSubtle: colors.informative['700'],
+      infoBold: colors.informative['0'],
 
-      caution: colors.yellow[700],
-      critical: colors.red[700],
-      info: colors.blue[700],
-      positive: colors.green[700],
+      // Caution
+      cautionSubtle: colors.caution['700'],
+      // TODO: Check with Jordan
+      cautionBold: colors.neutral['700'],
+
+      // Critical
+      criticalSubtle: colors.critical['700'],
+      criticalBold: colors.critical['0'],
     },
     background: {
-      muted: colors.neutral[600],
-      disabled: colors.neutral[500],
+      // Surface
+      surface: colors.neutral['0'],
+      surfaceDisabled: colors.neutral['500'],
+      surfaceMedium: colors.neutral['100'],
 
-      backdrop: 'hsla(0, 0%, 0%, 0.4)',
-      body: colors.neutral[50],
-      surface: colors.primary[0],
-      surfaceMuted: colors.neutral[50],
-      surfacePressed: colors.neutral[300],
+      // Page
+      page: colors.neutral['0'],
+      pageSubtle: colors.neutral['50'],
 
-      fieldAccent: colors.neutral[700],
-      input: colors.primary[0],
-      inputPressed: colors.neutral[100],
-      inputDisabled: colors.neutral[50],
+      // Input
+      inputOnScene: colors.neutral['0'],
+      inputOnSurface: colors.neutral['0'],
+      inputDisabled: colors.neutral['50'],
 
-      // tones
-      accent: '#8b5cf6',
-      accentMuted: '#f7f5ff',
+      // Primary
+      primarySubtle: colors.brandPrimary['100'],
+      primaryBold: colors.brandPrimary['500'],
 
-      neutral: colors.neutral[0],
-      neutralLow: colors.neutral[50],
+      // Secondary
+      secondarySubtle: colors.brandSecondary['100'],
+      secondaryBold: colors.brandSecondary['500'],
 
-      primary: colors.primary[600],
-      primaryLow: colors.primary[100],
-      primaryMuted: colors.primary[50],
+      // Positive
+      positiveSubtle: colors.positive['100'],
+      positiveBold: colors.positive['500'],
 
-      secondary: colors.secondary[600],
-      secondaryLow: colors.secondary[100],
-      secondaryMuted: colors.secondary[50],
+      // Info
+      infoSubtle: colors.informative['100'],
+      infoBold: colors.informative['500'],
 
-      caution: colors.yellow[600],
-      cautionLow: colors.yellow[100],
-      cautionMuted: colors.yellow[50],
+      // Caution
+      cautionSubtle: colors.caution['100'],
+      cautionBold: colors.caution['500'],
 
-      critical: colors.red[600],
-      criticalLow: colors.red[100],
-      criticalMuted: colors.red[50],
-
-      info: colors.blue[600],
-      infoLow: colors.blue[100],
-      infoMuted: colors.blue[50],
-
-      positive: colors.green[600],
-      positiveLow: colors.green[100],
-      positiveMuted: colors.green[50],
+      // Critical
+      criticalSubtle: colors.critical['100'],
+      criticalBold: colors.critical['500'],
     },
   },
   backgroundInteractions: {
-    none: colors.neutral[0],
+    // Surface
+    surfaceHover: colors.neutral['100'],
+    surfacePressed: colors.neutral['300'],
 
-    primaryActive: colors.primary[700],
-    primaryHover: colors.primary[500],
-    primaryLowHover: colors.primary[100],
-    primaryLowActive: colors.primary[200],
+    // Primary
+    primarySubtleHover: colors.brandPrimary['200'],
+    primarySubtlePressed: colors.brandPrimary['200'],
+    primaryBoldHover: colors.brandPrimary['600'],
+    primaryBoldPressed: colors.brandPrimary['700'],
 
-    secondaryActive: colors.secondary[700],
-    secondaryHover: colors.secondary[500],
-    secondaryLowHover: colors.yellow[100],
-    secondaryLowActive: colors.yellow[200],
+    // Secondary
+    secondaryBoldHover: colors.brandSecondary['600'],
+    secondaryBoldPressed: colors.brandSecondary['700'],
 
-    neutralHover: colors.neutral[100],
-    neutralActive: colors.neutral[200],
-    neutralLowHover: colors.neutral[100],
-    neutralLowActive: colors.neutral[200],
+    // Positive
+    positiveSubtleHover: colors.positive['200'],
+    positiveSubtlePressed: colors.positive['300'],
 
-    cautionLowHover: colors.yellow[200],
-    cautionLowActive: colors.yellow[300],
+    // Info
+    infoSubtleHover: colors.informative['200'],
+    infoSubtlePressed: colors.informative['300'],
 
-    criticalActive: colors.red[700],
-    criticalHover: colors.red[500],
-    criticalLowHover: colors.red[200],
-    criticalLowActive: colors.red[300],
+    // Caution
+    cautionSubtleHover: colors.caution['200'],
+    cautionSubtlePressed: colors.caution['300'],
 
-    infoLowHover: colors.blue[200],
-    infoLowActive: colors.blue[300],
-
-    positiveHover: colors.green[500],
-    positiveActive: colors.green[700],
-    positiveLowHover: colors.green[200],
-    positiveLowActive: colors.green[300],
+    // Critical
+    criticalHover: colors.critical['100'],
+    criticalSubtle: colors.critical['100'],
+    criticalSubtleHover: colors.critical['200'],
+    criticalSubtlePressed: colors.critical['300'],
+    criticalBoldHover: colors.critical['600'],
+    criticalBoldPressed: colors.critical['700'],
   },
 
   // misc
