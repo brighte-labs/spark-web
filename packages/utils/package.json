@@ -10,7 +10,7 @@
     "ts"
   ],
   "dependencies": {
-    "@babel/runtime": "^7.18.0"
+    "@babel/runtime": "^7.18.3"
   },
   "devDependencies": {
     "@types/react": "^17.0.12",

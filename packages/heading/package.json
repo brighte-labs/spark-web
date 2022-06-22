@@ -8,7 +8,7 @@
     "dist"
   ],
   "dependencies": {
-    "@babel/runtime": "^7.18.0",
+    "@babel/runtime": "^7.18.3",
     "@emotion/css": "^11.9.0",
     "@spark-web/box": "^1.0.5",
     "@spark-web/text": "^1.0.5",
