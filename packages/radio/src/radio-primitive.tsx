@@ -1,134 +1,155 @@
-import type { CSSObject } from '@emotion/css';
 import { css } from '@emotion/css';
-import { useFocusRing, VisuallyHidden } from '@spark-web/a11y';
+import { useFocusRing } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
-import { createIcon } from '@spark-web/icon';
-import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import { forwardRef } from 'react';
 
 import type { RadioPrimitiveProps, RadioSize } from './types';
 
 export const RadioPrimitive = forwardRef<HTMLInputElement, RadioPrimitiveProps>(
-  ({ size = 'small', data, ...inputProps }, forwardedRef) => {
+  ({ size = 'small', ...inputProps }, forwardedRef) => {
+    const theme = useTheme();
+    const responsiveStyles = theme.utils.responsiveStyles({
+      mobile: { height: theme.typography.text.small.mobile.capHeight },
+      tablet: { height: theme.typography.text.small.tablet.capHeight },
+    });
+
+    const [boxProps, radioStyles] = useRadioStyles({ size });
+
     return (
-      /**
-       * Text is being used here to add the `::before` and `::after` pseudo elements
-       * so that we can align the radio button with the label text
-       */
-      <Text>
+      <Box
+        display="flex"
+        alignItems="center"
+        flexShrink={0}
+        className={css(responsiveStyles)}
+      >
         <Box
-          className={css({
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          })}
-          data={data}
-        >
-          {/**
-           * Zero-width space character, used to align radio button with label text
-           * @see https://codepen.io/adamwathan/pen/bGNxMpz
-           */}
-          &#8203;
-          <VisuallyHidden
-            as="input"
-            type="radio"
-            ref={forwardedRef}
-            aria-checked={inputProps.checked}
-            {...inputProps}
-          />
-          <Indicator size={size} />
-        </Box>
-      </Text>
+          {...inputProps}
+          {...boxProps}
+          aria-checked={inputProps.checked}
+          aria-disabled={inputProps.disabled}
+          as="input"
+          className={css(radioStyles)}
+          ref={forwardedRef}
+          type="radio"
+        />
+        {/* Used for styling of RadioCard */}
+        <span aria-hidden data-radio-border="true" />
+      </Box>
     );
   }
 );
+
 RadioPrimitive.displayName = 'RadioPrimitive';
-
-const DotIcon = createIcon(<circle cx="12" cy="12" r="5" />, 'DotIcon');
-
-function Indicator({ size }: { size: RadioSize }) {
-  const indicatorStyles = useIndicatorStyles(size);
-
-  return (
-    <Box className={css(indicatorStyles)}>
-      <DotIcon size={sizeToScaleKey[size]} />
-    </Box>
-  );
-}
 
 const sizeToScaleKey = {
   small: 'xxsmall',
   medium: 'xsmall',
 } as const;
 
-function useIndicatorStyles(size: RadioSize): CSSObject {
+const outerToInnerSize = {
+  xxsmall: 6,
+  xsmall: 9,
+} as const;
+
+export function useTransitionProperties() {
   const theme = useTheme();
-  const focusRingStyles = useFocusRing();
-  const resolvedSize = theme.sizing[sizeToScaleKey[size]];
-  // TODO: these colours all need to be revisited once we have a better handle on our tokens
   return {
-    backgroundColor: theme.color.background.surface,
-
-    borderColor: theme.border.color.field,
-    borderRadius: theme.border.radius.full,
-    borderStyle: 'solid',
-    borderWidth: theme.border.width.large,
-
-    boxSizing: 'border-box',
-
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexShrink: 0,
-
-    height: resolvedSize,
-    width: resolvedSize,
-
-    transitionProperty: 'all',
+    transitionProperty:
+      'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
     transitionTimingFunction: theme.animation.standard.easing,
     transitionDuration: `${theme.animation.standard.duration}ms`,
-    '& > svg': {
-      stroke: theme.color.foreground.neutralInverted,
-    },
-
-    'input:hover + &': {
-      borderColor: theme.border.color.fieldAccent,
-      '& > svg': {
-        fill: theme.color.foreground.neutralInverted,
-      },
-    },
-
-    'input:focus + &, input:active + &': {
-      borderColor: theme.border.color.fieldAccent,
-    },
-
-    'input:focus + &': focusRingStyles,
-
-    'input:checked + &': {
-      backgroundColor: theme.color.background.primary,
-      borderColor: theme.border.color.fieldAccent,
-      '& > svg': {
-        fill: theme.color.foreground.neutralInverted,
-      },
-    },
-
-    'input:disabled + &': {
-      backgroundColor: theme.border.color.field,
-      borderColor: theme.border.color.fieldDisabled,
-      cursor: 'default',
-      '& > svg': {
-        fill: theme.border.color.field,
-        stroke: theme.border.color.field,
-      },
-    },
-
-    'input:checked:disabled + &': {
-      backgroundColor: theme.border.color.fieldDisabled,
-      '& > svg': {
-        fill: theme.color.background.muted,
-        stroke: theme.color.background.muted,
-      },
-    },
   };
+}
+
+/**
+ * Returns a tuple where the first item is an object of props to spread onto the
+ * underlying Box component that our inputs are created with, and the second
+ * item is a CSS object to be passed to Emotion's `css` function
+ */
+function useRadioStyles({ size }: { size: RadioSize }) {
+  const theme = useTheme();
+  const focusRingStyles = useFocusRing();
+
+  const outerSize = sizeToScaleKey[size];
+  const innerSize = outerToInnerSize[outerSize];
+
+  const transitionProperties = useTransitionProperties();
+
+  return [
+    {
+      border: 'field',
+      borderRadius: 'full',
+      background: 'surface',
+
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flex: 1,
+
+      height: outerSize,
+      width: outerSize,
+
+      position: 'relative',
+
+      shadow: 'small',
+    },
+    {
+      appearance: 'none',
+      verticalAlign: 'text-bottom',
+      ...transitionProperties,
+
+      // Inner circle of radio
+      '&::before': {
+        content: '""',
+        position: 'absolute',
+        margin: 'auto',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        height: 0,
+        width: 0,
+        overflow: 'hidden',
+        ...transitionProperties,
+      },
+
+      // Show a border on the radio when the label is hovered.
+      'label:hover &:not([disabled], &[aria-disabled=true])': {
+        borderColor: theme.border.color.primaryHover,
+      },
+
+      // Focus styles
+      '&:focus': focusRingStyles,
+
+      // Checked styles
+      '&:checked': {
+        background: theme.color.background.primary,
+        borderColor: theme.border.color.primaryHover,
+      },
+      '&:checked::before': {
+        background: theme.color.background.surface,
+        borderRadius: theme.border.radius.full,
+        height: innerSize,
+        width: innerSize,
+      },
+
+      // Hover styles when checked
+      'label:hover &:not([disabled], &[aria-disabled=true]):checked': {
+        // TODO: radio gets lighter on hover instead of darker like in the designs, will fix once tokens are revised
+        background: theme.backgroundInteractions.primaryHover,
+        border: theme.border.color.fieldAccent,
+      },
+
+      // Disabled styles when checked
+      '&[disabled]:checked, &[aria-disabled=true]:checked': {
+        // TODO: using a `border` colour for background here as we don't have a token for it just yet
+        background: theme.border.color.field,
+        border: theme.border.color.accent,
+      },
+      '&[disabled]:checked::before, &[aria-disabled=true]:checked::before': {
+        background: theme.color.background.fieldAccent,
+      },
+    },
+  ] as const;
 }

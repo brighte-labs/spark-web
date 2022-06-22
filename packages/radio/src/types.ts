@@ -58,3 +58,8 @@ export type RadioGroupProps<Value extends string> = {
   /** The value of the nested radios. */
   value: Value;
 };
+
+export type RadioCardProps = Omit<RadioProps, 'id' | 'size'> & {
+  /** The radio description. */
+  description?: string;
+};
