@@ -32,8 +32,8 @@ function generateSearchIndex() {
   const MANIFEST_DIR = path.normalize(`${process.cwd()}/cache`);
   const outFile = `${MANIFEST_DIR}/search-index.json`;
 
-  const allPackages = JSON.parse(
-    readFileSync('./.contentlayer/generated/Package/_index.json')
+  const allPackages = readFileSync(
+    './.contentlayer/generated/Package/_index.mjs'
   );
 
   const index = lunr(function () {
@@ -96,7 +96,7 @@ export function withSearchIndex(nextConfig, { phase }) {
         // In dev mode, we need to setup a process which watches for changes to
         // the `.contentlayer` output, then triggers a re-build of our search
         // index.
-        // Beacuse we `import()` the search index file, Webpack will see that
+        // Because we `import()` the search index file, Webpack will see that
         // the file has changed and trigger a hot-reload of the Next app.
         chokidar
           .watch(
@@ -105,7 +105,7 @@ export function withSearchIndex(nextConfig, { phase }) {
               '.contentlayer',
               'generated',
               'Package',
-              '_index.json'
+              '_index.mjs'
             )
           )
           .on('all', () => {
