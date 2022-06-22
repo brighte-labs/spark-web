@@ -83,8 +83,7 @@
   },
   "preconstruct": {
     "packages": [
-      "packages/*",
-      "spark-web/packages/*"
+      "packages/*"
     ]
   }
 }
