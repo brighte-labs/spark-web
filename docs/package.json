@@ -4,16 +4,17 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "./scripts/generate-components-index.js && INIT_CWD=$PWD next build && yarn playroom:build && yarn storybook:build ",
-    "contentlayer:build": "INIT_CWD=$PWD yarn contentlayer build",
-    "dev": "./scripts/generate-components-index.js && INIT_CWD=$PWD next dev",
+    "build": "npm-run-all --sequential build:*",
+    "build:contentlayer": "INIT_CWD=$PWD yarn contentlayer build",
+    "build:docs": "./scripts/generate-components-index.js && INIT_CWD=$PWD next build",
+    "build:playroom": "./scripts/generate-components-index.js && playroom build",
+    "build:storybook": "build-storybook -o ./public/storybook",
+    "check:types": "./scripts/generate-components-index.js && yarn build:contentlayer && tsc --noEmit",
+    "dev:docs": "./scripts/generate-components-index.js && INIT_CWD=$PWD next dev",
+    "dev:playroom": "playroom start",
+    "dev:storybook": "start-storybook -p 6006",
     "lint": "next lint",
-    "playroom:build": "./scripts/generate-components-index.js && playroom build",
-    "playroom:start": "playroom start",
-    "start": "next start",
-    "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook -o ./public/storybook",
-    "typecheck": "./scripts/generate-components-index.js && yarn contentlayer:build && tsc --noEmit"
+    "start": "next start"
   },
   "dependencies": {
     "@emotion/css": "^11.9.0",

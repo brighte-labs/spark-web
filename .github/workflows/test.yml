@@ -24,10 +24,10 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Format
-        run: yarn format
+        run: yarn check:format
 
       - name: Lint
-        run: yarn lint
+        run: yarn check:lint
 
       - name: Test
         run: yarn test
