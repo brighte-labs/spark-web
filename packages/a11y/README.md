@@ -1,6 +1,7 @@
 ---
 title: Accessibility
 storybookPath: accessibility-visuallyhidden--default
+isExperimentalPackage: true
 ---
 
 The components in this library have been implemented with accessibility built

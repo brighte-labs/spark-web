@@ -22,7 +22,6 @@
   "engines": {
     "node": ">= 14.13"
   },
-  "componentMaturityStatus": "Experimental",
   "preconstruct": {
     "entrypoints": [
       "index.ts",

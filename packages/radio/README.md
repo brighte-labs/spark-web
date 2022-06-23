@@ -1,6 +1,7 @@
 ---
 title: Radio
 storybookPath: forms-radio--default
+isExperimentalPackage: true
 ---
 
 Radios are used select a single value from several options — ususally in a form.

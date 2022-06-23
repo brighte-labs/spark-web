@@ -1,6 +1,7 @@
 ---
 title: Alert
 storybookPath: feedback-overlays-alert--info
+isExperimentalPackage: true
 ---
 
 Alert displays a short and concise message to draw a users' attention without

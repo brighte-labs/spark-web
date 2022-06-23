@@ -1,6 +1,7 @@
 ---
 title: Hidden
 storybookPath: accessibility-hidden--default
+isExperimentalPackage: true
 ---
 
 Conditionally display content for different screen sizes and media types.

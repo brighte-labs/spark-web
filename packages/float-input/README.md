@@ -1,6 +1,7 @@
 ---
 title: Float Input
 storybookPath: forms-float-input--default
+isExperimentalPackage: true
 ---
 
 Float input provides a way for inputting float values.

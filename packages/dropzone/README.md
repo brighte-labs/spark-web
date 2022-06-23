@@ -1,5 +1,6 @@
 ---
 title: Drop Zone
+isExperimentalPackage: true
 ---
 
 The `Dropzone` component lets users upload files by clicking on, or dragging and

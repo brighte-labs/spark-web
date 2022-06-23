@@ -1,6 +1,7 @@
 ---
 title: Password Input
 storybookPath: forms-passwordinput--default
+isExperimentalPackage: true
 ---
 
 The password input component allows accepting of password text values. The

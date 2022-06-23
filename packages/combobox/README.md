@@ -1,6 +1,7 @@
 ---
 title: Combobox
 storybookPath: forms-combobox--default
+isExperimentalPackage: true
 ---
 
 The `Combobox` allows the user to browse, search, and make a single selection

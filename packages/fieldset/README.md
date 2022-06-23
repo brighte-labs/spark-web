@@ -1,6 +1,7 @@
 ---
 title: Fieldset
 storybookPath: forms-fieldset--default
+isExperimentalPackage: true
 ---
 
 Use the `Fieldset` to group thematically related controls in a form.

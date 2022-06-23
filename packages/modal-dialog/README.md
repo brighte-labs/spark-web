@@ -1,6 +1,7 @@
 ---
 title: Modal Dialog
 storybookPath: feedback-overlays-content-dialog--default
+isExperimentalPackage: true
 ---
 
 ## Content Dialog

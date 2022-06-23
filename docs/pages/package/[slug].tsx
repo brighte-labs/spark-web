@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps<{
   packageName: string;
   packageVersion: string;
   storybookPath: string | null;
-  componentMaturityStatus: string;
+  isExperimentalPackage: boolean;
   title: string;
   toc: HeadingData[];
   propsDoc: any;
@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps<{
       code: pkg.body.code,
       packageName: pkg.packageName,
       packageVersion: pkg.version,
-      componentMaturityStatus: pkg.componentMaturityStatus,
+      isExperimentalPackage: Boolean(pkg.isExperimentalPackage),
       storybookPath: pkg.storybookPath ?? null,
       title: pkg.title,
       toc: pkg.toc,
@@ -131,7 +131,7 @@ export default function Packages({
   code,
   packageName,
   packageVersion,
-  componentMaturityStatus,
+  isExperimentalPackage,
   storybookPath,
   title,
   toc,
@@ -144,7 +144,7 @@ export default function Packages({
       <Stack gap="xlarge">
         <Text tone="muted">v{packageVersion}</Text>
         <Heading level="1">{title}</Heading>
-        <ComponentMaturity componentMaturityStatus={componentMaturityStatus} />
+        <ComponentMaturity isExperimentalPackage={isExperimentalPackage} />
         <OpenInLinks packageSlug={packageSlug} storybookPath={storybookPath} />
         <InstallationInstructions
           packageName={packageName}
@@ -158,21 +158,20 @@ export default function Packages({
 }
 
 function ComponentMaturity({
-  componentMaturityStatus,
+  isExperimentalPackage,
 }: {
-  componentMaturityStatus: string;
+  isExperimentalPackage: Boolean;
 }) {
   return (
     <Alert
-      tone={componentMaturityStatus === 'Experimental' ? 'caution' : 'info'}
-      heading={
-        componentMaturityStatus === 'Experimental'
-          ? 'Experimental'
-          : 'Early Adoption'
-      }
+      tone={isExperimentalPackage ? 'caution' : 'positive'}
+      heading={isExperimentalPackage ? 'Experimental' : 'Stable'}
     >
-      This component is considered {componentMaturityStatus}. Reach out to the
-      Spark team to understand more about what this means.
+      <Text>
+        This component is considered{' '}
+        {isExperimentalPackage ? 'experimental' : 'stable'}. Reach out to the
+        Spark team to find out more about what this means.
+      </Text>
     </Alert>
   );
 }

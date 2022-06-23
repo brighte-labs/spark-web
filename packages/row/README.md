@@ -1,6 +1,7 @@
 ---
 title: Row
 storybookPath: page-layout-row--default
+isExperimentalPackage: true
 ---
 
 Used to distribute children horizontally, with even spacing between each child.

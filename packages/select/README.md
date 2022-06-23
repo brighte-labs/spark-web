@@ -1,6 +1,7 @@
 ---
 title: Select
 storybookPath: forms-select--default
+isExperimentalPackage: true
 ---
 
 Allows the user to make a single selection from a list of values — usually in a

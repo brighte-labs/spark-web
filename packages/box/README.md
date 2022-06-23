@@ -1,6 +1,7 @@
 ---
 title: Box
 storybookPath: page-layout-box--default
+isExperimentalPackage: true
 ---
 
 Box is the lowest-level component for binding theme-based styles to an

@@ -1,6 +1,7 @@
 ---
 title: Text
 storybookPath: typography-text--default
+isExperimentalPackage: true
 ---
 
 Constrained, purposeful text styles as a component.

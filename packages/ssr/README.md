@@ -1,5 +1,6 @@
 ---
 title: SSR
+isExperimentalPackage: true
 ---
 
 ## renderStatic

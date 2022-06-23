@@ -1,6 +1,7 @@
 ---
 title: Currency Input
 storybookPath: forms-currency-input--default
+isExperimentalPackage: true
 ---
 
 Currency input provides a way for inputting money values. Note that this

@@ -1,5 +1,6 @@
 ---
 title: Analytics
+isExperimentalPackage: true
 ---
 
 Set of unopinionated, lightweight React components for implementing analytics

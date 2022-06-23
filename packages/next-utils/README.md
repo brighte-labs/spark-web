@@ -1,5 +1,6 @@
 ---
 title: Next.js Utils
+isExperimentalPackage: true
 ---
 
 ## Universal Next Link

@@ -55,6 +55,12 @@ export const Package = defineDocumentType(() => ({
       description: 'Path for Storybook',
       required: false,
     },
+    isExperimentalPackage: {
+      type: 'boolean',
+      description: 'Maturity status of the component',
+      required: false,
+      default: true,
+    },
   },
   computedFields: {
     packageName: {

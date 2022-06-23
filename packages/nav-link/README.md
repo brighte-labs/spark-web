@@ -1,6 +1,7 @@
 ---
 title: Nav Link
 storybookPath: navigation-navlink--default
+isExperimentalPackage: true
 ---
 
 Nav links are styled links for use in site navigation.

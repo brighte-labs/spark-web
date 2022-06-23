@@ -1,6 +1,7 @@
 ---
 title: Checkbox
 storybookPath: forms-checkbox--default
+isExperimentalPackage: true
 ---
 
 Checkboxes are used to toggle between checked and unchecked states — usually in

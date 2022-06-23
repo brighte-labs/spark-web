@@ -1,6 +1,7 @@
 ---
 title: Spinner
 storybookPath: feedback-overlays-spinner--default
+isExperimentalPackage: true
 ---
 
 Spinner indicates users that their request is in progress

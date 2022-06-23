@@ -1,6 +1,7 @@
 ---
 title: Container
 storybookPath: page-layout-container--default
+isExperimentalPackage: true
 ---
 
 The container centers and constrains the maximum width of the content it wraps.

@@ -1,6 +1,7 @@
 ---
 title: Columns
 storybookPath: page-layout-columns--default
+isExperimentalPackage: true
 ---
 
 Use the columns primitive to layout content in configurable columns.

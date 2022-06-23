@@ -1,6 +1,7 @@
 ---
 title: Accordion
 storybookPath: data-display-accordion--single
+isExperimentalPackage: true
 ---
 
 Accordions are a set of vertically stacked headings which can be toggled to

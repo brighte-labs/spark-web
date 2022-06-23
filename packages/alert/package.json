@@ -26,6 +26,5 @@
   },
   "engines": {
     "node": ">= 14.13"
-  },
-  "componentMaturityStatus": "Experimental"
+  }
 }
