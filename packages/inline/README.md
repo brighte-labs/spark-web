@@ -1,7 +1,7 @@
 ---
 title: Inline
 storybookPath: page-layout-inline--default
-isExperimentalPackage: true
+isExperimentalPackage: false
 ---
 
 Use to layout a group of elements together, and allow them to wrap onto multiple

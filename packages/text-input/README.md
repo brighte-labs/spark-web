@@ -1,7 +1,7 @@
 ---
 title: Text Input
 storybookPath: forms-textinput--default
-isExperimentalPackage: true
+isExperimentalPackage: false
 ---
 
 Text input provides a way for inputting text. The component must be nested

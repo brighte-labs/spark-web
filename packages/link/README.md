@@ -1,7 +1,7 @@
 ---
 title: Link
 storybookPath: navigation-link--default
-isExperimentalPackage: true
+isExperimentalPackage: false
 ---
 
 Link is used for taking users to destinations, or moving from one page to

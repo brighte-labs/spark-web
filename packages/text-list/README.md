@@ -1,7 +1,7 @@
 ---
 title: Text List
 storybookPath: data-display-textlist--default
-isExperimentalPackage: true
+isExperimentalPackage: false
 ---
 
 List semantics are handled automatically, including the use of ordered lists

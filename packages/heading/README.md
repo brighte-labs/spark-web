@@ -1,7 +1,7 @@
 ---
 title: Heading
 storybookPath: typography-heading--default
-isExperimentalPackage: true
+isExperimentalPackage: false
 ---
 
 Constrained, purposeful heading styles as a component.

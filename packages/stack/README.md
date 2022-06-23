@@ -1,7 +1,7 @@
 ---
 title: Stack
 storybookPath: page-layout-stack--default
-isExperimentalPackage: true
+isExperimentalPackage: false
 ---
 
 Used to distribute children vertically, with even spacing between each child.

@@ -1,7 +1,7 @@
 ---
 title: Divider
 storybookPath: page-layout-divider--default
-isExperimentalPackage: true
+isExperimentalPackage: false
 ---
 
 Used to separate and group content. In most cases use the
