@@ -8,7 +8,7 @@ import { forwardRef } from 'react';
 
 import { useTextAreaStyles } from './use-text-area';
 
-export type TextAreaProps = Pick<
+export type NativeTextAreaProps = Pick<
   TextareaHTMLAttributes<HTMLTextAreaElement>,
   | 'defaultValue'
   | 'name'
@@ -17,7 +17,10 @@ export type TextAreaProps = Pick<
   | 'placeholder'
   | 'required'
   | 'value'
-> & {
+>;
+
+export type TextAreaProps = NativeTextAreaProps & {
+  /** Allows setting of data attributes on the underlying element. */
   data?: DataAttributeMap;
 };
 
@@ -36,35 +39,26 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     forwardedRef
   ) => {
     const [{ disabled, invalid }, a11yProps] = useFieldContext();
-    const consumerProps = {
-      value,
-      defaultValue,
-      disabled,
-      name,
-      onBlur,
-      onChange,
-      placeholder,
-      required,
-    };
-    const textAreaStyles = useTextAreaStyles({ disabled, invalid });
+    const [boxProps, textAreaStyles] = useTextAreaStyles({ disabled, invalid });
 
     return (
       <InputContainer>
         <Box
-          {...consumerProps}
+          {...boxProps}
           {...a11yProps}
           as="textarea"
-          data={data}
-          ref={forwardedRef}
-          rows={3}
-          // Styles
-          background={disabled ? 'inputDisabled' : 'input'}
-          border={invalid ? 'critical' : 'field'}
-          borderRadius="small"
-          paddingX="medium"
-          height="medium"
-          width="full"
           className={css(textAreaStyles)}
+          data={data}
+          defaultValue={defaultValue}
+          disabled={disabled}
+          name={name}
+          onBlur={onBlur}
+          onChange={onChange}
+          placeholder={placeholder}
+          ref={forwardedRef}
+          required={required}
+          rows={3}
+          value={value}
         />
       </InputContainer>
     );

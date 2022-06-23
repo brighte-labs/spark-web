@@ -15,11 +15,13 @@ import type {
   InferGetStaticPropsType,
 } from 'next';
 import { createElement } from 'react';
+import type { ComponentDoc } from 'react-docgen-typescript';
 
 import { allPackages } from '../../.contentlayer/generated';
 import { GITHUB_URL } from '../../components/constants';
 import { DocsContent } from '../../components/content';
 import { InlineCode } from '../../components/example-helpers';
+import type { DataContextType } from '../../components/mdx-components/mdx-components';
 import { MDXContent } from '../../components/mdx-components/mdx-content';
 import { StorybookIcon } from '../../components/vectors/fill';
 import type { HeadingData } from '../../utils/generate-toc';
@@ -40,6 +42,7 @@ export const getStaticProps: GetStaticProps<{
   componentMaturityStatus: string;
   title: string;
   toc: HeadingData[];
+  propsDoc: any;
 }> = async ({ params }) => {
   const pkg = allPackages.find(p => p.slug === params!.slug);
   if (!pkg) {
@@ -57,9 +60,72 @@ export const getStaticProps: GetStaticProps<{
       storybookPath: pkg.storybookPath ?? null,
       title: pkg.title,
       toc: pkg.toc,
+      propsDoc: formatPropsData(pkg.props),
     },
   };
 };
+
+const formatPropsData = (
+  originalPropsData: ComponentDoc[]
+): Record<string, DataContextType> =>
+  originalPropsData
+    .map(propsData => ({
+      displayName: propsData.displayName,
+      props: Object.entries(propsData.props)
+        .map(([key, prop]) => {
+          let type = prop.type.name;
+          if (prop.type.name === 'enum') {
+            if (prop.type.raw) {
+              if (
+                prop.type.raw.includes('|') ||
+                ['boolean' /* TODO: more? */].includes(prop.type.raw)
+              ) {
+                type = prop.type.raw;
+              } else {
+                type = `${prop.type.raw}: ${prop.type.value
+                  .map(({ value }: { value: any }) => value)
+                  .join(' | ')}`;
+              }
+            } else if (prop.type.value) {
+              type = prop.type.value
+                .map(({ value }: { value: any }) => value)
+                .join(' | ');
+            }
+          }
+
+          return {
+            name: key,
+            required: prop.required,
+            type,
+            ...(typeof prop.defaultValue?.value !== 'undefined' && {
+              defaultValue: prop.defaultValue.value,
+            }),
+            description: prop.description,
+          };
+        })
+        // Sort the required props before the non-required props,
+        // Then sort alphabetically
+        .sort((a, b) => {
+          // If they have different required-ness, sort them in different buckets
+          if (a.required !== b.required) {
+            if (a.required) {
+              return -1;
+            } else {
+              return 1;
+            }
+          }
+          // Alphabetically sort the props if they're in the same required-ness
+          // bucket
+          return a.name.localeCompare(b.name);
+        }),
+    }))
+    .reduce(
+      (memo, { displayName, ...rest }) => ({
+        ...memo,
+        [displayName]: rest,
+      }),
+      {}
+    );
 
 export default function Packages({
   code,
@@ -69,6 +135,7 @@ export default function Packages({
   storybookPath,
   title,
   toc,
+  propsDoc,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
   const packageSlug = packageName.replace('@spark-web/', '');
 
@@ -84,7 +151,7 @@ export default function Packages({
           packageSlug={packageSlug}
         />
         <Divider />
-        <MDXContent code={code} />
+        <MDXContent code={code} data={{ props: propsDoc }} />
       </Stack>
     </DocsContent>
   );

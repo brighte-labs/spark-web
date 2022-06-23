@@ -79,6 +79,7 @@ export const useReactSelectStylesOverride = <Item,>({
             borderColor: theme.color.foreground.critical,
           }
         : {}),
+      boxShadow: theme.shadow.small,
     }),
 
     dropdownIndicator: (provided, state) => ({

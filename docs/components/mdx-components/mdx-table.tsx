@@ -25,17 +25,12 @@ export function MdxTable({
         as="table"
         className={css({
           width: '100%',
+          tableLayout: 'fixed',
           overflow: 'auto',
           borderCollapse: 'collapse',
         })}
         {...rest}
       >
-        <colgroup>
-          <col style={{ width: '20%' }} />
-          <col style={{ width: '30%' }} />
-          <col style={{ width: '10%' }} />
-          <col style={{ width: '40%' }} />
-        </colgroup>
         {children}
       </Box>
     </Box>
@@ -105,12 +100,11 @@ export function MdxTh({
   );
 }
 
-export function MdxTd({
-  children,
-  ...rest
-}: {
+export type MdxTdProps = {
   children: ReactNode;
-}): JSX.Element {
+};
+
+export function MdxTd({ children, ...rest }: MdxTdProps): JSX.Element {
   const theme = useTheme();
   return (
     <Box
@@ -121,7 +115,7 @@ export function MdxTd({
       })}
       {...rest}
     >
-      <Text>{children}</Text>
+      {typeof children === 'string' ? <Text>{children}</Text> : children}
     </Box>
   );
 }

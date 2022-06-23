@@ -2,27 +2,38 @@ import { css } from '@emotion/css';
 import { Box } from '@spark-web/box';
 import { useFieldContext } from '@spark-web/field';
 import { ChevronDownIcon } from '@spark-web/icon';
-import type { UseInputProps } from '@spark-web/text-input';
-import { InputContainer, useInput } from '@spark-web/text-input';
+import type { UseInputStylesProps } from '@spark-web/text-input';
+import { InputContainer, useInputStyles } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { SelectHTMLAttributes } from 'react';
 import { forwardRef, useCallback } from 'react';
 
-type Option = {
+export type Option = {
+  /** Whether or not the option is disabled. */
   disabled?: boolean;
+  /** Label for the option. */
   label: string;
+  /** Value of the option. */
   value: string | number;
 };
-type Group = { options: Array<Option>; label: string };
+export type Group = {
+  /** List of options for the group. */
+  options: Array<Option>;
+  /** Label for the group. */
+  label: string;
+};
 export type OptionsOrGroups = Array<Option | Group>;
-
-export type SelectProps = Pick<
+export type NativeSelectProps = Pick<
   SelectHTMLAttributes<HTMLSelectElement>,
   'defaultValue' | 'name' | 'onBlur' | 'onChange' | 'required' | 'value'
-> & {
+>;
+export type SelectProps = NativeSelectProps & {
+  /** Allows setting of data attributes on the underlying element. */
   data?: DataAttributeMap;
+  /** The values that can be selected by the input. */
   options: OptionsOrGroups;
+  /** Placeholder text for when the input does not have an initial value. */
   placeholder?: string;
 };
 
@@ -42,7 +53,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     forwardedRef
   ) => {
     const [{ disabled, invalid }, a11yProps] = useFieldContext();
-    const styles = useSelectStyles({ disabled, invalid });
+    const [boxProps, inputStyles] = useSelectStyles({
+      disabled,
+      invalid,
+    });
 
     const mapOptions = useCallback(
       (opt: Option) => (
@@ -55,21 +69,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
 
     return (
       <InputContainer>
+        <Indicator />
         <Box
-          position="absolute"
-          top={0}
-          bottom={0}
-          right={0}
-          display="flex"
-          alignItems="center"
-          padding="medium"
-          className={css({ pointerEvents: 'none' })}
-        >
-          <ChevronDownIcon size="xxsmall" tone="placeholder" />
-        </Box>
-        <Box
+          {...boxProps}
           {...a11yProps}
           as="select"
+          className={css(inputStyles)}
           data={data}
           defaultValue={defaultValue ?? placeholder ? '' : undefined}
           disabled={disabled}
@@ -79,14 +84,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           ref={forwardedRef}
           required={required}
           value={value}
-          // Styles
-          background={disabled ? 'inputDisabled' : 'input'}
-          border={invalid ? 'critical' : 'field'}
-          borderRadius="small"
-          paddingX="medium"
-          height="medium"
           width="full"
-          className={css(styles)}
         >
           {placeholder && (
             <option value="" disabled>
@@ -111,24 +109,34 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
 
 Select.displayName = 'Select';
 
-function useSelectStyles({ disabled, invalid }: UseInputProps) {
+const Indicator = () => {
+  return (
+    <Box
+      position="absolute"
+      top={0}
+      bottom={0}
+      right={0}
+      display="flex"
+      alignItems="center"
+      padding="medium"
+      className={css({ pointerEvents: 'none' })}
+    >
+      <ChevronDownIcon size="xxsmall" tone="placeholder" />
+    </Box>
+  );
+};
+
+function useSelectStyles(props: UseInputStylesProps) {
+  const [boxProps, inputStyles] = useInputStyles(props);
   const theme = useTheme();
-  const inputStyles = useInput({
-    disabled,
-    invalid,
-  });
-  return {
-    ...inputStyles,
-    overflow: 'hidden', // fix for Safari to prevent unwanted scrolling of parent container to occur
-    textOverflow: 'ellipsis',
-
-    // Prevent text going underneath the chevron icon
-    paddingRight:
-      theme.sizing.xxsmall + // size of chevron icon
-      theme.spacing.medium * 2, // paddingX value
-
-    ':invalid': {
-      color: theme.color.foreground.muted,
+  return [
+    boxProps,
+    {
+      ...inputStyles,
+      // Prevent text going underneath the chevron icon
+      paddingRight:
+        theme.sizing.xxsmall + // size of chevron icon
+        theme.spacing.medium * 2, // paddingX value
     },
-  };
+  ] as const;
 }

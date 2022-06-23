@@ -1,27 +1,21 @@
-import type { UseInputProps } from '@spark-web/text-input';
-import { useInput } from '@spark-web/text-input';
+import type { UseInputStylesProps } from '@spark-web/text-input';
+import { useInputStyles } from '@spark-web/text-input';
 import { useTheme } from '@spark-web/theme';
 
-export function useTextAreaStyles({ disabled, invalid }: UseInputProps) {
+export function useTextAreaStyles(props: UseInputStylesProps) {
   const theme = useTheme();
-  const inputStyles = useInput({
-    disabled,
-    invalid,
-  });
+  const [boxProps, inputStyles] = useInputStyles(props);
 
-  return {
-    ...inputStyles,
-
-    // Text inputs have a fixed height, so we need to override it back to `auto`
-    height: 'auto',
-    minHeight: theme.sizing.medium,
-
-    paddingTop: theme.spacing.small,
-    paddingBottom: theme.spacing.small,
-    resize: 'vertical',
-
-    ':invalid': {
-      color: theme.color.foreground.muted,
+  return [
+    boxProps,
+    {
+      ...inputStyles,
+      // Text inputs have a fixed height, so we need to override it back to `auto`
+      height: 'auto',
+      minHeight: theme.sizing.medium,
+      paddingTop: theme.spacing.small,
+      paddingBottom: theme.spacing.small,
+      resize: 'vertical',
     },
-  } as const;
+  ] as const;
 }

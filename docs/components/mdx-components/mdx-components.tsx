@@ -5,12 +5,14 @@ import { TextLink } from '@spark-web/text-link';
 import type { TextListProps } from '@spark-web/text-list';
 import { TextList } from '@spark-web/text-list';
 import type { ReactNode } from 'react';
-import { Children, Fragment } from 'react';
+import { Children, createContext, Fragment, useContext } from 'react';
 
 import * as sparkComponents from '../../cache/spark-components';
 import { Heading } from '../../components/content/toc-context';
+import { ComponentPropsDocTables } from '../../components/mdx-components/props-doc-tables';
 import { InlineCode } from '../example-helpers';
 import { CodeBlock } from './code-block';
+import type { MdxTdProps } from './mdx-table';
 import { MdxTable, MdxTd, MdxTh, MdxThead, MdxTr } from './mdx-table';
 
 interface CodeProps {
@@ -21,6 +23,25 @@ interface CodeProps {
   live: true;
   metastring?: string;
 }
+
+export type PropsType = {
+  name: string;
+  required: boolean;
+  type: string;
+  defaultValue: any;
+  description: string;
+};
+
+export type DataContextType = {
+  props: Record<
+    string,
+    { displayName: string; props: Record<string, PropsType> }
+  >;
+} | null;
+
+export const DataContext = createContext<DataContextType>(null);
+
+export { InlineCode };
 
 function Code({ children, className, demo, ...props }: CodeProps): JSX.Element {
   const trimmedChildren = children.trim();
@@ -70,10 +91,26 @@ export const mdxComponents: Record<string, ReactNode> = {
   thead: MdxThead,
   tr: MdxTr,
   th: MdxTh,
-  td: MdxTd,
+  td: ({ children, ...props }: MdxTdProps) => (
+    <MdxTd {...props}>
+      <Text>{children}</Text>
+    </MdxTd>
+  ),
   // avoid wrapping live examples in pre tag
   pre: Fragment,
   code: Code,
+  PropsTable: ({ displayName }: { displayName: string }) => {
+    const data = useContext(DataContext);
+
+    if (!data?.props) {
+      return null;
+    }
+
+    const propsDoc = data.props[displayName];
+    return (
+      <ComponentPropsDocTables propsDoc={propsDoc} displayName={displayName} />
+    );
+  },
   // Design System Components
   ...sparkComponents,
 };
