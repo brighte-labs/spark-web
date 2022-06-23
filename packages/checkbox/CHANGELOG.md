@@ -1,5 +1,31 @@
 # @spark-web/checkbox
 
+## 1.0.7
+
+### Patch Changes
+
+- [#157](https://github.com/brighte-labs/spark-web/pull/157)
+  [`60f7281`](https://github.com/brighte-labs/spark-web/commit/60f7281c4a194d934a2ce561cad47e737b0fb48e)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update checkbox
+  to have 1px border and small box shadow
+
+* [#167](https://github.com/brighte-labs/spark-web/pull/167)
+  [`4f79350`](https://github.com/brighte-labs/spark-web/commit/4f793508fdb43ddd452f0d59a3126101f9fa5459)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update Babel
+
+* Updated dependencies
+  [[`628cb9c`](https://github.com/brighte-labs/spark-web/commit/628cb9c3425a4ced13f9479620a263814e622662),
+  [`4f79350`](https://github.com/brighte-labs/spark-web/commit/4f793508fdb43ddd452f0d59a3126101f9fa5459),
+  [`f524009`](https://github.com/brighte-labs/spark-web/commit/f5240098cf731b0a2e351b7b585711e893a33736),
+  [`60f7281`](https://github.com/brighte-labs/spark-web/commit/60f7281c4a194d934a2ce561cad47e737b0fb48e)]:
+  - @spark-web/control-label@1.0.6
+  - @spark-web/a11y@1.1.0
+  - @spark-web/box@1.0.6
+  - @spark-web/field@3.0.1
+  - @spark-web/icon@1.1.4
+  - @spark-web/stack@1.0.6
+  - @spark-web/theme@3.0.2
+
 ## 1.0.6
 
 ### Patch Changes

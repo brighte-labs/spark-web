@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/container",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "MIT",
   "main": "dist/spark-web-container.cjs.js",
   "module": "dist/spark-web-container.esm.js",
@@ -10,9 +10,9 @@
   "dependencies": {
     "@babel/runtime": "^7.18.3",
     "@emotion/css": "^11.9.0",
-    "@spark-web/box": "^1.0.5",
-    "@spark-web/theme": "^3.0.1",
-    "@spark-web/utils": "^1.1.3"
+    "@spark-web/box": "^1.0.6",
+    "@spark-web/theme": "^3.0.2",
+    "@spark-web/utils": "^1.1.5"
   },
   "devDependencies": {
     "@types/react": "^17.0.12",

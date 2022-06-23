@@ -1,5 +1,38 @@
 # @spark-web/radio
 
+## 2.1.0
+
+### Minor Changes
+
+- [#164](https://github.com/brighte-labs/spark-web/pull/164)
+  [`119d617`](https://github.com/brighte-labs/spark-web/commit/119d617abc0760d97cd209a87396d07eedb46a77)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Add RadioCard
+  component
+
+### Patch Changes
+
+- [#164](https://github.com/brighte-labs/spark-web/pull/164)
+  [`119d617`](https://github.com/brighte-labs/spark-web/commit/119d617abc0760d97cd209a87396d07eedb46a77)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Refactor
+  RadioPrimitive styles
+
+* [#167](https://github.com/brighte-labs/spark-web/pull/167)
+  [`4f79350`](https://github.com/brighte-labs/spark-web/commit/4f793508fdb43ddd452f0d59a3126101f9fa5459)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update Babel
+
+* Updated dependencies
+  [[`628cb9c`](https://github.com/brighte-labs/spark-web/commit/628cb9c3425a4ced13f9479620a263814e622662),
+  [`4f79350`](https://github.com/brighte-labs/spark-web/commit/4f793508fdb43ddd452f0d59a3126101f9fa5459),
+  [`f524009`](https://github.com/brighte-labs/spark-web/commit/f5240098cf731b0a2e351b7b585711e893a33736),
+  [`60f7281`](https://github.com/brighte-labs/spark-web/commit/60f7281c4a194d934a2ce561cad47e737b0fb48e)]:
+  - @spark-web/control-label@1.0.6
+  - @spark-web/a11y@1.1.0
+  - @spark-web/box@1.0.6
+  - @spark-web/field@3.0.1
+  - @spark-web/stack@1.0.6
+  - @spark-web/text@1.0.6
+  - @spark-web/theme@3.0.2
+
 ## 2.0.0
 
 ### Major Changes

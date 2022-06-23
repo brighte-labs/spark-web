@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/control-label",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "MIT",
   "main": "dist/spark-web-control-label.cjs.js",
   "module": "dist/spark-web-control-label.esm.js",
@@ -10,8 +10,8 @@
   "dependencies": {
     "@babel/runtime": "^7.18.3",
     "@emotion/css": "^11.9.0",
-    "@spark-web/box": "^1.0.5",
-    "@spark-web/text": "^1.0.5"
+    "@spark-web/box": "^1.0.6",
+    "@spark-web/text": "^1.0.6"
   },
   "devDependencies": {
     "@types/react": "^17.0.12",

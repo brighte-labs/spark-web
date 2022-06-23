@@ -1,5 +1,30 @@
 # @spark-web/float-input
 
+## 1.0.3
+
+### Patch Changes
+
+- [#148](https://github.com/brighte-labs/spark-web/pull/148)
+  [`ad02c82`](https://github.com/brighte-labs/spark-web/commit/ad02c8279d3813956d9372db5a69c361482b7f72)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Make Field a peer
+  dep to avoid context bug
+
+* [#167](https://github.com/brighte-labs/spark-web/pull/167)
+  [`4f79350`](https://github.com/brighte-labs/spark-web/commit/4f793508fdb43ddd452f0d59a3126101f9fa5459)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update Babel
+
+* Updated dependencies
+  [[`550b4b0`](https://github.com/brighte-labs/spark-web/commit/550b4b0509aba1f37d20fa8205ae01b2383eec5e),
+  [`ad02c82`](https://github.com/brighte-labs/spark-web/commit/ad02c8279d3813956d9372db5a69c361482b7f72),
+  [`2ba486a`](https://github.com/brighte-labs/spark-web/commit/2ba486a504bd0704935aaad2b8442907dc1899ac),
+  [`4f79350`](https://github.com/brighte-labs/spark-web/commit/4f793508fdb43ddd452f0d59a3126101f9fa5459)]:
+  - @spark-web/text-input@2.0.0
+  - @spark-web/field@3.0.1
+  - @spark-web/icon@1.1.4
+  - @spark-web/inline@1.0.6
+  - @spark-web/stack@1.0.6
+  - @spark-web/text@1.0.6
+
 ## 1.0.2
 
 ### Patch Changes

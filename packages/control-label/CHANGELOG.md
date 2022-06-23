@@ -1,5 +1,23 @@
 # @spark-web/control-label
 
+## 1.0.6
+
+### Patch Changes
+
+- [#163](https://github.com/brighte-labs/spark-web/pull/163)
+  [`628cb9c`](https://github.com/brighte-labs/spark-web/commit/628cb9c3425a4ced13f9479620a263814e622662)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Show pointer when
+  hovering over non-disabled label
+
+* [#167](https://github.com/brighte-labs/spark-web/pull/167)
+  [`4f79350`](https://github.com/brighte-labs/spark-web/commit/4f793508fdb43ddd452f0d59a3126101f9fa5459)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update Babel
+
+* Updated dependencies
+  [[`4f79350`](https://github.com/brighte-labs/spark-web/commit/4f793508fdb43ddd452f0d59a3126101f9fa5459)]:
+  - @spark-web/box@1.0.6
+  - @spark-web/text@1.0.6
+
 ## 1.0.5
 
 ### Patch Changes

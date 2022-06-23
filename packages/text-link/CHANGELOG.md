@@ -1,5 +1,24 @@
 # @spark-web/text-link
 
+## 1.0.6
+
+### Patch Changes
+
+- [#167](https://github.com/brighte-labs/spark-web/pull/167)
+  [`4f79350`](https://github.com/brighte-labs/spark-web/commit/4f793508fdb43ddd452f0d59a3126101f9fa5459)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Update Babel
+
+- Updated dependencies
+  [[`4f79350`](https://github.com/brighte-labs/spark-web/commit/4f793508fdb43ddd452f0d59a3126101f9fa5459),
+  [`f524009`](https://github.com/brighte-labs/spark-web/commit/f5240098cf731b0a2e351b7b585711e893a33736),
+  [`60f7281`](https://github.com/brighte-labs/spark-web/commit/60f7281c4a194d934a2ce561cad47e737b0fb48e)]:
+  - @spark-web/a11y@1.1.0
+  - @spark-web/box@1.0.6
+  - @spark-web/link@1.0.6
+  - @spark-web/text@1.0.6
+  - @spark-web/theme@3.0.2
+  - @spark-web/utils@1.1.5
+
 ## 1.0.5
 
 ### Patch Changes
