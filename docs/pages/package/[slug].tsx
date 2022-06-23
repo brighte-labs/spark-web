@@ -160,7 +160,7 @@ export default function Packages({
 function ComponentMaturity({
   isExperimentalPackage,
 }: {
-  isExperimentalPackage: Boolean;
+  isExperimentalPackage: boolean;
 }) {
   return (
     <Alert
