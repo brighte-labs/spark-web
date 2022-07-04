@@ -1,12 +1,11 @@
 import { useFieldContext } from '@spark-web/field';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
-import { buildDataAttributes } from '@spark-web/utils/internal';
 import { useEffect, useRef, useState } from 'react';
 import type { GetOptionLabel, GetOptionValue, GroupBase } from 'react-select';
 import ReactSelect from 'react-select';
 
 import {
-  getReactSelectComponentsOverride,
+  useReactSelectComponentsOverride,
   useReactSelectStylesOverride,
   useReactSelectThemeOverride,
 } from './react-select-overrides';
@@ -85,17 +84,12 @@ export const Combobox = <Item,>({
   value,
   data,
 }: ComboboxProps<Item>) => {
-  const [{ disabled, invalid }, { id: inputId, ...a11yProps }] =
-    useFieldContext();
+  const [{ disabled, invalid }, { id: inputId }] = useFieldContext();
+  const { items, loading } = useAwaitableItems(_items);
 
+  const componentsOverride = useReactSelectComponentsOverride(data);
   const stylesOverride = useReactSelectStylesOverride<Item>({ invalid });
   const themeOverride = useReactSelectThemeOverride();
-  const componentsOverride = getReactSelectComponentsOverride({
-    ...a11yProps,
-    ...(data ? buildDataAttributes(data) : undefined),
-  });
-
-  const { items, loading } = useAwaitableItems(_items);
 
   return (
     <ReactSelect<Item>

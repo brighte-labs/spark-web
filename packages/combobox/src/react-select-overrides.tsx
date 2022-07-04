@@ -1,10 +1,13 @@
 import { useFocusRing } from '@spark-web/a11y';
 import { Box } from '@spark-web/box';
-import type { InputPropsDerivedFromField } from '@spark-web/field';
+import { useFieldContext } from '@spark-web/field';
 import { ChevronDownIcon } from '@spark-web/icon';
 import { Spinner } from '@spark-web/spinner';
 import { Text, useText } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
+import type { DataAttributeMap } from '@spark-web/utils/internal';
+import { buildDataAttributes } from '@spark-web/utils/internal';
+import { useMemo } from 'react';
 import type {
   GroupBase,
   SelectComponentsConfig,
@@ -13,37 +16,51 @@ import type {
 } from 'react-select';
 import { components } from 'react-select';
 
-export const getReactSelectComponentsOverride = (
-  componentProps: Omit<InputPropsDerivedFromField, 'id'>
-): SelectComponentsConfig<any, false, GroupBase<any>> => ({
-  DropdownIndicator: props => (
-    <components.DropdownIndicator {...props}>
-      <ChevronDownIcon size="xxsmall" tone="muted" />
-    </components.DropdownIndicator>
-  ),
+export const useReactSelectComponentsOverride = (
+  data?: DataAttributeMap
+): SelectComponentsConfig<any, false, GroupBase<any>> => {
+  const [, fieldProps] = useFieldContext();
 
-  Input: props => <components.Input {...props} {...componentProps} />,
+  return useMemo(
+    () => ({
+      DropdownIndicator: props => (
+        <components.DropdownIndicator {...props}>
+          <ChevronDownIcon size="xxsmall" tone="muted" />
+        </components.DropdownIndicator>
+      ),
 
-  IndicatorSeparator: () => null,
+      Input: props => (
+        <components.Input
+          {...props}
+          {...(data ? buildDataAttributes(data) : undefined)}
+          aria-invalid={fieldProps['aria-invalid']}
+          aria-describedby={fieldProps['aria-describedby']}
+        />
+      ),
 
-  LoadingIndicator: () => null,
+      IndicatorSeparator: () => null,
 
-  LoadingMessage: props => (
-    <components.LoadingMessage {...props}>
-      <Box paddingY="large">
-        <Spinner size="xsmall" tone="primary" />
-      </Box>
-    </components.LoadingMessage>
-  ),
+      LoadingIndicator: () => null,
 
-  NoOptionsMessage: props => (
-    <components.NoOptionsMessage {...props}>
-      <Box paddingY="large">
-        <Text>No matching results</Text>
-      </Box>
-    </components.NoOptionsMessage>
-  ),
-});
+      LoadingMessage: props => (
+        <components.LoadingMessage {...props}>
+          <Box paddingY="large">
+            <Spinner size="xsmall" tone="primary" />
+          </Box>
+        </components.LoadingMessage>
+      ),
+
+      NoOptionsMessage: props => (
+        <components.NoOptionsMessage {...props}>
+          <Box paddingY="large">
+            <Text>No matching results</Text>
+          </Box>
+        </components.NoOptionsMessage>
+      ),
+    }),
+    [data, fieldProps]
+  );
+};
 
 export const useReactSelectStylesOverride = <Item,>({
   invalid,

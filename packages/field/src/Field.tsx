@@ -7,7 +7,7 @@ import { Text } from '@spark-web/text';
 import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { ReactElement, ReactNode } from 'react';
-import { forwardRef, Fragment } from 'react';
+import { forwardRef, Fragment, useMemo } from 'react';
 
 import type { FieldContextType } from './context';
 import { FieldContextProvider } from './context';
@@ -70,17 +70,28 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(
 
     // field context
     const invalid = Boolean(message && tone === 'critical');
-    const fieldContext: FieldContextType = [
-      { disabled, invalid },
-      {
-        'aria-describedby': mergeIds(
-          message && messageId,
-          description && descriptionId
-        ),
-        'aria-invalid': invalid || undefined,
-        id: inputId,
-      },
-    ];
+    const fieldContext: FieldContextType = useMemo(
+      () => [
+        { disabled, invalid },
+        {
+          'aria-describedby': mergeIds(
+            message && messageId,
+            description && descriptionId
+          ),
+          'aria-invalid': invalid || undefined,
+          id: inputId,
+        },
+      ],
+      [
+        description,
+        descriptionId,
+        disabled,
+        inputId,
+        invalid,
+        message,
+        messageId,
+      ]
+    );
 
     // label prep
     const hiddenLabel = (
