@@ -1,7 +1,5 @@
 import { css } from '@emotion/css';
-import { Box } from '@spark-web/box';
-import { Hidden } from '@spark-web/hidden';
-import { useTheme } from '@spark-web/theme';
+import { Box, Hidden, useTheme } from '@spark-web/design-system';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 

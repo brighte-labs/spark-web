@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build:docs": "yarn --cwd=docs build",
-    "build:packages": "preconstruct build",
+    "build:packages": "./scripts/generate-design-system-package.mjs && preconstruct build",
     "check:format": "yarn run prettier --check",
     "check:lint": "yarn run eslint",
     "check:packages": "preconstruct validate",

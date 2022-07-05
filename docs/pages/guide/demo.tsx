@@ -1,18 +1,20 @@
-import { Emoji } from '@spark-web/a11y';
-import { Box } from '@spark-web/box';
-import { Button } from '@spark-web/button';
-import { Columns } from '@spark-web/columns';
-import { Container } from '@spark-web/container';
-import { Field } from '@spark-web/field';
-import { Heading } from '@spark-web/heading';
-import { Hidden } from '@spark-web/hidden';
-import { CheckCircleIcon } from '@spark-web/icon';
-import { Inline } from '@spark-web/inline';
-import { Stack } from '@spark-web/stack';
-import { Text } from '@spark-web/text';
-import { TextInput } from '@spark-web/text-input';
-import { TextLink } from '@spark-web/text-link';
-import { TextList } from '@spark-web/text-list';
+import {
+  Box,
+  Button,
+  CheckCircleIcon,
+  Columns,
+  Container,
+  Emoji,
+  Field,
+  Heading,
+  Hidden,
+  Inline,
+  Stack,
+  Text,
+  TextInput,
+  TextLink,
+  TextList,
+} from '@spark-web/design-system';
 import type { NextPage } from 'next';
 import type { FormEvent } from 'react';
 

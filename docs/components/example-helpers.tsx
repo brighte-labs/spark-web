@@ -1,7 +1,5 @@
 import { css } from '@emotion/css';
-import { Box } from '@spark-web/box';
-import { Text, useText } from '@spark-web/text';
-import { useTheme } from '@spark-web/theme';
+import { Box, Text, useText, useTheme } from '@spark-web/design-system';
 import type { ReactNode } from 'react';
 
 // Code

@@ -1,5 +1,4 @@
-import { Stack } from '@spark-web/stack';
-import { Text } from '@spark-web/text';
+import { Stack, Text } from '@spark-web/design-system';
 
 import type { PropsType } from './mdx-components';
 import { InlineCode } from './mdx-components';

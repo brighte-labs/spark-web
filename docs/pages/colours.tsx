@@ -1,10 +1,13 @@
 import { css } from '@emotion/css';
-import { Box } from '@spark-web/box';
-import { Columns } from '@spark-web/columns';
-import { Heading } from '@spark-web/heading';
-import { Stack } from '@spark-web/stack';
-import { Text } from '@spark-web/text';
-import { isLight, useTheme } from '@spark-web/theme';
+import {
+  Box,
+  Columns,
+  Heading,
+  isLight,
+  Stack,
+  Text,
+  useTheme,
+} from '@spark-web/design-system';
 
 import { DocsContent } from '../components/content';
 import { InlineCode } from '../components/example-helpers';

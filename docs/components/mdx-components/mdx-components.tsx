@@ -1,14 +1,15 @@
-import type { HeadingProps } from '@spark-web/heading';
-import type { TextProps } from '@spark-web/text';
-import { Strong, Text } from '@spark-web/text';
-import { TextLink } from '@spark-web/text-link';
-import type { TextListProps } from '@spark-web/text-list';
-import { TextList } from '@spark-web/text-list';
+import type {
+  HeadingProps,
+  TextListProps,
+  TextProps,
+} from '@spark-web/design-system';
+import { Strong, Text, TextLink, TextList } from '@spark-web/design-system';
+import * as sparkComponents from '@spark-web/design-system';
 import type { ReactNode } from 'react';
 import { Children, createContext, Fragment, useContext } from 'react';
 
-import * as sparkComponents from '../../cache/spark-components';
 import { Heading } from '../../components/content/toc-context';
+import * as exampleHelpers from '../../components/example-helpers';
 import { ComponentPropsDocTables } from '../../components/mdx-components/props-doc-tables';
 import { InlineCode } from '../example-helpers';
 import { CodeBlock } from './code-block';
@@ -53,7 +54,7 @@ function Code({ children, className, demo, ...props }: CodeProps): JSX.Element {
       className={className}
       code={trimmedChildren}
       demo={demo}
-      scope={sparkComponents}
+      scope={{ ...exampleHelpers, ...sparkComponents }}
       {...props}
       live
     />
@@ -112,5 +113,6 @@ export const mdxComponents: Record<string, ReactNode> = {
     );
   },
   // Design System Components
+  ...exampleHelpers,
   ...sparkComponents,
 };

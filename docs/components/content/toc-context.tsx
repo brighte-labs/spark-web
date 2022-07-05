@@ -1,5 +1,5 @@
-import type { HeadingProps } from '@spark-web/heading';
-import { Heading as SparkHeading } from '@spark-web/heading';
+import type { HeadingProps } from '@spark-web/design-system';
+import { Heading as SparkHeading } from '@spark-web/design-system';
 import type { ProviderProps } from 'react';
 import { createContext, useContext, useMemo } from 'react';
 

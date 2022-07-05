@@ -1,12 +1,17 @@
 #!/usr/bin/env node
 
-const { readdirSync, writeFileSync, readFileSync, mkdirSync } = require('fs');
-const { normalize } = require('path');
+import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, normalize } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const PACKAGE_PATH = normalize(`${__dirname}/../../packages`);
-const MANIFEST_DIR = normalize(`${__dirname}/../cache`);
+const __filename = fileURLToPath(import.meta.url);
 
-const ignoreDirs = ['core', 'theme', 'analytics', 'ssr', 'next-utils'];
+const __dirname = dirname(__filename);
+
+const PACKAGE_PATH = normalize(`${__dirname}/../packages`);
+const MANIFEST_DIR = normalize(`${__dirname}/../packages/design-system/src`);
+
+const ignoreDirs = ['design-system'];
 
 const packageNames = readdirSync(PACKAGE_PATH, { withFileTypes: true })
   .filter(
@@ -35,9 +40,8 @@ const packageNames = readdirSync(PACKAGE_PATH, { withFileTypes: true })
   });
 
 mkdirSync(MANIFEST_DIR, { recursive: true });
+
 writeFileSync(
-  `${MANIFEST_DIR}/spark-components.ts`,
-  ['../components/example-helpers', ...packageNames]
-    .map(name => `export * from '${name}';`)
-    .join('\n')
+  `${MANIFEST_DIR}/index.ts`,
+  packageNames.map(name => `export * from '${name}';`).join('\n')
 );

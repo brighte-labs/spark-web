@@ -1,12 +1,16 @@
 import { css } from '@emotion/css';
-import { Box } from '@spark-web/box';
-import { Field } from '@spark-web/field';
-import { SearchIcon } from '@spark-web/icon';
-import { NavLink } from '@spark-web/nav-link';
-import { Stack } from '@spark-web/stack';
-import { Strong, Text } from '@spark-web/text';
-import { InputAdornment, TextInput } from '@spark-web/text-input';
-import { useTheme } from '@spark-web/theme';
+import {
+  Box,
+  Field,
+  InputAdornment,
+  NavLink,
+  SearchIcon,
+  Stack,
+  Strong,
+  Text,
+  TextInput,
+  useTheme,
+} from '@spark-web/design-system';
 import { Suspense, useState } from 'react';
 
 import { HEADER_HEIGHT } from './constants';

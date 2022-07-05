@@ -1,4 +1,4 @@
-import { propsWithCssText } from '@spark-web/next-utils';
+import { propsWithCssText } from '@spark-web/design-system';
 import type { DocumentContext, DocumentInitialProps } from 'next/document';
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document';
 

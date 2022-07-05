@@ -1,11 +1,15 @@
 import type { CSSObject } from '@emotion/css';
 import { css } from '@emotion/css';
-import { Box } from '@spark-web/box';
-import { Button, ButtonLink } from '@spark-web/button';
-import { ClipboardIcon, PlayIcon } from '@spark-web/icon';
-import { Stack } from '@spark-web/stack';
-import { Text } from '@spark-web/text';
-import { useTheme } from '@spark-web/theme';
+import {
+  Box,
+  Button,
+  ButtonLink,
+  ClipboardIcon,
+  PlayIcon,
+  Stack,
+  Text,
+  useTheme,
+} from '@spark-web/design-system';
 import { useLiveCode } from '@untitled-docs/live-code';
 import copy from 'clipboard-copy';
 import { createUrl } from 'playroom/utils';

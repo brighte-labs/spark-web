@@ -1,7 +1,6 @@
 import { css } from '@emotion/css';
-import type { IconProps } from '@spark-web/icon';
-import { useForegroundTone } from '@spark-web/text';
-import { useTheme } from '@spark-web/theme';
+import type { IconProps } from '@spark-web/design-system';
+import { useForegroundTone, useTheme } from '@spark-web/design-system';
 import type { ReactNode } from 'react';
 import { forwardRef, useMemo } from 'react';
 
