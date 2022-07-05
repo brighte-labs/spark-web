@@ -1,5 +1,14 @@
 # @spark-web/field
 
+## 3.0.2
+
+### Patch Changes
+
+- [#169](https://github.com/brighte-labs/spark-web/pull/169)
+  [`7be2283`](https://github.com/brighte-labs/spark-web/commit/7be2283c91741bf87ede08a1e3d9f7eaec586d38)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Memoize Field
+  context
+
 ## 3.0.1
 
 ### Patch Changes

@@ -1,5 +1,24 @@
 # @spark-web/combobox
 
+## 1.4.0
+
+### Minor Changes
+
+- [#171](https://github.com/brighte-labs/spark-web/pull/171)
+  [`f023ef7`](https://github.com/brighte-labs/spark-web/commit/f023ef7cce17ffd87c406fccae0c6c26da8d0393)
+  Thanks [@clothoo](https://github.com/clothoo)! - Expose combobox hook
+
+### Patch Changes
+
+- [#169](https://github.com/brighte-labs/spark-web/pull/169)
+  [`7be2283`](https://github.com/brighte-labs/spark-web/commit/7be2283c91741bf87ede08a1e3d9f7eaec586d38)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Memoize
+  useReactSelectComponentsOverride
+
+- Updated dependencies
+  [[`7be2283`](https://github.com/brighte-labs/spark-web/commit/7be2283c91741bf87ede08a1e3d9f7eaec586d38)]:
+  - @spark-web/field@3.0.2
+
 ## 1.3.2
 
 ### Patch Changes

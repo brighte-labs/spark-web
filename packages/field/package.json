@@ -1,6 +1,6 @@
 {
   "name": "@spark-web/field",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "license": "MIT",
   "main": "dist/spark-web-field.cjs.js",
   "module": "dist/spark-web-field.esm.js",
