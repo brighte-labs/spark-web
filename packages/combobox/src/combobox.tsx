@@ -53,7 +53,7 @@ export type ComboboxProps<Item = unknown> = {
 
 const isBrowser = typeof window !== 'undefined';
 
-const useAwaitableItems = <Item,>(awaitableItems: Awaitable<Item[]>) => {
+export const useAwaitableItems = <Item,>(awaitableItems: Awaitable<Item[]>) => {
   const ref = useRef<Awaitable<Item[]>>();
   const [loading, setLoading] = useState<boolean>(false);
   const [items, setItems] = useState<Item[]>([]);

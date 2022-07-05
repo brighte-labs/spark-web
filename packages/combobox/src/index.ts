@@ -1,4 +1,4 @@
-export { Combobox } from './combobox';
+export { Combobox, useAwaitableItems } from './combobox';
 
 // types
 
