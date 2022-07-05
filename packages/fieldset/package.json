@@ -10,7 +10,9 @@
   "dependencies": {
     "@babel/runtime": "^7.18.3",
     "@emotion/css": "^11.9.0",
+    "@spark-web/a11y": "^1.0.5",
     "@spark-web/box": "^1.0.6",
+    "@spark-web/heading": "^2.0.1",
     "@spark-web/stack": "^1.0.6",
     "@spark-web/text": "^1.0.6",
     "@spark-web/theme": "^3.0.2"

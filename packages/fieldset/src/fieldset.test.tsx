@@ -20,7 +20,11 @@ describe('Fieldset component', () => {
   });
   it('should attach data attributes when passed in', () => {
     const data = { testAttr: 'some attr' };
-    const { container } = render(<Fieldset data={data}>Test content</Fieldset>);
+    const { container } = render(
+      <Fieldset legend="Legend" data={data}>
+        Test content
+      </Fieldset>
+    );
 
     const fieldsetEl = container.firstElementChild!;
     expect(fieldsetEl.getAttribute('data-testattr')).toEqual('some attr');
