@@ -1,4 +1,4 @@
-import { AesteticoStylesheet, SparkProvider } from '@spark-web/core';
+import { AesteticoStylesheet, SparkProvider } from '@spark-web/design-system';
 import type { ReactNode } from 'react';
 
 export default function FrameComponent({

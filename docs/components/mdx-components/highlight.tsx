@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { Box } from '@spark-web/box';
+import { Box } from '@spark-web/design-system';
 import rangeParser from 'parse-numeric-range';
 import type { Language } from 'prism-react-renderer';
 import PrismHighlight, { Prism } from 'prism-react-renderer';

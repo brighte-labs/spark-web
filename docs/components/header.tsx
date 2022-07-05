@@ -1,11 +1,15 @@
 import { css } from '@emotion/css';
-import { useFocusRing, VisuallyHidden } from '@spark-web/a11y';
-import { Box } from '@spark-web/box';
-import { Container } from '@spark-web/container';
-import { Hidden } from '@spark-web/hidden';
-import { MenuIcon, XIcon } from '@spark-web/icon';
-import { Link } from '@spark-web/link';
-import { useTheme } from '@spark-web/theme';
+import {
+  Box,
+  Container,
+  Hidden,
+  Link,
+  MenuIcon,
+  useFocusRing,
+  useTheme,
+  VisuallyHidden,
+  XIcon,
+} from '@spark-web/design-system';
 
 import { GITHUB_URL, HEADER_HEIGHT, SIDEBAR_WIDTH } from './constants';
 // import { Search } from './search';

@@ -1,14 +1,16 @@
-import { Alert } from '@spark-web/alert';
-import { ButtonLink } from '@spark-web/button';
-import { Divider } from '@spark-web/divider';
-import { Heading } from '@spark-web/heading';
-import type { IconProps } from '@spark-web/icon';
-import { PencilIcon } from '@spark-web/icon';
-import { Inline } from '@spark-web/inline';
-import { Link } from '@spark-web/link';
-import { Stack } from '@spark-web/stack';
-import { Text } from '@spark-web/text';
-import { TextLink } from '@spark-web/text-link';
+import type { IconProps } from '@spark-web/design-system';
+import {
+  Alert,
+  ButtonLink,
+  Divider,
+  Heading,
+  Inline,
+  Link,
+  PencilIcon,
+  Stack,
+  Text,
+  TextLink,
+} from '@spark-web/design-system';
 import type {
   GetStaticPaths,
   GetStaticProps,

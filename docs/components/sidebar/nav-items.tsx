@@ -1,8 +1,11 @@
-import { composeId, useId } from '@spark-web/a11y';
-import { Box } from '@spark-web/box';
-import { NavLink } from '@spark-web/nav-link';
-import { Stack } from '@spark-web/stack';
-import { Text } from '@spark-web/text';
+import {
+  Box,
+  composeId,
+  NavLink,
+  Stack,
+  Text,
+  useId,
+} from '@spark-web/design-system';
 import { useRouter } from 'next/router';
 
 import type { SidebarItem } from './types';

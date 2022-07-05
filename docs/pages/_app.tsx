@@ -1,5 +1,8 @@
-import { AesteticoStylesheet, SparkProvider } from '@spark-web/core';
-import { UniversalNextLink } from '@spark-web/next-utils';
+import {
+  AesteticoStylesheet,
+  SparkProvider,
+  UniversalNextLink,
+} from '@spark-web/design-system';
 import type { AppProps } from 'next/app';
 import NextHead from 'next/head';
 import { DefaultSeo } from 'next-seo';

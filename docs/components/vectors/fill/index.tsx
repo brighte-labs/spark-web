@@ -1,8 +1,6 @@
 import { css } from '@emotion/css';
-import type { ForegroundTone } from '@spark-web/text';
-import { useForegroundTone } from '@spark-web/text';
-import type { BrighteTheme } from '@spark-web/theme';
-import { useTheme } from '@spark-web/theme';
+import type { BrighteTheme, ForegroundTone } from '@spark-web/design-system';
+import { useForegroundTone, useTheme } from '@spark-web/design-system';
 import { useMemo } from 'react';
 
 import { createFillIcon } from '../../../utils/create-fill-icon';

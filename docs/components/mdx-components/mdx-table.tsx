@@ -1,8 +1,5 @@
 import { css } from '@emotion/css';
-import { Box } from '@spark-web/box';
-import { useHeading } from '@spark-web/heading';
-import { Text } from '@spark-web/text';
-import { useTheme } from '@spark-web/theme';
+import { Box, Text, useHeading, useTheme } from '@spark-web/design-system';
 import type { ReactNode } from 'react';
 
 export function MdxTable({

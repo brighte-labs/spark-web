@@ -1,4 +1,4 @@
-import { Stack } from '@spark-web/stack';
+import { Stack } from '@spark-web/design-system';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 
 import { home } from '../.contentlayer/generated';
