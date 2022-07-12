@@ -20,7 +20,7 @@
     "@emotion/css": "^11.9.0",
     "@spark-web/a11y": "^1.1.0",
     "@spark-web/accordion": "^1.0.7",
-    "@spark-web/alert": "^1.0.7",
+    "@spark-web/alert": "^1.0.8",
     "@spark-web/box": "^1.0.6",
     "@spark-web/button": "^1.2.0",
     "@spark-web/checkbox": "^1.0.7",
