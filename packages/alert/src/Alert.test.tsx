@@ -6,19 +6,18 @@ describe('Alert component', () => {
   afterEach(cleanup);
 
   it('should render correctly with the minimum set of props, without crashing', () => {
-    const { container } = render(<Alert tone={'info'}>Test</Alert>);
+    const { container } = render(<Alert tone="info">Test</Alert>);
     expect(container).toBeDefined();
   });
+
   it('should display data props when passed down', () => {
-    const test_string = 'Test string';
-    const data = { testAttr: 'some attr' };
+    const testString = 'Test string';
     const { container } = render(
-      <Alert data={data} tone={'info'}>
-        {test_string}
+      <Alert data={{ testAttr: 'some attr' }} tone="info">
+        {testString}
       </Alert>
     );
-
-    const divEl = container.querySelector('div');
-    expect(divEl?.innerHTML).toContain('data-testattr="some attr"');
+    const alertEl = container.firstElementChild;
+    expect(alertEl?.getAttribute('data-testattr')).toEqual('some attr');
   });
 });

@@ -1,4 +1,5 @@
-import { Box } from '@spark-web/box';
+import { css } from '@emotion/css';
+import { Button } from '@spark-web/button';
 import type { IconProps } from '@spark-web/icon';
 import {
   CheckCircleIcon,
@@ -6,14 +7,22 @@ import {
   InformationCircleIcon,
   XIcon,
 } from '@spark-web/icon';
+import { Row } from '@spark-web/row';
 import { Stack } from '@spark-web/stack';
 import { Text } from '@spark-web/text';
-import { IndicatorContainer } from '@spark-web/text-list';
+import { useTheme } from '@spark-web/theme';
 import type { DataAttributeMap } from '@spark-web/utils/internal';
 import type { ReactNode } from 'react';
 import { Fragment } from 'react';
 
-type AlertTones = 'caution' | 'critical' | 'info' | 'positive';
+const toneToIcon = {
+  caution: ExclamationIcon,
+  critical: ExclamationIcon,
+  info: InformationCircleIcon,
+  positive: CheckCircleIcon,
+};
+
+type AlertTones = keyof typeof toneToIcon;
 
 export type AlertProps = {
   children: string | ReactNode;
@@ -26,7 +35,7 @@ export type AlertProps = {
   tone: AlertTones;
 };
 
-export const Alert = ({
+export function Alert({
   children,
   closeLabel = 'Close alert',
   data,
@@ -34,75 +43,73 @@ export const Alert = ({
   icon,
   onClose,
   tone = 'info',
-}: AlertProps): JSX.Element => {
+}: AlertProps) {
   const Icon = icon || toneToIcon[tone];
   const iconSize = 'xsmall';
 
   return (
-    <Box
-      role="alert"
+    <Row
       aria-live="polite"
-      background={`${tone}Muted`}
+      data={data}
+      role="alert"
+      // Styles
+      alignY={heading ? 'top' : 'center'}
+      background={`${tone}Low`}
       borderRadius="medium"
-      display="flex"
-      alignItems={heading ? 'start' : 'center'}
       gap="medium"
     >
-      <Box
-        data={data}
-        display="flex"
-        flex={1}
-        alignItems="start"
+      <Row
+        alignY="top"
         gap="medium"
         padding="large"
+        paddingRight="none"
+        width="full"
+        style={{ minWidth: 0 }}
       >
-        <IndicatorContainer>
-          <Icon tone={tone} size={iconSize} />
-        </IndicatorContainer>
+        <IconWrapper>
+          <Icon size={iconSize} tone={tone} />
+        </IconWrapper>
         <Stack flex={1} gap="medium">
           {heading && <Text weight="semibold">{heading}</Text>}
           <Content>{children}</Content>
         </Stack>
-      </Box>
+      </Row>
       {onClose && (
-        <Box padding="small">
-          {/* TODO: replace with Button component */}
-          <Box
-            as="button"
-            aria-label={closeLabel}
-            onClick={onClose}
-            type="button"
-            // Styling
-            borderRadius="small"
-            cursor="pointer"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            height="medium"
-            width="medium"
-            // NOTE: hover/focus styles etc have not been implemented
-            // as we don't have the correct tokens yet and this will soon be replaced
-            // with a `Button` component that will handle this for us.
-          >
+        <Row padding="small" alignSelf="start">
+          <Button label={closeLabel} tone={tone} prominence="low">
             <XIcon size="xxsmall" />
-          </Box>
-        </Box>
+          </Button>
+        </Row>
       )}
-    </Box>
+    </Row>
   );
-};
+}
 
-const toneToIcon = {
-  caution: ExclamationIcon,
-  critical: ExclamationIcon,
-  info: InformationCircleIcon,
-  positive: CheckCircleIcon,
-};
+function IconWrapper({ children }: { children: ReactNode }) {
+  const theme = useTheme();
+  const responsiveStyles = theme.utils.responsiveStyles({
+    mobile: { height: theme.typography.text.standard.mobile.capHeight },
+    tablet: { height: theme.typography.text.standard.tablet.capHeight },
+  });
 
-const Content = ({ children }: { children: ReactNode }) => {
+  return (
+    <Row
+      aria-hidden="true"
+      align="center"
+      alignY="center"
+      cursor="default"
+      flexShrink={0}
+      className={css(responsiveStyles)}
+    >
+      {children}
+    </Row>
+  );
+}
+
+function Content({ children }: { children: ReactNode }) {
   if (typeof children === 'string' || typeof children === 'number') {
     return <Text>{children}</Text>;
   }
 
   return <Fragment>{children}</Fragment>;
-};
+}
