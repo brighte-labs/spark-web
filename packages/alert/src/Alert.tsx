@@ -45,7 +45,7 @@ export const Alert = ({
       background={`${tone}Muted`}
       borderRadius="medium"
       display="flex"
-      alignItems="start"
+      alignItems={heading ? 'start' : 'center'}
       gap="medium"
     >
       <Box
