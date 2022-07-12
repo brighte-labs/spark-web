@@ -1,5 +1,14 @@
 # @spark-web/alert
 
+## 1.0.8
+
+### Patch Changes
+
+- [#174](https://github.com/brighte-labs/spark-web/pull/174)
+  [`754a664`](https://github.com/brighte-labs/spark-web/commit/754a664b639c66cf121c28eb9883d62015711a59)
+  Thanks [@lukebennett88](https://github.com/lukebennett88)! - Fix styles and
+  alignment
+
 ## 1.0.7
 
 ### Patch Changes
