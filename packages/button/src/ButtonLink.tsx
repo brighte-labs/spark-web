@@ -1,8 +1,8 @@
 import { Box } from '@spark-web/box';
 import type { LinkComponentProps } from '@spark-web/link';
 import { useLinkComponent } from '@spark-web/link';
-import { buildDataAttributes } from '@spark-web/utils/internal';
-import { forwardRefWithAs } from '@spark-web/utils/ts';
+import { useComposedRefs } from '@spark-web/utils';
+import { forwardRef, useRef } from 'react';
 
 import { resolveButtonChildren } from './resolveButtonChildren';
 import type { CommonButtonProps } from './types';
@@ -11,7 +11,7 @@ import { useButtonStyles } from './useButtonStyles';
 export type ButtonLinkProps = LinkComponentProps & CommonButtonProps;
 
 /** The appearance of a `Button`, with the semantics of a link. */
-export const ButtonLink = forwardRefWithAs<'a', ButtonLinkProps>(
+export const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
   (
     {
       data,
@@ -22,9 +22,13 @@ export const ButtonLink = forwardRefWithAs<'a', ButtonLinkProps>(
       tone = 'primary',
       ...props
     },
-    ref
+    forwardedRef
   ) => {
-    const LinkComponent = useLinkComponent(ref);
+    const LinkComponent = useLinkComponent(forwardedRef);
+
+    const internalRef = useRef<HTMLAnchorElement>(null);
+    const composedRefs = useComposedRefs(internalRef, forwardedRef);
+
     const iconOnly = Boolean(props.label);
     const buttonStyleProps = useButtonStyles({
       iconOnly,
@@ -35,14 +39,14 @@ export const ButtonLink = forwardRefWithAs<'a', ButtonLinkProps>(
 
     return (
       <Box
+        {...buttonStyleProps}
         aria-label={props.label}
         as={LinkComponent}
         asElement="a"
-        id={id}
+        data={data}
         href={href}
-        ref={ref}
-        {...buttonStyleProps}
-        {...(data ? buildDataAttributes(data) : undefined)}
+        id={id}
+        ref={composedRefs}
       >
         {resolveButtonChildren({
           ...props,
@@ -55,3 +59,5 @@ export const ButtonLink = forwardRefWithAs<'a', ButtonLinkProps>(
     );
   }
 );
+
+ButtonLink.displayName = 'ButtonLink';
