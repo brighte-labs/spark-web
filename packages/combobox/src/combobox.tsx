@@ -15,6 +15,9 @@ type Nullable<T> = T | null;
 type Awaitable<T> = T | Promise<T>;
 
 export type ComboboxProps<Item = unknown> = {
+  /** Sets data attributes on the component. */
+  data?: DataAttributeMap;
+
   /**
    * Resolves option data to a string to be displayed as the label by components.
    *
@@ -29,11 +32,11 @@ export type ComboboxProps<Item = unknown> = {
   /** The value of the input. */
   inputValue?: string;
 
-  /** Array of items for the user to select from. */
-  items: Awaitable<(Item | GroupBase<Item>)[]>;
-
   /** When true, shows a loading indicator in the dropdown instead of results. */
   isLoading?: boolean;
+
+  /** Array of items for the user to select from. */
+  items: Awaitable<(Item | GroupBase<Item>)[]>;
 
   /** Called when an item is selected. */
   onChange?: (value: Nullable<Item>) => void;
@@ -46,9 +49,6 @@ export type ComboboxProps<Item = unknown> = {
 
   /** The selected item. */
   value?: Nullable<Item>;
-
-  /** Sets data attributes on the component. */
-  data?: DataAttributeMap;
 };
 
 const isBrowser = typeof window !== 'undefined';
@@ -62,9 +62,9 @@ export const useAwaitableItems = <Item,>(awaitableItems: Awaitable<Item[]>) => {
     (async () => {
       ref.current = awaitableItems;
       setLoading(true);
-      const items = await awaitableItems;
+      const itemsResult = await awaitableItems;
       if (ref.current !== awaitableItems) return;
-      setItems(items);
+      setItems(itemsResult);
       setLoading(false);
     })();
   }, [awaitableItems]);
@@ -87,27 +87,27 @@ export const Combobox = <Item,>({
   const [{ disabled, invalid }, { id: inputId }] = useFieldContext();
   const { items, loading } = useAwaitableItems(_items);
 
-  const componentsOverride = useReactSelectComponentsOverride(data);
-  const stylesOverride = useReactSelectStylesOverride<Item>({ invalid });
-  const themeOverride = useReactSelectThemeOverride();
+  const components = useReactSelectComponentsOverride(data);
+  const styles = useReactSelectStylesOverride<Item>({ invalid });
+  const theme = useReactSelectThemeOverride();
 
   return (
     <ReactSelect<Item>
-      components={componentsOverride}
-      inputId={inputId}
-      inputValue={inputValue}
-      onChange={onChange}
-      onInputChange={onInputChange}
-      styles={stylesOverride}
-      value={value}
-      options={items}
-      isDisabled={disabled}
-      isLoading={isLoading ?? loading}
-      placeholder={placeholder}
-      theme={themeOverride}
-      menuPortalTarget={isBrowser ? document.body : undefined}
+      components={components}
       getOptionLabel={getOptionLabel}
       getOptionValue={getOptionValue}
+      inputId={inputId}
+      inputValue={inputValue}
+      isDisabled={disabled}
+      isLoading={isLoading ?? loading}
+      menuPortalTarget={isBrowser ? document.body : undefined}
+      onChange={onChange}
+      onInputChange={onInputChange}
+      options={items}
+      placeholder={placeholder}
+      styles={styles}
+      theme={theme}
+      value={value}
     />
   );
 };
