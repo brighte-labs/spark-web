@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 
-const { readdirSync, writeFileSync, readFileSync, mkdirSync } = require('fs');
-const { normalize } = require('path');
+import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, normalize } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const PACKAGE_PATH = normalize(`${__dirname}/../../packages`);
 const MANIFEST_DIR = normalize(`${__dirname}/../cache`);
