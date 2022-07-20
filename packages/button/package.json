@@ -10,6 +10,7 @@
   "dependencies": {
     "@babel/runtime": "^7.18.3",
     "@emotion/css": "^11.9.0",
+    "@react-aria/button": "^3.5.1",
     "@spark-web/a11y": "^1.1.0",
     "@spark-web/box": "^1.0.6",
     "@spark-web/icon": "^1.1.4",

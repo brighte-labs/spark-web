@@ -1,47 +1,36 @@
+import { useButton } from '@react-aria/button';
 import type { BoxProps } from '@spark-web/box';
 import { Box } from '@spark-web/box';
 import { useComposedRefs } from '@spark-web/utils';
 import type { MouseEvent as ReactMouseEvent } from 'react';
-import { forwardRef, useCallback, useRef } from 'react';
+import { forwardRef, useRef } from 'react';
 
 import type { NativeButtonProps } from './types';
 
 export type BaseButtonProps = NativeButtonProps & Partial<BoxProps>;
 
 export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
-  (
-    { onClick: onClickProp, disabled = false, type = 'button', ...rest },
-    forwardedRef
-  ) => {
-    const internalRef = useRef<HTMLButtonElement>(null);
-    const composedRef = useComposedRefs(internalRef, forwardedRef);
+  ({ onClick, disabled: isDisabled, ...rest }, forwardedRef) => {
     /**
-     * In Safari buttons are not focused automatically by the browser once
-     * pressed, the default behaviour is to focus the nearest focusable ancestor.
-     * To fix this we need to manually focus the button element after the user
-     * presses the element.
+     * handle "disabled" behaviour w/o disabling buttons
+     * @see https://axesslab.com/disabled-buttons-suck/
      */
-    const onClick = useCallback(
-      (event: ReactMouseEvent<HTMLButtonElement>) => {
-        internalRef.current?.focus();
-        const preventableClickHandler = getPreventableClickHandler(
-          onClickProp,
-          disabled
-        );
-        preventableClickHandler(event);
-      },
-      [disabled, onClickProp]
+    const handleClick = getPreventableClickHandler(
+      onClick,
+      (isDisabled = false)
     );
 
-    return (
-      <Box
-        as="button"
-        {...rest}
-        onClick={onClick}
-        ref={composedRef}
-        type={type}
-      />
+    const internalRef = useRef<HTMLButtonElement>(null);
+    const composedRef = useComposedRefs(internalRef, forwardedRef);
+    const { buttonProps } = useButton(
+      {
+        onPress: handleClick as any,
+        isDisabled,
+      },
+      internalRef
     );
+
+    return <Box as="button" ref={composedRef} {...rest} {...buttonProps} />;
   }
 );
 
