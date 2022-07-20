@@ -1,4 +1,4 @@
-export type DataAttributeMap = Record<string, string | number>;
+export type DataAttributeMap = Record<string, string | number | boolean>;
 
 export const buildDataAttributes = (
   data: DataAttributeMap = {}

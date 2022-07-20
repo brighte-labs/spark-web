@@ -85,7 +85,10 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           {...a11yProps}
           as="input"
           className={css(inputStyles)}
-          data={data}
+          data={{
+            ...(invalid ? { invalid } : undefined),
+            ...data,
+          }}
           disabled={disabled}
           ref={forwardedRef}
         />
@@ -144,7 +147,7 @@ export const useInputStyles = ({
         },
       },
       ':focus': { outline: 'none' },
-      ':invalid': { color: theme.color.foreground.muted },
+      '&[data-invalid=true]': { color: theme.color.foreground.muted },
     },
   ] as const;
 };
