@@ -19,7 +19,7 @@ import { components } from 'react-select';
 export const useReactSelectComponentsOverride = (
   data?: DataAttributeMap
 ): SelectComponentsConfig<any, false, GroupBase<any>> => {
-  const [, fieldProps] = useFieldContext();
+  const [{ invalid }, fieldProps] = useFieldContext();
 
   return useMemo(
     () => ({
@@ -32,7 +32,12 @@ export const useReactSelectComponentsOverride = (
       Input: props => (
         <components.Input
           {...props}
-          {...(data ? buildDataAttributes(data) : undefined)}
+          {...(data
+            ? buildDataAttributes({
+                ...(invalid ? { invalid } : undefined),
+                ...data,
+              })
+            : undefined)}
           aria-invalid={fieldProps['aria-invalid']}
           aria-describedby={fieldProps['aria-describedby']}
         />
@@ -58,7 +63,7 @@ export const useReactSelectComponentsOverride = (
         </components.NoOptionsMessage>
       ),
     }),
-    [data, fieldProps]
+    [data, fieldProps, invalid]
   );
 };
 
