@@ -28,7 +28,7 @@ export const resolveButtonChildren = ({
   const variant = variants[prominence][tone];
 
   return Children.map(children, child => {
-    if (typeof child === 'string') {
+    if (typeof child === 'string' || typeof child === 'number') {
       return (
         <HiddenWhenLoading isLoading={isLoading}>
           <Text

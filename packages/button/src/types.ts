@@ -13,9 +13,10 @@ type ChildrenWithText = {
   label?: never;
   children:
     | string
+    | number
     // Strict tuple type to allow only 1 icon and 1 string
-    | [ReactElement<IconProps>, string]
-    | [string, ReactElement<IconProps>];
+    | [ReactElement<IconProps>, string | number]
+    | [string | number, ReactElement<IconProps>];
 };
 type IconOnly = {
   /**
