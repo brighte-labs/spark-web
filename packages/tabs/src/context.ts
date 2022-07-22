@@ -4,10 +4,9 @@ const IndexContext = createContext(0);
 
 export const IndexProvider = IndexContext.Provider;
 
-export function useIndexContext(indexProp: number | undefined) {
-  const count = useContext(IndexContext);
-  const index = indexProp ?? count;
-  // the `value` prop for Tab and TabPanel must be a string
+export function useIndexContext() {
+  const index = useContext(IndexContext);
+  // Radix UI requires that the `value` prop for Tab and TabPanel be a string
   return String(index);
 }
 

@@ -1,13 +1,14 @@
 export { IndexProvider, useIndexContext } from './context';
-export { Tab, TabList, TabPanel, TabPanels, Tabs } from './tabs';
+export { TabButton, TabLink, TabList, TabPanel, TabPanels, Tabs } from './tabs';
 
 // types
 
 export type { IndexContextType } from './context';
 export type {
+  TabButtonProps,
+  TabLinkProps,
   TabListProps,
   TabPanelProps,
   TabPanelsProps,
-  TabProps,
   TabsProps,
 } from './tabs';

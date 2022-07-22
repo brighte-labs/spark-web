@@ -1,5 +1,4 @@
 import { css } from '@emotion/css';
-import type { TabsProps as RadixTabsProps } from '@radix-ui/react-tabs';
 import {
   Content as RadixTabPanel,
   List as RadixTabList,
@@ -7,12 +6,13 @@ import {
   Trigger as RadixTab,
 } from '@radix-ui/react-tabs';
 import { useFocusRing } from '@spark-web/a11y';
+import { Box } from '@spark-web/box';
 import { BaseButton } from '@spark-web/button';
 import { Divider } from '@spark-web/divider';
 import { Inline } from '@spark-web/inline';
+import { useLinkComponent } from '@spark-web/link';
 import { Stack } from '@spark-web/stack';
 import { DefaultTextPropsProvider, Text } from '@spark-web/text';
-import type { BrighteTheme } from '@spark-web/theme';
 import { useTheme } from '@spark-web/theme';
 import { useComposedRefs } from '@spark-web/utils';
 import type { ReactElement, ReactNode } from 'react';
@@ -25,23 +25,46 @@ import { IndexProvider, useIndexContext } from './context';
  * Tabs
  * =============================================================================
  */
-export type TabsProps = Pick<
-  RadixTabsProps,
-  'value' | 'onValueChange' | 'activationMode'
-> & {
+export type TabsProps = {
+  /**
+   * When automatic, tabs are activated when receiving focus. When manual,
+   * tabs are activated when clicked.
+   */
+  activationMode?: 'automatic' | 'manual';
   children: Array<ReactElement<TabListProps | TabPanelsProps>>;
   defaultIndex?: number;
+  // /**
+  //  * The controlled value of the tab to activate.
+  //  * Should be used in conjunction with onIndexChange.
+  //  */
+  // index?: number;
+  // /**
+  //  * Event handler called when the value changes.
+  //  */
+  // onIndexChange?: (index: number) => void;
 };
 
 export const Tabs = forwardRef<HTMLDivElement, TabsProps>(
-  ({ children, defaultIndex, ...props }, forwardedRef) => {
+  (
+    {
+      activationMode,
+      children,
+      defaultIndex,
+      // index,
+      // onIndexChange,
+    },
+    forwardedRef
+  ) => {
+    const defaultValue =
+      typeof defaultIndex === 'undefined' ? String(0) : String(defaultIndex);
+
     return (
       <RadixTabs
-        {...props}
-        defaultValue={
-          defaultIndex !== undefined ? String(defaultIndex) : undefined
-        }
+        activationMode={activationMode}
+        defaultValue={defaultValue}
         ref={forwardedRef}
+        // value={String(index)}
+        // onValueChange={onIndexChange}
       >
         {children}
       </RadixTabs>
@@ -56,7 +79,7 @@ Tabs.displayName = 'Tabs';
  * TabList
  * =============================================================================
  */
-type TabListChildren = ReactElement<TabProps> | Array<TabListChildren>;
+type TabListChildren = ReactElement<TabButtonProps> | Array<TabListChildren>;
 export type TabListProps = {
   children: TabListChildren | Array<TabListChildren>;
 };
@@ -74,50 +97,31 @@ export function TabList({ children }: TabListProps) {
  * Tab
  * =============================================================================
  */
-export type TabProps = {
+export type TabButtonProps = {
   children: ReactNode;
   disabled?: boolean;
-  /**
-   * Note:
-   * If you provide an index for any Tabs or TabPanels, you _must_ provide
-   * one for _all_ of them
-   * */
-  index?: number;
 };
 
-export const Tab = forwardRef<HTMLButtonElement, TabProps>(
-  ({ children, disabled, index: indexProp }, forwardedRef) => {
-    /**
-     * The font-weight changes when the button is active. This causes the button
-     * to get slightly wider (which we don't want).
-     * To avoid this, we measure the initial width of the button and make it fixed
-     * width.
-     * We're using the style prop for this so that Emotion doesn't need to generate
-     * a completely new hash (as the width will vary between for each tab based
-     * on the length of the text)
-     */
-    const internalRef = useRef<HTMLButtonElement>(null);
-    const composedRef = useComposedRefs(internalRef, forwardedRef);
-    const buttonGap = 'small'; // Space between the button and the pseudo border
-    const buttonWidth = internalRef.current?.getBoundingClientRect().width;
-    const tabStyles = useTabStyles(buttonGap);
+const GAP = 'small'; // Space between the interactive element and the pseudo border
 
-    const index = useIndexContext(indexProp);
+export const TabButton = forwardRef<HTMLButtonElement, TabButtonProps>(
+  ({ children, disabled }, forwardedRef) => {
+    const [boxProps, tabStyles] = useTabStyles();
+
+    const { ref, width } = useWidth();
+    const composedRef = useComposedRefs(ref, forwardedRef);
+
+    const index = useIndexContext();
 
     return (
-      <Stack position="relative" paddingY={buttonGap}>
+      <Stack position="relative" paddingY={GAP}>
         <RadixTab value={index} asChild>
           <BaseButton
+            {...boxProps}
             ref={composedRef}
             disabled={disabled}
-            // Styles
-            borderRadius="small"
-            cursor="pointer"
-            paddingX="xlarge"
-            paddingY="medium"
-            position="relative"
             className={css(tabStyles)}
-            style={{ width: buttonWidth }}
+            style={{ width }}
           >
             <DefaultTextPropsProvider size="small" tone="muted">
               <Content>{children}</Content>
@@ -129,35 +133,84 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
   }
 );
 
-Tab.displayName = 'Tab';
+TabButton.displayName = 'TabButton';
 
-function useTabStyles(buttonGap: keyof BrighteTheme['spacing']) {
+export type TabLinkProps = {
+  children: ReactNode;
+  disabled?: boolean;
+  href: string;
+};
+
+export const TabLink = forwardRef<HTMLAnchorElement, TabLinkProps>(
+  ({ children, href }, forwardedRef) => {
+    const [boxProps, tabStyles] = useTabStyles();
+
+    const { ref, width } = useWidth();
+    const composedRef = useComposedRefs(ref, forwardedRef);
+
+    const index = useIndexContext();
+    const linkComponent = useLinkComponent(forwardedRef);
+
+    return (
+      <Stack position="relative" paddingY={GAP}>
+        <RadixTab value={index} asChild>
+          <Box
+            {...boxProps}
+            as={linkComponent}
+            asElement="a"
+            ref={composedRef}
+            href={href}
+            className={css(tabStyles)}
+            style={{ width }}
+          >
+            <DefaultTextPropsProvider size="small" tone="muted">
+              <Content>{children}</Content>
+            </DefaultTextPropsProvider>
+          </Box>
+        </RadixTab>
+      </Stack>
+    );
+  }
+);
+
+TabLink.displayName = 'TabLink';
+
+function useTabStyles() {
   const theme = useTheme();
   const focusStyles = useFocusRing();
 
-  return {
-    ':focus': focusStyles,
-    ':hover': { background: theme.color.background.surfaceMuted },
-    '&[data-state=active]': {
-      '*': {
-        color: theme.color.foreground.primaryActive,
-        fontWeight: theme.typography.fontWeight.semibold,
-      },
-      ':hover': { background: theme.color.background.primaryMuted },
-      // Pseudo border
-      '::after': {
-        content: '""',
-        position: 'absolute',
-        right: 0,
-        bottom: -theme.spacing[buttonGap],
-        left: 0,
-        transform: 'translateY(100%)',
-        height: theme.border.width.large,
-        width: '100%',
-        background: theme.color.foreground.primaryActive,
+  return [
+    {
+      borderRadius: 'small',
+      cursor: 'pointer',
+      paddingX: 'xlarge',
+      paddingY: 'medium',
+      position: 'relative',
+    },
+    {
+      ':focus': focusStyles,
+      ':hover': { background: theme.color.background.surfaceMuted },
+      '&[data-state=active]': {
+        '*': {
+          color: theme.color.foreground.primaryActive,
+          fontWeight: theme.typography.fontWeight.semibold,
+        },
+        ':hover': { background: theme.color.background.primaryMuted },
+        // Pseudo border
+        '::after': {
+          content: '""',
+          position: 'absolute',
+          right: 0,
+          bottom: -theme.spacing[GAP],
+          left: 0,
+          transform: 'translateY(100%)',
+          height: theme.border.width.large,
+          width: '100%',
+          background: theme.color.foreground.primaryActive,
+        },
       },
     },
-  } as const;
+  ] as const;
 }
 
 /**
@@ -186,17 +239,11 @@ export function TabPanels({ children }: TabPanelsProps) {
  */
 export type TabPanelProps = {
   children: ReactNode;
-  /**
-   * Note:
-   * If you provide an index for any Tabs or TabPanels, you _must_ provide
-   * one for _all_ of them
-   * */
-  index?: number;
 };
 
 export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(
-  ({ children, index: indexProp }, forwardedRef) => {
-    const index = useIndexContext(indexProp);
+  ({ children }, forwardedRef) => {
+    const index = useIndexContext();
 
     return (
       <RadixTabPanel ref={forwardedRef} value={index}>
@@ -225,7 +272,7 @@ function Content({ children }: { children: ReactNode }) {
  * the `value` prop for Tab and TabPanel is required
  */
 function resolveChildren(
-  children: TabProps['children'] | TabPanelProps['children']
+  children: TabButtonProps['children'] | TabPanelProps['children']
 ) {
   return Children.map(children, (child, index) => {
     return (
@@ -234,4 +281,23 @@ function resolveChildren(
       )
     );
   });
+}
+
+/**
+ * The font-weight changes when the button is active. This causes the button
+ * to get slightly wider (which we don't want).
+ * To avoid this, we measure the initial width of the button and make it fixed
+ * width.
+ * We're using the style prop for this so that Emotion doesn't need to generate
+ * a completely new hash (as the width will vary between for each tab based
+ * on the length of the text)
+ */
+function useWidth() {
+  const ref = useRef<HTMLElement>(null);
+  const width = ref.current?.getBoundingClientRect().width;
+
+  return {
+    ref,
+    width,
+  };
 }
